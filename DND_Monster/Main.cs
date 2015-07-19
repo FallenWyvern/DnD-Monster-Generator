@@ -19,6 +19,7 @@ namespace DND_Monster
     public partial class Main : Form
     {
         PreviewWindow previewWindow = new PreviewWindow();
+        ChromiumWebBrowser b = new ChromiumWebBrowser("http://rendering/");
 
         public Main()
         {
@@ -26,7 +27,10 @@ namespace DND_Monster
             Cef.Initialize(new CefSettings
             {
                 PackLoadingDisabled = true
-            });            
+            });
+
+            b.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Controls.Add(b, 0, 0);
 
             previewWindow.Hide();
             this.FormClosing += (sender, e) => { Cef.Shutdown(); };
@@ -245,8 +249,7 @@ namespace DND_Monster
         private void Preview(object sender, EventArgs e)
         {
             GenerateMonsterData();            
-            previewWindow.ShowMonster();
-            previewWindow.Show();            
+            ShowMonster();            
         }
 
         private void GenerateMonsterData()
@@ -620,6 +623,36 @@ namespace DND_Monster
                 }            
 
             }
-        }        
+        }
+
+        public void Clear()
+        {
+            b.LoadHtml("<html><head></head><body></body></html", "http://rendering/");
+        }
+
+        public void ShowMonster()
+        {
+            this.Text = Monster.CreatureName;
+            Clear();
+            b.Stop();
+            b.LoadHtml(Monster.Create(), "http://rendering/");            
+        }
+
+        private void ExportHTML(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.InitialDirectory = @"C:\";
+            dialog.Filter = "html files (*.html)|*.html";
+            dialog.RestoreDirectory = true;
+
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                System.IO.File.WriteAllText(dialog.FileName,"");
+
+                foreach (string line in Monster.output){
+                    System.IO.File.AppendAllText(dialog.FileName, line);
+                }
+            }
+        }
     }
 }

@@ -16,14 +16,14 @@ namespace DND_Monster
 {
     public partial class PreviewWindow : Form
     {
-        ChromiumWebBrowser b = new ChromiumWebBrowser("http://rendering/");
+       
         int offset = 50;
 
         public PreviewWindow()
         {
             InitializeComponent();
-            b.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Controls.Add(b, 0, 0);
+            //.Dock = DockStyle.Fill;
+            //tableLayoutPanel1.Controls.Add(b, 0, 0);
         }
 
         private void PreviewWindow_Load(object sender, EventArgs e)
@@ -31,26 +31,7 @@ namespace DND_Monster
 
         }
 
-        public void Clear()
-        {
-            b.LoadHtml("<html><head></head><body></body></html", "http://rendering/");
-        }
-
-        public void ShowMonster()
-        {
-            this.Text = Monster.CreatureName;
-
-            Clear();
-
-            b.LoadHtml(Monster.Create(), "http://rendering/");            
-            b.FrameLoadEnd += (ssender, se) =>
-            {
-                this.Invoke((Action)delegate
-                {                    
-                    this.Size = new Size(BrowserWidth(b) + offset, BrowserHeight(b) + offset + (int)tableLayoutPanel1.GetRowHeights()[1]);                    
-                });
-            };            
-        }
+        
 
 
         private static int BrowserHeight(ChromiumWebBrowser b)
@@ -95,6 +76,11 @@ namespace DND_Monster
         {
             e.Cancel = true;
             this.Hide();
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }        
     }
 }
