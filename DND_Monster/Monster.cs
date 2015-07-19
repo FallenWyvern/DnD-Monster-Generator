@@ -318,7 +318,7 @@ namespace DND_Monster
             output.Add(@"<div class=""bar""></div>");
             output.Add(@"<div id=""content-wrap"">");
             output.Add(@"<content></content>");
-            output.Add(@"</div>");
+            output.Add(@"</div>");            
             output.Add(@"<div class=""bar""></div>");
             output.Add(@"</template>");
             #endregion
@@ -453,24 +453,39 @@ namespace DND_Monster
             #endregion
 
             // Abilities
-            #region
+            #region            
             foreach (Ability ability in _Abilities)
-            {
+            {                
                 output.Add(@"<property-block>");
                 output.Add(@"<h4>" + ability.Title + "</h4>");
                 output.Add(@"<p>" + ability.Description + "</p>");
                 output.Add(@"</property-block>");
             }
+            TaperedRule();
             #endregion
 
             // Actions
-            #region
+            #region            
             foreach (Ability ability in _Attacks)
             {
-                output.Add(@"<property-block>");
-                output.Add(@"<h4>" + ability.Title + "</h4>");
-                output.Add(@"<p>" + ability.Description + "</p>");
-                output.Add(@"</property-block>");
+                if (!ability.isDamage)
+                {
+                    output.Add(@"<property-block>");
+                    output.Add(@"<h4>" + ability.Title + "</h4>");
+                    output.Add(@"<p>" + ability.Description + "</p>");
+                    output.Add(@"</property-block>");
+                }
+            }
+
+            foreach (Ability ability in _Attacks)
+            {
+                if (ability.isDamage)
+                {
+                    output.Add(@"<property-block>");
+                    output.Add(@"<h4>" + ability.Title + "</h4>");
+                    output.Add(@"<p>" + ability.Description + "</p>");
+                    output.Add(@"</property-block>");
+                }
             }
             #endregion
 
@@ -848,6 +863,7 @@ public class Ability
 {
     public string Title { get; set; }
     public string Description { get; set; }
+    public bool isDamage { get; set; }
 }
 
 public class Attack : Ability
@@ -857,7 +873,7 @@ public class Attack : Ability
     public string RangeMode { get; set; }
     public int Range { get; set; }
     public string Target { get; set; }
-    public string Hit { get; set; }
+    public string Hit { get; set; }   
 
     public Attack(string attack, string bonus, string rangeMode, int range, string target, string hit)
     {

@@ -13,6 +13,7 @@ namespace DND_Monster
     public partial class AddAttackForm : Form
     {
         public Ability NewAttack = null;
+        public Ability NewAbility = null;
 
         public AddAttackForm()
         {
@@ -25,15 +26,26 @@ namespace DND_Monster
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            this.NewAttack = new Attack(
-                comboBox1.Text,
-                numericUpDown1.Value.ToString(),
-                comboBox2.Text,
-                (int)numericUpDown2.Value,
-                textBox3.Text,
-                textBox1.Text);
-            NewAttack.Title = textBox2.Text;            
+        {            
+            if (tabControl1.SelectedIndex == 0)
+            {                
+                this.NewAttack = new Attack(
+                    comboBox1.Text,
+                    numericUpDown1.Value.ToString(),
+                    comboBox2.Text,
+                    (int)numericUpDown2.Value,
+                    textBox3.Text,
+                    textBox1.Text);
+                NewAttack.Title = textBox2.Text;
+                NewAttack.isDamage = true;
+            }
+            else if (tabControl1.SelectedIndex == 1)
+            {                
+                this.NewAbility = new Ability();
+                NewAbility.Title = textBox4.Text;
+                NewAbility.Description = richTextBox1.Text;
+                NewAbility.isDamage = false;
+            }
             this.Close();
         }
 
@@ -71,9 +83,12 @@ namespace DND_Monster
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {            
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            try { this.Text = textBox2.Text; }
-            catch { }
+
         }
     }
 }

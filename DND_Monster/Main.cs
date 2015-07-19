@@ -249,7 +249,7 @@ namespace DND_Monster
         private void Preview(object sender, EventArgs e)
         {
             GenerateMonsterData();            
-            ShowMonster();            
+            //ShowMonster();            
         }
 
         private void GenerateMonsterData()
@@ -317,7 +317,7 @@ namespace DND_Monster
                     case "Sense":
                         Monster._Senses.Add(item.Split(':')[1].Trim());
                         break;
-                }
+                }                
             }
 
             if (StrSaveBonusUpDown.Value > 0)
@@ -344,6 +344,8 @@ namespace DND_Monster
             {
                 Monster.AddSavingThrow("Cha +" + ChaSaveBonusUpDown.Value);
             }
+
+            ShowMonster();
         }
 
         private void addAbility(object sender, EventArgs e)
@@ -372,6 +374,12 @@ namespace DND_Monster
                 {
                     Monster._Attacks.Add(addAttack.NewAttack);
                     TraitsList.Items.Add("Attack: " + addAttack.NewAttack.Title);                    
+                }
+
+                if (addAttack.NewAbility != null)
+                {
+                    Monster._Attacks.Add(addAttack.NewAbility);
+                    TraitsList.Items.Add("Attack: " + addAttack.NewAbility.Title);                        
                 }
             };
         }
@@ -452,11 +460,10 @@ namespace DND_Monster
                     }
                 } 
                 else if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Attack")
-                {
-                    MessageBox.Show("Attack!");
-                    Attack temp = null;
+                {                    
+                    Ability temp = null;
 
-                    foreach (Attack item in Monster._Attacks)
+                    foreach (Ability item in Monster._Attacks)
                     {
                         if (item.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
                         {
@@ -634,7 +641,14 @@ namespace DND_Monster
         {
             this.Text = Monster.CreatureName;
             Clear();
-            b.Stop();
+            if (b.IsLoading)
+            {
+                b.Stop();
+                while (b.IsLoading)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
+            }
             b.LoadHtml(Monster.Create(), "http://rendering/");            
         }
 

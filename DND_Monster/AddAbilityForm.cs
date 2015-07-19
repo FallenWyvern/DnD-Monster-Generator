@@ -41,6 +41,7 @@ namespace DND_Monster
             this.NewAbility = new Ability();
             NewAbility.Title = textBox1.Text;
             NewAbility.Description = richTextBox1.Text;
+            NewAbility.isDamage = false;
             this.Close();
         }
     }
