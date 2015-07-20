@@ -31,7 +31,7 @@ namespace DND_Monster
         {
 
         }
-        
+
         private static int BrowserHeight(ChromiumWebBrowser b)
         {
             // Get Document Height
@@ -66,7 +66,7 @@ namespace DND_Monster
                     //MessageBox.Show(EvaluateJavaScriptResult.ToString());
                 }
             });
-            
+
             return Convert.ToInt32(task.Result.Result.ToString());
         }
 

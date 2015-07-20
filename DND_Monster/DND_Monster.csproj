@@ -97,6 +97,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Monster.cs" />
+    <Compile Include="ScreenShot.cs" />
     <EmbeddedResource Include="AddAbilityForm.resx">
       <DependentUpon>AddAbilityForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -673,6 +673,44 @@ namespace DND_Monster
             b.LoadHtml("<html><head></head><body></body></html", "http://rendering/");
         }
 
+        private static int BrowserHeight(ChromiumWebBrowser b)
+        {
+            // Get Document Height
+            var task = b.EvaluateScriptAsync("(function() { var body = document.body, html = document.documentElement; return  Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight ); })();");
+
+            task.ContinueWith(t =>
+            {
+                if (!t.IsFaulted)
+                {
+                    var response = t.Result;
+                    var EvaluateJavaScriptResult = response.Success ? (response.Result ?? "null") : response.Message;
+                    //MessageBox.Show(response.Result.ToString());                    
+                    //MessageBox.Show(EvaluateJavaScriptResult.ToString());                    
+                }
+            });
+
+            return Convert.ToInt32(task.Result.Result.ToString());
+        }
+
+        private static int BrowserWidth(ChromiumWebBrowser b)
+        {
+            // Get Document Height
+            var task = b.EvaluateScriptAsync("(function() { var body = document.body, html = document.documentElement; return  Math.max( body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth ); })();");
+
+            task.ContinueWith(t =>
+            {
+                if (!t.IsFaulted)
+                {
+                    var response = t.Result;
+                    var EvaluateJavaScriptResult = response.Success ? (response.Result ?? "null") : response.Message;
+                    //MessageBox.Show(response.Result.ToString());                    
+                    //MessageBox.Show(EvaluateJavaScriptResult.ToString());
+                }
+            });
+
+            return Convert.ToInt32(task.Result.Result.ToString());
+        }
+
         public void ShowMonster()
         {
             this.Text = Monster.CreatureName;
@@ -703,6 +741,19 @@ namespace DND_Monster
                     System.IO.File.AppendAllText(dialog.FileName, line);
                 }
             }
-        }        
+        }
+
+        private void ExportPNG_Click(object sender, EventArgs e)
+        {            
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.InitialDirectory = @"C:\";
+            dialog.Filter = "png files (*.png)|*.png";
+            dialog.RestoreDirectory = true;
+
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                ControlSnapshot.Snapshot(b, BrowserWidth(b), BrowserHeight(b)).Save(dialog.FileName);                
+            }
+        }
     }
 }
