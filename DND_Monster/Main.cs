@@ -19,6 +19,7 @@ namespace DND_Monster
     public partial class Main : Form
     {        
         ChromiumWebBrowser b = new ChromiumWebBrowser("http://rendering/");
+        Challenge_Rating currentCR = new Challenge_Rating();
 
         // Init Cef, load the control into the tableLayoutPanel and set the closing
         // event to stop Cef.
@@ -38,7 +39,8 @@ namespace DND_Monster
 
         // Set all drop downs and updowns to their starting values and set events.
         private void Form1_Load(object sender, EventArgs e)
-        {                                 
+        {
+            currentCR = Help.ChallengeRatings[0];
             AlignmentDropDown.SelectedIndex = AlignmentDropDown.Items.Count - 1;
             HitDieDropDown.SelectedIndex = 0;
             SizeDropDown.SelectedIndex = 0;
@@ -98,6 +100,11 @@ namespace DND_Monster
             {
                 target.Text = modifier.ToString();                
             }
+
+            if (target.Tag.ToString() == "DEXMOD")
+            {                
+                RecalculateAC("Mod Change");
+            }
         }        
        
         private void generateHP(object sender, EventArgs e)
@@ -133,55 +140,21 @@ namespace DND_Monster
                 }
             }
 
-            HitDieTextBox.Text = AverageHP + " (" + multiplier + "d" + size + "+" + (size * conmod) + ")";
+            HitDieTextBox.Text = AverageHP + " (" + multiplier + "d" + size + "+" + (size * conmod) + ")";            
         }
 
         // This updates the proficiency based on CR.
         private void crChangedUpdateProficiency(object sender, EventArgs e)
         {            
-            if (ChallengeRatingDropDown.SelectedIndex < 8)
+            foreach (Challenge_Rating cr in Help.ChallengeRatings)
             {
-                ProfBonus.Text = "+2";
+                if (cr.CR == ChallengeRatingDropDown.Text)
+                {
+                    SkillBonus.Value = cr.profBonus;                    
+                    currentCR = cr;
+                    RecalculateAC("CR Updated");
+                }
             }
-
-            if (ChallengeRatingDropDown.SelectedIndex >= 8 && ChallengeRatingDropDown.SelectedIndex < 13)
-            {
-                ProfBonus.Text = "+3";
-            }
-
-            if (ChallengeRatingDropDown.SelectedIndex >= 12 && ChallengeRatingDropDown.SelectedIndex < 17)
-            {
-                ProfBonus.Text = "+4";
-            }
-
-            if (ChallengeRatingDropDown.SelectedIndex >= 16 && ChallengeRatingDropDown.SelectedIndex < 21)
-            {
-                ProfBonus.Text = "+5";
-            }
-
-            if (ChallengeRatingDropDown.SelectedIndex >= 20 && ChallengeRatingDropDown.SelectedIndex < 25)
-            {
-                ProfBonus.Text = "+6";
-            }
-
-            if (ChallengeRatingDropDown.SelectedIndex >= 24 && ChallengeRatingDropDown.SelectedIndex < 29)
-            {
-                ProfBonus.Text = "+7";
-            }
-
-            if (ChallengeRatingDropDown.SelectedIndex >= 28 && ChallengeRatingDropDown.SelectedIndex < 33)
-            {
-                ProfBonus.Text = "+8";
-            }
-
-            if (ChallengeRatingDropDown.SelectedIndex >= 32)
-            {
-                ProfBonus.Text = "+9";
-            }
-
-            int updateSkillBonus = 0;
-            int.TryParse(ProfBonus.Text, out updateSkillBonus);
-            SkillBonus.Value = (decimal)updateSkillBonus;
         }
         
         private void addSense(object sender, EventArgs e)
@@ -267,6 +240,8 @@ namespace DND_Monster
         // Generates the actual monster itself.
         private void GenerateMonsterData()
         {
+            int estimatedCR = 0;
+
             // Clear existing HTML
             if (Monster.output.Count > 0)
             {
@@ -379,7 +354,7 @@ namespace DND_Monster
 
         private void addAttack(object sender, EventArgs e)
         {
-            AddAttackForm addAttack = new AddAttackForm();
+            AddAttackForm addAttack = new AddAttackForm(ChallengeRatingDropDown.Text);
             addAttack.Show();
 
             addAttack.FormClosing += (senders, es) =>
@@ -754,6 +729,40 @@ namespace DND_Monster
             {
                 ControlSnapshot.Snapshot(b, BrowserWidth(b), BrowserHeight(b)).Save(dialog.FileName);                
             }
+        }
+        
+        private void RecalculateAC(string source)
+        {
+            int mods = getStatMod("dex") + currentCR.ArmorClass;            
+            ACUpDown.Value = mods;            
+        }        
+
+        private int getStatMod(string mod){
+            int returnStatMod = 0;
+
+            switch (mod.ToLower())
+            {
+                case "str":
+                    int.TryParse(StrBonus.Text, out returnStatMod);
+                    break;
+                case "dex":
+                    int.TryParse(DexBonus.Text, out returnStatMod);
+                    break;
+                case "con":
+                    int.TryParse(ConBonus.Text, out returnStatMod);
+                    break;
+                case "int":
+                    int.TryParse(IntBonus.Text, out returnStatMod);
+                    break;
+                case "wis":
+                    int.TryParse(WisBonus.Text, out returnStatMod);
+                    break;
+                case "cha":
+                    int.TryParse(ChaBonus.Text, out returnStatMod);
+                    break;
+            }
+            
+            return returnStatMod;
         }
     }
 }

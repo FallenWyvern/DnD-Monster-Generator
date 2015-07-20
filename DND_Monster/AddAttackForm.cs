@@ -15,9 +15,16 @@ namespace DND_Monster
         public Ability NewAttack = null;
         public Ability NewAbility = null;
 
-        public AddAttackForm()
+        public AddAttackForm(string currentCR = "")
         {
             InitializeComponent();
+            foreach (Challenge_Rating cr in Help.ChallengeRatings)
+            {
+                if (cr.CR == currentCR)
+                {
+                    AttackBonusUpDown.Value = cr.AttackBonus;
+                }
+            }
         }
 
         private void AddAttackForm_Load(object sender, EventArgs e)

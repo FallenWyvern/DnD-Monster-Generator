@@ -83,7 +83,7 @@
             this.AttackTypeDropdown.Location = new System.Drawing.Point(49, 29);
             this.AttackTypeDropdown.Name = "AttackTypeDropdown";
             this.AttackTypeDropdown.Size = new System.Drawing.Size(239, 21);
-            this.AttackTypeDropdown.TabIndex = 1;            
+            this.AttackTypeDropdown.TabIndex = 1;
             // 
             // AttackType
             // 
@@ -143,7 +143,7 @@
             this.HitDamageEffect.Location = new System.Drawing.Point(50, 136);
             this.HitDamageEffect.Name = "HitDamageEffect";
             this.HitDamageEffect.Size = new System.Drawing.Size(238, 20);
-            this.HitDamageEffect.TabIndex = 7;            
+            this.HitDamageEffect.TabIndex = 7;
             // 
             // AttackHitEffect
             // 
@@ -159,7 +159,7 @@
             this.AttackNameField.Location = new System.Drawing.Point(50, 3);
             this.AttackNameField.Name = "AttackNameField";
             this.AttackNameField.Size = new System.Drawing.Size(238, 20);
-            this.AttackNameField.TabIndex = 9;            
+            this.AttackNameField.TabIndex = 9;
             // 
             // AttackName
             // 
@@ -223,7 +223,7 @@
             this.tabPage1.Size = new System.Drawing.Size(288, 261);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Weapon Attack";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.UseVisualStyleBackColor = true;            
             // 
             // AttackRange
             // 
