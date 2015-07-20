@@ -28,16 +28,22 @@ namespace DND_Monster
         private void button1_Click(object sender, EventArgs e)
         {            
             if (tabControl1.SelectedIndex == 0)
-            {                
+            {
                 this.NewAttack = new Attack(
                     comboBox1.Text,
                     numericUpDown1.Value.ToString(),
                     comboBox2.Text,
                     (int)numericUpDown2.Value,
                     textBox3.Text,
+                    AverageDamage((int)numericUpDown3.Value, comboBox3.Text, (int)numericUpDown4.Value),
+                    (int)numericUpDown3.Value,
+                    diceSize(comboBox3.Text),
+                    (int)numericUpDown4.Value,
+                    comboBox4.Text,
                     textBox1.Text);
-                NewAttack.Title = textBox2.Text;
-                NewAttack.isDamage = true;
+
+                    NewAttack.Title = textBox2.Text;
+                    NewAttack.isDamage = true;
             }
             else if (tabControl1.SelectedIndex == 1)
             {                
@@ -47,6 +53,29 @@ namespace DND_Monster
                 NewAbility.isDamage = false;
             }
             this.Close();
+        }
+
+        private int diceSize(string sizeOfDie)
+        {
+            int value = 0;
+            int.TryParse(sizeOfDie.Split('d')[1], out value);
+            return value;
+        }
+
+        private int AverageDamage(int numOfDie, string sizeOfDie, int bonus)
+        {            
+            int diceSize = 0;
+            int.TryParse(sizeOfDie.Split('d')[1], out diceSize);
+            int average = (int)((numOfDie * (diceSize / 2)) + ((double)numOfDie * 0.5)) + bonus;                        
+            return average;
+        }
+
+        public void LoadAttack(Ability values)
+        {
+            textBox4.Text = values.Title;
+            richTextBox1.Text = values.Description;            
+            NewAbility = values;
+            NewAbility.isDamage = false;
         }
 
         public void LoadAttack(Attack values)
@@ -73,8 +102,12 @@ namespace DND_Monster
             }
 
             numericUpDown2.Value = values.Range;
-            textBox3.Text = values.Target;
-            textBox1.Text = values.Hit;
+            textBox3.Text = values.Target;                       
+
+            // Make all the other boxes match up to data here.
+            
+            NewAttack = values;
+            NewAttack.isDamage = true;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

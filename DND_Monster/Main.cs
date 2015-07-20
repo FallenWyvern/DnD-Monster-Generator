@@ -388,25 +388,46 @@ namespace DND_Monster
         {            
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
+                if (TraitsList.SelectedItem == null) return;
                 if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Attack")
                 {
                     AddAttackForm loadAttack = new AddAttackForm();
 
-                    foreach (Attack attack in Monster._Attacks)
+                    foreach (Ability attack in Monster._Attacks)
                     {
-                        if (attack.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
+                        if (attack.isDamage)
                         {
-                            loadAttack.LoadAttack(attack);
-                            loadAttack.Show();
-
-                            loadAttack.FormClosing += (senderx, ex) =>
+                            if (attack.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
                             {
-                                Monster._Attacks.Remove(attack);
-                                Monster._Attacks.Add(loadAttack.NewAttack);
-                                TraitsList.Items.Remove(TraitsList.SelectedItem);
-                                TraitsList.Items.Add("Attack: " + loadAttack.NewAttack.Title);
-                            };
-                            return;
+                                loadAttack.LoadAttack((Attack)attack);                                
+                                loadAttack.Show();
+
+                                loadAttack.FormClosing += (senderx, ex) =>
+                                {
+                                    Monster._Attacks.Remove(attack);
+                                    Monster._Attacks.Add(loadAttack.NewAttack);
+                                    TraitsList.Items.Remove(TraitsList.SelectedItem);
+                                    TraitsList.Items.Add("Attack: " + loadAttack.NewAttack.Title);
+                                };
+                                return;
+                            }
+                        }
+                        if (!attack.isDamage)
+                        {
+                            if (attack.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
+                            {
+                                loadAttack.LoadAttack((Ability)attack);
+                                loadAttack.Show();
+
+                                loadAttack.FormClosing += (senderx, ex) =>
+                                {
+                                    Monster._Attacks.Remove(attack);
+                                    Monster._Attacks.Add(loadAttack.NewAttack);
+                                    TraitsList.Items.Remove(TraitsList.SelectedItem);
+                                    TraitsList.Items.Add("Attack: " + loadAttack.NewAbility.Title);
+                                };
+                                return;
+                            }
                         }
                     }
                 }

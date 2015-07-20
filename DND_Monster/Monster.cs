@@ -873,16 +873,26 @@ public class Attack : Ability
     public string RangeMode { get; set; }
     public int Range { get; set; }
     public string Target { get; set; }
-    public string Hit { get; set; }   
+    public int HitDiceNumber { get; set; }
+    public int HitDiceSize { get; set; }
+    public int HitDamageBonus { get; set; }
+    public int HitAverageDamage { get; set; }
+    public string HitText { get; set; }
+    public string HitDamageType { get; set; }
 
-    public Attack(string attack, string bonus, string rangeMode, int range, string target, string hit)
+    public Attack(string attack, string bonus, string rangeMode, int range, string target, int hitAverageDamage, int hitDiceNumber, int hitDiceSize, int hitDamageBonus, string damageType, string hit)
     {
         _Attack = attack;
         Bonus = bonus;
         RangeMode = rangeMode;
         Range = range;
         Target = target;
-        Hit = hit;
+        HitAverageDamage = hitAverageDamage;
+        HitDiceNumber = hitDiceNumber;
+        HitDiceSize = hitDiceSize;
+        HitDamageBonus = hitDamageBonus;
+        HitDamageType = damageType;
+        HitText = hit;
         Description = Describe();
     }
     
@@ -891,7 +901,7 @@ public class Attack : Ability
         string returnstring = "<i>";
         returnstring += _Attack + ": </i>+";
         returnstring += Bonus + ", " + RangeMode + " " + Range + " ft., " + Target;
-        returnstring += " <i>Hit:</i> " + Hit;
+        returnstring += " <i>Hit:</i> " + HitAverageDamage + " (" + HitDiceNumber + "d" + HitDiceSize + "+" + HitDamageBonus + ") " + HitDamageType + " damage " + HitText;
 
         return returnstring;
     }
