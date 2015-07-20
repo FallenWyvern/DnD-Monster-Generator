@@ -21,8 +21,8 @@ namespace DND_Monster
 
         public void LoadAbility(Ability values)
         {
-            textBox1.Text = values.Title;
-            richTextBox1.Text = values.Description;
+            AbilityNameTextBox.Text = values.Title;
+            DescriptionTextBox.Text = values.Description;
         }
 
         private void AddAbilityForm_Load(object sender, EventArgs e)
@@ -30,17 +30,17 @@ namespace DND_Monster
             
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void UpdatePopOutTitle(object sender, EventArgs e)
         {
-            try { this.Text = textBox1.Text; }
+            try { this.Text = AbilityNameTextBox.Text; }
             catch { }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Save(object sender, EventArgs e)
         {
             this.NewAbility = new Ability();
-            NewAbility.Title = textBox1.Text;
-            NewAbility.Description = richTextBox1.Text;
+            NewAbility.Title = AbilityNameTextBox.Text;
+            NewAbility.Description = DescriptionTextBox.Text;
             NewAbility.isDamage = false;
             this.Close();
         }

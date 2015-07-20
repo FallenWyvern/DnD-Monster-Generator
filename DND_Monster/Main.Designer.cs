@@ -60,7 +60,7 @@
             this.WisBonus = new System.Windows.Forms.Label();
             this.ChaBonus = new System.Windows.Forms.Label();
             this.SizeDropDown = new System.Windows.Forms.ComboBox();
-            this.Size = new System.Windows.Forms.Label();
+            this.SizeLabel = new System.Windows.Forms.Label();
             this.RollHPBonus = new System.Windows.Forms.Button();
             this.TagDropDown = new System.Windows.Forms.ComboBox();
             this.ACSourceTextBox = new System.Windows.Forms.TextBox();
@@ -505,14 +505,14 @@
             this.SizeDropDown.Size = new System.Drawing.Size(222, 21);
             this.SizeDropDown.TabIndex = 31;
             // 
-            // Size
+            // SizeLabel
             // 
-            this.Size.AutoSize = true;
-            this.Size.Location = new System.Drawing.Point(12, 41);
-            this.Size.Name = "Size";
-            this.Size.Size = new System.Drawing.Size(27, 13);
-            this.Size.TabIndex = 32;
-            this.Size.Text = "Size";
+            this.SizeLabel.AutoSize = true;
+            this.SizeLabel.Location = new System.Drawing.Point(12, 41);
+            this.SizeLabel.Name = "SizeLabel";
+            this.SizeLabel.Size = new System.Drawing.Size(27, 13);
+            this.SizeLabel.TabIndex = 32;
+            this.SizeLabel.Text = "Size";
             // 
             // RollHPBonus
             // 
@@ -1252,7 +1252,7 @@
             this.Controls.Add(this.ACSourceTextBox);
             this.Controls.Add(this.TagDropDown);
             this.Controls.Add(this.RollHPBonus);
-            this.Controls.Add(this.Size);
+            this.Controls.Add(this.SizeLabel);
             this.Controls.Add(this.SizeDropDown);
             this.Controls.Add(this.ChaBonus);
             this.Controls.Add(this.WisBonus);
@@ -1351,7 +1351,7 @@
         private System.Windows.Forms.Label WisBonus;
         private System.Windows.Forms.Label ChaBonus;
         private System.Windows.Forms.ComboBox SizeDropDown;
-        private System.Windows.Forms.Label Size;
+        private System.Windows.Forms.Label SizeLabel;
         private System.Windows.Forms.Button RollHPBonus;
         private System.Windows.Forms.ComboBox TagDropDown;
         private System.Windows.Forms.TextBox ACSourceTextBox;

@@ -25,31 +25,31 @@ namespace DND_Monster
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Save(object sender, EventArgs e)
         {            
             if (tabControl1.SelectedIndex == 0)
             {
                 this.NewAttack = new Attack(
-                    comboBox1.Text,
-                    numericUpDown1.Value.ToString(),
-                    comboBox2.Text,
-                    (int)numericUpDown2.Value,
-                    textBox3.Text,
-                    AverageDamage((int)numericUpDown3.Value, comboBox3.Text, (int)numericUpDown4.Value),
-                    (int)numericUpDown3.Value,
-                    diceSize(comboBox3.Text),
-                    (int)numericUpDown4.Value,
-                    comboBox4.Text,
-                    textBox1.Text);
+                    AttackTypeDropdown.Text,
+                    AttackBonusUpDown.Value.ToString(),
+                    RangeReachDropdown.Text,
+                    (int)RangeReachUpDown.Value,
+                    AttackTargetField.Text,
+                    AverageDamage((int)HitNumberOfDice.Value, HitDiceType.Text, (int)HitDiceBonusDamage.Value),
+                    (int)HitNumberOfDice.Value,
+                    diceSize(HitDiceType.Text),
+                    (int)HitDiceBonusDamage.Value,
+                    HitDamageType.Text,
+                    HitDamageEffect.Text);
 
-                    NewAttack.Title = textBox2.Text;
+                    NewAttack.Title = AttackNameField.Text;
                     NewAttack.isDamage = true;
             }
             else if (tabControl1.SelectedIndex == 1)
             {                
                 this.NewAbility = new Ability();
-                NewAbility.Title = textBox4.Text;
-                NewAbility.Description = richTextBox1.Text;
+                NewAbility.Title = AttackAbilityNameField.Text;
+                NewAbility.Description = AttackAbilityDescriptionField.Text;
                 NewAbility.isDamage = false;
             }
             this.Close();
@@ -72,56 +72,60 @@ namespace DND_Monster
 
         public void LoadAttack(Ability values)
         {
-            textBox4.Text = values.Title;
-            richTextBox1.Text = values.Description;            
+            AttackAbilityNameField.Text = values.Title;
+            AttackAbilityDescriptionField.Text = values.Description;            
             NewAbility = values;
             NewAbility.isDamage = false;
         }
 
         public void LoadAttack(Attack values)
-        {
-            this.Text = values.Title;
-            textBox2.Text = values.Title;
+        {            
+            AttackNameField.Text = values.Title;
 
-            foreach (string item in comboBox1.Items)
+            foreach (string item in AttackTypeDropdown.Items)
             {
                 if (values._Attack == item)
                 {
-                    comboBox1.SelectedItem = item;
+                    AttackTypeDropdown.SelectedItem = item;
                 }
             }
 
-            numericUpDown1.Value = Convert.ToInt32(values.Bonus);
+            AttackBonusUpDown.Value = Convert.ToInt32(values.Bonus);
 
-            foreach (string item in comboBox2.Items)
+            foreach (string item in RangeReachDropdown.Items)
             {
                 if (values.RangeMode == item)
                 {
-                    comboBox2.SelectedItem = item;
+                    RangeReachDropdown.SelectedItem = item;
                 }
             }
 
-            numericUpDown2.Value = values.Range;
-            textBox3.Text = values.Target;                       
+            RangeReachUpDown.Value = values.Range;
+            AttackTargetField.Text = values.Target;
 
-            // Make all the other boxes match up to data here.
-            
+            foreach (string item in HitDiceType.Items)
+            {
+                if (item.Split('d')[1].Contains(values.HitDiceSize.ToString()))
+                {
+                    HitDiceType.SelectedItem = item;
+                }
+            }
+
+            HitNumberOfDice.Value = values.HitDiceNumber;
+            HitDiceBonusDamage.Value = values.HitDamageBonus;
+
+            foreach (string item in HitDamageType.Items)
+            {
+                if (item.Contains(values.HitDamageType))
+                {
+                    HitDamageType.SelectedItem = item;
+                }
+            }
+
+            HitDamageEffect.Text = values.HitText;
+
             NewAttack = values;
             NewAttack.isDamage = true;
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {            
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

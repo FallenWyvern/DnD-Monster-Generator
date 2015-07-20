@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace DND_Monster
 {    
+    // To read this, the Monster class has a few important methods.
+    // First, Create() fills the list output with all the strings needed
+    // to apply the template.
+    // Clear() removes all data from all variables, effectively resetting the monster.
+    // Input() and Output() either copies all data to or from this static class to a Data instance.
+
     public static class Monster
     {      
         // Writes out the HTML needed to render the stat block

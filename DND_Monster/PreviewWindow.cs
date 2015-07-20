@@ -15,9 +15,10 @@ using CefSharp.WinForms;
 namespace DND_Monster
 {
     public partial class PreviewWindow : Form
-    {
-       
-        int offset = 50;
+    {   
+        // For now, this class is deprecated. However, as it has some code that's useful if we want to 
+        // execute js in the main window, it's being left here for reference purposes. If this code is 
+        // ever put into the main class, then this class can be deleted.
 
         public PreviewWindow()
         {
@@ -30,10 +31,7 @@ namespace DND_Monster
         {
 
         }
-
         
-
-
         private static int BrowserHeight(ChromiumWebBrowser b)
         {
             // Get Document Height

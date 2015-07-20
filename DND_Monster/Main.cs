@@ -17,10 +17,11 @@ using Newtonsoft.Json;
 namespace DND_Monster
 {
     public partial class Main : Form
-    {
-        PreviewWindow previewWindow = new PreviewWindow();
+    {        
         ChromiumWebBrowser b = new ChromiumWebBrowser("http://rendering/");
 
+        // Init Cef, load the control into the tableLayoutPanel and set the closing
+        // event to stop Cef.
         public Main()
         {
             InitializeComponent();
@@ -31,11 +32,11 @@ namespace DND_Monster
 
             b.Dock = DockStyle.Fill;
             tableLayoutPanel1.Controls.Add(b, 0, 0);
-
-            previewWindow.Hide();
+            
             this.FormClosing += (sender, e) => { Cef.Shutdown(); };
         }
 
+        // Set all drop downs and updowns to their starting values and set events.
         private void Form1_Load(object sender, EventArgs e)
         {                                 
             AlignmentDropDown.SelectedIndex = AlignmentDropDown.Items.Count - 1;
@@ -62,6 +63,8 @@ namespace DND_Monster
             
         }
 
+        // This updates the labels next to stats, when the stats change.
+        // This uses tags on the controls to match the numericUpDown to the Label.
         void modchanged_ValueChanged(object sender, EventArgs e)
         {
             var temp = (NumericUpDown)sender;
@@ -78,6 +81,11 @@ namespace DND_Monster
             }
         }
 
+        /// <summary>
+        /// Takes a numericUpDown and a Label and derives the ability modifier, updating the label.
+        /// </summary>
+        /// <param name="value">Input</param>
+        /// <param name="target">Output</param>
         private void UpdateModifier(NumericUpDown value, Label target)
         {
             int modifier = (int)Math.Floor((double)(Convert.ToInt32(value.Value) - 10) / 2);
@@ -91,7 +99,7 @@ namespace DND_Monster
                 target.Text = modifier.ToString();                
             }
         }        
-
+       
         private void generateHP(object sender, EventArgs e)
         {
             ResolveHP(false);
@@ -102,6 +110,10 @@ namespace DND_Monster
             ResolveHP(true);
         }
 
+        /// <summary>
+        /// Either rolls or uses the average for HP. 
+        /// </summary>
+        /// <param name="RollHP">Do we roll the HP. If not, the average is found.</param>
         private void ResolveHP(bool RollHP)
         {
             int size = Convert.ToInt32(HitDieDropDown.Text.Substring(1, HitDieDropDown.Text.Length - 1));
@@ -124,6 +136,7 @@ namespace DND_Monster
             HitDieTextBox.Text = AverageHP + " (" + multiplier + "d" + size + "+" + (size * conmod) + ")";
         }
 
+        // This updates the proficiency based on CR.
         private void crChangedUpdateProficiency(object sender, EventArgs e)
         {            
             if (ChallengeRatingDropDown.SelectedIndex < 8)
@@ -170,7 +183,7 @@ namespace DND_Monster
             int.TryParse(ProfBonus.Text, out updateSkillBonus);
             SkillBonus.Value = (decimal)updateSkillBonus;
         }
-
+        
         private void addSense(object sender, EventArgs e)
         {
             string addString = "Sense: " + SensesDropDown.Text;
@@ -248,12 +261,13 @@ namespace DND_Monster
 
         private void Preview(object sender, EventArgs e)
         {
-            GenerateMonsterData();            
-            //ShowMonster();            
+            GenerateMonsterData();                                   
         }
 
+        // Generates the actual monster itself.
         private void GenerateMonsterData()
         {
+            // Clear existing HTML
             if (Monster.output.Count > 0)
             {
                 Monster.Clear();
@@ -412,6 +426,7 @@ namespace DND_Monster
                                 return;
                             }
                         }
+
                         if (!attack.isDamage)
                         {
                             if (attack.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
@@ -679,7 +694,7 @@ namespace DND_Monster
             dialog.InitialDirectory = @"C:\";
             dialog.Filter = "html files (*.html)|*.html";
             dialog.RestoreDirectory = true;
-
+            
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 System.IO.File.WriteAllText(dialog.FileName,"");
@@ -688,6 +703,6 @@ namespace DND_Monster
                     System.IO.File.AppendAllText(dialog.FileName, line);
                 }
             }
-        }
+        }        
     }
 }
