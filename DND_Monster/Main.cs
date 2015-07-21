@@ -16,6 +16,7 @@ using Newtonsoft.Json;
 
 namespace DND_Monster
 {
+    // All UI elements and events are up here.
     public partial class Main : Form
     {        
         ChromiumWebBrowser b = new ChromiumWebBrowser("http://rendering/");
@@ -54,20 +55,20 @@ namespace DND_Monster
             ChaUpDown.ValueChanged += modchanged_ValueChanged;
 
             StrSaveBonusUpDown.ValueChanged += savingThrowModify;
+            DexSaveBonusUpDown.ValueChanged += savingThrowModify;
+            ConSaveBonusUpDown.ValueChanged += savingThrowModify;
+            IntSaveBonusUpDown.ValueChanged += savingThrowModify;
+            WisSaveBonusUpDown.ValueChanged += savingThrowModify;
+            ChaSaveBonusUpDown.ValueChanged += savingThrowModify;
 
             AddVulnerabilityButton.Click += addCondition;
             AddResistanceButton.Click += addCondition;
             AddImmunityButton.Click += addCondition;
-        }
-
-        void savingThrowModify(object sender, EventArgs e)
-        {
-            
-        }
+        }       
 
         // This updates the labels next to stats, when the stats change.
         // This uses tags on the controls to match the numericUpDown to the Label.
-        void modchanged_ValueChanged(object sender, EventArgs e)
+        private void modchanged_ValueChanged(object sender, EventArgs e)
         {
             var temp = (NumericUpDown)sender;
             foreach (Control item in this.Controls)
@@ -81,67 +82,7 @@ namespace DND_Monster
                     }
                 }
             }
-        }
-
-        /// <summary>
-        /// Takes a numericUpDown and a Label and derives the ability modifier, updating the label.
-        /// </summary>
-        /// <param name="value">Input</param>
-        /// <param name="target">Output</param>
-        private void UpdateModifier(NumericUpDown value, Label target)
-        {
-            int modifier = (int)Math.Floor((double)(Convert.ToInt32(value.Value) - 10) / 2);
-            
-            if (modifier >= 0)
-            {
-                target.Text = "+" + modifier;
-            }
-            else
-            {
-                target.Text = modifier.ToString();                
-            }
-
-            if (target.Tag.ToString() == "DEXMOD")
-            {                
-                RecalculateAC("Mod Change");
-            }
-        }        
-       
-        private void generateHP(object sender, EventArgs e)
-        {
-            ResolveHP(false);
-        }
-
-        private void rollHP(object sender, EventArgs e)
-        {
-            ResolveHP(true);
-        }
-
-        /// <summary>
-        /// Either rolls or uses the average for HP. 
-        /// </summary>
-        /// <param name="RollHP">Do we roll the HP. If not, the average is found.</param>
-        private void ResolveHP(bool RollHP)
-        {
-            int size = Convert.ToInt32(HitDieDropDown.Text.Substring(1, HitDieDropDown.Text.Length - 1));
-            double multiplier = (int)HitDieUpDown.Value;
-            int conmod = Convert.ToInt32(ConBonus.Text.Replace("+", ""));            
-
-            double averageDie = (size / 2) + 0.5;
-            int AverageHP = (int)((averageDie * multiplier) + (conmod * multiplier));
-                        
-            if (RollHP)
-            {
-                Random r = new Random();
-                AverageHP = 0;
-                for (int i = 0; i < multiplier; i++)
-                {
-                    AverageHP += (r.Next(1, size + 1)) + conmod;
-                }
-            }
-
-            HitDieTextBox.Text = AverageHP + " (" + multiplier + "d" + size + "+" + (size * conmod) + ")";            
-        }
+        }      
 
         // This updates the proficiency based on CR.
         private void crChangedUpdateProficiency(object sender, EventArgs e)
@@ -155,6 +96,11 @@ namespace DND_Monster
                     RecalculateAC("CR Updated");
                 }
             }
+        }
+
+        private void savingThrowModify(object sender, EventArgs e)
+        {
+
         }
         
         private void addSense(object sender, EventArgs e)
@@ -231,112 +177,7 @@ namespace DND_Monster
                 TraitsList.Items.Add(skillToAdd);
             }
         }
-
-        private void Preview(object sender, EventArgs e)
-        {
-            GenerateMonsterData();                                   
-        }
-
-        // Generates the actual monster itself.
-        private void GenerateMonsterData()
-        {
-            int estimatedCR = 0;
-
-            // Clear existing HTML
-            if (Monster.output.Count > 0)
-            {
-                Monster.Clear();
-            }
-
-            int.TryParse(ProfBonus.Text, out Monster.proficency);
-
-            Monster.CreatureName = MonsterNameTextBox.Text;
-            Monster.CreatureSize = SizeDropDown.Text;
-            Monster.CreatureAlign = AlignmentDropDown.Text;
-            Monster.CreatureType = TypeDropDown.Text;
-
-            if (!String.IsNullOrEmpty(TagDropDown.Text))
-            {
-                Monster.CreatureType += " (" + TagDropDown.Text + ")";
-            }
-
-            Monster.STR = (int)StrUpDown.Value;
-            Monster.DEX = (int)DexUpDown.Value;
-            Monster.CON = (int)ConUpDown.Value;
-            Monster.INT = (int)IntUpDown.Value;
-            Monster.WIS = (int)WisUpDown.Value;
-            Monster.CHA = (int)ChaUpDown.Value;
-
-            Monster.Speed = SpeedUpDown.Value.ToString();
-            if (burrowUpDown.Value > 0) { Monster.Speed += ", Burrow: " + burrowUpDown.Value; }
-            if (ClimbUpDown.Value > 0) { Monster.Speed += ", Climb: " + ClimbUpDown.Value; }
-            if (FlyUpDown.Value > 0) { Monster.Speed += ", Fly: " + FlyUpDown.Value; }
-            if (HoverCheckBox.Checked) { Monster.Speed += " (Hover)"; }
-            if (SwimUpDown.Value > 0) { Monster.Speed += ", Swim: " + SwimUpDown.Value; }
-
-            Monster.AC = ACUpDown.Value + " " + ACSourceTextBox.Text;
-            Monster.HP = HitDieTextBox.Text;
-            Monster.CR = ChallengeRatingDropDown.Text;
-
-            foreach (string item in TraitsList.Items)
-            {
-                switch (item.Split(':')[0])
-                {
-                    case "Skill":
-                        Monster.AddSkillBonus(item);
-                        break;
-                    case "Skill+":
-                        Monster.AddSkillBonus(item);
-                        break;
-                    case "Damage Vulnerability":
-                        Monster.AddDamageVulnerabilities(item.Split(':')[1].Trim());
-                        break;
-                    case "Damage Resistance":
-                        Monster.AddDamageResistance(item.Split(':')[1].Trim());
-                        break;
-                    case "Damage Immunity":
-                        Monster.AddDamageImmunity(item.Split(':')[1].Trim());
-                        break;
-                    case "Condition Immunity":
-                        Monster.AddConditionImmunity(item.Split(':')[1].Trim());
-                        break;
-                    case "Language":
-                        Monster._Languages.Add(item.Split(':')[1].Trim());
-                        break;
-                    case "Sense":
-                        Monster._Senses.Add(item.Split(':')[1].Trim());
-                        break;
-                }                
-            }
-
-            if (StrSaveBonusUpDown.Value > 0)
-            {
-                Monster.AddSavingThrow("Str +" + StrSaveBonusUpDown.Value);
-            }
-            if (DexSaveBonusUpDown.Value > 0)
-            {
-                Monster.AddSavingThrow("Dex +" + DexSaveBonusUpDown.Value);
-            }
-            if (ConSaveBonusUpDown.Value > 0)
-            {
-                Monster.AddSavingThrow("Con +" + ConSaveBonusUpDown.Value);
-            }
-            if (IntSaveBonusUpDown.Value > 0)
-            {
-                Monster.AddSavingThrow("Int +" + IntSaveBonusUpDown.Value);
-            }
-            if (WisSaveBonusUpDown.Value > 0)
-            {
-                Monster.AddSavingThrow("Wis +" + WisSaveBonusUpDown.Value);
-            }
-            if (ChaSaveBonusUpDown.Value > 0)
-            {
-                Monster.AddSavingThrow("Cha +" + ChaSaveBonusUpDown.Value);
-            }
-
-            ShowMonster();
-        }
-
+        
         private void addAbility(object sender, EventArgs e)
         {
             AddAbilityForm addAbility = new AddAbilityForm();
@@ -372,7 +213,47 @@ namespace DND_Monster
                 }
             };
         }
-        
+
+        private void addCondition(object sender, EventArgs e)
+        {
+            var temp = (Button)sender;
+            string tag = temp.Tag.ToString().ToLower();
+            string addString = "";
+
+            if (DamageConditionDropDown.SelectedIndex > 13 && tag != "addi")
+            {
+                return;
+            }
+
+            if (DamageConditionDropDown.SelectedIndex < 13)
+            {
+                addString += "Damage";
+            }
+            else
+            {
+                addString += "Condition";
+            }
+
+            switch (tag)
+            {
+                case "addi":
+                    // Immunity
+                    addString += " Immunity: ";
+                    break;
+                case "addr":
+                    // Resistance
+                    addString += " Resistance: ";
+                    break;
+                case "addv":
+                    // Vulnerability
+                    addString += " Vulnerability: ";
+                    break;
+            }
+
+            addString += DamageConditionDropDown.Text;
+            TraitsList.Items.Add(addString);
+        }
+
         private void editTrait(object sender, MouseEventArgs e)
         {            
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
@@ -495,44 +376,9 @@ namespace DND_Monster
             }            
         }
 
-        private void addCondition(object sender, EventArgs e)
+        private void Preview(object sender, EventArgs e)
         {
-            var temp = (Button)sender;
-            string tag = temp.Tag.ToString().ToLower();
-            string addString = "";
-
-            if (DamageConditionDropDown.SelectedIndex > 13 && tag != "addi")
-            {
-                return;
-            }
-
-            if (DamageConditionDropDown.SelectedIndex < 13)
-            {
-                addString += "Damage";
-            }
-            else
-            {
-                addString += "Condition";
-            }
-
-            switch (tag)
-            {
-                case "addi":
-                    // Immunity
-                    addString += " Immunity: ";
-                    break;
-                case "addr":
-                    // Resistance
-                    addString += " Resistance: ";
-                    break;
-                case "addv":
-                    // Vulnerability
-                    addString += " Vulnerability: ";
-                    break;
-            }
-
-            addString += DamageConditionDropDown.Text;
-            TraitsList.Items.Add(addString);
+            GenerateMonsterData();
         }
 
         private void SaveData(object sender, EventArgs e)
@@ -641,6 +487,200 @@ namespace DND_Monster
                 }            
 
             }
+        }        
+
+        private void ExportHTML(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.InitialDirectory = @"C:\";
+            dialog.Filter = "html files (*.html)|*.html";
+            dialog.RestoreDirectory = true;
+            
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                System.IO.File.WriteAllText(dialog.FileName,"");
+
+                foreach (string line in Monster.output){
+                    System.IO.File.AppendAllText(dialog.FileName, line);
+                }
+            }
+        }
+
+        private void ExportPNG_Click(object sender, EventArgs e)
+        {            
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.InitialDirectory = @"C:\";
+            dialog.Filter = "png files (*.png)|*.png";
+            dialog.RestoreDirectory = true;
+
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                ControlSnapshot.Snapshot(b, BrowserWidth(b), BrowserHeight(b)).Save(dialog.FileName);                
+            }
+        }                
+    }
+
+    // For ease of reading, all methods not tied to UI elements are down here.
+    public partial class Main : Form
+    {
+        /// <summary>
+        /// Takes a numericUpDown and a Label and derives the ability modifier, updating the label.
+        /// </summary>
+        /// <param name="value">Input</param>
+        /// <param name="target">Output</param>
+        private void UpdateModifier(NumericUpDown value, Label target)
+        {
+            int modifier = (int)Math.Floor((double)(Convert.ToInt32(value.Value) - 10) / 2);
+
+            if (modifier >= 0)
+            {
+                target.Text = "+" + modifier;
+            }
+            else
+            {
+                target.Text = modifier.ToString();
+            }
+
+            if (target.Tag.ToString() == "DEXMOD")
+            {
+                RecalculateAC("Mod Change");
+            }
+        }
+
+        private void generateHP(object sender, EventArgs e)
+        {
+            ResolveHP(false);
+        }
+
+        private void rollHP(object sender, EventArgs e)
+        {
+            ResolveHP(true);
+        }
+
+        /// <summary>
+        /// Either rolls or uses the average for HP. 
+        /// </summary>
+        /// <param name="RollHP">Do we roll the HP. If not, the average is found.</param>
+        private void ResolveHP(bool RollHP)
+        {
+            int size = Convert.ToInt32(HitDieDropDown.Text.Substring(1, HitDieDropDown.Text.Length - 1));
+            double multiplier = (int)HitDieUpDown.Value;
+            int conmod = Convert.ToInt32(ConBonus.Text.Replace("+", ""));
+
+            double averageDie = (size / 2) + 0.5;
+            int AverageHP = (int)((averageDie * multiplier) + (conmod * multiplier));
+
+            if (RollHP)
+            {
+                Random r = new Random();
+                AverageHP = 0;
+                for (int i = 0; i < multiplier; i++)
+                {
+                    AverageHP += (r.Next(1, size + 1)) + conmod;
+                }
+            }
+
+            HitDieTextBox.Text = AverageHP + " (" + multiplier + "d" + size + "+" + (size * conmod) + ")";
+        }
+      
+        // Generates the actual monster itself.
+        private void GenerateMonsterData()
+        {
+            int estimatedCR = 0;
+
+            // Clear existing HTML
+            if (Monster.output.Count > 0)
+            {
+                Monster.Clear();
+            }
+
+            int.TryParse(ProfBonus.Text, out Monster.proficency);
+
+            Monster.CreatureName = MonsterNameTextBox.Text;
+            Monster.CreatureSize = SizeDropDown.Text;
+            Monster.CreatureAlign = AlignmentDropDown.Text;
+            Monster.CreatureType = TypeDropDown.Text;
+
+            if (!String.IsNullOrEmpty(TagDropDown.Text))
+            {
+                Monster.CreatureType += " (" + TagDropDown.Text + ")";
+            }
+
+            Monster.STR = (int)StrUpDown.Value;
+            Monster.DEX = (int)DexUpDown.Value;
+            Monster.CON = (int)ConUpDown.Value;
+            Monster.INT = (int)IntUpDown.Value;
+            Monster.WIS = (int)WisUpDown.Value;
+            Monster.CHA = (int)ChaUpDown.Value;
+
+            Monster.Speed = SpeedUpDown.Value.ToString();
+            if (burrowUpDown.Value > 0) { Monster.Speed += ", Burrow: " + burrowUpDown.Value; }
+            if (ClimbUpDown.Value > 0) { Monster.Speed += ", Climb: " + ClimbUpDown.Value; }
+            if (FlyUpDown.Value > 0) { Monster.Speed += ", Fly: " + FlyUpDown.Value; }
+            if (HoverCheckBox.Checked) { Monster.Speed += " (Hover)"; }
+            if (SwimUpDown.Value > 0) { Monster.Speed += ", Swim: " + SwimUpDown.Value; }
+
+            Monster.AC = ACUpDown.Value + " " + ACSourceTextBox.Text;
+            Monster.HP = HitDieTextBox.Text;
+            Monster.CR = ChallengeRatingDropDown.Text;
+
+            foreach (string item in TraitsList.Items)
+            {
+                switch (item.Split(':')[0])
+                {
+                    case "Skill":
+                        Monster.AddSkillBonus(item);
+                        break;
+                    case "Skill+":
+                        Monster.AddSkillBonus(item);
+                        break;
+                    case "Damage Vulnerability":
+                        Monster.AddDamageVulnerabilities(item.Split(':')[1].Trim());
+                        break;
+                    case "Damage Resistance":
+                        Monster.AddDamageResistance(item.Split(':')[1].Trim());
+                        break;
+                    case "Damage Immunity":
+                        Monster.AddDamageImmunity(item.Split(':')[1].Trim());
+                        break;
+                    case "Condition Immunity":
+                        Monster.AddConditionImmunity(item.Split(':')[1].Trim());
+                        break;
+                    case "Language":
+                        Monster._Languages.Add(item.Split(':')[1].Trim());
+                        break;
+                    case "Sense":
+                        Monster._Senses.Add(item.Split(':')[1].Trim());
+                        break;
+                }
+            }
+
+            if (StrSaveBonusUpDown.Value > 0)
+            {
+                Monster.AddSavingThrow("Str +" + StrSaveBonusUpDown.Value);
+            }
+            if (DexSaveBonusUpDown.Value > 0)
+            {
+                Monster.AddSavingThrow("Dex +" + DexSaveBonusUpDown.Value);
+            }
+            if (ConSaveBonusUpDown.Value > 0)
+            {
+                Monster.AddSavingThrow("Con +" + ConSaveBonusUpDown.Value);
+            }
+            if (IntSaveBonusUpDown.Value > 0)
+            {
+                Monster.AddSavingThrow("Int +" + IntSaveBonusUpDown.Value);
+            }
+            if (WisSaveBonusUpDown.Value > 0)
+            {
+                Monster.AddSavingThrow("Wis +" + WisSaveBonusUpDown.Value);
+            }
+            if (ChaSaveBonusUpDown.Value > 0)
+            {
+                Monster.AddSavingThrow("Cha +" + ChaSaveBonusUpDown.Value);
+            }
+
+            ShowMonster();
         }
 
         public void Clear()
@@ -698,46 +738,17 @@ namespace DND_Monster
                     System.Threading.Thread.Sleep(100);
                 }
             }
-            b.LoadHtml(Monster.Create(), "http://rendering/");            
+            b.LoadHtml(Monster.Create(), "http://rendering/");
         }
 
-        private void ExportHTML(object sender, EventArgs e)
-        {
-            SaveFileDialog dialog = new SaveFileDialog();
-            dialog.InitialDirectory = @"C:\";
-            dialog.Filter = "html files (*.html)|*.html";
-            dialog.RestoreDirectory = true;
-            
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                System.IO.File.WriteAllText(dialog.FileName,"");
-
-                foreach (string line in Monster.output){
-                    System.IO.File.AppendAllText(dialog.FileName, line);
-                }
-            }
-        }
-
-        private void ExportPNG_Click(object sender, EventArgs e)
-        {            
-            SaveFileDialog dialog = new SaveFileDialog();
-            dialog.InitialDirectory = @"C:\";
-            dialog.Filter = "png files (*.png)|*.png";
-            dialog.RestoreDirectory = true;
-
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                ControlSnapshot.Snapshot(b, BrowserWidth(b), BrowserHeight(b)).Save(dialog.FileName);                
-            }
-        }
-        
         private void RecalculateAC(string source)
         {
-            int mods = getStatMod("dex") + currentCR.ArmorClass;            
+            int mods = getStatMod("dex") + currentCR.ArmorClass;
             ACUpDown.Value = mods;            
-        }        
+        }
 
-        private int getStatMod(string mod){
+        private int getStatMod(string mod)
+        {
             int returnStatMod = 0;
 
             switch (mod.ToLower())
@@ -761,7 +772,7 @@ namespace DND_Monster
                     int.TryParse(ChaBonus.Text, out returnStatMod);
                     break;
             }
-            
+
             return returnStatMod;
         }
     }
