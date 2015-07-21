@@ -16,7 +16,6 @@ using Newtonsoft.Json;
 
 namespace DND_Monster
 {
-    // All UI elements and events are up here.
     public partial class Main : Form
     {        
         ChromiumWebBrowser b = new ChromiumWebBrowser("http://rendering/");
@@ -376,6 +375,11 @@ namespace DND_Monster
             }            
         }
 
+        private void CRCalculateButton_Click(object sender, EventArgs e)
+        {
+            CalculateCR();
+        }
+
         private void Preview(object sender, EventArgs e)
         {
             GenerateMonsterData();
@@ -515,14 +519,122 @@ namespace DND_Monster
 
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                ControlSnapshot.Snapshot(b, BrowserWidth(b), BrowserHeight(b)).Save(dialog.FileName);                
+                ControlSnapshot.Snapshot(b, BrowserWidth(b), BrowserHeight(b)).Save(dialog.FileName);                   
             }
-        }                
-    }
+        }
 
-    // For ease of reading, all methods not tied to UI elements are down here.
-    public partial class Main : Form
-    {
+        private void ExportCSV_Click(object sender, EventArgs e)
+        {
+            StringBuilder CSVOutput = new StringBuilder();
+            CSVOutput.Append(Monster.Title + ",");
+            CSVOutput.Append(Monster.CreatureName + ",");
+            CSVOutput.Append(Monster.CreatureSize + " ");
+            CSVOutput.Append(Monster.CreatureType + " ");
+            CSVOutput.Append(Monster.CreatureAlign + ",");
+            CSVOutput.Append("Armor Class=" + Monster.AC+ ",");
+            CSVOutput.Append("HitPoints=" + Monster.HP + ",");
+            CSVOutput.Append("Speed=" + Monster.Speed + ",");
+            CSVOutput.Append("AbilityScores=[STR:" + Monster.STR + "(" + getStatMod("str") + ")],[DEX:" + Monster.DEX + "(" + getStatMod("dex") + ")],[CON:" + Monster.CON
+                + "(" + getStatMod("con") + ")],[INT:" + Monster.INT + "(" + getStatMod("int") + ")],[WIS:" + Monster.WIS + "(" + getStatMod("wis") + ")],[CHA:" + Monster.CHA 
+                + "(" + getStatMod("cha") +")],");
+
+            CSVOutput.Append("Saving Throws=");
+            foreach (string item in Monster.SavingThrowBonuses)
+            {
+                CSVOutput.Append("[" + item + "],");
+            }
+
+            CSVOutput.Append("Skills=");
+            foreach (string item in Monster.SkillBonuses)
+            {
+                CSVOutput.Append("[" + item + "],");
+            }
+
+            CSVOutput.Append("Damage Immunities=");
+
+            foreach (string dimm in Monster.DamageImmunities)
+            {
+                CSVOutput.Append("[" + dimm + "],");
+            }
+
+            CSVOutput.Append("Damage Resistances=");
+
+            foreach (string dimm in Monster.DamageResistances)
+            {
+                CSVOutput.Append("[" + dimm + "],");
+            }
+
+            CSVOutput.Append("Damage Vulnerabilities=");
+
+            foreach (string dimm in Monster.DamageVulnerability)
+            {
+                CSVOutput.Append("[" + dimm + "],");
+            }
+
+            CSVOutput.Append("Condition Immunities=");
+
+            foreach (string dimm in Monster.ConditionImmunities)
+            {
+                CSVOutput.Append("[" + dimm + "],");
+            }
+
+            CSVOutput.Append("Senses=");
+
+            foreach (string sense in Monster._Senses)
+            {
+                CSVOutput.Append("[" + sense + "],");
+            }
+
+            CSVOutput.Append("Languages=");
+
+            foreach (string dimm in Monster._Languages)
+            {
+                CSVOutput.Append("[" + dimm + "],");
+            }
+
+            CSVOutput.Append("Challenge Rating=" + Monster.CR);
+
+            CSVOutput.Append("Abilities=");
+
+            foreach (Ability dimm in Monster._Abilities)
+            {
+                CSVOutput.Append("[Name=" + dimm .Title + ",Description=" + dimm.Description + "],");
+            }
+
+            CSVOutput.Append("Actions=");
+
+            foreach (Ability dimm in Monster._Attacks)
+            {
+                if (!dimm.isDamage)
+                {
+                    CSVOutput.Append("[Name=" + dimm.Title + ",Description=" + dimm.Description + "],");
+                }
+            }
+
+            foreach (Ability action in Monster._Attacks)
+            {
+                if (action.isDamage)
+                {
+                    Attack dimm = (Attack)action;
+
+                    CSVOutput.Append("[" +
+                        "Name=" + dimm.Title + "," +
+                        "Type=" + dimm._Attack + "," +
+                        "ToHit=" + dimm.Bonus + "," +
+                        dimm.RangeMode + "=" + dimm.Range + "," +
+                        "Target=" + dimm.Target + "," +
+                        "Hit=[Average=" + dimm.HitAverageDamage + "]" + "[" + dimm.HitDiceNumber + "d" + dimm.HitDiceSize 
+                            + "+" + dimm.HitDamageBonus + " " + dimm.HitDamageType + " " + dimm.HitText + "],"
+                        + "],");
+                }
+            }
+        }        
+
+        private void Print_Click(object sender, EventArgs e)
+        {
+            b.Print();            
+        }    
+
         /// <summary>
         /// Takes a numericUpDown and a Label and derives the ability modifier, updating the label.
         /// </summary>
@@ -585,9 +697,7 @@ namespace DND_Monster
       
         // Generates the actual monster itself.
         private void GenerateMonsterData()
-        {
-            int estimatedCR = 0;
-
+        {            
             // Clear existing HTML
             if (Monster.output.Count > 0)
             {
@@ -744,7 +854,7 @@ namespace DND_Monster
         private void RecalculateAC(string source)
         {
             int mods = getStatMod("dex") + currentCR.ArmorClass;
-            ACUpDown.Value = mods;            
+            ACUpDown.Value = mods;
         }
 
         private int getStatMod(string mod)
@@ -775,5 +885,21 @@ namespace DND_Monster
 
             return returnStatMod;
         }
+
+        private void CalculateCR()
+        {
+            Challenge_Rating targetCRForHP = Help.FindCRByHP(HitDieTextBox.Text.Split('(')[0]);
+            if (targetCRForHP == null) return;
+            
+            if (Math.Abs(targetCRForHP.ArmorClass - ACUpDown.Value) > 2)
+            {                
+                var adjust = Math.Floor((targetCRForHP.ArmorClass - ACUpDown.Value) / 2);
+                Console.WriteLine("Adjust CR by " + adjust);
+                Console.WriteLine("Target CR: " + targetCRForHP.Index);
+                Console.WriteLine("Adjusted: " + (targetCRForHP.Index + adjust));
+                
+                ChallengeRatingDropDown.SelectedItem = Help.FindCRByIndex(Convert.ToInt32((targetCRForHP.Index + adjust))).CR;
+            }
+        }        
     }
 }

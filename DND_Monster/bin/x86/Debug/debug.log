@@ -225,3 +225,33 @@
 [0720/165109:ERROR:renderer_main.cc(212)] Running without renderer sandbox
 [0720/165159:ERROR:renderer_main.cc(212)] Running without renderer sandbox
 [0720/165253:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/085844:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/085918:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/090021:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/090117:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/090146:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/090210:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/090337:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/090737:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/090756:WARNING:raw_channel_win.cc(471)] WriteFile: The pipe is being closed. (0xE8)
+[0721/090756:WARNING:channel.cc(553)] Failed to send message to ack remove remote endpoint (local ID 1, remote ID 1)
+[0721/090826:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/091056:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/091118:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/092418:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/092528:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/092742:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/092852:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/093532:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/093705:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/093839:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/093910:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/093955:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/094038:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/094132:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/094211:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/094334:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/095401:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/102046:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/102234:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0721/103020:ERROR:renderer_main.cc(212)] Running without renderer sandbox

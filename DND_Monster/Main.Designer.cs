@@ -121,6 +121,8 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.ExportPNG = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.PrintButton = new System.Windows.Forms.Button();
+            this.ExportCSV = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StrUpDown)).BeginInit();
@@ -173,7 +175,7 @@
             10,
             0,
             0,
-            0});            
+            0});
             // 
             // ArmorClass
             // 
@@ -1043,7 +1045,7 @@
             // 
             // AddAbilityButton
             // 
-            this.AddAbilityButton.Location = new System.Drawing.Point(170, 621);
+            this.AddAbilityButton.Location = new System.Drawing.Point(170, 581);
             this.AddAbilityButton.Name = "AddAbilityButton";
             this.AddAbilityButton.Size = new System.Drawing.Size(75, 23);
             this.AddAbilityButton.TabIndex = 80;
@@ -1053,7 +1055,7 @@
             // 
             // AddActionButton
             // 
-            this.AddActionButton.Location = new System.Drawing.Point(245, 621);
+            this.AddActionButton.Location = new System.Drawing.Point(245, 581);
             this.AddActionButton.Name = "AddActionButton";
             this.AddActionButton.Size = new System.Drawing.Size(75, 23);
             this.AddActionButton.TabIndex = 81;
@@ -1142,7 +1144,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(361, 675);
+            this.SaveButton.Location = new System.Drawing.Point(444, 650);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 88;
@@ -1152,7 +1154,7 @@
             // 
             // LoadButton
             // 
-            this.LoadButton.Location = new System.Drawing.Point(280, 675);
+            this.LoadButton.Location = new System.Drawing.Point(442, 621);
             this.LoadButton.Name = "LoadButton";
             this.LoadButton.Size = new System.Drawing.Size(75, 23);
             this.LoadButton.TabIndex = 89;
@@ -1186,10 +1188,14 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnCount = 5;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 434F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 331F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.ExportCSV, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.PrintButton, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.ExportPNG, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1202,7 +1208,7 @@
             // 
             // ExportPNG
             // 
-            this.ExportPNG.Location = new System.Drawing.Point(66, 3);
+            this.ExportPNG.Location = new System.Drawing.Point(69, 3);
             this.ExportPNG.Name = "ExportPNG";
             this.ExportPNG.Size = new System.Drawing.Size(75, 23);
             this.ExportPNG.TabIndex = 91;
@@ -1219,6 +1225,26 @@
             this.button1.Text = "HTML";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.ExportHTML);
+            // 
+            // PrintButton
+            // 
+            this.PrintButton.Location = new System.Drawing.Point(150, 3);
+            this.PrintButton.Name = "PrintButton";
+            this.PrintButton.Size = new System.Drawing.Size(75, 23);
+            this.PrintButton.TabIndex = 1;
+            this.PrintButton.Text = "Print";
+            this.PrintButton.UseVisualStyleBackColor = true;
+            this.PrintButton.Click += new System.EventHandler(this.Print_Click);
+            // 
+            // ExportCSV
+            // 
+            this.ExportCSV.Location = new System.Drawing.Point(231, 3);
+            this.ExportCSV.Name = "ExportCSV";
+            this.ExportCSV.Size = new System.Drawing.Size(75, 23);
+            this.ExportCSV.TabIndex = 91;
+            this.ExportCSV.Text = "CSV";
+            this.ExportCSV.UseVisualStyleBackColor = true;
+            this.ExportCSV.Click += new System.EventHandler(this.ExportCSV_Click);
             // 
             // Main
             // 
@@ -1442,6 +1468,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button ExportPNG;
+        private System.Windows.Forms.Button PrintButton;
+        private System.Windows.Forms.Button ExportCSV;
     }
 }
 

@@ -25,7 +25,9 @@ public class ControlSnapshot
             hwnd = c.Handle;
             dc = GetDC(hwnd);
         }));
+
         Bitmap bmp = new Bitmap(width, height, PixelFormat.Format32bppRgb);
+        
         if (dc != IntPtr.Zero)
         {
             try
