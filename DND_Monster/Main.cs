@@ -628,6 +628,22 @@ namespace DND_Monster
                         + "],");
                 }
             }
+
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.InitialDirectory = @"C:\";
+            dialog.Filter = "csv files (*.csv)|*.csv";
+            dialog.RestoreDirectory = true;
+
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string output = CSVOutput.ToString();
+                if (output[output.Length - 1].ToString() == ",")
+                {
+                    output = output.Substring(0, output.Length - 1);
+                }
+                
+                System.IO.File.WriteAllText(dialog.FileName, output);
+            }
         }        
 
         private void Print_Click(object sender, EventArgs e)
