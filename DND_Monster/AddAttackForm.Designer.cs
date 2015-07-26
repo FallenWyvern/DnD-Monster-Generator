@@ -42,6 +42,10 @@
             this.AttackTarget = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.RangeUpDownFar = new System.Windows.Forms.NumericUpDown();
+            this.Reach = new System.Windows.Forms.Label();
+            this.ReachUpDown = new System.Windows.Forms.NumericUpDown();
             this.AttackRange = new System.Windows.Forms.Label();
             this.HitDamageType = new System.Windows.Forms.ComboBox();
             this.HitDiceBonusDamage = new System.Windows.Forms.NumericUpDown();
@@ -53,19 +57,15 @@
             this.AttackAbilityName = new System.Windows.Forms.Label();
             this.AttackAbilityNameField = new System.Windows.Forms.TextBox();
             this.AttackAbilityDescriptionField = new System.Windows.Forms.RichTextBox();
-            this.Reach = new System.Windows.Forms.Label();
-            this.ReachUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RangeUpDownFar = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AttackBonusUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RangeUpDownClose)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RangeUpDownFar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ReachUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDiceBonusDamage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitNumberOfDice)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ReachUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RangeUpDownFar)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -104,7 +104,7 @@
             this.AttackBonusUpDown.Location = new System.Drawing.Point(50, 56);
             this.AttackBonusUpDown.Name = "AttackBonusUpDown";
             this.AttackBonusUpDown.Size = new System.Drawing.Size(43, 20);
-            this.AttackBonusUpDown.TabIndex = 3;
+            this.AttackBonusUpDown.TabIndex = 2;
             // 
             // AttackToHitBonus
             // 
@@ -125,7 +125,7 @@
             this.RangeUpDownClose.Location = new System.Drawing.Point(50, 188);
             this.RangeUpDownClose.Name = "RangeUpDownClose";
             this.RangeUpDownClose.Size = new System.Drawing.Size(70, 20);
-            this.RangeUpDownClose.TabIndex = 5;
+            this.RangeUpDownClose.TabIndex = 10;
             this.RangeUpDownClose.Value = new decimal(new int[] {
             5,
             0,
@@ -137,7 +137,7 @@
             this.HitDamageEffect.Location = new System.Drawing.Point(50, 136);
             this.HitDamageEffect.Name = "HitDamageEffect";
             this.HitDamageEffect.Size = new System.Drawing.Size(238, 20);
-            this.HitDamageEffect.TabIndex = 7;
+            this.HitDamageEffect.TabIndex = 8;
             // 
             // AttackHitEffect
             // 
@@ -153,7 +153,7 @@
             this.AttackNameField.Location = new System.Drawing.Point(50, 3);
             this.AttackNameField.Name = "AttackNameField";
             this.AttackNameField.Size = new System.Drawing.Size(238, 20);
-            this.AttackNameField.TabIndex = 9;
+            this.AttackNameField.TabIndex = 0;
             // 
             // AttackName
             // 
@@ -169,7 +169,7 @@
             this.AttackTargetField.Location = new System.Drawing.Point(49, 82);
             this.AttackTargetField.Name = "AttackTargetField";
             this.AttackTargetField.Size = new System.Drawing.Size(238, 20);
-            this.AttackTargetField.TabIndex = 11;
+            this.AttackTargetField.TabIndex = 3;
             // 
             // AttackTarget
             // 
@@ -189,7 +189,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(296, 287);
-            this.tabControl1.TabIndex = 13;
+            this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
@@ -223,6 +223,58 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(126, 190);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(12, 13);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "/";
+            // 
+            // RangeUpDownFar
+            // 
+            this.RangeUpDownFar.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.RangeUpDownFar.Location = new System.Drawing.Point(141, 188);
+            this.RangeUpDownFar.Name = "RangeUpDownFar";
+            this.RangeUpDownFar.Size = new System.Drawing.Size(70, 20);
+            this.RangeUpDownFar.TabIndex = 11;
+            this.RangeUpDownFar.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // Reach
+            // 
+            this.Reach.AutoSize = true;
+            this.Reach.Location = new System.Drawing.Point(5, 164);
+            this.Reach.Name = "Reach";
+            this.Reach.Size = new System.Drawing.Size(39, 13);
+            this.Reach.TabIndex = 20;
+            this.Reach.Text = "Reach";
+            // 
+            // ReachUpDown
+            // 
+            this.ReachUpDown.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.ReachUpDown.Location = new System.Drawing.Point(50, 162);
+            this.ReachUpDown.Name = "ReachUpDown";
+            this.ReachUpDown.Size = new System.Drawing.Size(70, 20);
+            this.ReachUpDown.TabIndex = 9;
+            this.ReachUpDown.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
             // AttackRange
             // 
             this.AttackRange.AutoSize = true;
@@ -252,14 +304,14 @@
             this.HitDamageType.Location = new System.Drawing.Point(196, 108);
             this.HitDamageType.Name = "HitDamageType";
             this.HitDamageType.Size = new System.Drawing.Size(91, 21);
-            this.HitDamageType.TabIndex = 17;
+            this.HitDamageType.TabIndex = 7;
             // 
             // HitDiceBonusDamage
             // 
             this.HitDiceBonusDamage.Location = new System.Drawing.Point(149, 110);
             this.HitDiceBonusDamage.Name = "HitDiceBonusDamage";
             this.HitDiceBonusDamage.Size = new System.Drawing.Size(44, 20);
-            this.HitDiceBonusDamage.TabIndex = 16;
+            this.HitDiceBonusDamage.TabIndex = 6;
             // 
             // HitDiceType
             // 
@@ -274,14 +326,14 @@
             this.HitDiceType.Location = new System.Drawing.Point(93, 109);
             this.HitDiceType.Name = "HitDiceType";
             this.HitDiceType.Size = new System.Drawing.Size(47, 21);
-            this.HitDiceType.TabIndex = 14;
+            this.HitDiceType.TabIndex = 5;
             // 
             // HitNumberOfDice
             // 
             this.HitNumberOfDice.Location = new System.Drawing.Point(49, 109);
             this.HitNumberOfDice.Name = "HitNumberOfDice";
             this.HitNumberOfDice.Size = new System.Drawing.Size(38, 20);
-            this.HitNumberOfDice.TabIndex = 13;
+            this.HitNumberOfDice.TabIndex = 4;
             // 
             // label8
             // 
@@ -329,7 +381,7 @@
             this.AttackAbilityNameField.Location = new System.Drawing.Point(75, 6);
             this.AttackAbilityNameField.Name = "AttackAbilityNameField";
             this.AttackAbilityNameField.Size = new System.Drawing.Size(205, 20);
-            this.AttackAbilityNameField.TabIndex = 6;
+            this.AttackAbilityNameField.TabIndex = 0;
             // 
             // AttackAbilityDescriptionField
             // 
@@ -337,60 +389,8 @@
             this.AttackAbilityDescriptionField.Location = new System.Drawing.Point(3, 48);
             this.AttackAbilityDescriptionField.Name = "AttackAbilityDescriptionField";
             this.AttackAbilityDescriptionField.Size = new System.Drawing.Size(282, 210);
-            this.AttackAbilityDescriptionField.TabIndex = 5;
+            this.AttackAbilityDescriptionField.TabIndex = 1;
             this.AttackAbilityDescriptionField.Text = "";
-            // 
-            // Reach
-            // 
-            this.Reach.AutoSize = true;
-            this.Reach.Location = new System.Drawing.Point(5, 164);
-            this.Reach.Name = "Reach";
-            this.Reach.Size = new System.Drawing.Size(39, 13);
-            this.Reach.TabIndex = 20;
-            this.Reach.Text = "Reach";
-            // 
-            // ReachUpDown
-            // 
-            this.ReachUpDown.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.ReachUpDown.Location = new System.Drawing.Point(50, 162);
-            this.ReachUpDown.Name = "ReachUpDown";
-            this.ReachUpDown.Size = new System.Drawing.Size(70, 20);
-            this.ReachUpDown.TabIndex = 19;
-            this.ReachUpDown.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            // 
-            // RangeUpDownFar
-            // 
-            this.RangeUpDownFar.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.RangeUpDownFar.Location = new System.Drawing.Point(141, 188);
-            this.RangeUpDownFar.Name = "RangeUpDownFar";
-            this.RangeUpDownFar.Size = new System.Drawing.Size(70, 20);
-            this.RangeUpDownFar.TabIndex = 21;
-            this.RangeUpDownFar.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(126, 190);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(12, 13);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "/";
             // 
             // AddAttackForm
             // 
@@ -408,12 +408,12 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RangeUpDownFar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ReachUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDiceBonusDamage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitNumberOfDice)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ReachUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RangeUpDownFar)).EndInit();
             this.ResumeLayout(false);
 
         }

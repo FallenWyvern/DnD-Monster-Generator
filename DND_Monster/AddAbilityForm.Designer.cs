@@ -41,7 +41,7 @@
             this.DescriptionTextBox.Location = new System.Drawing.Point(0, 95);
             this.DescriptionTextBox.Name = "DescriptionTextBox";
             this.DescriptionTextBox.Size = new System.Drawing.Size(284, 166);
-            this.DescriptionTextBox.TabIndex = 0;
+            this.DescriptionTextBox.TabIndex = 1;
             this.DescriptionTextBox.Text = "";
             // 
             // AbilityNameTextBox
@@ -49,7 +49,7 @@
             this.AbilityNameTextBox.Location = new System.Drawing.Point(83, 45);
             this.AbilityNameTextBox.Name = "AbilityNameTextBox";
             this.AbilityNameTextBox.Size = new System.Drawing.Size(189, 20);
-            this.AbilityNameTextBox.TabIndex = 1;
+            this.AbilityNameTextBox.TabIndex = 0;
             this.AbilityNameTextBox.TextChanged += new System.EventHandler(this.UpdatePopOutTitle);
             // 
             // AbilityName
@@ -75,7 +75,7 @@
             this.SaveButton.Location = new System.Drawing.Point(197, 12);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
-            this.SaveButton.TabIndex = 4;
+            this.SaveButton.TabIndex = 2;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.Save);

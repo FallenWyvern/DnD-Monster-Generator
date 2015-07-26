@@ -119,10 +119,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.ExportCSV = new System.Windows.Forms.Button();
+            this.PrintButton = new System.Windows.Forms.Button();
             this.ExportPNG = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.PrintButton = new System.Windows.Forms.Button();
-            this.ExportCSV = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StrUpDown)).BeginInit();
@@ -163,14 +163,14 @@
             this.MonsterNameTextBox.Location = new System.Drawing.Point(94, 12);
             this.MonsterNameTextBox.Name = "MonsterNameTextBox";
             this.MonsterNameTextBox.Size = new System.Drawing.Size(222, 20);
-            this.MonsterNameTextBox.TabIndex = 1;
+            this.MonsterNameTextBox.TabIndex = 0;
             // 
             // ACUpDown
             // 
             this.ACUpDown.Location = new System.Drawing.Point(94, 112);
             this.ACUpDown.Name = "ACUpDown";
             this.ACUpDown.Size = new System.Drawing.Size(44, 20);
-            this.ACUpDown.TabIndex = 2;
+            this.ACUpDown.TabIndex = 5;
             this.ACUpDown.Value = new decimal(new int[] {
             10,
             0,
@@ -207,7 +207,7 @@
             this.TypeDropDown.Location = new System.Drawing.Point(94, 62);
             this.TypeDropDown.Name = "TypeDropDown";
             this.TypeDropDown.Size = new System.Drawing.Size(116, 21);
-            this.TypeDropDown.TabIndex = 4;
+            this.TypeDropDown.TabIndex = 2;
             // 
             // TypeAndTag
             // 
@@ -247,7 +247,7 @@
             this.AlignmentDropDown.Location = new System.Drawing.Point(94, 87);
             this.AlignmentDropDown.Name = "AlignmentDropDown";
             this.AlignmentDropDown.Size = new System.Drawing.Size(222, 21);
-            this.AlignmentDropDown.TabIndex = 7;
+            this.AlignmentDropDown.TabIndex = 4;
             // 
             // HitPoints
             // 
@@ -271,14 +271,14 @@
             this.HitDieDropDown.Location = new System.Drawing.Point(144, 136);
             this.HitDieDropDown.Name = "HitDieDropDown";
             this.HitDieDropDown.Size = new System.Drawing.Size(68, 21);
-            this.HitDieDropDown.TabIndex = 9;
+            this.HitDieDropDown.TabIndex = 8;
             // 
             // HitDieUpDown
             // 
             this.HitDieUpDown.Location = new System.Drawing.Point(94, 137);
             this.HitDieUpDown.Name = "HitDieUpDown";
             this.HitDieUpDown.Size = new System.Drawing.Size(44, 20);
-            this.HitDieUpDown.TabIndex = 10;
+            this.HitDieUpDown.TabIndex = 7;
             this.HitDieUpDown.Value = new decimal(new int[] {
             1,
             0,
@@ -290,14 +290,14 @@
             this.HitDieTextBox.Location = new System.Drawing.Point(216, 136);
             this.HitDieTextBox.Name = "HitDieTextBox";
             this.HitDieTextBox.Size = new System.Drawing.Size(100, 20);
-            this.HitDieTextBox.TabIndex = 11;
+            this.HitDieTextBox.TabIndex = 9;
             // 
             // GenerateHPBonus
             // 
             this.GenerateHPBonus.Location = new System.Drawing.Point(94, 163);
             this.GenerateHPBonus.Name = "GenerateHPBonus";
             this.GenerateHPBonus.Size = new System.Drawing.Size(118, 23);
-            this.GenerateHPBonus.TabIndex = 12;
+            this.GenerateHPBonus.TabIndex = 10;
             this.GenerateHPBonus.Tag = "Generate";
             this.GenerateHPBonus.Text = "Generate HP";
             this.GenerateHPBonus.UseVisualStyleBackColor = true;
@@ -308,7 +308,7 @@
             this.StrUpDown.Location = new System.Drawing.Point(56, 313);
             this.StrUpDown.Name = "StrUpDown";
             this.StrUpDown.Size = new System.Drawing.Size(44, 20);
-            this.StrUpDown.TabIndex = 13;
+            this.StrUpDown.TabIndex = 20;
             this.StrUpDown.Tag = "STR";
             this.StrUpDown.Value = new decimal(new int[] {
             10,
@@ -321,7 +321,7 @@
             this.DexUpDown.Location = new System.Drawing.Point(56, 339);
             this.DexUpDown.Name = "DexUpDown";
             this.DexUpDown.Size = new System.Drawing.Size(44, 20);
-            this.DexUpDown.TabIndex = 14;
+            this.DexUpDown.TabIndex = 21;
             this.DexUpDown.Tag = "DEX";
             this.DexUpDown.Value = new decimal(new int[] {
             10,
@@ -334,7 +334,7 @@
             this.ConUpDown.Location = new System.Drawing.Point(56, 365);
             this.ConUpDown.Name = "ConUpDown";
             this.ConUpDown.Size = new System.Drawing.Size(44, 20);
-            this.ConUpDown.TabIndex = 15;
+            this.ConUpDown.TabIndex = 22;
             this.ConUpDown.Tag = "CON";
             this.ConUpDown.Value = new decimal(new int[] {
             10,
@@ -347,7 +347,7 @@
             this.IntUpDown.Location = new System.Drawing.Point(217, 313);
             this.IntUpDown.Name = "IntUpDown";
             this.IntUpDown.Size = new System.Drawing.Size(44, 20);
-            this.IntUpDown.TabIndex = 16;
+            this.IntUpDown.TabIndex = 23;
             this.IntUpDown.Tag = "INT";
             this.IntUpDown.Value = new decimal(new int[] {
             10,
@@ -360,7 +360,7 @@
             this.WisUpDown.Location = new System.Drawing.Point(217, 339);
             this.WisUpDown.Name = "WisUpDown";
             this.WisUpDown.Size = new System.Drawing.Size(44, 20);
-            this.WisUpDown.TabIndex = 17;
+            this.WisUpDown.TabIndex = 24;
             this.WisUpDown.Tag = "WIS";
             this.WisUpDown.Value = new decimal(new int[] {
             10,
@@ -373,7 +373,7 @@
             this.ChaUpDown.Location = new System.Drawing.Point(217, 365);
             this.ChaUpDown.Name = "ChaUpDown";
             this.ChaUpDown.Size = new System.Drawing.Size(44, 20);
-            this.ChaUpDown.TabIndex = 18;
+            this.ChaUpDown.TabIndex = 25;
             this.ChaUpDown.Tag = "CHA";
             this.ChaUpDown.Value = new decimal(new int[] {
             10,
@@ -508,7 +508,7 @@
             this.SizeDropDown.Location = new System.Drawing.Point(94, 38);
             this.SizeDropDown.Name = "SizeDropDown";
             this.SizeDropDown.Size = new System.Drawing.Size(222, 21);
-            this.SizeDropDown.TabIndex = 31;
+            this.SizeDropDown.TabIndex = 1;
             // 
             // SizeLabel
             // 
@@ -524,7 +524,7 @@
             this.RollHPBonus.Location = new System.Drawing.Point(216, 163);
             this.RollHPBonus.Name = "RollHPBonus";
             this.RollHPBonus.Size = new System.Drawing.Size(100, 23);
-            this.RollHPBonus.TabIndex = 33;
+            this.RollHPBonus.TabIndex = 11;
             this.RollHPBonus.Text = "Roll HP";
             this.RollHPBonus.UseVisualStyleBackColor = true;
             this.RollHPBonus.Click += new System.EventHandler(this.rollHP);
@@ -562,14 +562,14 @@
             this.TagDropDown.Location = new System.Drawing.Point(216, 62);
             this.TagDropDown.Name = "TagDropDown";
             this.TagDropDown.Size = new System.Drawing.Size(100, 21);
-            this.TagDropDown.TabIndex = 34;
+            this.TagDropDown.TabIndex = 3;
             // 
             // ACSourceTextBox
             // 
             this.ACSourceTextBox.Location = new System.Drawing.Point(144, 111);
             this.ACSourceTextBox.Name = "ACSourceTextBox";
             this.ACSourceTextBox.Size = new System.Drawing.Size(172, 20);
-            this.ACSourceTextBox.TabIndex = 35;
+            this.ACSourceTextBox.TabIndex = 6;
             // 
             // burrowUpDown
             // 
@@ -581,7 +581,7 @@
             this.burrowUpDown.Location = new System.Drawing.Point(272, 192);
             this.burrowUpDown.Name = "burrowUpDown";
             this.burrowUpDown.Size = new System.Drawing.Size(44, 20);
-            this.burrowUpDown.TabIndex = 36;
+            this.burrowUpDown.TabIndex = 17;
             // 
             // ClimbUpDown
             // 
@@ -593,7 +593,7 @@
             this.ClimbUpDown.Location = new System.Drawing.Point(272, 218);
             this.ClimbUpDown.Name = "ClimbUpDown";
             this.ClimbUpDown.Size = new System.Drawing.Size(44, 20);
-            this.ClimbUpDown.TabIndex = 37;
+            this.ClimbUpDown.TabIndex = 19;
             // 
             // FlyUpDown
             // 
@@ -605,7 +605,7 @@
             this.FlyUpDown.Location = new System.Drawing.Point(94, 244);
             this.FlyUpDown.Name = "FlyUpDown";
             this.FlyUpDown.Size = new System.Drawing.Size(44, 20);
-            this.FlyUpDown.TabIndex = 38;
+            this.FlyUpDown.TabIndex = 14;
             // 
             // SwimUpDown
             // 
@@ -617,7 +617,7 @@
             this.SwimUpDown.Location = new System.Drawing.Point(94, 218);
             this.SwimUpDown.Name = "SwimUpDown";
             this.SwimUpDown.Size = new System.Drawing.Size(44, 20);
-            this.SwimUpDown.TabIndex = 39;
+            this.SwimUpDown.TabIndex = 13;
             // 
             // SpeedUpDown
             // 
@@ -629,7 +629,7 @@
             this.SpeedUpDown.Location = new System.Drawing.Point(94, 192);
             this.SpeedUpDown.Name = "SpeedUpDown";
             this.SpeedUpDown.Size = new System.Drawing.Size(44, 20);
-            this.SpeedUpDown.TabIndex = 40;
+            this.SpeedUpDown.TabIndex = 12;
             this.SpeedUpDown.Value = new decimal(new int[] {
             30,
             0,
@@ -651,7 +651,7 @@
             this.Burrow.Location = new System.Drawing.Point(213, 194);
             this.Burrow.Name = "Burrow";
             this.Burrow.Size = new System.Drawing.Size(40, 13);
-            this.Burrow.TabIndex = 42;
+            this.Burrow.TabIndex = 16;
             this.Burrow.Text = "Burrow";
             // 
             // Climb
@@ -660,7 +660,7 @@
             this.Climb.Location = new System.Drawing.Point(213, 220);
             this.Climb.Name = "Climb";
             this.Climb.Size = new System.Drawing.Size(32, 13);
-            this.Climb.TabIndex = 43;
+            this.Climb.TabIndex = 18;
             this.Climb.Text = "Climb";
             // 
             // Fly
@@ -687,7 +687,7 @@
             this.HoverCheckBox.Location = new System.Drawing.Point(144, 247);
             this.HoverCheckBox.Name = "HoverCheckBox";
             this.HoverCheckBox.Size = new System.Drawing.Size(55, 17);
-            this.HoverCheckBox.TabIndex = 46;
+            this.HoverCheckBox.TabIndex = 15;
             this.HoverCheckBox.Text = "Hover";
             this.HoverCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -767,42 +767,42 @@
             this.StrSaveBonusUpDown.Location = new System.Drawing.Point(328, 327);
             this.StrSaveBonusUpDown.Name = "StrSaveBonusUpDown";
             this.StrSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
-            this.StrSaveBonusUpDown.TabIndex = 52;
+            this.StrSaveBonusUpDown.TabIndex = 26;
             // 
             // DexSaveBonusUpDown
             // 
             this.DexSaveBonusUpDown.Location = new System.Drawing.Point(378, 327);
             this.DexSaveBonusUpDown.Name = "DexSaveBonusUpDown";
             this.DexSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
-            this.DexSaveBonusUpDown.TabIndex = 53;
+            this.DexSaveBonusUpDown.TabIndex = 27;
             // 
             // ConSaveBonusUpDown
             // 
             this.ConSaveBonusUpDown.Location = new System.Drawing.Point(430, 327);
             this.ConSaveBonusUpDown.Name = "ConSaveBonusUpDown";
             this.ConSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
-            this.ConSaveBonusUpDown.TabIndex = 54;
+            this.ConSaveBonusUpDown.TabIndex = 28;
             // 
             // IntSaveBonusUpDown
             // 
             this.IntSaveBonusUpDown.Location = new System.Drawing.Point(330, 371);
             this.IntSaveBonusUpDown.Name = "IntSaveBonusUpDown";
             this.IntSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
-            this.IntSaveBonusUpDown.TabIndex = 55;
+            this.IntSaveBonusUpDown.TabIndex = 29;
             // 
             // WisSaveBonusUpDown
             // 
             this.WisSaveBonusUpDown.Location = new System.Drawing.Point(380, 371);
             this.WisSaveBonusUpDown.Name = "WisSaveBonusUpDown";
             this.WisSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
-            this.WisSaveBonusUpDown.TabIndex = 56;
+            this.WisSaveBonusUpDown.TabIndex = 30;
             // 
             // ChaSaveBonusUpDown
             // 
             this.ChaSaveBonusUpDown.Location = new System.Drawing.Point(430, 371);
             this.ChaSaveBonusUpDown.Name = "ChaSaveBonusUpDown";
             this.ChaSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
-            this.ChaSaveBonusUpDown.TabIndex = 57;
+            this.ChaSaveBonusUpDown.TabIndex = 31;
             // 
             // SavingThrowBonuses
             // 
@@ -914,14 +914,14 @@
             this.DamageConditionDropDown.Location = new System.Drawing.Point(56, 406);
             this.DamageConditionDropDown.Name = "DamageConditionDropDown";
             this.DamageConditionDropDown.Size = new System.Drawing.Size(378, 21);
-            this.DamageConditionDropDown.TabIndex = 67;
+            this.DamageConditionDropDown.TabIndex = 32;
             // 
             // AddVulnerabilityButton
             // 
             this.AddVulnerabilityButton.Location = new System.Drawing.Point(56, 433);
             this.AddVulnerabilityButton.Name = "AddVulnerabilityButton";
             this.AddVulnerabilityButton.Size = new System.Drawing.Size(123, 23);
-            this.AddVulnerabilityButton.TabIndex = 68;
+            this.AddVulnerabilityButton.TabIndex = 33;
             this.AddVulnerabilityButton.Tag = "AddV";
             this.AddVulnerabilityButton.Text = "Add Vulnerability";
             this.AddVulnerabilityButton.UseVisualStyleBackColor = true;
@@ -931,7 +931,7 @@
             this.AddResistanceButton.Location = new System.Drawing.Point(185, 433);
             this.AddResistanceButton.Name = "AddResistanceButton";
             this.AddResistanceButton.Size = new System.Drawing.Size(123, 23);
-            this.AddResistanceButton.TabIndex = 69;
+            this.AddResistanceButton.TabIndex = 34;
             this.AddResistanceButton.Tag = "AddR";
             this.AddResistanceButton.Text = "Add Resistance";
             this.AddResistanceButton.UseVisualStyleBackColor = true;
@@ -941,7 +941,7 @@
             this.AddImmunityButton.Location = new System.Drawing.Point(311, 433);
             this.AddImmunityButton.Name = "AddImmunityButton";
             this.AddImmunityButton.Size = new System.Drawing.Size(123, 23);
-            this.AddImmunityButton.TabIndex = 70;
+            this.AddImmunityButton.TabIndex = 35;
             this.AddImmunityButton.Tag = "AddI";
             this.AddImmunityButton.Text = "Add Immunity";
             this.AddImmunityButton.UseVisualStyleBackColor = true;
@@ -977,14 +977,14 @@
             this.SensesDropDown.Location = new System.Drawing.Point(56, 462);
             this.SensesDropDown.Name = "SensesDropDown";
             this.SensesDropDown.Size = new System.Drawing.Size(123, 21);
-            this.SensesDropDown.TabIndex = 73;
+            this.SensesDropDown.TabIndex = 36;
             // 
             // AddSenseButton
             // 
             this.AddSenseButton.Location = new System.Drawing.Point(311, 460);
             this.AddSenseButton.Name = "AddSenseButton";
             this.AddSenseButton.Size = new System.Drawing.Size(123, 23);
-            this.AddSenseButton.TabIndex = 74;
+            this.AddSenseButton.TabIndex = 39;
             this.AddSenseButton.Text = "Add Sense";
             this.AddSenseButton.UseVisualStyleBackColor = true;
             this.AddSenseButton.Click += new System.EventHandler(this.addSense);
@@ -999,7 +999,7 @@
             this.DistanceUpDown.Location = new System.Drawing.Point(185, 463);
             this.DistanceUpDown.Name = "DistanceUpDown";
             this.DistanceUpDown.Size = new System.Drawing.Size(42, 20);
-            this.DistanceUpDown.TabIndex = 75;
+            this.DistanceUpDown.TabIndex = 37;
             this.DistanceUpDown.Value = new decimal(new int[] {
             50,
             0,
@@ -1012,7 +1012,7 @@
             this.Distance.Location = new System.Drawing.Point(233, 465);
             this.Distance.Name = "Distance";
             this.Distance.Size = new System.Drawing.Size(47, 13);
-            this.Distance.TabIndex = 76;
+            this.Distance.TabIndex = 38;
             this.Distance.Text = "distance";
             // 
             // LanguageTextBox
@@ -1020,7 +1020,7 @@
             this.LanguageTextBox.Location = new System.Drawing.Point(56, 489);
             this.LanguageTextBox.Name = "LanguageTextBox";
             this.LanguageTextBox.Size = new System.Drawing.Size(252, 20);
-            this.LanguageTextBox.TabIndex = 77;
+            this.LanguageTextBox.TabIndex = 40;
             this.LanguageTextBox.Text = "-";
             // 
             // AddLanguageButton
@@ -1028,7 +1028,7 @@
             this.AddLanguageButton.Location = new System.Drawing.Point(311, 487);
             this.AddLanguageButton.Name = "AddLanguageButton";
             this.AddLanguageButton.Size = new System.Drawing.Size(123, 23);
-            this.AddLanguageButton.TabIndex = 78;
+            this.AddLanguageButton.TabIndex = 41;
             this.AddLanguageButton.Text = "Add Language";
             this.AddLanguageButton.UseVisualStyleBackColor = true;
             this.AddLanguageButton.Click += new System.EventHandler(this.addLanguage);
@@ -1038,7 +1038,7 @@
             this.PreviewButton.Location = new System.Drawing.Point(442, 675);
             this.PreviewButton.Name = "PreviewButton";
             this.PreviewButton.Size = new System.Drawing.Size(75, 23);
-            this.PreviewButton.TabIndex = 79;
+            this.PreviewButton.TabIndex = 52;
             this.PreviewButton.Text = "Preview";
             this.PreviewButton.UseVisualStyleBackColor = true;
             this.PreviewButton.Click += new System.EventHandler(this.Preview);
@@ -1048,7 +1048,7 @@
             this.AddAbilityButton.Location = new System.Drawing.Point(170, 581);
             this.AddAbilityButton.Name = "AddAbilityButton";
             this.AddAbilityButton.Size = new System.Drawing.Size(75, 23);
-            this.AddAbilityButton.TabIndex = 80;
+            this.AddAbilityButton.TabIndex = 47;
             this.AddAbilityButton.Text = "Add Ability";
             this.AddAbilityButton.UseVisualStyleBackColor = true;
             this.AddAbilityButton.Click += new System.EventHandler(this.addAbility);
@@ -1058,7 +1058,7 @@
             this.AddActionButton.Location = new System.Drawing.Point(245, 581);
             this.AddActionButton.Name = "AddActionButton";
             this.AddActionButton.Size = new System.Drawing.Size(75, 23);
-            this.AddActionButton.TabIndex = 81;
+            this.AddActionButton.TabIndex = 48;
             this.AddActionButton.Text = "Add Action";
             this.AddActionButton.UseVisualStyleBackColor = true;
             this.AddActionButton.Click += new System.EventHandler(this.addAttack);
@@ -1101,14 +1101,14 @@
             this.SkillDropDown.Location = new System.Drawing.Point(56, 525);
             this.SkillDropDown.Name = "SkillDropDown";
             this.SkillDropDown.Size = new System.Drawing.Size(328, 21);
-            this.SkillDropDown.TabIndex = 83;
+            this.SkillDropDown.TabIndex = 42;
             // 
             // AddSkillButton
             // 
             this.AddSkillButton.Location = new System.Drawing.Point(56, 552);
             this.AddSkillButton.Name = "AddSkillButton";
             this.AddSkillButton.Size = new System.Drawing.Size(189, 23);
-            this.AddSkillButton.TabIndex = 84;
+            this.AddSkillButton.TabIndex = 45;
             this.AddSkillButton.Tag = "Skill";
             this.AddSkillButton.Text = "Add Skill";
             this.AddSkillButton.UseVisualStyleBackColor = true;
@@ -1119,7 +1119,7 @@
             this.AddSkillAndBonusButton.Location = new System.Drawing.Point(245, 552);
             this.AddSkillAndBonusButton.Name = "AddSkillAndBonusButton";
             this.AddSkillAndBonusButton.Size = new System.Drawing.Size(189, 23);
-            this.AddSkillAndBonusButton.TabIndex = 85;
+            this.AddSkillAndBonusButton.TabIndex = 46;
             this.AddSkillAndBonusButton.Tag = "Skill+";
             this.AddSkillAndBonusButton.Text = "Add Skill And Bonus";
             this.AddSkillAndBonusButton.UseVisualStyleBackColor = true;
@@ -1130,7 +1130,7 @@
             this.SkillBonus.Location = new System.Drawing.Point(390, 525);
             this.SkillBonus.Name = "SkillBonus";
             this.SkillBonus.Size = new System.Drawing.Size(44, 20);
-            this.SkillBonus.TabIndex = 86;
+            this.SkillBonus.TabIndex = 43;
             // 
             // ShowStatInSkill
             // 
@@ -1138,7 +1138,7 @@
             this.ShowStatInSkill.Location = new System.Drawing.Point(440, 526);
             this.ShowStatInSkill.Name = "ShowStatInSkill";
             this.ShowStatInSkill.Size = new System.Drawing.Size(75, 17);
-            this.ShowStatInSkill.TabIndex = 87;
+            this.ShowStatInSkill.TabIndex = 44;
             this.ShowStatInSkill.Text = "Show Stat";
             this.ShowStatInSkill.UseVisualStyleBackColor = true;
             // 
@@ -1147,7 +1147,7 @@
             this.SaveButton.Location = new System.Drawing.Point(444, 650);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
-            this.SaveButton.TabIndex = 88;
+            this.SaveButton.TabIndex = 51;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveData);
@@ -1157,7 +1157,7 @@
             this.LoadButton.Location = new System.Drawing.Point(442, 621);
             this.LoadButton.Name = "LoadButton";
             this.LoadButton.Size = new System.Drawing.Size(75, 23);
-            this.LoadButton.TabIndex = 89;
+            this.LoadButton.TabIndex = 50;
             this.LoadButton.Text = "Load";
             this.LoadButton.UseVisualStyleBackColor = true;
             this.LoadButton.Click += new System.EventHandler(this.LoadData);
@@ -1206,12 +1206,32 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(579, 31);
             this.tableLayoutPanel2.TabIndex = 92;
             // 
+            // ExportCSV
+            // 
+            this.ExportCSV.Location = new System.Drawing.Point(231, 3);
+            this.ExportCSV.Name = "ExportCSV";
+            this.ExportCSV.Size = new System.Drawing.Size(75, 23);
+            this.ExportCSV.TabIndex = 3;
+            this.ExportCSV.Text = "CSV";
+            this.ExportCSV.UseVisualStyleBackColor = true;
+            this.ExportCSV.Click += new System.EventHandler(this.ExportCSV_Click);
+            // 
+            // PrintButton
+            // 
+            this.PrintButton.Location = new System.Drawing.Point(150, 3);
+            this.PrintButton.Name = "PrintButton";
+            this.PrintButton.Size = new System.Drawing.Size(75, 23);
+            this.PrintButton.TabIndex = 2;
+            this.PrintButton.Text = "Print";
+            this.PrintButton.UseVisualStyleBackColor = true;
+            this.PrintButton.Click += new System.EventHandler(this.Print_Click);
+            // 
             // ExportPNG
             // 
             this.ExportPNG.Location = new System.Drawing.Point(69, 3);
             this.ExportPNG.Name = "ExportPNG";
             this.ExportPNG.Size = new System.Drawing.Size(75, 23);
-            this.ExportPNG.TabIndex = 91;
+            this.ExportPNG.TabIndex = 1;
             this.ExportPNG.Text = "PNG";
             this.ExportPNG.UseVisualStyleBackColor = true;
             this.ExportPNG.Click += new System.EventHandler(this.ExportPNG_Click);
@@ -1221,30 +1241,10 @@
             this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(57, 23);
-            this.button1.TabIndex = 91;
+            this.button1.TabIndex = 0;
             this.button1.Text = "HTML";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.ExportHTML);
-            // 
-            // PrintButton
-            // 
-            this.PrintButton.Location = new System.Drawing.Point(150, 3);
-            this.PrintButton.Name = "PrintButton";
-            this.PrintButton.Size = new System.Drawing.Size(75, 23);
-            this.PrintButton.TabIndex = 1;
-            this.PrintButton.Text = "Print";
-            this.PrintButton.UseVisualStyleBackColor = true;
-            this.PrintButton.Click += new System.EventHandler(this.Print_Click);
-            // 
-            // ExportCSV
-            // 
-            this.ExportCSV.Location = new System.Drawing.Point(231, 3);
-            this.ExportCSV.Name = "ExportCSV";
-            this.ExportCSV.Size = new System.Drawing.Size(75, 23);
-            this.ExportCSV.TabIndex = 91;
-            this.ExportCSV.Text = "CSV";
-            this.ExportCSV.UseVisualStyleBackColor = true;
-            this.ExportCSV.Click += new System.EventHandler(this.ExportCSV_Click);
             // 
             // Main
             // 
