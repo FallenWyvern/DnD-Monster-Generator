@@ -39,8 +39,9 @@ namespace DND_Monster
                 this.NewAttack = new Attack(
                     AttackTypeDropdown.Text,
                     AttackBonusUpDown.Value.ToString(),
-                    RangeReachDropdown.Text,
-                    (int)RangeReachUpDown.Value,
+                    (int)ReachUpDown.Value,
+                    (int)RangeUpDownClose.Value,
+                    (int)RangeUpDownFar.Value,
                     AttackTargetField.Text,
                     AverageDamage((int)HitNumberOfDice.Value, HitDiceType.Text, (int)HitDiceBonusDamage.Value),
                     (int)HitNumberOfDice.Value,
@@ -99,15 +100,9 @@ namespace DND_Monster
 
             AttackBonusUpDown.Value = Convert.ToInt32(values.Bonus);
 
-            foreach (string item in RangeReachDropdown.Items)
-            {
-                if (values.RangeMode == item)
-                {
-                    RangeReachDropdown.SelectedItem = item;
-                }
-            }
-
-            RangeReachUpDown.Value = values.Range;
+            ReachUpDown.Value = values.Reach;
+            RangeUpDownClose.Value = values.RangeClose;
+            RangeUpDownFar.Value = values.RangeFar;
             AttackTargetField.Text = values.Target;
 
             foreach (string item in HitDiceType.Items)
@@ -133,6 +128,11 @@ namespace DND_Monster
 
             NewAttack = values;
             NewAttack.isDamage = true;
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

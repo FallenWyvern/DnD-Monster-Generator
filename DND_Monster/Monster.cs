@@ -399,7 +399,7 @@ namespace DND_Monster
             }
             
             if (SkillBonuses.Count > 0)
-            {
+            {                
                 output.Add(@"<property-line>");
                 output.Add(@"<h4>Skills</h4>");
                 output.Add(@"<p>" + Skills() + "</p>");
@@ -615,7 +615,7 @@ namespace DND_Monster
         {
             string skills = "";
             foreach (string item in SkillBonuses)
-            {
+            {                
                 skills += item.Split(':')[1] + ", ";
             }
             if (skills.Length > 2)
@@ -626,7 +626,7 @@ namespace DND_Monster
         }
 
         public static void AddSkillBonus(string skill)
-        {
+        {            
             SkillBonuses.Add(skill);
         }
 
@@ -878,8 +878,9 @@ public class Attack : Ability
 {    
     public string _Attack { get; set; }
     public string Bonus { get; set; }
-    public string RangeMode { get; set; }
-    public int Range { get; set; }
+    public int Reach { get; set; }
+    public int RangeClose { get; set; }
+    public int RangeFar { get; set; }    
     public string Target { get; set; }
     public int HitDiceNumber { get; set; }
     public int HitDiceSize { get; set; }
@@ -888,12 +889,13 @@ public class Attack : Ability
     public string HitText { get; set; }
     public string HitDamageType { get; set; }
 
-    public Attack(string attack, string bonus, string rangeMode, int range, string target, int hitAverageDamage, int hitDiceNumber, int hitDiceSize, int hitDamageBonus, string damageType, string hit)
+    public Attack(string attack, string bonus, int reach, int rangeClose, int rangeFar, string target, int hitAverageDamage, int hitDiceNumber, int hitDiceSize, int hitDamageBonus, string damageType, string hit)
     {
         _Attack = attack;
         Bonus = bonus;
-        RangeMode = rangeMode;
-        Range = range;
+        Reach = reach;
+        RangeClose = rangeClose;
+        RangeFar = rangeFar;
         Target = target;
         HitAverageDamage = hitAverageDamage;
         HitDiceNumber = hitDiceNumber;
@@ -908,7 +910,21 @@ public class Attack : Ability
     {
         string returnstring = "<i>";
         returnstring += _Attack + ": </i>+";
-        returnstring += Bonus + ", " + RangeMode + " " + Range + " ft., " + Target;
+        returnstring += Bonus + ", ";
+        
+        if (Reach > 0){
+            returnstring += "Reach: " + Reach + " ft., ";
+        }
+
+        if (RangeClose > 0 ){
+            returnstring += "Range: " + RangeClose;
+            if (RangeFar > 0) {
+                returnstring += "/" + RangeFar;
+            }
+            returnstring += " ft., ";        
+        }
+
+        returnstring += Target;
         returnstring += " <i>Hit:</i> " + HitAverageDamage + " (" + HitDiceNumber + "d" + HitDiceSize + "+" + HitDamageBonus + ") " + HitDamageType + " damage " + HitText;
 
         return returnstring;

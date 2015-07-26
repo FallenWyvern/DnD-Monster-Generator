@@ -421,7 +421,7 @@ namespace DND_Monster
                     TraitsList.Items.Add("Ability: " + item.Title);
                 }
 
-                foreach (Attack item in Monster._Attacks)
+                foreach (Ability item in Monster._Attacks)
                 {
                     TraitsList.Items.Add("Attack: " + item.Title);
                 }
@@ -488,8 +488,9 @@ namespace DND_Monster
                 foreach (string SkillBonus in Monster.SkillBonuses)
                 {                    
                     TraitsList.Items.Add(SkillBonus);
-                }            
+                }
 
+                Monster.SkillBonuses.Clear();
             }
         }        
 
@@ -621,7 +622,8 @@ namespace DND_Monster
                         "Name=" + dimm.Title + "," +
                         "Type=" + dimm._Attack + "," +
                         "ToHit=" + dimm.Bonus + "," +
-                        dimm.RangeMode + "=" + dimm.Range + "," +
+                        "Reach=" + dimm.Reach + "," +
+                        "Range={" + dimm.RangeClose + "/" + dimm.RangeFar + "," +
                         "Target=" + dimm.Target + "," +
                         "Hit=[Average=" + dimm.HitAverageDamage + "]" + "[" + dimm.HitDiceNumber + "d" + dimm.HitDiceSize 
                             + "+" + dimm.HitDamageBonus + " " + dimm.HitDamageType + " " + dimm.HitText + "],"
@@ -749,16 +751,18 @@ namespace DND_Monster
             Monster.AC = ACUpDown.Value + " " + ACSourceTextBox.Text;
             Monster.HP = HitDieTextBox.Text;
             Monster.CR = ChallengeRatingDropDown.Text;
-
+            
             foreach (string item in TraitsList.Items)
             {
+                Console.WriteLine("Item: " + item);
+                
                 switch (item.Split(':')[0])
                 {
-                    case "Skill":
+                    case "Skill":                        
                         Monster.AddSkillBonus(item);
                         break;
-                    case "Skill+":
-                        Monster.AddSkillBonus(item);
+                    case "Skill+":                        
+                        Monster.AddSkillBonus(item);                        
                         break;
                     case "Damage Vulnerability":
                         Monster.AddDamageVulnerabilities(item.Split(':')[1].Trim());
@@ -780,7 +784,7 @@ namespace DND_Monster
                         break;
                 }
             }
-
+            
             if (StrSaveBonusUpDown.Value > 0)
             {
                 Monster.AddSavingThrow("Str +" + StrSaveBonusUpDown.Value);
