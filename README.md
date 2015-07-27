@@ -17,4 +17,9 @@ Requested features
 - Auto-Calculating CR. This will probably not be able to make it in due to the complexity of parsing user entered abilities.
 - SVG output. This will be a much later feature, as that requires an entirely different renderer.
 - OneNote output. This is a maybe, provided I can get my hands on OneNote and find the time to learn it.
-- CSV output.
+
+The HTML template being used by default is Valloric's and can be found at https://github.com/Valloric/statblock5e
+As such, that places this software under the Apache License, Version 2.0 which can be found at http://www.apache.org/licenses/LICENSE-2.0.html
+
+
+
