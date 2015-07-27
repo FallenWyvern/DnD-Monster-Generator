@@ -123,6 +123,7 @@
             this.PrintButton = new System.Windows.Forms.Button();
             this.ExportPNG = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.PreviewTemplateSelector = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StrUpDown)).BeginInit();
@@ -1246,11 +1247,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.ExportHTML);
             // 
+            // PreviewTemplateSelector
+            // 
+            this.PreviewTemplateSelector.FormattingEnabled = true;
+            this.PreviewTemplateSelector.Items.AddRange(new object[] {
+            "Valloric\'s Statblock"});
+            this.PreviewTemplateSelector.Location = new System.Drawing.Point(268, 677);
+            this.PreviewTemplateSelector.Name = "PreviewTemplateSelector";
+            this.PreviewTemplateSelector.Size = new System.Drawing.Size(156, 21);
+            this.PreviewTemplateSelector.TabIndex = 91;
+            this.PreviewTemplateSelector.Text = "Valloric\'s Statblock";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 701);
+            this.Controls.Add(this.PreviewTemplateSelector);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LoadButton);
             this.Controls.Add(this.SaveButton);
@@ -1470,6 +1483,7 @@
         private System.Windows.Forms.Button ExportPNG;
         private System.Windows.Forms.Button PrintButton;
         private System.Windows.Forms.Button ExportCSV;
+        private System.Windows.Forms.ComboBox PreviewTemplateSelector;
     }
 }
 

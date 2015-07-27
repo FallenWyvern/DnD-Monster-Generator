@@ -381,8 +381,8 @@ namespace DND_Monster
         }
 
         private void Preview(object sender, EventArgs e)
-        {
-            GenerateMonsterData();
+        {            
+            GenerateMonsterData();         
         }
 
         private void SaveData(object sender, EventArgs e)
@@ -868,7 +868,11 @@ namespace DND_Monster
                     System.Threading.Thread.Sleep(100);
                 }
             }
-            b.LoadHtml(Monster.Create(), "http://rendering/");
+
+            if (PreviewTemplateSelector.Text == "Valloric's Statblock")
+            {
+                b.LoadHtml(Monster.ValloricStatBlock(), "http://rendering/");
+            }
         }
 
         private void RecalculateAC(string source)

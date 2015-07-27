@@ -57,6 +57,73 @@ namespace DND_Monster
         public int HighHP { get; set; }
     }
 
+    public class Ability
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public bool isDamage { get; set; }
+    }
+
+    public class Attack : Ability
+    {
+        public string _Attack { get; set; }
+        public string Bonus { get; set; }
+        public int Reach { get; set; }
+        public int RangeClose { get; set; }
+        public int RangeFar { get; set; }
+        public string Target { get; set; }
+        public int HitDiceNumber { get; set; }
+        public int HitDiceSize { get; set; }
+        public int HitDamageBonus { get; set; }
+        public int HitAverageDamage { get; set; }
+        public string HitText { get; set; }
+        public string HitDamageType { get; set; }
+
+        public Attack(string attack, string bonus, int reach, int rangeClose, int rangeFar, string target, int hitAverageDamage, int hitDiceNumber, int hitDiceSize, int hitDamageBonus, string damageType, string hit)
+        {
+            _Attack = attack;
+            Bonus = bonus;
+            Reach = reach;
+            RangeClose = rangeClose;
+            RangeFar = rangeFar;
+            Target = target;
+            HitAverageDamage = hitAverageDamage;
+            HitDiceNumber = hitDiceNumber;
+            HitDiceSize = hitDiceSize;
+            HitDamageBonus = hitDamageBonus;
+            HitDamageType = damageType;
+            HitText = hit;
+            Description = Describe();
+        }
+
+        public string Describe()
+        {
+            string returnstring = "<i>";
+            returnstring += _Attack + ": </i>+";
+            returnstring += Bonus + ", ";
+
+            if (Reach > 0)
+            {
+                returnstring += "Reach: " + Reach + " ft., ";
+            }
+
+            if (RangeClose > 0)
+            {
+                returnstring += "Range: " + RangeClose;
+                if (RangeFar > 0)
+                {
+                    returnstring += "/" + RangeFar;
+                }
+                returnstring += " ft., ";
+            }
+
+            returnstring += Target;
+            returnstring += " <i>Hit:</i> " + HitAverageDamage + " (" + HitDiceNumber + "d" + HitDiceSize + "+" + HitDamageBonus + ") " + HitDamageType + " damage " + HitText;
+
+            return returnstring;
+        }
+    }
+
     public static class Help
     {
         public static List<Challenge_Rating> ChallengeRatings = new List<Challenge_Rating>
