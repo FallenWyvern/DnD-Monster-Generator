@@ -91,8 +91,7 @@ namespace DND_Monster
                 if (cr.CR == ChallengeRatingDropDown.Text)
                 {
                     SkillBonus.Value = cr.profBonus;                    
-                    currentCR = cr;
-                    RecalculateAC("CR Updated");
+                    currentCR = cr;                    
                 }
             }
         }
@@ -331,6 +330,7 @@ namespace DND_Monster
         {            
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
+                if (TraitsList.Items.Count < 1) return;
                 if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Ability")
                 {
                     MessageBox.Show("Ability!");
@@ -374,15 +374,11 @@ namespace DND_Monster
                 }                
             }            
         }
-
-        private void CRCalculateButton_Click(object sender, EventArgs e)
-        {
-            CalculateCR();
-        }
-
+        
         private void Preview(object sender, EventArgs e)
         {            
-            GenerateMonsterData();         
+            GenerateMonsterData();
+            ShowMonster();
         }
 
         private void SaveData(object sender, EventArgs e)
@@ -715,11 +711,13 @@ namespace DND_Monster
       
         // Generates the actual monster itself.
         private void GenerateMonsterData()
-        {            
+        {
+            Monster.SkillBonuses.Clear();
+
             // Clear existing HTML
             if (Monster.output.Count > 0)
             {
-                Monster.Clear();
+                Monster.Clear();                
             }
 
             int.TryParse(ProfBonus.Text, out Monster.proficency);
@@ -750,12 +748,10 @@ namespace DND_Monster
 
             Monster.AC = ACUpDown.Value + " " + ACSourceTextBox.Text;
             Monster.HP = HitDieTextBox.Text;
-            Monster.CR = ChallengeRatingDropDown.Text;
+            Monster.CR = currentCR;
             
             foreach (string item in TraitsList.Items)
             {
-                Console.WriteLine("Item: " + item);
-                
                 switch (item.Split(':')[0])
                 {
                     case "Skill":                        
@@ -808,9 +804,7 @@ namespace DND_Monster
             if (ChaSaveBonusUpDown.Value > 0)
             {
                 Monster.AddSavingThrow("Cha +" + ChaSaveBonusUpDown.Value);
-            }
-
-            ShowMonster();
+            }            
         }
 
         public void Clear()
@@ -910,20 +904,9 @@ namespace DND_Monster
             return returnStatMod;
         }
 
-        private void CalculateCR()
+        private void GuessCR_Click(object sender, EventArgs e)
         {
-            Challenge_Rating targetCRForHP = Help.FindCRByHP(HitDieTextBox.Text.Split('(')[0]);
-            if (targetCRForHP == null) return;
             
-            if (Math.Abs(targetCRForHP.ArmorClass - ACUpDown.Value) > 2)
-            {                
-                var adjust = Math.Floor((targetCRForHP.ArmorClass - ACUpDown.Value) / 2);
-                Console.WriteLine("Adjust CR by " + adjust);
-                Console.WriteLine("Target CR: " + targetCRForHP.Index);
-                Console.WriteLine("Adjusted: " + (targetCRForHP.Index + adjust));
-                
-                ChallengeRatingDropDown.SelectedItem = Help.FindCRByIndex(Convert.ToInt32((targetCRForHP.Index + adjust))).CR;
-            }
         }        
     }
 }

@@ -11,8 +11,7 @@ namespace DND_Monster
         // Writes out the HTML needed to render the stat block
         public static string ValloricStatBlock()
         {
-            // Templates and Scripts
-            #region
+            // Templates and Scripts            
             output.Add(@"<!DOCTYPE html>");
             output.Add("<html>");
 
@@ -330,25 +329,19 @@ namespace DND_Monster
 
             output.Add(@"");
             output.Add(@"");
-            output.Add(@"");
-            #endregion
+            output.Add(@"");            
 
-            // Generates the actual HTML
-            #region
+            // Generates the actual HTML            
             // Stat-Block Add Variables
             output.Add(@"<stat-block>");
 
-            // Creature Heading
-            #region
+            // Creature Heading            
             output.Add(@"<creature-heading>");
             output.Add(@"<h1>" + CreatureName + "</h1>");
             output.Add(@"<h2>" + CreatureSize + " " + CreatureType + ", " + CreatureAlign + "</h2>");
-            output.Add(@"</creature-heading>");
-            #endregion
+            output.Add(@"</creature-heading>");            
 
-            // Top Stats
-            #region
-            #region
+            // Top Stats            
             output.Add(@"<top-stats>");
 
             output.Add(@"<property-line>");
@@ -364,11 +357,9 @@ namespace DND_Monster
             output.Add(@"<property-line>");
             output.Add(@"<h4>Speed</h4>");
             output.Add(@"<p>" + Speed + "ft</p>");
-            output.Add(@"</property-line>");
-            #endregion
+            output.Add(@"</property-line>");            
 
-            // Stats
-            #region
+            // Stats            
             string stats = "<abilities-block data-";
             stats += "cha=\"" + CHA + "\" ";
             stats += "data-con=\"" + CON + "\" ";
@@ -378,11 +369,9 @@ namespace DND_Monster
             stats += "data-wis=\"" + WIS + "\">";
             stats += "</abilities-block>";
 
-            output.Add(stats);
-            #endregion
+            output.Add(stats);            
 
-            // Immunities, Resistances, Senses, Languages
-            #region
+            // Immunities, Resistances, Senses, Languages            
             if (SavingThrowBonuses.Count > 0)
             {
                 output.Add(@"<property-line>");
@@ -440,20 +429,13 @@ namespace DND_Monster
             output.Add(@"<h4>Languages</h4>");
             output.Add(@"<p>" + Languages() + "</p>");
             output.Add(@"</property-line>");
-            #endregion
 
-            // CR
-            #region
             output.Add(@"<property-line>");
             output.Add(@"<h4>Challenge</h4>");
-            output.Add(@"<p>" + CR + "</p>");
+            output.Add(@"<p>" + CR.CR + " (" + CR.XP + " XP)"  + "</p>");
             output.Add(@"</property-line>");
-            output.Add(@"</top-stats>");
-            #endregion
-            #endregion
-
-            // Abilities
-            #region
+          
+            // Abilities            
             foreach (Ability ability in _Abilities)
             {
                 output.Add(@"<property-block>");
@@ -461,11 +443,9 @@ namespace DND_Monster
                 output.Add(@"<p>" + ability.Description + "</p>");
                 output.Add(@"</property-block>");
             }
-            TaperedRule();
-            #endregion
+            TaperedRule();            
 
-            // Actions
-            #region
+            // Actions            
             foreach (Ability ability in _Attacks)
             {
                 if (!ability.isDamage)
@@ -486,24 +466,21 @@ namespace DND_Monster
                     output.Add(@"<p>" + ability.Description + "</p>");
                     output.Add(@"</property-block>");
                 }
-            }
-            #endregion
+            }            
 
             // Writeout
             output.Add("</stat-block>");
             output.Add("</body>");
             output.Add("</html>");
-            #endregion
-
-            // Writes out to file
-            #region
+            
+            
+            // Writes out to file            
             string returnString = "";
             foreach (string item in output)
             {
                 returnString += item + Environment.NewLine;
             }
-            return returnString;
-            #endregion
+            return returnString;            
         }
 
         // Since the scripts in the original template were so

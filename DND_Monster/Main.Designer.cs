@@ -124,6 +124,7 @@
             this.ExportPNG = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.PreviewTemplateSelector = new System.Windows.Forms.ComboBox();
+            this.GuessCR = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StrUpDown)).BeginInit();
@@ -1036,7 +1037,7 @@
             // 
             // PreviewButton
             // 
-            this.PreviewButton.Location = new System.Drawing.Point(442, 675);
+            this.PreviewButton.Location = new System.Drawing.Point(444, 675);
             this.PreviewButton.Name = "PreviewButton";
             this.PreviewButton.Size = new System.Drawing.Size(75, 23);
             this.PreviewButton.TabIndex = 52;
@@ -1145,7 +1146,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(444, 650);
+            this.SaveButton.Location = new System.Drawing.Point(444, 643);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 51;
@@ -1155,7 +1156,7 @@
             // 
             // LoadButton
             // 
-            this.LoadButton.Location = new System.Drawing.Point(442, 621);
+            this.LoadButton.Location = new System.Drawing.Point(442, 614);
             this.LoadButton.Name = "LoadButton";
             this.LoadButton.Size = new System.Drawing.Size(75, 23);
             this.LoadButton.TabIndex = 50;
@@ -1258,11 +1259,23 @@
             this.PreviewTemplateSelector.TabIndex = 91;
             this.PreviewTemplateSelector.Text = "Valloric\'s Statblock";
             // 
+            // GuessCR
+            // 
+            this.GuessCR.Location = new System.Drawing.Point(268, 648);
+            this.GuessCR.Name = "GuessCR";
+            this.GuessCR.Size = new System.Drawing.Size(75, 23);
+            this.GuessCR.TabIndex = 92;
+            this.GuessCR.Text = "Guess CR";
+            this.GuessCR.UseVisualStyleBackColor = true;
+            this.GuessCR.Visible = false;
+            this.GuessCR.Click += new System.EventHandler(this.GuessCR_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 701);
+            this.Controls.Add(this.GuessCR);
             this.Controls.Add(this.PreviewTemplateSelector);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LoadButton);
@@ -1484,6 +1497,7 @@
         private System.Windows.Forms.Button PrintButton;
         private System.Windows.Forms.Button ExportCSV;
         private System.Windows.Forms.ComboBox PreviewTemplateSelector;
+        private System.Windows.Forms.Button GuessCR;
     }
 }
 
