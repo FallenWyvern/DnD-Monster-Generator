@@ -91,7 +91,8 @@ namespace DND_Monster
                 if (cr.CR == ChallengeRatingDropDown.Text)
                 {
                     SkillBonus.Value = cr.profBonus;                    
-                    currentCR = cr;                    
+                    currentCR = cr;
+                    ProfBonus.Text = "+" + cr.profBonus;
                 }
             }
         }
@@ -115,64 +116,65 @@ namespace DND_Monster
 
         private void addLanguage(object sender, EventArgs e)
         {
-            TraitsList.Items.Add("Language: " + LanguageTextBox.Text);
+            TraitsList.Items.Add("Language: " + LanguageComboBox.Text);
         }
 
         private void addSkill(object sender, EventArgs e)
-        {
-            Button temp = (Button)sender;            
-            string skillToAdd = "";
-            int bonus = 0;
-            skillToAdd = SkillDropDown.Text + " ";
+        {                      
+            string skillToAdd = "Skill: ";
+            int totalBonus = 0;
+            int statBonus = 0;
+            int profBonus = 0;
+            int skillBonus = 0;
 
-            switch (SkillDropDown.Text.Split('(')[1].Replace(")", ""))
+            skillToAdd += SkillDropDown.Text + " %BONUS% (";
+
+            if (SkillStatCheckBox.Checked)
             {
-                case "Str":
-                    int.TryParse(StrBonus.Text, out bonus);
-                    break;
-                case "Dex":
-                    int.TryParse(DexBonus.Text, out bonus);
-                    break;
-                case "Con":
-                    int.TryParse(ConBonus.Text, out bonus);
-                    break;
-                case "Int":
-                    int.TryParse(IntBonus.Text, out bonus);
-                    break;
-                case "Wis":
-                    int.TryParse(WisBonus.Text, out bonus);
-                    break;
-                case "Cha":
-                    int.TryParse(ChaBonus.Text, out bonus);
-                    break;
-            }
-            
-            if (temp.Tag.ToString() == "Skill")
-            {
-                if (bonus > 0)
+                switch (SkillDropDown.Text.Split('(')[1].Replace(")", ""))
                 {
-                    skillToAdd += " +";
+                    case "Str":
+                        int.TryParse(StrBonus.Text, out statBonus);
+                        break;
+                    case "Dex":
+                        int.TryParse(DexBonus.Text, out statBonus);
+                        break;
+                    case "Con":
+                        int.TryParse(ConBonus.Text, out statBonus);
+                        break;
+                    case "Int":
+                        int.TryParse(IntBonus.Text, out statBonus);
+                        break;
+                    case "Wis":
+                        int.TryParse(WisBonus.Text, out statBonus);
+                        break;
+                    case "Cha":
+                        int.TryParse(ChaBonus.Text, out statBonus);
+                        break;
                 }
-                skillToAdd = "Skill: " + (skillToAdd + bonus);
+
+                skillToAdd += SkillDropDown.Text.Split('(')[1].Replace(")", "") + " " + statBonus + ", ";                
             }
-            if (temp.Tag.ToString() == "Skill+")
+
+            if (SkillProfCheckBox.Checked)
             {                
-                bonus += (int)SkillBonus.Value;
-                if (bonus > 0)
-                {
-                    skillToAdd += " +";
-                }
-                skillToAdd = "Skill+: " + (skillToAdd + bonus);
+                profBonus = currentCR.profBonus;
+                skillToAdd += "Prof. " + profBonus + ", ";
             }
 
-            if (!ShowStatInSkill.Checked)
+            if (SkillBonusCheckBox.Checked)
             {
-                skillToAdd = skillToAdd.Replace("(Str)", "").Replace("(Dex)", "").Replace("(Con)", "").Replace("(Int)", "").Replace("(Wis)", "").Replace("(Cha)", "");
+                skillBonus = (int)SkillBonus.Value;
+                skillToAdd += "Bonus " + skillBonus;
             }
 
-            if (bonus != 0)
+            skillToAdd += ")";
+
+            totalBonus = statBonus + profBonus + skillBonus;
+
+            if (totalBonus != 0)
             {
-                TraitsList.Items.Add(skillToAdd);
+                TraitsList.Items.Add(skillToAdd.Replace("%BONUS%", totalBonus.ToString()));                
             }
         }
         
@@ -200,12 +202,14 @@ namespace DND_Monster
             {
                 if (addAttack.NewAttack != null)
                 {
+                    if (TraitsList.Items.Contains(addAttack.NewAttack.Title)) { addAttack.NewAttack.Title += "_"; }
                     Monster._Attacks.Add(addAttack.NewAttack);
                     TraitsList.Items.Add("Attack: " + addAttack.NewAttack.Title);                    
                 }
 
                 if (addAttack.NewAbility != null)
                 {
+                    if (TraitsList.Items.Contains(addAttack.NewAbility.Title)) { addAttack.NewAbility.Title += "_"; }
                     Monster._Attacks.Add(addAttack.NewAbility);
                     TraitsList.Items.Add("Attack: " + addAttack.NewAbility.Title);                        
                 }
@@ -410,8 +414,70 @@ namespace DND_Monster
                 Data jsonMonster = new Data();
                 jsonMonster = JsonConvert.DeserializeObject<Data>(System.IO.File.ReadAllText(dialog.FileName));
                 TraitsList.Items.Clear();
+                
                 Monster.Input(jsonMonster);
 
+                currentCR = Monster.CR;
+                ChallengeRatingDropDown.Text = "";
+                ChallengeRatingDropDown.SelectedText = Help.FindCRByIndex(Monster.CR.Index).CR;
+                crChangedUpdateProficiency(null, null);
+
+                AlignmentDropDown.Text = "";
+                AlignmentDropDown.SelectedText = Monster.CreatureAlign;
+
+                StrUpDown.Value = Monster.STR;
+                DexUpDown.Value = Monster.DEX;
+                ConUpDown.Value = Monster.CON;
+                WisUpDown.Value = Monster.WIS;
+                IntUpDown.Value = Monster.INT;
+                ChaUpDown.Value = Monster.CHA;
+
+                string[] speeds = Monster.Speed.Split(',');
+                foreach (string speed in speeds)
+                {                    
+                    string check = speed.Split(':')[0].Trim();                    
+                    switch (check)
+                    {
+                        case "Burrow":                            
+                            int Burrow = 0;
+                            int.TryParse(speed.Split(':')[1], out Burrow);
+                            burrowUpDown.Value = Burrow;
+                            break;
+                        case "Climb":                            
+                            int Climb = 0;
+                            int.TryParse(speed.Split(':')[1], out Climb);
+                            ClimbUpDown.Value = Climb;
+                            break;
+                        case "Fly":                            
+                            int Fly = 0;                                                        
+                            if (speed.Split(':')[1].Contains("(Hover)"))
+                            {
+                                HoverCheckBox.Checked = true;
+                                int.TryParse(speed.Split(':')[1].Replace(" (Hover)", ""), out Fly);
+                            }
+                            else
+                            {
+                                int.TryParse(speed.Split(':')[1], out Fly);
+                            }
+                            FlyUpDown.Value = Fly;
+                            break;
+                        case "Swim":                            
+                            int Swim = 0;
+                            int.TryParse(speed.Split(':')[1], out Swim);
+                            SwimUpDown.Value = Swim;
+                            break;
+                        default:                            
+                            try
+                            {
+                                int temp = 0;
+                                int.TryParse(check, out temp);
+                                SpeedUpDown.Value = temp;
+                            }
+                            catch { }                            
+                            break;
+                    }                    
+                }
+                
                 foreach (Ability item in Monster._Abilities)
                 {
                     TraitsList.Items.Add("Ability: " + item.Title);
@@ -486,7 +552,43 @@ namespace DND_Monster
                     TraitsList.Items.Add(SkillBonus);
                 }
 
-                Monster.SkillBonuses.Clear();
+                HitDieTextBox.Text = Monster.HP;
+                try
+                {
+                    string hpString = Monster.HP.Split('(')[1].Replace(')', ' ').Trim().Split('+')[0];
+                    int DiceSize;
+                    int DiceNumber;
+                    int.TryParse(hpString.Split('d')[0], out DiceNumber);
+                    int.TryParse(hpString.Split('d')[1], out DiceSize);
+
+                    HitDieUpDown.Value = DiceNumber;
+                    HitDieDropDown.Text = "";
+                    HitDieDropDown.SelectedText = "d" + DiceSize;
+                }
+                catch { }
+
+                try
+                {
+                    int ACValue = 0;
+                    int.TryParse(Monster.AC.Split(' ')[0], out ACValue);
+
+                    ACUpDown.Value = ACValue;
+                    ACSourceTextBox.Text = Monster.AC.Split(' ')[1];
+                }
+                catch { }
+
+                MonsterNameTextBox.Text = "";
+                SizeDropDown.Text = "";
+                TypeDropDown.Text = "";
+                TagDropDown.Text = "";
+
+                MonsterNameTextBox.Text = Monster.CreatureName;
+                SizeDropDown.SelectedText = Monster.CreatureSize;
+                TypeDropDown.SelectedText = Monster.CreatureType.Split(' ')[0];
+                TagDropDown.SelectedText = Monster.CreatureType.Split(' ')[1].Replace('(', ' ').Replace(')', ' ').Trim();
+
+                //Monster.SkillBonuses.Clear();
+                Monster.Clear();
             }
         }        
 
@@ -706,7 +808,7 @@ namespace DND_Monster
                 }
             }
 
-            HitDieTextBox.Text = AverageHP + " (" + multiplier + "d" + size + "+" + (size * conmod) + ")";
+            HitDieTextBox.Text = AverageHP + " (" + multiplier + "d" + size + "+" + (conmod * multiplier) + ")";
         }
       
         // Generates the actual monster itself.
@@ -756,9 +858,6 @@ namespace DND_Monster
                 {
                     case "Skill":                        
                         Monster.AddSkillBonus(item);
-                        break;
-                    case "Skill+":                        
-                        Monster.AddSkillBonus(item);                        
                         break;
                     case "Damage Vulnerability":
                         Monster.AddDamageVulnerabilities(item.Split(':')[1].Trim());
@@ -907,6 +1006,16 @@ namespace DND_Monster
         private void GuessCR_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void TraitsList_MouseHover(object sender, EventArgs e)
+        {            
+            try
+            {
+                TraitsList.SelectedIndex = TraitsList.IndexFromPoint(TraitsList.PointToClient(Cursor.Position));
+                TraitsListPopUp.SetToolTip(TraitsList, TraitsList.SelectedItem.ToString());
+            }
+            catch { TraitsListPopUp.SetToolTip(TraitsList, ""); }
         }        
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.MonsterName = new System.Windows.Forms.Label();
             this.MonsterNameTextBox = new System.Windows.Forms.TextBox();
             this.ACUpDown = new System.Windows.Forms.NumericUpDown();
@@ -103,7 +104,6 @@
             this.AddSenseButton = new System.Windows.Forms.Button();
             this.DistanceUpDown = new System.Windows.Forms.NumericUpDown();
             this.Distance = new System.Windows.Forms.Label();
-            this.LanguageTextBox = new System.Windows.Forms.TextBox();
             this.AddLanguageButton = new System.Windows.Forms.Button();
             this.PreviewButton = new System.Windows.Forms.Button();
             this.AddAbilityButton = new System.Windows.Forms.Button();
@@ -111,9 +111,7 @@
             this.TraitInstruction2 = new System.Windows.Forms.Label();
             this.SkillDropDown = new System.Windows.Forms.ComboBox();
             this.AddSkillButton = new System.Windows.Forms.Button();
-            this.AddSkillAndBonusButton = new System.Windows.Forms.Button();
             this.SkillBonus = new System.Windows.Forms.NumericUpDown();
-            this.ShowStatInSkill = new System.Windows.Forms.CheckBox();
             this.SaveButton = new System.Windows.Forms.Button();
             this.LoadButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -125,6 +123,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.PreviewTemplateSelector = new System.Windows.Forms.ComboBox();
             this.GuessCR = new System.Windows.Forms.Button();
+            this.LanguageComboBox = new System.Windows.Forms.ComboBox();
+            this.SkillStatCheckBox = new System.Windows.Forms.CheckBox();
+            this.SkillBonusCheckBox = new System.Windows.Forms.CheckBox();
+            this.SkillProfCheckBox = new System.Windows.Forms.CheckBox();
+            this.TraitsListPopUp = new System.Windows.Forms.ToolTip(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StrUpDown)).BeginInit();
@@ -751,9 +755,9 @@
             this.Profiency.AutoSize = true;
             this.Profiency.Location = new System.Drawing.Point(11, 680);
             this.Profiency.Name = "Profiency";
-            this.Profiency.Size = new System.Drawing.Size(51, 13);
+            this.Profiency.Size = new System.Drawing.Size(59, 13);
             this.Profiency.TabIndex = 50;
-            this.Profiency.Text = "Profiency";
+            this.Profiency.Text = "Proficiency";
             // 
             // ProfBonus
             // 
@@ -951,12 +955,13 @@
             // TraitsList
             // 
             this.TraitsList.FormattingEnabled = true;
-            this.TraitsList.Location = new System.Drawing.Point(322, 38);
+            this.TraitsList.Location = new System.Drawing.Point(322, 53);
             this.TraitsList.Name = "TraitsList";
             this.TraitsList.Size = new System.Drawing.Size(186, 225);
             this.TraitsList.TabIndex = 71;
             this.TraitsList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.deleteTrait);
             this.TraitsList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.editTrait);
+            this.TraitsList.MouseHover += new System.EventHandler(this.TraitsList_MouseHover);
             // 
             // TraitInstruction1
             // 
@@ -1017,14 +1022,6 @@
             this.Distance.TabIndex = 38;
             this.Distance.Text = "distance";
             // 
-            // LanguageTextBox
-            // 
-            this.LanguageTextBox.Location = new System.Drawing.Point(56, 489);
-            this.LanguageTextBox.Name = "LanguageTextBox";
-            this.LanguageTextBox.Size = new System.Drawing.Size(252, 20);
-            this.LanguageTextBox.TabIndex = 40;
-            this.LanguageTextBox.Text = "-";
-            // 
             // AddLanguageButton
             // 
             this.AddLanguageButton.Location = new System.Drawing.Point(311, 487);
@@ -1047,7 +1044,7 @@
             // 
             // AddAbilityButton
             // 
-            this.AddAbilityButton.Location = new System.Drawing.Point(170, 581);
+            this.AddAbilityButton.Location = new System.Drawing.Point(152, 599);
             this.AddAbilityButton.Name = "AddAbilityButton";
             this.AddAbilityButton.Size = new System.Drawing.Size(75, 23);
             this.AddAbilityButton.TabIndex = 47;
@@ -1057,7 +1054,7 @@
             // 
             // AddActionButton
             // 
-            this.AddActionButton.Location = new System.Drawing.Point(245, 581);
+            this.AddActionButton.Location = new System.Drawing.Point(268, 599);
             this.AddActionButton.Name = "AddActionButton";
             this.AddActionButton.Size = new System.Drawing.Size(75, 23);
             this.AddActionButton.TabIndex = 48;
@@ -1109,23 +1106,12 @@
             // 
             this.AddSkillButton.Location = new System.Drawing.Point(56, 552);
             this.AddSkillButton.Name = "AddSkillButton";
-            this.AddSkillButton.Size = new System.Drawing.Size(189, 23);
+            this.AddSkillButton.Size = new System.Drawing.Size(82, 23);
             this.AddSkillButton.TabIndex = 45;
             this.AddSkillButton.Tag = "Skill";
             this.AddSkillButton.Text = "Add Skill";
             this.AddSkillButton.UseVisualStyleBackColor = true;
             this.AddSkillButton.Click += new System.EventHandler(this.addSkill);
-            // 
-            // AddSkillAndBonusButton
-            // 
-            this.AddSkillAndBonusButton.Location = new System.Drawing.Point(245, 552);
-            this.AddSkillAndBonusButton.Name = "AddSkillAndBonusButton";
-            this.AddSkillAndBonusButton.Size = new System.Drawing.Size(189, 23);
-            this.AddSkillAndBonusButton.TabIndex = 46;
-            this.AddSkillAndBonusButton.Tag = "Skill+";
-            this.AddSkillAndBonusButton.Text = "Add Skill And Bonus";
-            this.AddSkillAndBonusButton.UseVisualStyleBackColor = true;
-            this.AddSkillAndBonusButton.Click += new System.EventHandler(this.addSkill);
             // 
             // SkillBonus
             // 
@@ -1133,16 +1119,6 @@
             this.SkillBonus.Name = "SkillBonus";
             this.SkillBonus.Size = new System.Drawing.Size(44, 20);
             this.SkillBonus.TabIndex = 43;
-            // 
-            // ShowStatInSkill
-            // 
-            this.ShowStatInSkill.AutoSize = true;
-            this.ShowStatInSkill.Location = new System.Drawing.Point(440, 526);
-            this.ShowStatInSkill.Name = "ShowStatInSkill";
-            this.ShowStatInSkill.Size = new System.Drawing.Size(75, 17);
-            this.ShowStatInSkill.TabIndex = 44;
-            this.ShowStatInSkill.Text = "Show Stat";
-            this.ShowStatInSkill.UseVisualStyleBackColor = true;
             // 
             // SaveButton
             // 
@@ -1156,7 +1132,7 @@
             // 
             // LoadButton
             // 
-            this.LoadButton.Location = new System.Drawing.Point(442, 614);
+            this.LoadButton.Location = new System.Drawing.Point(444, 614);
             this.LoadButton.Name = "LoadButton";
             this.LoadButton.Size = new System.Drawing.Size(75, 23);
             this.LoadButton.TabIndex = 50;
@@ -1263,26 +1239,109 @@
             // 
             this.GuessCR.Location = new System.Drawing.Point(268, 648);
             this.GuessCR.Name = "GuessCR";
-            this.GuessCR.Size = new System.Drawing.Size(75, 23);
+            this.GuessCR.Size = new System.Drawing.Size(154, 23);
             this.GuessCR.TabIndex = 92;
-            this.GuessCR.Text = "Guess CR";
+            this.GuessCR.Text = "Guess CR (Does Nothing)";
             this.GuessCR.UseVisualStyleBackColor = true;
             this.GuessCR.Visible = false;
             this.GuessCR.Click += new System.EventHandler(this.GuessCR_Click);
+            // 
+            // LanguageComboBox
+            // 
+            this.LanguageComboBox.FormattingEnabled = true;
+            this.LanguageComboBox.Items.AddRange(new object[] {
+            "Abyssal",
+            "Aquan",
+            "Auran",
+            "Celestial",
+            "Common",
+            "Deep Speech",
+            "Draconic",
+            "Druidic",
+            "Dwarvish",
+            "Elvish",
+            "Giant",
+            "Gnomish",
+            "Goblin",
+            "Gnoll",
+            "Halfling",
+            "Ignan",
+            "Infernal",
+            "Orc",
+            "Primordial",
+            "Sylvan",
+            "Terran",
+            "Undercommon"});
+            this.LanguageComboBox.Location = new System.Drawing.Point(56, 489);
+            this.LanguageComboBox.Name = "LanguageComboBox";
+            this.LanguageComboBox.Size = new System.Drawing.Size(252, 21);
+            this.LanguageComboBox.TabIndex = 93;
+            // 
+            // SkillStatCheckBox
+            // 
+            this.SkillStatCheckBox.AutoSize = true;
+            this.SkillStatCheckBox.Checked = true;
+            this.SkillStatCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.SkillStatCheckBox.Location = new System.Drawing.Point(144, 556);
+            this.SkillStatCheckBox.Name = "SkillStatCheckBox";
+            this.SkillStatCheckBox.Size = new System.Drawing.Size(67, 17);
+            this.SkillStatCheckBox.TabIndex = 94;
+            this.SkillStatCheckBox.Text = "Add Stat";
+            this.SkillStatCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // SkillBonusCheckBox
+            // 
+            this.SkillBonusCheckBox.AutoSize = true;
+            this.SkillBonusCheckBox.Checked = true;
+            this.SkillBonusCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.SkillBonusCheckBox.Location = new System.Drawing.Point(216, 556);
+            this.SkillBonusCheckBox.Name = "SkillBonusCheckBox";
+            this.SkillBonusCheckBox.Size = new System.Drawing.Size(78, 17);
+            this.SkillBonusCheckBox.TabIndex = 95;
+            this.SkillBonusCheckBox.Text = "Add Bonus";
+            this.SkillBonusCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // SkillProfCheckBox
+            // 
+            this.SkillProfCheckBox.AutoSize = true;
+            this.SkillProfCheckBox.Checked = true;
+            this.SkillProfCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.SkillProfCheckBox.Location = new System.Drawing.Point(292, 556);
+            this.SkillProfCheckBox.Name = "SkillProfCheckBox";
+            this.SkillProfCheckBox.Size = new System.Drawing.Size(100, 17);
+            this.SkillProfCheckBox.TabIndex = 96;
+            this.SkillProfCheckBox.Text = "Add Proficiency";
+            this.SkillProfCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // TraitsListPopUp
+            // 
+            this.TraitsListPopUp.ShowAlways = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(344, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(140, 13);
+            this.label1.TabIndex = 97;
+            this.label1.Text = "Hover to Select and Inspect";
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 701);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.SkillProfCheckBox);
+            this.Controls.Add(this.SkillBonusCheckBox);
+            this.Controls.Add(this.SkillStatCheckBox);
+            this.Controls.Add(this.LanguageComboBox);
             this.Controls.Add(this.GuessCR);
             this.Controls.Add(this.PreviewTemplateSelector);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LoadButton);
             this.Controls.Add(this.SaveButton);
-            this.Controls.Add(this.ShowStatInSkill);
             this.Controls.Add(this.SkillBonus);
-            this.Controls.Add(this.AddSkillAndBonusButton);
             this.Controls.Add(this.AddSkillButton);
             this.Controls.Add(this.SkillDropDown);
             this.Controls.Add(this.TraitInstruction2);
@@ -1290,7 +1349,6 @@
             this.Controls.Add(this.AddAbilityButton);
             this.Controls.Add(this.PreviewButton);
             this.Controls.Add(this.AddLanguageButton);
-            this.Controls.Add(this.LanguageTextBox);
             this.Controls.Add(this.Distance);
             this.Controls.Add(this.DistanceUpDown);
             this.Controls.Add(this.AddSenseButton);
@@ -1476,7 +1534,6 @@
         private System.Windows.Forms.Button AddSenseButton;
         private System.Windows.Forms.NumericUpDown DistanceUpDown;
         private System.Windows.Forms.Label Distance;
-        private System.Windows.Forms.TextBox LanguageTextBox;
         private System.Windows.Forms.Button AddLanguageButton;
         private System.Windows.Forms.Button PreviewButton;
         private System.Windows.Forms.Button AddAbilityButton;
@@ -1484,9 +1541,7 @@
         private System.Windows.Forms.Label TraitInstruction2;
         private System.Windows.Forms.ComboBox SkillDropDown;
         private System.Windows.Forms.Button AddSkillButton;
-        private System.Windows.Forms.Button AddSkillAndBonusButton;
         private System.Windows.Forms.NumericUpDown SkillBonus;
-        private System.Windows.Forms.CheckBox ShowStatInSkill;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Button LoadButton;
         private System.Windows.Forms.Panel panel1;
@@ -1498,6 +1553,12 @@
         private System.Windows.Forms.Button ExportCSV;
         private System.Windows.Forms.ComboBox PreviewTemplateSelector;
         private System.Windows.Forms.Button GuessCR;
+        private System.Windows.Forms.ComboBox LanguageComboBox;
+        private System.Windows.Forms.CheckBox SkillStatCheckBox;
+        private System.Windows.Forms.CheckBox SkillBonusCheckBox;
+        private System.Windows.Forms.CheckBox SkillProfCheckBox;
+        private System.Windows.Forms.ToolTip TraitsListPopUp;
+        private System.Windows.Forms.Label label1;
     }
 }
 

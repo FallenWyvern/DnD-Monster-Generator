@@ -54,7 +54,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.AttackAbilityDescription = new System.Windows.Forms.Label();
-            this.AttackAbilityName = new System.Windows.Forms.Label();
+            this.ActionName = new System.Windows.Forms.Label();
             this.AttackAbilityNameField = new System.Windows.Forms.TextBox();
             this.AttackAbilityDescriptionField = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.AttackBonusUpDown)).BeginInit();
@@ -347,7 +347,7 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.AttackAbilityDescription);
-            this.tabPage2.Controls.Add(this.AttackAbilityName);
+            this.tabPage2.Controls.Add(this.ActionName);
             this.tabPage2.Controls.Add(this.AttackAbilityNameField);
             this.tabPage2.Controls.Add(this.AttackAbilityDescriptionField);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -355,7 +355,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(288, 261);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Ability";
+            this.tabPage2.Text = "Action";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // AttackAbilityDescription
@@ -367,14 +367,14 @@
             this.AttackAbilityDescription.TabIndex = 8;
             this.AttackAbilityDescription.Text = "Description";
             // 
-            // AttackAbilityName
+            // ActionName
             // 
-            this.AttackAbilityName.AutoSize = true;
-            this.AttackAbilityName.Location = new System.Drawing.Point(4, 9);
-            this.AttackAbilityName.Name = "AttackAbilityName";
-            this.AttackAbilityName.Size = new System.Drawing.Size(65, 13);
-            this.AttackAbilityName.TabIndex = 7;
-            this.AttackAbilityName.Text = "Ability Name";
+            this.ActionName.AutoSize = true;
+            this.ActionName.Location = new System.Drawing.Point(4, 9);
+            this.ActionName.Name = "ActionName";
+            this.ActionName.Size = new System.Drawing.Size(68, 13);
+            this.ActionName.TabIndex = 7;
+            this.ActionName.Text = "Action Name";
             // 
             // AttackAbilityNameField
             // 
@@ -403,6 +403,7 @@
             this.Name = "AddAttackForm";
             this.Text = "AddAttackForm";
             this.Load += new System.EventHandler(this.AddAttackForm_Load);
+            this.Leave += new System.EventHandler(this.AddAttackForm_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.AttackBonusUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RangeUpDownClose)).EndInit();
             this.tabControl1.ResumeLayout(false);
@@ -436,7 +437,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label AttackAbilityDescription;
-        private System.Windows.Forms.Label AttackAbilityName;
+        private System.Windows.Forms.Label ActionName;
         private System.Windows.Forms.TextBox AttackAbilityNameField;
         private System.Windows.Forms.RichTextBox AttackAbilityDescriptionField;
         private System.Windows.Forms.ComboBox HitDamageType;

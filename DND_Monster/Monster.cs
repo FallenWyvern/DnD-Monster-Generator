@@ -19,7 +19,7 @@ namespace DND_Monster
         #region
 
         public static void AddAbility(string title, string description)
-        {
+        {            
             _Abilities.Add(new Ability { Title = title, Description = description });
         }
 

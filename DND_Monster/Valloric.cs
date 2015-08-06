@@ -434,7 +434,8 @@ namespace DND_Monster
             output.Add(@"<h4>Challenge</h4>");
             output.Add(@"<p>" + CR.CR + " (" + CR.XP + " XP)"  + "</p>");
             output.Add(@"</property-line>");
-          
+            TaperedRule();            
+
             // Abilities            
             foreach (Ability ability in _Abilities)
             {
@@ -442,8 +443,7 @@ namespace DND_Monster
                 output.Add(@"<h4>" + ability.Title + "</h4>");
                 output.Add(@"<p>" + ability.Description + "</p>");
                 output.Add(@"</property-block>");
-            }
-            TaperedRule();            
+            }            
 
             // Actions            
             foreach (Ability ability in _Attacks)

@@ -17,14 +17,7 @@ namespace DND_Monster
 
         public AddAttackForm(string currentCR = "")
         {
-            InitializeComponent();
-            foreach (Challenge_Rating cr in Help.ChallengeRatings)
-            {
-                if (cr.CR == currentCR)
-                {
-                    AttackBonusUpDown.Value = cr.AttackBonus;
-                }
-            }
+            InitializeComponent();            
         }
 
         private void AddAttackForm_Load(object sender, EventArgs e)
@@ -131,6 +124,11 @@ namespace DND_Monster
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddAttackForm_Leave(object sender, EventArgs e)
         {
 
         }
