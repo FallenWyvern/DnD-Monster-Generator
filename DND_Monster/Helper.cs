@@ -119,7 +119,12 @@ namespace DND_Monster
             }
 
             returnstring += Target;
-            returnstring += " <i>Hit:</i> " + HitAverageDamage + " (" + HitDiceNumber + "d" + HitDiceSize + "+" + HitDamageBonus + ") " + HitDamageType + " damage " + HitText;
+            returnstring += " <i>Hit:</i> " + HitAverageDamage + " (" + HitDiceNumber + "d" + HitDiceSize;
+            if (HitDamageBonus > -1)
+            {
+                returnstring += "+";
+            }
+            returnstring += HitDamageBonus + ") " + HitDamageType + " damage " + HitText;
 
             return returnstring;
         }

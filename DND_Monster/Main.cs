@@ -41,6 +41,7 @@ namespace DND_Monster
         private void Form1_Load(object sender, EventArgs e)
         {
             currentCR = Help.ChallengeRatings[0];
+            ChallengeRatingDropDown.SelectedIndex = 0;
             AlignmentDropDown.SelectedIndex = AlignmentDropDown.Items.Count - 1;
             HitDieDropDown.SelectedIndex = 0;
             SizeDropDown.SelectedIndex = 0;
@@ -63,6 +64,8 @@ namespace DND_Monster
             AddVulnerabilityButton.Click += addCondition;
             AddResistanceButton.Click += addCondition;
             AddImmunityButton.Click += addCondition;
+
+            TraitsList.Sorted = true;
         }       
 
         // This updates the labels next to stats, when the stats change.
@@ -174,7 +177,14 @@ namespace DND_Monster
 
             if (totalBonus != 0)
             {
-                TraitsList.Items.Add(skillToAdd.Replace("%BONUS%", totalBonus.ToString()));                
+                if (totalBonus < 0)
+                {
+                    TraitsList.Items.Add(skillToAdd.Replace("%BONUS%", "" + totalBonus + " |"));
+                }
+                else
+                {
+                    TraitsList.Items.Add(skillToAdd.Replace("%BONUS%", "+" + totalBonus + " |"));
+                }
             }
         }
         
@@ -1016,6 +1026,73 @@ namespace DND_Monster
                 TraitsListPopUp.SetToolTip(TraitsList, TraitsList.SelectedItem.ToString());
             }
             catch { TraitsListPopUp.SetToolTip(TraitsList, ""); }
-        }        
+        }
+
+        private void NewMonsterButton_Click(object sender, EventArgs e)
+        {
+            Monster.Clear();
+            ClearUI();
+        }
+
+        private void ClearUI()
+        {
+            StrUpDown.Value = 10;
+            DexUpDown.Value = 10;
+            ConUpDown.Value = 10;
+            IntUpDown.Value = 10;
+            WisUpDown.Value = 10;
+            ChaUpDown.Value = 10;
+
+            TraitsList.Items.Clear();
+
+            StrSaveBonusUpDown.Value = 0;
+            DexSaveBonusUpDown.Value = 0;
+            ConSaveBonusUpDown.Value = 0;
+            WisSaveBonusUpDown.Value = 0;
+            IntSaveBonusUpDown.Value = 0;
+            ChaSaveBonusUpDown.Value = 0;
+
+            MonsterNameTextBox.Text = "";
+            SizeDropDown.SelectedIndex = 0;
+            TypeDropDown.Text = "";
+            TagDropDown.Text = "";
+            AlignmentDropDown.Text = "";
+            AlignmentDropDown.SelectedText = "Unaligned";
+            ACUpDown.Value = 10;
+            ACSourceTextBox.Text = "";
+
+            HitDieUpDown.Value = 1;
+            HitDieDropDown.SelectedIndex = 0;
+            HitDieTextBox.Text = "";
+
+            SpeedUpDown.Value = 30;
+            SwimUpDown.Value = 0;
+            FlyUpDown.Value = 0;
+            ClimbUpDown.Value = 0;
+            burrowUpDown.Value = 0;
+            HoverCheckBox.Checked = false;
+
+            DamageConditionDropDown.Text = "";
+            SensesDropDown.Text = "";
+            DistanceUpDown.Value = 50;
+            LanguageComboBox.Text = "";
+
+            SkillBonusCheckBox.Checked = true;
+            SkillProfCheckBox.Checked = true;
+            SkillStatCheckBox.Checked = true;
+            SkillDropDown.SelectedIndex = 0;
+
+            ChallengeRatingDropDown.SelectedIndex = 0;
+        }
+
+        private void ChallengeRatingDropDown_MouseHover(object sender, EventArgs e)
+        {
+            string output = "CR: " + currentCR.CR + Environment.NewLine;
+            output += "AC: " + currentCR.ArmorClass + Environment.NewLine;
+            output += "Attack Bonus: " + currentCR.AttackBonus + Environment.NewLine;
+            output += "Save DC: " + currentCR.profBonus + Environment.NewLine;
+            output += "Low HP: " + currentCR.LowHP + "  High HP: " + currentCR.HighHP + Environment.NewLine;
+            TraitsListPopUp.SetToolTip(ChallengeRatingDropDown, output);
+        }       
     }
 }

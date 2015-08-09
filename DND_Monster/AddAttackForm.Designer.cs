@@ -309,6 +309,11 @@
             // HitDiceBonusDamage
             // 
             this.HitDiceBonusDamage.Location = new System.Drawing.Point(149, 110);
+            this.HitDiceBonusDamage.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.HitDiceBonusDamage.Name = "HitDiceBonusDamage";
             this.HitDiceBonusDamage.Size = new System.Drawing.Size(44, 20);
             this.HitDiceBonusDamage.TabIndex = 6;

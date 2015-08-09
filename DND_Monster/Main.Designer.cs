@@ -129,6 +129,8 @@
             this.SkillProfCheckBox = new System.Windows.Forms.CheckBox();
             this.TraitsListPopUp = new System.Windows.Forms.ToolTip(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.NewMonsterButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StrUpDown)).BeginInit();
@@ -749,6 +751,7 @@
             this.ChallengeRatingDropDown.Size = new System.Drawing.Size(121, 21);
             this.ChallengeRatingDropDown.TabIndex = 49;
             this.ChallengeRatingDropDown.SelectedIndexChanged += new System.EventHandler(this.crChangedUpdateProficiency);
+            this.ChallengeRatingDropDown.MouseHover += new System.EventHandler(this.ChallengeRatingDropDown_MouseHover);
             // 
             // Profiency
             // 
@@ -1326,11 +1329,32 @@
             this.label1.TabIndex = 97;
             this.label1.Text = "Hover to Select and Inspect";
             // 
+            // NewMonsterButton
+            // 
+            this.NewMonsterButton.Location = new System.Drawing.Point(444, 585);
+            this.NewMonsterButton.Name = "NewMonsterButton";
+            this.NewMonsterButton.Size = new System.Drawing.Size(75, 23);
+            this.NewMonsterButton.TabIndex = 98;
+            this.NewMonsterButton.Text = "New";
+            this.NewMonsterButton.UseVisualStyleBackColor = true;
+            this.NewMonsterButton.Click += new System.EventHandler(this.NewMonsterButton_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(72, 634);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(155, 13);
+            this.label2.TabIndex = 99;
+            this.label2.Text = "Hover for suggested CR values";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 701);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.NewMonsterButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SkillProfCheckBox);
             this.Controls.Add(this.SkillBonusCheckBox);
@@ -1559,6 +1583,8 @@
         private System.Windows.Forms.CheckBox SkillProfCheckBox;
         private System.Windows.Forms.ToolTip TraitsListPopUp;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button NewMonsterButton;
+        private System.Windows.Forms.Label label2;
     }
 }
 
