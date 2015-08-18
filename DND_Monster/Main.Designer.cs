@@ -749,7 +749,7 @@
             this.ChallengeRatingDropDown.Location = new System.Drawing.Point(105, 650);
             this.ChallengeRatingDropDown.Name = "ChallengeRatingDropDown";
             this.ChallengeRatingDropDown.Size = new System.Drawing.Size(121, 21);
-            this.ChallengeRatingDropDown.TabIndex = 49;
+            this.ChallengeRatingDropDown.TabIndex = 50;
             this.ChallengeRatingDropDown.SelectedIndexChanged += new System.EventHandler(this.crChangedUpdateProficiency);
             this.ChallengeRatingDropDown.MouseHover += new System.EventHandler(this.ChallengeRatingDropDown_MouseHover);
             // 
@@ -961,7 +961,7 @@
             this.TraitsList.Location = new System.Drawing.Point(322, 53);
             this.TraitsList.Name = "TraitsList";
             this.TraitsList.Size = new System.Drawing.Size(186, 225);
-            this.TraitsList.TabIndex = 71;
+            this.TraitsList.TabIndex = 57;
             this.TraitsList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.deleteTrait);
             this.TraitsList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.editTrait);
             this.TraitsList.MouseHover += new System.EventHandler(this.TraitsList_MouseHover);
@@ -1040,7 +1040,7 @@
             this.PreviewButton.Location = new System.Drawing.Point(444, 675);
             this.PreviewButton.Name = "PreviewButton";
             this.PreviewButton.Size = new System.Drawing.Size(75, 23);
-            this.PreviewButton.TabIndex = 52;
+            this.PreviewButton.TabIndex = 56;
             this.PreviewButton.Text = "Preview";
             this.PreviewButton.UseVisualStyleBackColor = true;
             this.PreviewButton.Click += new System.EventHandler(this.Preview);
@@ -1050,7 +1050,7 @@
             this.AddAbilityButton.Location = new System.Drawing.Point(152, 599);
             this.AddAbilityButton.Name = "AddAbilityButton";
             this.AddAbilityButton.Size = new System.Drawing.Size(75, 23);
-            this.AddAbilityButton.TabIndex = 47;
+            this.AddAbilityButton.TabIndex = 48;
             this.AddAbilityButton.Text = "Add Ability";
             this.AddAbilityButton.UseVisualStyleBackColor = true;
             this.AddAbilityButton.Click += new System.EventHandler(this.addAbility);
@@ -1060,7 +1060,7 @@
             this.AddActionButton.Location = new System.Drawing.Point(268, 599);
             this.AddActionButton.Name = "AddActionButton";
             this.AddActionButton.Size = new System.Drawing.Size(75, 23);
-            this.AddActionButton.TabIndex = 48;
+            this.AddActionButton.TabIndex = 49;
             this.AddActionButton.Text = "Add Action";
             this.AddActionButton.UseVisualStyleBackColor = true;
             this.AddActionButton.Click += new System.EventHandler(this.addAttack);
@@ -1110,7 +1110,7 @@
             this.AddSkillButton.Location = new System.Drawing.Point(56, 552);
             this.AddSkillButton.Name = "AddSkillButton";
             this.AddSkillButton.Size = new System.Drawing.Size(82, 23);
-            this.AddSkillButton.TabIndex = 45;
+            this.AddSkillButton.TabIndex = 44;
             this.AddSkillButton.Tag = "Skill";
             this.AddSkillButton.Text = "Add Skill";
             this.AddSkillButton.UseVisualStyleBackColor = true;
@@ -1128,7 +1128,7 @@
             this.SaveButton.Location = new System.Drawing.Point(444, 643);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
-            this.SaveButton.TabIndex = 51;
+            this.SaveButton.TabIndex = 55;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveData);
@@ -1138,7 +1138,7 @@
             this.LoadButton.Location = new System.Drawing.Point(444, 614);
             this.LoadButton.Name = "LoadButton";
             this.LoadButton.Size = new System.Drawing.Size(75, 23);
-            this.LoadButton.TabIndex = 50;
+            this.LoadButton.TabIndex = 54;
             this.LoadButton.Text = "Load";
             this.LoadButton.UseVisualStyleBackColor = true;
             this.LoadButton.Click += new System.EventHandler(this.LoadData);
@@ -1235,7 +1235,7 @@
             this.PreviewTemplateSelector.Location = new System.Drawing.Point(268, 677);
             this.PreviewTemplateSelector.Name = "PreviewTemplateSelector";
             this.PreviewTemplateSelector.Size = new System.Drawing.Size(156, 21);
-            this.PreviewTemplateSelector.TabIndex = 91;
+            this.PreviewTemplateSelector.TabIndex = 52;
             this.PreviewTemplateSelector.Text = "Valloric\'s Statblock";
             // 
             // GuessCR
@@ -1278,7 +1278,7 @@
             this.LanguageComboBox.Location = new System.Drawing.Point(56, 489);
             this.LanguageComboBox.Name = "LanguageComboBox";
             this.LanguageComboBox.Size = new System.Drawing.Size(252, 21);
-            this.LanguageComboBox.TabIndex = 93;
+            this.LanguageComboBox.TabIndex = 40;
             // 
             // SkillStatCheckBox
             // 
@@ -1288,7 +1288,7 @@
             this.SkillStatCheckBox.Location = new System.Drawing.Point(144, 556);
             this.SkillStatCheckBox.Name = "SkillStatCheckBox";
             this.SkillStatCheckBox.Size = new System.Drawing.Size(67, 17);
-            this.SkillStatCheckBox.TabIndex = 94;
+            this.SkillStatCheckBox.TabIndex = 45;
             this.SkillStatCheckBox.Text = "Add Stat";
             this.SkillStatCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -1300,7 +1300,7 @@
             this.SkillBonusCheckBox.Location = new System.Drawing.Point(216, 556);
             this.SkillBonusCheckBox.Name = "SkillBonusCheckBox";
             this.SkillBonusCheckBox.Size = new System.Drawing.Size(78, 17);
-            this.SkillBonusCheckBox.TabIndex = 95;
+            this.SkillBonusCheckBox.TabIndex = 46;
             this.SkillBonusCheckBox.Text = "Add Bonus";
             this.SkillBonusCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -1312,7 +1312,7 @@
             this.SkillProfCheckBox.Location = new System.Drawing.Point(292, 556);
             this.SkillProfCheckBox.Name = "SkillProfCheckBox";
             this.SkillProfCheckBox.Size = new System.Drawing.Size(100, 17);
-            this.SkillProfCheckBox.TabIndex = 96;
+            this.SkillProfCheckBox.TabIndex = 47;
             this.SkillProfCheckBox.Text = "Add Proficiency";
             this.SkillProfCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -1334,7 +1334,7 @@
             this.NewMonsterButton.Location = new System.Drawing.Point(444, 585);
             this.NewMonsterButton.Name = "NewMonsterButton";
             this.NewMonsterButton.Size = new System.Drawing.Size(75, 23);
-            this.NewMonsterButton.TabIndex = 98;
+            this.NewMonsterButton.TabIndex = 53;
             this.NewMonsterButton.Text = "New";
             this.NewMonsterButton.UseVisualStyleBackColor = true;
             this.NewMonsterButton.Click += new System.EventHandler(this.NewMonsterButton_Click);
