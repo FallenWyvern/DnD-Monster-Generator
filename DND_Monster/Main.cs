@@ -595,7 +595,8 @@ namespace DND_Monster
                 MonsterNameTextBox.Text = Monster.CreatureName;
                 SizeDropDown.SelectedText = Monster.CreatureSize;
                 TypeDropDown.SelectedText = Monster.CreatureType.Split(' ')[0];
-                TagDropDown.SelectedText = Monster.CreatureType.Split(' ')[1].Replace('(', ' ').Replace(')', ' ').Trim();
+                try { TagDropDown.SelectedText = Monster.CreatureType.Split(' ')[1].Replace('(', ' ').Replace(')', ' ').Trim(); }
+                catch { }
 
                 //Monster.SkillBonuses.Clear();
                 Monster.Clear();
