@@ -434,15 +434,20 @@ namespace DND_Monster
             output.Add(@"<h4>Challenge</h4>");
             output.Add(@"<p>" + CR.CR + " (" + CR.XP + " XP)"  + "</p>");
             output.Add(@"</property-line>");
-            TaperedRule();            
+            TaperedRule();
 
             // Abilities            
             foreach (Ability ability in _Abilities)
             {
                 output.Add(@"<property-block>");
                 output.Add(@"<h4>" + ability.Title + "</h4>");
-                output.Add(@"<p>" + ability.Description + "</p>");
+                output.Add(@"<p>" + " " + ability.Description + "</p>");
                 output.Add(@"</property-block>");
+            }
+
+            if (_Attacks.Count > 0)
+            {                
+                output.Add(@"<h3 style=""border-bottom: 1px solid #7A200D; color:#7A200D; font-size: 18px; font-variant: small-caps; font-weight: normal; letter-spacing: 1px; margin: 0;"">Actions</h3>");                
             }            
 
             // Actions            
