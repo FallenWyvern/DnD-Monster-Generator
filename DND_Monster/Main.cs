@@ -30,7 +30,7 @@ namespace DND_Monster
             {
                 PackLoadingDisabled = true
             });
-
+            
             b.Dock = DockStyle.Fill;
             tableLayoutPanel1.Controls.Add(b, 0, 0);
             
@@ -40,6 +40,7 @@ namespace DND_Monster
         // Set all drop downs and updowns to their starting values and set events.
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Check for version update here.
             currentCR = Help.ChallengeRatings[0];
             ChallengeRatingDropDown.SelectedIndex = 0;
             AlignmentDropDown.SelectedIndex = AlignmentDropDown.Items.Count - 1;

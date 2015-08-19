@@ -132,6 +132,8 @@ namespace DND_Monster
 
     public static class Help
     {
+        public static string Version = "1.2";
+
         public static List<Challenge_Rating> ChallengeRatings = new List<Challenge_Rating>
     {
         new Challenge_Rating {Index = 0, CR = "0", profBonus = 2, ArmorClass = 13, AttackBonus = 3, SaveDC = 13, LowHP = 1, HighHP = 6, XP = 0 },

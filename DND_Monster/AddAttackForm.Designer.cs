@@ -332,6 +332,7 @@
             this.HitDiceType.Name = "HitDiceType";
             this.HitDiceType.Size = new System.Drawing.Size(47, 21);
             this.HitDiceType.TabIndex = 5;
+            this.HitDiceType.Text = "d4";
             // 
             // HitNumberOfDice
             // 
