@@ -344,10 +344,9 @@ namespace DND_Monster
         {            
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
-                if (TraitsList.Items.Count < 1) return;
+                if (TraitsList.Items.Count < 1 || TraitsList.SelectedItem == null) return;
                 if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Ability")
-                {
-                    MessageBox.Show("Ability!");
+                {                    
                     Ability temp = null;
 
                     foreach (Ability item in Monster._Abilities)
@@ -363,26 +362,30 @@ namespace DND_Monster
                         Monster._Abilities.Remove(temp);
                         TraitsList.Items.Remove(TraitsList.SelectedItem);
                     }
-                } 
-                else if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Attack")
+                }
+
+                if (TraitsList.Items.Count < 1 || TraitsList.SelectedItem == null) return;
+                if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Attack")
                 {                    
                     Ability temp = null;
 
                     foreach (Ability item in Monster._Attacks)
-                    {
+                    {                        
                         if (item.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
                         {
-                            temp = item;
+                            temp = item;                            
                         }
                     } 
 
                     if (temp != null)
                     {
-                        Monster._Abilities.Remove(temp);
+                        Monster._Attacks.Remove(temp);
                         TraitsList.Items.Remove(TraitsList.SelectedItem);
                     }
                 }
-                else
+
+                if (TraitsList.Items.Count < 1 || TraitsList.SelectedItem == null) return;
+                if (TraitsList.Items.Contains(TraitsList.SelectedItem))
                 {
                     TraitsList.Items.Remove(TraitsList.SelectedItem);
                 }                
