@@ -9,8 +9,10 @@ namespace DND_Monster
     public static partial class Monster
     {
         // Writes out the HTML needed to render the stat block
-        public static string ValloricStatBlock()
+        public static string ValloricStatBlock()        
         {
+            output.Clear();
+
             // Templates and Scripts            
             output.Add(@"<!DOCTYPE html>");
             output.Add("<html>");

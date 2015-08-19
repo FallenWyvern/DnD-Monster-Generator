@@ -623,7 +623,7 @@ namespace DND_Monster
                 }
             }
         }
-
+        
         private void ExportPNG_Click(object sender, EventArgs e)
         {            
             SaveFileDialog dialog = new SaveFileDialog();
@@ -633,8 +633,43 @@ namespace DND_Monster
 
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                ControlSnapshot.Snapshot(b, BrowserWidth(b), BrowserHeight(b)).Save(dialog.FileName);                   
+                Screenshot(dialog.FileName);
+            }            
+        }
+
+        private static async void Screenshot(string filename)
+        {
+            // Create the offscreen Chromium browser.
+            using (var browser = new CefSharp.OffScreen.ChromiumWebBrowser())
+            {
+                browser.LoadHtml("<html><head></head><body></body></html>", "http://rendering/");
+                browser.LoadHtml(Monster.ValloricStatBlock(), "http://rendering/");
+
+                saveFilename = filename;
+                
+                await Task.Delay(500);
+                
+                int width = BrowserInfo.BrowserWidth(browser);
+                int height = BrowserInfo.BrowserHeight(browser);
+                browser.Size = new Size(width, height);
+                
+                await Task.Delay(500);
+                await browser.ScreenshotAsync().ContinueWith(DisplayBitmap);
             }
+        }
+
+        static string saveFilename = "";
+        private static void DisplayBitmap(Task<Bitmap> task)
+        {
+            var bitmap = task.Result;
+
+            // Save the Bitmap to the path.
+            // The image type is auto-detected via the ".png" extension.
+            bitmap.Save(saveFilename);
+
+            // We no longer need the Bitmap.
+            // Dispose it to avoid keeping the memory alive.  Especially important in 32-bit applications.
+            bitmap.Dispose();
         }
 
         private void ExportCSV_Click(object sender, EventArgs e)
