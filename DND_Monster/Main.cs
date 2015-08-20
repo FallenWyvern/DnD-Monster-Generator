@@ -648,9 +648,21 @@ namespace DND_Monster
                 saveFilename = filename;
                 
                 await Task.Delay(500);
-                
-                int width = BrowserInfo.BrowserWidth(browser);
-                int height = BrowserInfo.BrowserHeight(browser);
+
+                int width = 0;
+                int height = 0;
+
+                while (width == 0)
+                {
+                    width = BrowserInfo.BrowserWidth(browser);
+                    System.Threading.Thread.Sleep(100);
+                }
+
+                while (height == 0)
+                {
+                    height = BrowserInfo.BrowserHeight(browser);
+                    System.Threading.Thread.Sleep(100);
+                }
                 browser.Size = new Size(width, height);
                 
                 await Task.Delay(500);

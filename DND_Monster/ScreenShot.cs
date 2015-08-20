@@ -25,6 +25,7 @@ public static class BrowserInfo
             }
         });
 
+        if (task.Result.Result == null) { return 0; }
         return Convert.ToInt32(task.Result.Result.ToString());
     }
 
@@ -44,6 +45,7 @@ public static class BrowserInfo
             }
         });
 
+        if (task.Result.Result == null) { return 0; }
         return Convert.ToInt32(task.Result.Result.ToString());
     }   
 }
