@@ -461,7 +461,8 @@ namespace DND_Monster
         }
         
         private void Preview(object sender, EventArgs e)
-        {            
+        {
+            Help.useBG = BackgroundCheckbox.Checked;
             GenerateMonsterData();
             ShowMonster();
         }
@@ -686,7 +687,7 @@ namespace DND_Monster
                 System.IO.File.WriteAllText(dialog.FileName,"");
 
                 foreach (string line in Monster.output){
-                    System.IO.File.AppendAllText(dialog.FileName, line);
+                    System.IO.File.AppendAllText(dialog.FileName, line + Environment.NewLine);
                 }
             }
         }

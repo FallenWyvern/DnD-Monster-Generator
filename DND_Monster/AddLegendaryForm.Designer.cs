@@ -63,7 +63,7 @@
             this.Traits.Location = new System.Drawing.Point(0, 302);
             this.Traits.Name = "Traits";
             this.Traits.Size = new System.Drawing.Size(379, 160);
-            this.Traits.TabIndex = 2;
+            this.Traits.TabIndex = 3;
             this.Traits.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
             // 
             // TraitDescriptionBox
@@ -71,7 +71,7 @@
             this.TraitDescriptionBox.Location = new System.Drawing.Point(0, 62);
             this.TraitDescriptionBox.Name = "TraitDescriptionBox";
             this.TraitDescriptionBox.Size = new System.Drawing.Size(379, 205);
-            this.TraitDescriptionBox.TabIndex = 3;
+            this.TraitDescriptionBox.TabIndex = 2;
             this.TraitDescriptionBox.Text = "";
             // 
             // SaveTrait
@@ -108,7 +108,7 @@
             this.textBox1.Location = new System.Drawing.Point(82, 38);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(297, 20);
-            this.textBox1.TabIndex = 7;
+            this.textBox1.TabIndex = 1;
             // 
             // label3
             // 

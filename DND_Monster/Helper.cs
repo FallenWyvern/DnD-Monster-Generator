@@ -223,6 +223,7 @@ namespace DND_Monster
     public static class Help
     {
         public static string Version = "1.2";
+        public static bool useBG = false;
         private static string bgURI = "";
 
         public static List<Challenge_Rating> ChallengeRatings = new List<Challenge_Rating>
@@ -298,8 +299,15 @@ namespace DND_Monster
 
         static public string BackgroundURI()
         {
-            if (bgURI == "") { bgURI = System.IO.File.ReadAllText("background.uri"); }  
-            return bgURI;
+            if (useBG)
+            {
+                if (bgURI == "") { bgURI = System.IO.File.ReadAllText("background.uri"); }
+                return bgURI;
+            }
+            else
+            {
+                return "";
+            }
         }
     }
 }

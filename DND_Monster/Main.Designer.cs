@@ -132,6 +132,7 @@
             this.NewMonsterButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.BackgroundCheckbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StrUpDown)).BeginInit();
@@ -317,7 +318,7 @@
             this.StrUpDown.Location = new System.Drawing.Point(56, 313);
             this.StrUpDown.Name = "StrUpDown";
             this.StrUpDown.Size = new System.Drawing.Size(44, 20);
-            this.StrUpDown.TabIndex = 20;
+            this.StrUpDown.TabIndex = 18;
             this.StrUpDown.Tag = "STR";
             this.StrUpDown.Value = new decimal(new int[] {
             10,
@@ -330,7 +331,7 @@
             this.DexUpDown.Location = new System.Drawing.Point(56, 339);
             this.DexUpDown.Name = "DexUpDown";
             this.DexUpDown.Size = new System.Drawing.Size(44, 20);
-            this.DexUpDown.TabIndex = 21;
+            this.DexUpDown.TabIndex = 19;
             this.DexUpDown.Tag = "DEX";
             this.DexUpDown.Value = new decimal(new int[] {
             10,
@@ -343,7 +344,7 @@
             this.ConUpDown.Location = new System.Drawing.Point(56, 365);
             this.ConUpDown.Name = "ConUpDown";
             this.ConUpDown.Size = new System.Drawing.Size(44, 20);
-            this.ConUpDown.TabIndex = 22;
+            this.ConUpDown.TabIndex = 20;
             this.ConUpDown.Tag = "CON";
             this.ConUpDown.Value = new decimal(new int[] {
             10,
@@ -356,7 +357,7 @@
             this.IntUpDown.Location = new System.Drawing.Point(217, 313);
             this.IntUpDown.Name = "IntUpDown";
             this.IntUpDown.Size = new System.Drawing.Size(44, 20);
-            this.IntUpDown.TabIndex = 23;
+            this.IntUpDown.TabIndex = 21;
             this.IntUpDown.Tag = "INT";
             this.IntUpDown.Value = new decimal(new int[] {
             10,
@@ -369,7 +370,7 @@
             this.WisUpDown.Location = new System.Drawing.Point(217, 339);
             this.WisUpDown.Name = "WisUpDown";
             this.WisUpDown.Size = new System.Drawing.Size(44, 20);
-            this.WisUpDown.TabIndex = 24;
+            this.WisUpDown.TabIndex = 22;
             this.WisUpDown.Tag = "WIS";
             this.WisUpDown.Value = new decimal(new int[] {
             10,
@@ -382,7 +383,7 @@
             this.ChaUpDown.Location = new System.Drawing.Point(217, 365);
             this.ChaUpDown.Name = "ChaUpDown";
             this.ChaUpDown.Size = new System.Drawing.Size(44, 20);
-            this.ChaUpDown.TabIndex = 25;
+            this.ChaUpDown.TabIndex = 23;
             this.ChaUpDown.Tag = "CHA";
             this.ChaUpDown.Value = new decimal(new int[] {
             10,
@@ -423,7 +424,7 @@
             this.Int.Location = new System.Drawing.Point(182, 315);
             this.Int.Name = "Int";
             this.Int.Size = new System.Drawing.Size(25, 13);
-            this.Int.TabIndex = 22;
+            this.Int.TabIndex = 23;
             this.Int.Text = "INT";
             // 
             // Wis
@@ -590,7 +591,7 @@
             this.burrowUpDown.Location = new System.Drawing.Point(272, 192);
             this.burrowUpDown.Name = "burrowUpDown";
             this.burrowUpDown.Size = new System.Drawing.Size(44, 20);
-            this.burrowUpDown.TabIndex = 17;
+            this.burrowUpDown.TabIndex = 16;
             // 
             // ClimbUpDown
             // 
@@ -602,7 +603,7 @@
             this.ClimbUpDown.Location = new System.Drawing.Point(272, 218);
             this.ClimbUpDown.Name = "ClimbUpDown";
             this.ClimbUpDown.Size = new System.Drawing.Size(44, 20);
-            this.ClimbUpDown.TabIndex = 19;
+            this.ClimbUpDown.TabIndex = 17;
             // 
             // FlyUpDown
             // 
@@ -750,7 +751,7 @@
             this.ChallengeRatingDropDown.Location = new System.Drawing.Point(105, 650);
             this.ChallengeRatingDropDown.Name = "ChallengeRatingDropDown";
             this.ChallengeRatingDropDown.Size = new System.Drawing.Size(121, 21);
-            this.ChallengeRatingDropDown.TabIndex = 50;
+            this.ChallengeRatingDropDown.TabIndex = 49;
             this.ChallengeRatingDropDown.SelectedIndexChanged += new System.EventHandler(this.crChangedUpdateProficiency);
             this.ChallengeRatingDropDown.MouseHover += new System.EventHandler(this.ChallengeRatingDropDown_MouseHover);
             // 
@@ -777,42 +778,42 @@
             this.StrSaveBonusUpDown.Location = new System.Drawing.Point(328, 327);
             this.StrSaveBonusUpDown.Name = "StrSaveBonusUpDown";
             this.StrSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
-            this.StrSaveBonusUpDown.TabIndex = 26;
+            this.StrSaveBonusUpDown.TabIndex = 24;
             // 
             // DexSaveBonusUpDown
             // 
             this.DexSaveBonusUpDown.Location = new System.Drawing.Point(378, 327);
             this.DexSaveBonusUpDown.Name = "DexSaveBonusUpDown";
             this.DexSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
-            this.DexSaveBonusUpDown.TabIndex = 27;
+            this.DexSaveBonusUpDown.TabIndex = 25;
             // 
             // ConSaveBonusUpDown
             // 
             this.ConSaveBonusUpDown.Location = new System.Drawing.Point(430, 327);
             this.ConSaveBonusUpDown.Name = "ConSaveBonusUpDown";
             this.ConSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
-            this.ConSaveBonusUpDown.TabIndex = 28;
+            this.ConSaveBonusUpDown.TabIndex = 26;
             // 
             // IntSaveBonusUpDown
             // 
             this.IntSaveBonusUpDown.Location = new System.Drawing.Point(330, 371);
             this.IntSaveBonusUpDown.Name = "IntSaveBonusUpDown";
             this.IntSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
-            this.IntSaveBonusUpDown.TabIndex = 29;
+            this.IntSaveBonusUpDown.TabIndex = 27;
             // 
             // WisSaveBonusUpDown
             // 
             this.WisSaveBonusUpDown.Location = new System.Drawing.Point(380, 371);
             this.WisSaveBonusUpDown.Name = "WisSaveBonusUpDown";
             this.WisSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
-            this.WisSaveBonusUpDown.TabIndex = 30;
+            this.WisSaveBonusUpDown.TabIndex = 28;
             // 
             // ChaSaveBonusUpDown
             // 
             this.ChaSaveBonusUpDown.Location = new System.Drawing.Point(430, 371);
             this.ChaSaveBonusUpDown.Name = "ChaSaveBonusUpDown";
             this.ChaSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
-            this.ChaSaveBonusUpDown.TabIndex = 31;
+            this.ChaSaveBonusUpDown.TabIndex = 29;
             // 
             // SavingThrowBonuses
             // 
@@ -820,7 +821,7 @@
             this.SavingThrowBonuses.Location = new System.Drawing.Point(315, 286);
             this.SavingThrowBonuses.Name = "SavingThrowBonuses";
             this.SavingThrowBonuses.Size = new System.Drawing.Size(117, 13);
-            this.SavingThrowBonuses.TabIndex = 58;
+            this.SavingThrowBonuses.TabIndex = 56;
             this.SavingThrowBonuses.Text = "Saving Throw Bonuses";
             // 
             // StrSaveBonus
@@ -924,14 +925,14 @@
             this.DamageConditionDropDown.Location = new System.Drawing.Point(26, 406);
             this.DamageConditionDropDown.Name = "DamageConditionDropDown";
             this.DamageConditionDropDown.Size = new System.Drawing.Size(378, 21);
-            this.DamageConditionDropDown.TabIndex = 32;
+            this.DamageConditionDropDown.TabIndex = 30;
             // 
             // AddVulnerabilityButton
             // 
             this.AddVulnerabilityButton.Location = new System.Drawing.Point(26, 433);
             this.AddVulnerabilityButton.Name = "AddVulnerabilityButton";
             this.AddVulnerabilityButton.Size = new System.Drawing.Size(123, 23);
-            this.AddVulnerabilityButton.TabIndex = 33;
+            this.AddVulnerabilityButton.TabIndex = 31;
             this.AddVulnerabilityButton.Tag = "AddV";
             this.AddVulnerabilityButton.Text = "Add Vulnerability";
             this.AddVulnerabilityButton.UseVisualStyleBackColor = true;
@@ -941,7 +942,7 @@
             this.AddResistanceButton.Location = new System.Drawing.Point(155, 433);
             this.AddResistanceButton.Name = "AddResistanceButton";
             this.AddResistanceButton.Size = new System.Drawing.Size(123, 23);
-            this.AddResistanceButton.TabIndex = 34;
+            this.AddResistanceButton.TabIndex = 32;
             this.AddResistanceButton.Tag = "AddR";
             this.AddResistanceButton.Text = "Add Resistance";
             this.AddResistanceButton.UseVisualStyleBackColor = true;
@@ -951,7 +952,7 @@
             this.AddImmunityButton.Location = new System.Drawing.Point(281, 433);
             this.AddImmunityButton.Name = "AddImmunityButton";
             this.AddImmunityButton.Size = new System.Drawing.Size(123, 23);
-            this.AddImmunityButton.TabIndex = 35;
+            this.AddImmunityButton.TabIndex = 33;
             this.AddImmunityButton.Tag = "AddI";
             this.AddImmunityButton.Text = "Add Immunity";
             this.AddImmunityButton.UseVisualStyleBackColor = true;
@@ -962,7 +963,7 @@
             this.TraitsList.Location = new System.Drawing.Point(322, 53);
             this.TraitsList.Name = "TraitsList";
             this.TraitsList.Size = new System.Drawing.Size(186, 225);
-            this.TraitsList.TabIndex = 57;
+            this.TraitsList.TabIndex = 55;
             this.TraitsList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.deleteTrait);
             this.TraitsList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.editTrait);
             this.TraitsList.MouseHover += new System.EventHandler(this.TraitsList_MouseHover);
@@ -988,14 +989,14 @@
             this.SensesDropDown.Location = new System.Drawing.Point(26, 462);
             this.SensesDropDown.Name = "SensesDropDown";
             this.SensesDropDown.Size = new System.Drawing.Size(123, 21);
-            this.SensesDropDown.TabIndex = 36;
+            this.SensesDropDown.TabIndex = 34;
             // 
             // AddSenseButton
             // 
             this.AddSenseButton.Location = new System.Drawing.Point(281, 460);
             this.AddSenseButton.Name = "AddSenseButton";
             this.AddSenseButton.Size = new System.Drawing.Size(123, 23);
-            this.AddSenseButton.TabIndex = 39;
+            this.AddSenseButton.TabIndex = 37;
             this.AddSenseButton.Text = "Add Sense";
             this.AddSenseButton.UseVisualStyleBackColor = true;
             this.AddSenseButton.Click += new System.EventHandler(this.addSense);
@@ -1010,7 +1011,7 @@
             this.DistanceUpDown.Location = new System.Drawing.Point(155, 463);
             this.DistanceUpDown.Name = "DistanceUpDown";
             this.DistanceUpDown.Size = new System.Drawing.Size(42, 20);
-            this.DistanceUpDown.TabIndex = 37;
+            this.DistanceUpDown.TabIndex = 35;
             this.DistanceUpDown.Value = new decimal(new int[] {
             50,
             0,
@@ -1023,7 +1024,7 @@
             this.Distance.Location = new System.Drawing.Point(203, 465);
             this.Distance.Name = "Distance";
             this.Distance.Size = new System.Drawing.Size(47, 13);
-            this.Distance.TabIndex = 38;
+            this.Distance.TabIndex = 36;
             this.Distance.Text = "distance";
             // 
             // AddLanguageButton
@@ -1031,7 +1032,7 @@
             this.AddLanguageButton.Location = new System.Drawing.Point(281, 487);
             this.AddLanguageButton.Name = "AddLanguageButton";
             this.AddLanguageButton.Size = new System.Drawing.Size(123, 23);
-            this.AddLanguageButton.TabIndex = 41;
+            this.AddLanguageButton.TabIndex = 39;
             this.AddLanguageButton.Text = "Add Language";
             this.AddLanguageButton.UseVisualStyleBackColor = true;
             this.AddLanguageButton.Click += new System.EventHandler(this.addLanguage);
@@ -1041,7 +1042,7 @@
             this.PreviewButton.Location = new System.Drawing.Point(444, 675);
             this.PreviewButton.Name = "PreviewButton";
             this.PreviewButton.Size = new System.Drawing.Size(75, 23);
-            this.PreviewButton.TabIndex = 56;
+            this.PreviewButton.TabIndex = 54;
             this.PreviewButton.Text = "Preview";
             this.PreviewButton.UseVisualStyleBackColor = true;
             this.PreviewButton.Click += new System.EventHandler(this.Preview);
@@ -1051,7 +1052,7 @@
             this.AddAbilityButton.Location = new System.Drawing.Point(94, 594);
             this.AddAbilityButton.Name = "AddAbilityButton";
             this.AddAbilityButton.Size = new System.Drawing.Size(88, 23);
-            this.AddAbilityButton.TabIndex = 48;
+            this.AddAbilityButton.TabIndex = 46;
             this.AddAbilityButton.Text = "Add Ability";
             this.AddAbilityButton.UseVisualStyleBackColor = true;
             this.AddAbilityButton.Click += new System.EventHandler(this.addAbility);
@@ -1061,7 +1062,7 @@
             this.AddActionButton.Location = new System.Drawing.Point(185, 594);
             this.AddActionButton.Name = "AddActionButton";
             this.AddActionButton.Size = new System.Drawing.Size(88, 23);
-            this.AddActionButton.TabIndex = 49;
+            this.AddActionButton.TabIndex = 47;
             this.AddActionButton.Text = "Add Action";
             this.AddActionButton.UseVisualStyleBackColor = true;
             this.AddActionButton.Click += new System.EventHandler(this.addAttack);
@@ -1104,14 +1105,14 @@
             this.SkillDropDown.Location = new System.Drawing.Point(26, 525);
             this.SkillDropDown.Name = "SkillDropDown";
             this.SkillDropDown.Size = new System.Drawing.Size(328, 21);
-            this.SkillDropDown.TabIndex = 42;
+            this.SkillDropDown.TabIndex = 40;
             // 
             // AddSkillButton
             // 
             this.AddSkillButton.Location = new System.Drawing.Point(56, 552);
             this.AddSkillButton.Name = "AddSkillButton";
             this.AddSkillButton.Size = new System.Drawing.Size(82, 23);
-            this.AddSkillButton.TabIndex = 44;
+            this.AddSkillButton.TabIndex = 42;
             this.AddSkillButton.Tag = "Skill";
             this.AddSkillButton.Text = "Add Skill";
             this.AddSkillButton.UseVisualStyleBackColor = true;
@@ -1122,14 +1123,14 @@
             this.SkillBonus.Location = new System.Drawing.Point(360, 525);
             this.SkillBonus.Name = "SkillBonus";
             this.SkillBonus.Size = new System.Drawing.Size(44, 20);
-            this.SkillBonus.TabIndex = 43;
+            this.SkillBonus.TabIndex = 41;
             // 
             // SaveButton
             // 
             this.SaveButton.Location = new System.Drawing.Point(444, 643);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
-            this.SaveButton.TabIndex = 55;
+            this.SaveButton.TabIndex = 53;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveData);
@@ -1139,7 +1140,7 @@
             this.LoadButton.Location = new System.Drawing.Point(444, 614);
             this.LoadButton.Name = "LoadButton";
             this.LoadButton.Size = new System.Drawing.Size(75, 23);
-            this.LoadButton.TabIndex = 54;
+            this.LoadButton.TabIndex = 52;
             this.LoadButton.Text = "Load";
             this.LoadButton.UseVisualStyleBackColor = true;
             this.LoadButton.Click += new System.EventHandler(this.LoadData);
@@ -1170,12 +1171,14 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 5;
+            this.tableLayoutPanel2.ColumnCount = 6;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 331F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 189F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
+            this.tableLayoutPanel2.Controls.Add(this.BackgroundCheckbox, 5, 0);
             this.tableLayoutPanel2.Controls.Add(this.ExportCSV, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.PrintButton, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.ExportPNG, 1, 0);
@@ -1190,9 +1193,9 @@
             // 
             // ExportCSV
             // 
-            this.ExportCSV.Location = new System.Drawing.Point(231, 3);
+            this.ExportCSV.Location = new System.Drawing.Point(202, 3);
             this.ExportCSV.Name = "ExportCSV";
-            this.ExportCSV.Size = new System.Drawing.Size(75, 23);
+            this.ExportCSV.Size = new System.Drawing.Size(68, 23);
             this.ExportCSV.TabIndex = 3;
             this.ExportCSV.Text = "CSV";
             this.ExportCSV.UseVisualStyleBackColor = true;
@@ -1200,9 +1203,9 @@
             // 
             // PrintButton
             // 
-            this.PrintButton.Location = new System.Drawing.Point(150, 3);
+            this.PrintButton.Location = new System.Drawing.Point(130, 3);
             this.PrintButton.Name = "PrintButton";
-            this.PrintButton.Size = new System.Drawing.Size(75, 23);
+            this.PrintButton.Size = new System.Drawing.Size(66, 23);
             this.PrintButton.TabIndex = 2;
             this.PrintButton.Text = "Print";
             this.PrintButton.UseVisualStyleBackColor = true;
@@ -1210,9 +1213,9 @@
             // 
             // ExportPNG
             // 
-            this.ExportPNG.Location = new System.Drawing.Point(69, 3);
+            this.ExportPNG.Location = new System.Drawing.Point(65, 3);
             this.ExportPNG.Name = "ExportPNG";
-            this.ExportPNG.Size = new System.Drawing.Size(75, 23);
+            this.ExportPNG.Size = new System.Drawing.Size(59, 23);
             this.ExportPNG.TabIndex = 1;
             this.ExportPNG.Text = "PNG";
             this.ExportPNG.UseVisualStyleBackColor = true;
@@ -1222,7 +1225,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(57, 23);
+            this.button1.Size = new System.Drawing.Size(56, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "HTML";
             this.button1.UseVisualStyleBackColor = true;
@@ -1236,7 +1239,7 @@
             this.PreviewTemplateSelector.Location = new System.Drawing.Point(268, 677);
             this.PreviewTemplateSelector.Name = "PreviewTemplateSelector";
             this.PreviewTemplateSelector.Size = new System.Drawing.Size(156, 21);
-            this.PreviewTemplateSelector.TabIndex = 52;
+            this.PreviewTemplateSelector.TabIndex = 50;
             this.PreviewTemplateSelector.Text = "Valloric\'s Statblock";
             // 
             // GuessCR
@@ -1279,7 +1282,7 @@
             this.LanguageComboBox.Location = new System.Drawing.Point(26, 489);
             this.LanguageComboBox.Name = "LanguageComboBox";
             this.LanguageComboBox.Size = new System.Drawing.Size(252, 21);
-            this.LanguageComboBox.TabIndex = 40;
+            this.LanguageComboBox.TabIndex = 38;
             // 
             // SkillStatCheckBox
             // 
@@ -1289,7 +1292,7 @@
             this.SkillStatCheckBox.Location = new System.Drawing.Point(144, 556);
             this.SkillStatCheckBox.Name = "SkillStatCheckBox";
             this.SkillStatCheckBox.Size = new System.Drawing.Size(67, 17);
-            this.SkillStatCheckBox.TabIndex = 45;
+            this.SkillStatCheckBox.TabIndex = 43;
             this.SkillStatCheckBox.Text = "Add Stat";
             this.SkillStatCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -1301,7 +1304,7 @@
             this.SkillBonusCheckBox.Location = new System.Drawing.Point(216, 556);
             this.SkillBonusCheckBox.Name = "SkillBonusCheckBox";
             this.SkillBonusCheckBox.Size = new System.Drawing.Size(78, 17);
-            this.SkillBonusCheckBox.TabIndex = 46;
+            this.SkillBonusCheckBox.TabIndex = 44;
             this.SkillBonusCheckBox.Text = "Add Bonus";
             this.SkillBonusCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -1313,7 +1316,7 @@
             this.SkillProfCheckBox.Location = new System.Drawing.Point(292, 556);
             this.SkillProfCheckBox.Name = "SkillProfCheckBox";
             this.SkillProfCheckBox.Size = new System.Drawing.Size(100, 17);
-            this.SkillProfCheckBox.TabIndex = 47;
+            this.SkillProfCheckBox.TabIndex = 45;
             this.SkillProfCheckBox.Text = "Add Proficiency";
             this.SkillProfCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -1335,7 +1338,7 @@
             this.NewMonsterButton.Location = new System.Drawing.Point(444, 585);
             this.NewMonsterButton.Name = "NewMonsterButton";
             this.NewMonsterButton.Size = new System.Drawing.Size(75, 23);
-            this.NewMonsterButton.TabIndex = 53;
+            this.NewMonsterButton.TabIndex = 51;
             this.NewMonsterButton.Text = "New";
             this.NewMonsterButton.UseVisualStyleBackColor = true;
             this.NewMonsterButton.Click += new System.EventHandler(this.NewMonsterButton_Click);
@@ -1354,10 +1357,21 @@
             this.button2.Location = new System.Drawing.Point(279, 594);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(88, 23);
-            this.button2.TabIndex = 100;
+            this.button2.TabIndex = 48;
             this.button2.Text = "Add Legendary";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.AddLegendary);
+            // 
+            // BackgroundCheckbox
+            // 
+            this.BackgroundCheckbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.BackgroundCheckbox.AutoSize = true;
+            this.BackgroundCheckbox.Location = new System.Drawing.Point(465, 7);
+            this.BackgroundCheckbox.Name = "BackgroundCheckbox";
+            this.BackgroundCheckbox.Size = new System.Drawing.Size(106, 17);
+            this.BackgroundCheckbox.TabIndex = 4;
+            this.BackgroundCheckbox.Text = "Use Background";
+            this.BackgroundCheckbox.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -1488,6 +1502,7 @@
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1598,6 +1613,7 @@
         private System.Windows.Forms.Button NewMonsterButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox BackgroundCheckbox;
     }
 }
 
