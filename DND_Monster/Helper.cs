@@ -5,65 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace DND_Monster
-{
-    //using CefSharp;
-    //using System.IO;
-    //using System.Reflection;
-
-    //class ResourceSchemeHandlerFactory : ISchemeHandlerFactory
-    //{
-    //    public ISchemeHandler Create()
-    //    {
-    //        return new ResourceSchemeHandler();
-    //    }
-
-    //    public static string SchemeName { get { return "resource"; } }
-    //}
-
-    //public class ResourceSchemeHandler : ISchemeHandler
-    //{
-    //    public bool ProcessRequestAsync(IRequest request, ISchemeHandlerResponse response, OnRequestCompletedHandler requestCompletedCallback)
-    //    {
-    //        Uri u = new Uri(request.Url);
-    //        String file = u.Authority + u.AbsolutePath;
-
-    //        Assembly ass = Assembly.GetExecutingAssembly();
-    //        String resourcePath = ass.GetName().Name + "." + file.Replace("/", ".");
-
-    //        if (ass.GetManifestResourceInfo(resourcePath) != null)
-    //        {
-    //            response.ResponseStream = ass.GetManifestResourceStream(resourcePath);
-    //            switch (Path.GetExtension(file))
-    //            {
-    //                case ".html":
-    //                    response.MimeType = "text/html";
-    //                    break;
-    //                case ".js":
-    //                    response.MimeType = "text/javascript";
-    //                    break;
-    //                case ".png":
-    //                    response.MimeType = "image/png";
-    //                    break;
-    //                case ".appcache":
-    //                case ".manifest":
-    //                    response.MimeType = "text/cache-manifest";
-    //                    break;
-    //                default:
-    //                    response.MimeType = "application/octet-stream";
-    //                    break;
-    //            }
-    //            requestCompletedCallback();
-    //            return true;
-    //        }
-    //        return false;
-    //    }
-    //}
-
+{    
     public class Data
-    {
-        //public List<string> output = new List<string>();
+    {        
         public List<string> DamageImmunities = new List<string>();
         public List<string> ConditionImmunities = new List<string>();
         public List<string> DamageResistances = new List<string>();
@@ -223,11 +170,23 @@ namespace DND_Monster
     public static class Help
     {
         public static string Version = "1.2";
+        public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static bool useBG = false;
         private static string bgURI = "";
+        
+        public static bool CheckForDownload()
+        {            
+            using (WebClient w = new WebClient())
+            {                    
+                string result = w.DownloadString(Help.VersionURL);
+                Console.WriteLine(result);
+                Console.WriteLine(Help.Version);
+                if (result == Help.Version) { return true; } else { return false; }
+            }
+        }        
 
         public static List<Challenge_Rating> ChallengeRatings = new List<Challenge_Rating>
-    {
+        {
         new Challenge_Rating {Index = 0, CR = "0", profBonus = 2, ArmorClass = 13, AttackBonus = 3, SaveDC = 13, LowHP = 1, HighHP = 6, XP = 0 },
         new Challenge_Rating {Index = 1, CR = "1/8", profBonus = 2, ArmorClass = 13, AttackBonus = 3, SaveDC = 13, LowHP = 7, HighHP = 35, XP = 25},
         new Challenge_Rating {Index = 2, CR = "1/4", profBonus = 2, ArmorClass = 13, AttackBonus = 3, SaveDC = 13, LowHP = 36, HighHP = 49, XP = 50 },
@@ -301,7 +260,7 @@ namespace DND_Monster
         {
             if (useBG)
             {
-                if (bgURI == "") { bgURI = System.IO.File.ReadAllText("background.uri"); }
+                if (bgURI == "") { bgURI = System.IO.File.ReadAllText("background-small.uri"); }
                 return bgURI;
             }
             else

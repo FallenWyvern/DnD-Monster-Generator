@@ -20,18 +20,10 @@ namespace DND_Monster
     {        
         ChromiumWebBrowser b = new ChromiumWebBrowser("http://rendering/");
         Challenge_Rating currentCR = new Challenge_Rating();
-
-        // Init Cef, load the control into the tableLayoutPanel and set the closing
-        // event to stop Cef.
+        
         public Main()
         {
-            InitializeComponent();
-            CefStartup();
-            
-            b.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Controls.Add(b, 0, 0);
-            
-            this.FormClosing += (sender, e) => { Cef.Shutdown(); };
+            InitializeComponent();           
         }
 
         private void CefStartup()
@@ -41,12 +33,6 @@ namespace DND_Monster
                 PackLoadingDisabled = true                
             };
             
-            _settings.RegisterScheme(new CefCustomScheme()
-            {
-                //SchemeName = ResourceSchemeHandlerFactory.SchemeName,
-                //SchemeHandlerFactory = new ResourceSchemeHandlerFactory()
-            });
-
             Cef.Initialize(_settings);
             BrowserSettings settings = new BrowserSettings
             {
@@ -56,6 +42,7 @@ namespace DND_Monster
             };
             b.BrowserSettings = settings;
         }
+             
 
         // Set all drop downs and updowns to their starting values and set events.
         private void Form1_Load(object sender, EventArgs e)
@@ -87,6 +74,22 @@ namespace DND_Monster
             AddImmunityButton.Click += addCondition;
 
             TraitsList.Sorted = true;
+
+            CefStartup();
+
+            b.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Controls.Add(b, 0, 0);
+
+            this.FormClosing += (senderEnd, eEnd) => { Cef.Shutdown(); };
+            if (!Help.CheckForDownload())
+            {
+                if (MessageBox.Show("New Version Available. Open Download Page?", "New Version", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    System.Diagnostics.Process.Start(@"http://thegeniusinc.com/dd-monster-maker-download/");
+                }
+            }
+
+            this.Text = this.Text + " v" + Help.Version;
         }       
 
         // This updates the labels next to stats, when the stats change.
