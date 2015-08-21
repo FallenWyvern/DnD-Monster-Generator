@@ -26,15 +26,35 @@ namespace DND_Monster
         public Main()
         {
             InitializeComponent();
-            Cef.Initialize(new CefSettings
-            {
-                PackLoadingDisabled = true
-            });
+            CefStartup();
             
             b.Dock = DockStyle.Fill;
             tableLayoutPanel1.Controls.Add(b, 0, 0);
             
             this.FormClosing += (sender, e) => { Cef.Shutdown(); };
+        }
+
+        private void CefStartup()
+        {
+            CefSettings _settings = new CefSettings
+            {
+                PackLoadingDisabled = true                
+            };
+            
+            _settings.RegisterScheme(new CefCustomScheme()
+            {
+                //SchemeName = ResourceSchemeHandlerFactory.SchemeName,
+                //SchemeHandlerFactory = new ResourceSchemeHandlerFactory()
+            });
+
+            Cef.Initialize(_settings);
+            BrowserSettings settings = new BrowserSettings
+            {
+                FileAccessFromFileUrlsAllowed = true,
+                UniversalAccessFromFileUrlsAllowed = true,
+                WebSecurityDisabled = true
+            };
+            b.BrowserSettings = settings;
         }
 
         // Set all drop downs and updowns to their starting values and set events.
@@ -272,6 +292,33 @@ namespace DND_Monster
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
                 if (TraitsList.SelectedItem == null) return;
+                
+                if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Legendary")
+                {
+                    AddLegendaryForm loadLegendary = new AddLegendaryForm();
+                    
+                    foreach (Legendary legendary in Monster._Legendaries)
+                    {
+                        if (legendary.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
+                        {
+                            loadLegendary.LoadLegendary(legendary);
+                            loadLegendary.Show();
+
+                            loadLegendary.FormClosing += (senderx, ex) =>
+                            {
+                                loadLegendary.SerializeTraits();
+
+                                Monster._Legendaries.Remove(legendary);
+                                Monster._Legendaries.Add(loadLegendary.LegendaryAbility);
+
+                                TraitsList.Items.Remove(TraitsList.SelectedItem);
+                                TraitsList.Items.Add("Legendary: " + loadLegendary.LegendaryAbility.Title);
+                            };
+                            return;
+                        }
+                    }
+                }
+
                 if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Attack")
                 {
                     AddAttackForm loadAttack = new AddAttackForm();
@@ -381,6 +428,26 @@ namespace DND_Monster
                     if (temp != null)
                     {
                         Monster._Attacks.Remove(temp);
+                        TraitsList.Items.Remove(TraitsList.SelectedItem);
+                    }
+                }
+
+                if (TraitsList.Items.Count < 1 || TraitsList.SelectedItem == null) return;
+                if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Legendary")
+                {
+                    Legendary temp = null;
+
+                    foreach (Legendary item in Monster._Legendaries)
+                    {
+                        if (item.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
+                        {
+                            temp = item;
+                        }
+                    }
+
+                    if (temp != null)
+                    {
+                        Monster._Legendaries.Remove(temp);
                         TraitsList.Items.Remove(TraitsList.SelectedItem);
                     }
                 }
@@ -1145,6 +1212,23 @@ namespace DND_Monster
             output += "Save DC: " + currentCR.profBonus + Environment.NewLine;
             output += "Low HP: " + currentCR.LowHP + "  High HP: " + currentCR.HighHP + Environment.NewLine;
             TraitsListPopUp.SetToolTip(ChallengeRatingDropDown, output);
+        }
+
+        private void AddLegendary(object sender, EventArgs e)
+        {
+            AddLegendaryForm addLegendary = new AddLegendaryForm();
+            addLegendary.Show();
+
+            addLegendary.FormClosing += (senders, es) =>
+            {
+                addLegendary.SerializeTraits();
+                if (addLegendary.LegendaryAbility != null)
+                {                    
+                    if (TraitsList.Items.Contains(addLegendary.LegendaryAbility.Title)) { addLegendary.LegendaryAbility.Title += "_"; }
+                    Monster._Legendaries.Add(addLegendary.LegendaryAbility);
+                    TraitsList.Items.Add("Legendary: " + addLegendary.LegendaryAbility.Title);
+                }
+            };
         }       
     }
 }

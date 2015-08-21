@@ -407,7 +407,7 @@
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddAttackForm";
-            this.Text = "AddAttackForm";
+            this.Text = "Add Actions";
             this.Load += new System.EventHandler(this.AddAttackForm_Load);
             this.Leave += new System.EventHandler(this.AddAttackForm_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.AttackBonusUpDown)).EndInit();

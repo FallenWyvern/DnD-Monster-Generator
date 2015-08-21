@@ -15,7 +15,7 @@ namespace DND_Monster
 
             // Templates and Scripts            
             output.Add(@"<!DOCTYPE html>");
-            output.Add("<html>");
+            output.Add(@"<html>");
 
             // Head and Title
             #region
@@ -41,7 +41,7 @@ namespace DND_Monster
 
             // Body Style
             #region
-            output.Add(@"<body>");
+            output.Add(@"<body style=""background-image: url('" + Help.BackgroundURI() + @"');"">");
             output.Add(@"<template id=""tapered-rule"">");
             output.Add(@"<style>");
             output.Add(@"svg {");
@@ -473,7 +473,24 @@ namespace DND_Monster
                     output.Add(@"<p>" + ability.Description + "</p>");
                     output.Add(@"</property-block>");
                 }
-            }            
+            }
+
+            if (_Legendaries.Count > 0)
+            {
+                output.Add(@"<h3 style=""border-bottom: 1px solid #7A200D; color:#7A200D; font-size: 18px; font-variant: small-caps; font-weight: normal; letter-spacing: 1px; margin: 0;"">Legendary Actions</h3>");
+                
+                foreach (Legendary ability in _Legendaries)
+                {
+                    output.Add(@"<property-block>");                    
+                    output.Add(@"<p>" + ability.Boilerplate(CreatureName) + "</p></br></br>");
+                    foreach (LegendaryTrait trait in ability.TraitList())
+                    {
+                        output.Add(@"<h4>" + trait.Title + ". </h4>");
+                        output.Add(@"<p>" + trait.Ability + "</p><br>");
+                    }
+                    output.Add(@"</property-block>");
+                }
+            }
 
             // Writeout
             output.Add("</stat-block>");

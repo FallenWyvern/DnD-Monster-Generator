@@ -131,6 +131,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.NewMonsterButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StrUpDown)).BeginInit();
@@ -920,14 +921,14 @@
             "Restrained",
             "Stunned",
             "Unconcious"});
-            this.DamageConditionDropDown.Location = new System.Drawing.Point(56, 406);
+            this.DamageConditionDropDown.Location = new System.Drawing.Point(26, 406);
             this.DamageConditionDropDown.Name = "DamageConditionDropDown";
             this.DamageConditionDropDown.Size = new System.Drawing.Size(378, 21);
             this.DamageConditionDropDown.TabIndex = 32;
             // 
             // AddVulnerabilityButton
             // 
-            this.AddVulnerabilityButton.Location = new System.Drawing.Point(56, 433);
+            this.AddVulnerabilityButton.Location = new System.Drawing.Point(26, 433);
             this.AddVulnerabilityButton.Name = "AddVulnerabilityButton";
             this.AddVulnerabilityButton.Size = new System.Drawing.Size(123, 23);
             this.AddVulnerabilityButton.TabIndex = 33;
@@ -937,7 +938,7 @@
             // 
             // AddResistanceButton
             // 
-            this.AddResistanceButton.Location = new System.Drawing.Point(185, 433);
+            this.AddResistanceButton.Location = new System.Drawing.Point(155, 433);
             this.AddResistanceButton.Name = "AddResistanceButton";
             this.AddResistanceButton.Size = new System.Drawing.Size(123, 23);
             this.AddResistanceButton.TabIndex = 34;
@@ -947,7 +948,7 @@
             // 
             // AddImmunityButton
             // 
-            this.AddImmunityButton.Location = new System.Drawing.Point(311, 433);
+            this.AddImmunityButton.Location = new System.Drawing.Point(281, 433);
             this.AddImmunityButton.Name = "AddImmunityButton";
             this.AddImmunityButton.Size = new System.Drawing.Size(123, 23);
             this.AddImmunityButton.TabIndex = 35;
@@ -984,14 +985,14 @@
             "Darkvision",
             "Tremorsense",
             "Truesight"});
-            this.SensesDropDown.Location = new System.Drawing.Point(56, 462);
+            this.SensesDropDown.Location = new System.Drawing.Point(26, 462);
             this.SensesDropDown.Name = "SensesDropDown";
             this.SensesDropDown.Size = new System.Drawing.Size(123, 21);
             this.SensesDropDown.TabIndex = 36;
             // 
             // AddSenseButton
             // 
-            this.AddSenseButton.Location = new System.Drawing.Point(311, 460);
+            this.AddSenseButton.Location = new System.Drawing.Point(281, 460);
             this.AddSenseButton.Name = "AddSenseButton";
             this.AddSenseButton.Size = new System.Drawing.Size(123, 23);
             this.AddSenseButton.TabIndex = 39;
@@ -1006,7 +1007,7 @@
             0,
             0,
             0});
-            this.DistanceUpDown.Location = new System.Drawing.Point(185, 463);
+            this.DistanceUpDown.Location = new System.Drawing.Point(155, 463);
             this.DistanceUpDown.Name = "DistanceUpDown";
             this.DistanceUpDown.Size = new System.Drawing.Size(42, 20);
             this.DistanceUpDown.TabIndex = 37;
@@ -1019,7 +1020,7 @@
             // Distance
             // 
             this.Distance.AutoSize = true;
-            this.Distance.Location = new System.Drawing.Point(233, 465);
+            this.Distance.Location = new System.Drawing.Point(203, 465);
             this.Distance.Name = "Distance";
             this.Distance.Size = new System.Drawing.Size(47, 13);
             this.Distance.TabIndex = 38;
@@ -1027,7 +1028,7 @@
             // 
             // AddLanguageButton
             // 
-            this.AddLanguageButton.Location = new System.Drawing.Point(311, 487);
+            this.AddLanguageButton.Location = new System.Drawing.Point(281, 487);
             this.AddLanguageButton.Name = "AddLanguageButton";
             this.AddLanguageButton.Size = new System.Drawing.Size(123, 23);
             this.AddLanguageButton.TabIndex = 41;
@@ -1047,9 +1048,9 @@
             // 
             // AddAbilityButton
             // 
-            this.AddAbilityButton.Location = new System.Drawing.Point(152, 599);
+            this.AddAbilityButton.Location = new System.Drawing.Point(94, 594);
             this.AddAbilityButton.Name = "AddAbilityButton";
-            this.AddAbilityButton.Size = new System.Drawing.Size(75, 23);
+            this.AddAbilityButton.Size = new System.Drawing.Size(88, 23);
             this.AddAbilityButton.TabIndex = 48;
             this.AddAbilityButton.Text = "Add Ability";
             this.AddAbilityButton.UseVisualStyleBackColor = true;
@@ -1057,9 +1058,9 @@
             // 
             // AddActionButton
             // 
-            this.AddActionButton.Location = new System.Drawing.Point(268, 599);
+            this.AddActionButton.Location = new System.Drawing.Point(185, 594);
             this.AddActionButton.Name = "AddActionButton";
-            this.AddActionButton.Size = new System.Drawing.Size(75, 23);
+            this.AddActionButton.Size = new System.Drawing.Size(88, 23);
             this.AddActionButton.TabIndex = 49;
             this.AddActionButton.Text = "Add Action";
             this.AddActionButton.UseVisualStyleBackColor = true;
@@ -1100,7 +1101,7 @@
             "Intimidation (Cha)",
             "Performance (Cha)",
             "Persuasion (Cha)"});
-            this.SkillDropDown.Location = new System.Drawing.Point(56, 525);
+            this.SkillDropDown.Location = new System.Drawing.Point(26, 525);
             this.SkillDropDown.Name = "SkillDropDown";
             this.SkillDropDown.Size = new System.Drawing.Size(328, 21);
             this.SkillDropDown.TabIndex = 42;
@@ -1118,7 +1119,7 @@
             // 
             // SkillBonus
             // 
-            this.SkillBonus.Location = new System.Drawing.Point(390, 525);
+            this.SkillBonus.Location = new System.Drawing.Point(360, 525);
             this.SkillBonus.Name = "SkillBonus";
             this.SkillBonus.Size = new System.Drawing.Size(44, 20);
             this.SkillBonus.TabIndex = 43;
@@ -1275,7 +1276,7 @@
             "Sylvan",
             "Terran",
             "Undercommon"});
-            this.LanguageComboBox.Location = new System.Drawing.Point(56, 489);
+            this.LanguageComboBox.Location = new System.Drawing.Point(26, 489);
             this.LanguageComboBox.Name = "LanguageComboBox";
             this.LanguageComboBox.Size = new System.Drawing.Size(252, 21);
             this.LanguageComboBox.TabIndex = 40;
@@ -1348,11 +1349,22 @@
             this.label2.TabIndex = 99;
             this.label2.Text = "Hover for suggested CR values";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(279, 594);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(88, 23);
+            this.button2.TabIndex = 100;
+            this.button2.Text = "Add Legendary";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.AddLegendary);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 701);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.NewMonsterButton);
             this.Controls.Add(this.label1);
@@ -1585,6 +1597,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button NewMonsterButton;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
     }
 }
 

@@ -8,6 +8,59 @@ using System.Threading.Tasks;
 
 namespace DND_Monster
 {
+    //using CefSharp;
+    //using System.IO;
+    //using System.Reflection;
+
+    //class ResourceSchemeHandlerFactory : ISchemeHandlerFactory
+    //{
+    //    public ISchemeHandler Create()
+    //    {
+    //        return new ResourceSchemeHandler();
+    //    }
+
+    //    public static string SchemeName { get { return "resource"; } }
+    //}
+
+    //public class ResourceSchemeHandler : ISchemeHandler
+    //{
+    //    public bool ProcessRequestAsync(IRequest request, ISchemeHandlerResponse response, OnRequestCompletedHandler requestCompletedCallback)
+    //    {
+    //        Uri u = new Uri(request.Url);
+    //        String file = u.Authority + u.AbsolutePath;
+
+    //        Assembly ass = Assembly.GetExecutingAssembly();
+    //        String resourcePath = ass.GetName().Name + "." + file.Replace("/", ".");
+
+    //        if (ass.GetManifestResourceInfo(resourcePath) != null)
+    //        {
+    //            response.ResponseStream = ass.GetManifestResourceStream(resourcePath);
+    //            switch (Path.GetExtension(file))
+    //            {
+    //                case ".html":
+    //                    response.MimeType = "text/html";
+    //                    break;
+    //                case ".js":
+    //                    response.MimeType = "text/javascript";
+    //                    break;
+    //                case ".png":
+    //                    response.MimeType = "image/png";
+    //                    break;
+    //                case ".appcache":
+    //                case ".manifest":
+    //                    response.MimeType = "text/cache-manifest";
+    //                    break;
+    //                default:
+    //                    response.MimeType = "application/octet-stream";
+    //                    break;
+    //            }
+    //            requestCompletedCallback();
+    //            return true;
+    //        }
+    //        return false;
+    //    }
+    //}
+
     public class Data
     {
         //public List<string> output = new List<string>();
@@ -56,6 +109,43 @@ namespace DND_Monster
         public int LowHP { get; set; }
         public int HighHP { get; set; }
         public int XP { get; set; }
+    }
+
+    public class Legendary
+    {
+        public string Title { get; set; }        
+        private List<LegendaryTrait> Traits = new List<LegendaryTrait>();
+
+        public void AddTrait(string title, string ability)
+        {
+            Traits.Add(new LegendaryTrait(title, ability));
+        }
+
+        public List<LegendaryTrait> TraitList()
+        {
+            return Traits;
+        }
+
+        public string Boilerplate(string name)
+        {
+            if (String.IsNullOrEmpty(name) || String.IsNullOrWhiteSpace(name))
+            {
+                name = "creature";
+            }
+            return "The " + name + " can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. The " + name + " regains spent legendary actions at the start of its turn.";
+        }
+    }
+
+    public class LegendaryTrait
+    {
+        public string Title { get; set; }
+        public string Ability { get; set; }
+
+        public LegendaryTrait(string title, string ability)
+        {
+            Title = title;
+            Ability = ability;
+        }
     }
 
     public class Ability
@@ -133,6 +223,7 @@ namespace DND_Monster
     public static class Help
     {
         public static string Version = "1.2";
+        private static string bgURI = "";
 
         public static List<Challenge_Rating> ChallengeRatings = new List<Challenge_Rating>
     {
@@ -203,6 +294,12 @@ namespace DND_Monster
             int tempHP = 0;
             int.TryParse(hp, out tempHP);
             return FindCRByHP(tempHP);
-        }        
+        }
+
+        static public string BackgroundURI()
+        {
+            if (bgURI == "") { bgURI = System.IO.File.ReadAllText("background.uri"); }  
+            return bgURI;
+        }
     }
 }

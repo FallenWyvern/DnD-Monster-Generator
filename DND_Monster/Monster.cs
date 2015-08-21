@@ -228,6 +228,7 @@ namespace DND_Monster
             {
                 _Abilities.Clear();
                 _Attacks.Clear();
+                _Legendaries.Clear();
             }
 
             _Languages.Clear();
@@ -313,6 +314,7 @@ namespace DND_Monster
 
         public static List<Ability> _Abilities = new List<Ability>();
         public static List<Ability> _Attacks = new List<Ability>();
+        public static List<Legendary> _Legendaries = new List<Legendary>();
 
         public static string Title = "";        
         public static int STR = 0;

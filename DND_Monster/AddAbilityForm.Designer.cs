@@ -92,7 +92,7 @@
             this.Controls.Add(this.DescriptionTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "AddAbilityForm";
-            this.Text = "AddAbilityForm";
+            this.Text = "Add Abilities";
             this.Load += new System.EventHandler(this.AddAbilityForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
