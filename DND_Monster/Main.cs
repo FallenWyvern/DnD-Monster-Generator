@@ -102,7 +102,7 @@ namespace DND_Monster
                 if (item.Tag != null)
                 {
                     if (item.Tag.ToString().Contains(temp.Tag.ToString()))
-                    {
+                    {                        
                         UpdateModifier(temp, (Label)item);
                         return;
                     }
@@ -734,6 +734,7 @@ namespace DND_Monster
                     height = BrowserInfo.BrowserHeight(browser);
                     System.Threading.Thread.Sleep(100);
                 }
+
                 browser.Size = new Size(width, height);
                 
                 await Task.Delay(500);
@@ -906,6 +907,52 @@ namespace DND_Monster
             {
                 RecalculateAC("Mod Change");
             }
+
+            for (int i = 0; i < TraitsList.Items.Count; i++)
+            {
+                string item = TraitsList.Items[i].ToString();
+                if (!item.Contains("Skill")) return;
+
+                string mod = target.Tag.ToString().ToLower().Replace("mod", "");
+                mod = mod[0].ToString().ToUpper() + mod.Substring(1, 2);
+
+                if (item.Split('|')[1].Contains(mod))
+                {
+                    string temp = item.Split('|')[1];
+                    string skillChanged = item.Split('(')[0];
+                    string addendum = "";
+                    skillChanged += "(" + mod + ") ";
+
+                    int totalBonus = 0;
+                    int modBonus = 0;
+                    int profBonus = 0;
+                    int skillBonus = 0;
+
+                    if (temp.Contains(mod))
+                    {
+                        modBonus = modifier;
+                        addendum += mod + " " + modBonus + " ";                        
+                    }
+
+                    if (temp.Contains("Prof."))
+                    {
+                        profBonus = currentCR.profBonus;
+                        addendum += "Prof. " + profBonus + " ";
+                    }
+
+                    if (temp.Contains("Bonus"))
+                    {
+                        skillBonus = (int)SkillBonus.Value;
+                        addendum += "Bonus " + skillBonus;
+                    }
+
+                    totalBonus = modBonus + profBonus + skillBonus;
+                    skillChanged += "+" + totalBonus + " | (" + addendum.Trim() + ")";
+
+                    TraitsList.Items.Remove(item);
+                    TraitsList.Items.Add(skillChanged);
+                }
+            }
         }
 
         private void generateHP(object sender, EventArgs e)
@@ -948,11 +995,11 @@ namespace DND_Monster
         private void GenerateMonsterData()
         {
             Monster.SkillBonuses.Clear();
-
+            Monster.Clear();                
             // Clear existing HTML
             if (Monster.output.Count > 0)
             {
-                Monster.Clear();                
+                
             }
 
             int.TryParse(ProfBonus.Text, out Monster.proficency);
