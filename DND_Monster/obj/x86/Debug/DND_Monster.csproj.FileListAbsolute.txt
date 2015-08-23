@@ -40,7 +40,6 @@ Z:\DND_Monster\DND_Monster\DnD-Monster-Generator\DND_Monster\obj\x86\Debug\DND_M
 Z:\DND_Monster\DND_Monster\DnD-Monster-Generator\DND_Monster\obj\x86\Debug\DND_Monster.AddAbilityForm.resources
 Z:\DND_Monster\DND_Monster\DnD-Monster-Generator\DND_Monster\obj\x86\Debug\DND_Monster.AddAttackForm.resources
 Z:\DND_Monster\DND_Monster\DnD-Monster-Generator\DND_Monster\obj\x86\Debug\DND_Monster.Main.resources
-Z:\DND_Monster\DND_Monster\DnD-Monster-Generator\DND_Monster\obj\x86\Debug\DND_Monster.PreviewWindow.resources
 Z:\DND_Monster\DND_Monster\DnD-Monster-Generator\DND_Monster\obj\x86\Debug\DND_Monster.Properties.Resources.resources
 Z:\DND_Monster\DND_Monster\DnD-Monster-Generator\DND_Monster\obj\x86\Debug\DND_Monster.csproj.GenerateResource.Cache
 Z:\DND_Monster\DND_Monster\DnD-Monster-Generator\DND_Monster\bin\x86\Debug\DND_Monster.exe
@@ -77,3 +76,8 @@ D:\DnD-Monster-Generator\DND_Monster\bin\x86\Debug\CefSharp.OffScreen.dll
 D:\DnD-Monster-Generator\DND_Monster\bin\x86\Debug\CefSharp.OffScreen.xml
 D:\DnD-Monster-Generator\DND_Monster\obj\x86\Debug\DND_Monster.AddLegendaryForm.resources
 D:\DnD-Monster-Generator\DND_Monster\bin\x86\Debug\background-small.uri
+Z:\DND_Monster\DND_Monster\DnD-Monster-Generator\DND_Monster\bin\x86\Debug\background-small.uri
+Z:\DND_Monster\DND_Monster\DnD-Monster-Generator\DND_Monster\bin\x86\Debug\background.uri
+Z:\DND_Monster\DND_Monster\DnD-Monster-Generator\DND_Monster\bin\x86\Debug\CefSharp.OffScreen.dll
+Z:\DND_Monster\DND_Monster\DnD-Monster-Generator\DND_Monster\bin\x86\Debug\CefSharp.OffScreen.xml
+Z:\DND_Monster\DND_Monster\DnD-Monster-Generator\DND_Monster\obj\x86\Debug\DND_Monster.AddLegendaryForm.resources

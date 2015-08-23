@@ -169,7 +169,7 @@ namespace DND_Monster
 
     public static class Help
     {
-        public static string Version = "1.2";
+        public static string Version = "1.3";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static bool useBG = false;
         private static string bgURI = "";

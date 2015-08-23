@@ -8,6 +8,9 @@ namespace DND_Monster
 {
     public static partial class Monster
     {
+        public static int columns = 0;
+        public static int width = 212;
+
         // Writes out the HTML needed to render the stat block
         public static string ValloricStatBlock()        
         {
@@ -274,11 +277,12 @@ namespace DND_Monster
             output.Add(@"<template id=""stat-block"">");
             output.Add(@"<style>");
             output.Add(@":host {");
-            output.Add(@"width: 424px;");
+            output.Add(@"width: " + (width + (width * columns)) + "px;");
             output.Add(@"display: block;");
             output.Add(@"}");
 
             output.Add(@"#content-wrap {");
+            output.Add(@"-webkit-column-count: " + columns + ";");
             output.Add(@"font-family: 'Noto Sans', 'Myriad Pro', Scala Sans, Helvetica, Arial,");
             output.Add(@"sans-serif;");
             output.Add(@"font-size: 13px;");

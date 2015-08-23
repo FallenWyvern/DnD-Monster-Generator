@@ -117,6 +117,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.BackgroundCheckbox = new System.Windows.Forms.CheckBox();
             this.ExportCSV = new System.Windows.Forms.Button();
             this.PrintButton = new System.Windows.Forms.Button();
             this.ExportPNG = new System.Windows.Forms.Button();
@@ -132,7 +133,11 @@
             this.NewMonsterButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.BackgroundCheckbox = new System.Windows.Forms.CheckBox();
+            this.PreviewColumns = new System.Windows.Forms.NumericUpDown();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StrUpDown)).BeginInit();
@@ -157,12 +162,16 @@
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PreviewColumns)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // MonsterName
             // 
             this.MonsterName.AutoSize = true;
-            this.MonsterName.Location = new System.Drawing.Point(12, 15);
+            this.MonsterName.Location = new System.Drawing.Point(14, 12);
             this.MonsterName.Name = "MonsterName";
             this.MonsterName.Size = new System.Drawing.Size(76, 13);
             this.MonsterName.TabIndex = 0;
@@ -170,14 +179,14 @@
             // 
             // MonsterNameTextBox
             // 
-            this.MonsterNameTextBox.Location = new System.Drawing.Point(94, 12);
+            this.MonsterNameTextBox.Location = new System.Drawing.Point(96, 9);
             this.MonsterNameTextBox.Name = "MonsterNameTextBox";
             this.MonsterNameTextBox.Size = new System.Drawing.Size(222, 20);
             this.MonsterNameTextBox.TabIndex = 0;
             // 
             // ACUpDown
             // 
-            this.ACUpDown.Location = new System.Drawing.Point(94, 112);
+            this.ACUpDown.Location = new System.Drawing.Point(96, 109);
             this.ACUpDown.Name = "ACUpDown";
             this.ACUpDown.Size = new System.Drawing.Size(44, 20);
             this.ACUpDown.TabIndex = 5;
@@ -190,7 +199,7 @@
             // ArmorClass
             // 
             this.ArmorClass.AutoSize = true;
-            this.ArmorClass.Location = new System.Drawing.Point(12, 114);
+            this.ArmorClass.Location = new System.Drawing.Point(14, 111);
             this.ArmorClass.Name = "ArmorClass";
             this.ArmorClass.Size = new System.Drawing.Size(62, 13);
             this.ArmorClass.TabIndex = 3;
@@ -214,7 +223,7 @@
             "Ooze",
             "Plant",
             "Undead"});
-            this.TypeDropDown.Location = new System.Drawing.Point(94, 62);
+            this.TypeDropDown.Location = new System.Drawing.Point(96, 59);
             this.TypeDropDown.Name = "TypeDropDown";
             this.TypeDropDown.Size = new System.Drawing.Size(116, 21);
             this.TypeDropDown.TabIndex = 2;
@@ -222,7 +231,7 @@
             // TypeAndTag
             // 
             this.TypeAndTag.AutoSize = true;
-            this.TypeAndTag.Location = new System.Drawing.Point(12, 65);
+            this.TypeAndTag.Location = new System.Drawing.Point(14, 62);
             this.TypeAndTag.Name = "TypeAndTag";
             this.TypeAndTag.Size = new System.Drawing.Size(61, 13);
             this.TypeAndTag.TabIndex = 5;
@@ -231,7 +240,7 @@
             // Alignment
             // 
             this.Alignment.AutoSize = true;
-            this.Alignment.Location = new System.Drawing.Point(12, 90);
+            this.Alignment.Location = new System.Drawing.Point(14, 87);
             this.Alignment.Name = "Alignment";
             this.Alignment.Size = new System.Drawing.Size(53, 13);
             this.Alignment.TabIndex = 6;
@@ -254,7 +263,7 @@
             "Chaotic Evil",
             "",
             "Unaligned"});
-            this.AlignmentDropDown.Location = new System.Drawing.Point(94, 87);
+            this.AlignmentDropDown.Location = new System.Drawing.Point(96, 84);
             this.AlignmentDropDown.Name = "AlignmentDropDown";
             this.AlignmentDropDown.Size = new System.Drawing.Size(222, 21);
             this.AlignmentDropDown.TabIndex = 4;
@@ -262,7 +271,7 @@
             // HitPoints
             // 
             this.HitPoints.AutoSize = true;
-            this.HitPoints.Location = new System.Drawing.Point(12, 139);
+            this.HitPoints.Location = new System.Drawing.Point(14, 136);
             this.HitPoints.Name = "HitPoints";
             this.HitPoints.Size = new System.Drawing.Size(52, 13);
             this.HitPoints.TabIndex = 8;
@@ -278,14 +287,14 @@
             "d10",
             "d12",
             "d20"});
-            this.HitDieDropDown.Location = new System.Drawing.Point(144, 136);
+            this.HitDieDropDown.Location = new System.Drawing.Point(146, 133);
             this.HitDieDropDown.Name = "HitDieDropDown";
             this.HitDieDropDown.Size = new System.Drawing.Size(68, 21);
             this.HitDieDropDown.TabIndex = 8;
             // 
             // HitDieUpDown
             // 
-            this.HitDieUpDown.Location = new System.Drawing.Point(94, 137);
+            this.HitDieUpDown.Location = new System.Drawing.Point(96, 134);
             this.HitDieUpDown.Name = "HitDieUpDown";
             this.HitDieUpDown.Size = new System.Drawing.Size(44, 20);
             this.HitDieUpDown.TabIndex = 7;
@@ -297,14 +306,14 @@
             // 
             // HitDieTextBox
             // 
-            this.HitDieTextBox.Location = new System.Drawing.Point(216, 136);
+            this.HitDieTextBox.Location = new System.Drawing.Point(218, 133);
             this.HitDieTextBox.Name = "HitDieTextBox";
             this.HitDieTextBox.Size = new System.Drawing.Size(100, 20);
             this.HitDieTextBox.TabIndex = 9;
             // 
             // GenerateHPBonus
             // 
-            this.GenerateHPBonus.Location = new System.Drawing.Point(94, 163);
+            this.GenerateHPBonus.Location = new System.Drawing.Point(96, 160);
             this.GenerateHPBonus.Name = "GenerateHPBonus";
             this.GenerateHPBonus.Size = new System.Drawing.Size(118, 23);
             this.GenerateHPBonus.TabIndex = 10;
@@ -315,7 +324,7 @@
             // 
             // StrUpDown
             // 
-            this.StrUpDown.Location = new System.Drawing.Point(56, 313);
+            this.StrUpDown.Location = new System.Drawing.Point(47, 304);
             this.StrUpDown.Name = "StrUpDown";
             this.StrUpDown.Size = new System.Drawing.Size(44, 20);
             this.StrUpDown.TabIndex = 18;
@@ -328,7 +337,7 @@
             // 
             // DexUpDown
             // 
-            this.DexUpDown.Location = new System.Drawing.Point(56, 339);
+            this.DexUpDown.Location = new System.Drawing.Point(47, 330);
             this.DexUpDown.Name = "DexUpDown";
             this.DexUpDown.Size = new System.Drawing.Size(44, 20);
             this.DexUpDown.TabIndex = 19;
@@ -341,7 +350,7 @@
             // 
             // ConUpDown
             // 
-            this.ConUpDown.Location = new System.Drawing.Point(56, 365);
+            this.ConUpDown.Location = new System.Drawing.Point(47, 356);
             this.ConUpDown.Name = "ConUpDown";
             this.ConUpDown.Size = new System.Drawing.Size(44, 20);
             this.ConUpDown.TabIndex = 20;
@@ -354,7 +363,7 @@
             // 
             // IntUpDown
             // 
-            this.IntUpDown.Location = new System.Drawing.Point(217, 313);
+            this.IntUpDown.Location = new System.Drawing.Point(208, 304);
             this.IntUpDown.Name = "IntUpDown";
             this.IntUpDown.Size = new System.Drawing.Size(44, 20);
             this.IntUpDown.TabIndex = 21;
@@ -367,7 +376,7 @@
             // 
             // WisUpDown
             // 
-            this.WisUpDown.Location = new System.Drawing.Point(217, 339);
+            this.WisUpDown.Location = new System.Drawing.Point(208, 330);
             this.WisUpDown.Name = "WisUpDown";
             this.WisUpDown.Size = new System.Drawing.Size(44, 20);
             this.WisUpDown.TabIndex = 22;
@@ -380,7 +389,7 @@
             // 
             // ChaUpDown
             // 
-            this.ChaUpDown.Location = new System.Drawing.Point(217, 365);
+            this.ChaUpDown.Location = new System.Drawing.Point(208, 356);
             this.ChaUpDown.Name = "ChaUpDown";
             this.ChaUpDown.Size = new System.Drawing.Size(44, 20);
             this.ChaUpDown.TabIndex = 23;
@@ -394,7 +403,7 @@
             // Str
             // 
             this.Str.AutoSize = true;
-            this.Str.Location = new System.Drawing.Point(21, 315);
+            this.Str.Location = new System.Drawing.Point(12, 306);
             this.Str.Name = "Str";
             this.Str.Size = new System.Drawing.Size(29, 13);
             this.Str.TabIndex = 19;
@@ -403,7 +412,7 @@
             // Dex
             // 
             this.Dex.AutoSize = true;
-            this.Dex.Location = new System.Drawing.Point(21, 341);
+            this.Dex.Location = new System.Drawing.Point(12, 332);
             this.Dex.Name = "Dex";
             this.Dex.Size = new System.Drawing.Size(29, 13);
             this.Dex.TabIndex = 20;
@@ -412,7 +421,7 @@
             // Con
             // 
             this.Con.AutoSize = true;
-            this.Con.Location = new System.Drawing.Point(21, 367);
+            this.Con.Location = new System.Drawing.Point(12, 358);
             this.Con.Name = "Con";
             this.Con.Size = new System.Drawing.Size(30, 13);
             this.Con.TabIndex = 21;
@@ -421,7 +430,7 @@
             // Int
             // 
             this.Int.AutoSize = true;
-            this.Int.Location = new System.Drawing.Point(182, 315);
+            this.Int.Location = new System.Drawing.Point(173, 306);
             this.Int.Name = "Int";
             this.Int.Size = new System.Drawing.Size(25, 13);
             this.Int.TabIndex = 23;
@@ -430,7 +439,7 @@
             // Wis
             // 
             this.Wis.AutoSize = true;
-            this.Wis.Location = new System.Drawing.Point(182, 341);
+            this.Wis.Location = new System.Drawing.Point(173, 332);
             this.Wis.Name = "Wis";
             this.Wis.Size = new System.Drawing.Size(28, 13);
             this.Wis.TabIndex = 23;
@@ -439,7 +448,7 @@
             // Cha
             // 
             this.Cha.AutoSize = true;
-            this.Cha.Location = new System.Drawing.Point(182, 367);
+            this.Cha.Location = new System.Drawing.Point(173, 358);
             this.Cha.Name = "Cha";
             this.Cha.Size = new System.Drawing.Size(29, 13);
             this.Cha.TabIndex = 24;
@@ -448,7 +457,7 @@
             // StrBonus
             // 
             this.StrBonus.AutoSize = true;
-            this.StrBonus.Location = new System.Drawing.Point(106, 315);
+            this.StrBonus.Location = new System.Drawing.Point(97, 306);
             this.StrBonus.Name = "StrBonus";
             this.StrBonus.Size = new System.Drawing.Size(19, 13);
             this.StrBonus.TabIndex = 25;
@@ -458,7 +467,7 @@
             // DexBonus
             // 
             this.DexBonus.AutoSize = true;
-            this.DexBonus.Location = new System.Drawing.Point(106, 341);
+            this.DexBonus.Location = new System.Drawing.Point(97, 332);
             this.DexBonus.Name = "DexBonus";
             this.DexBonus.Size = new System.Drawing.Size(19, 13);
             this.DexBonus.TabIndex = 26;
@@ -468,7 +477,7 @@
             // ConBonus
             // 
             this.ConBonus.AutoSize = true;
-            this.ConBonus.Location = new System.Drawing.Point(106, 367);
+            this.ConBonus.Location = new System.Drawing.Point(97, 358);
             this.ConBonus.Name = "ConBonus";
             this.ConBonus.Size = new System.Drawing.Size(19, 13);
             this.ConBonus.TabIndex = 27;
@@ -478,7 +487,7 @@
             // IntBonus
             // 
             this.IntBonus.AutoSize = true;
-            this.IntBonus.Location = new System.Drawing.Point(267, 315);
+            this.IntBonus.Location = new System.Drawing.Point(258, 306);
             this.IntBonus.Name = "IntBonus";
             this.IntBonus.Size = new System.Drawing.Size(19, 13);
             this.IntBonus.TabIndex = 28;
@@ -488,7 +497,7 @@
             // WisBonus
             // 
             this.WisBonus.AutoSize = true;
-            this.WisBonus.Location = new System.Drawing.Point(267, 341);
+            this.WisBonus.Location = new System.Drawing.Point(258, 332);
             this.WisBonus.Name = "WisBonus";
             this.WisBonus.Size = new System.Drawing.Size(19, 13);
             this.WisBonus.TabIndex = 29;
@@ -498,7 +507,7 @@
             // ChaBonus
             // 
             this.ChaBonus.AutoSize = true;
-            this.ChaBonus.Location = new System.Drawing.Point(267, 367);
+            this.ChaBonus.Location = new System.Drawing.Point(258, 358);
             this.ChaBonus.Name = "ChaBonus";
             this.ChaBonus.Size = new System.Drawing.Size(19, 13);
             this.ChaBonus.TabIndex = 30;
@@ -515,7 +524,7 @@
             "Large",
             "Huge",
             "Gargantuan"});
-            this.SizeDropDown.Location = new System.Drawing.Point(94, 38);
+            this.SizeDropDown.Location = new System.Drawing.Point(96, 35);
             this.SizeDropDown.Name = "SizeDropDown";
             this.SizeDropDown.Size = new System.Drawing.Size(222, 21);
             this.SizeDropDown.TabIndex = 1;
@@ -523,7 +532,7 @@
             // SizeLabel
             // 
             this.SizeLabel.AutoSize = true;
-            this.SizeLabel.Location = new System.Drawing.Point(12, 41);
+            this.SizeLabel.Location = new System.Drawing.Point(14, 38);
             this.SizeLabel.Name = "SizeLabel";
             this.SizeLabel.Size = new System.Drawing.Size(27, 13);
             this.SizeLabel.TabIndex = 32;
@@ -531,7 +540,7 @@
             // 
             // RollHPBonus
             // 
-            this.RollHPBonus.Location = new System.Drawing.Point(216, 163);
+            this.RollHPBonus.Location = new System.Drawing.Point(218, 160);
             this.RollHPBonus.Name = "RollHPBonus";
             this.RollHPBonus.Size = new System.Drawing.Size(100, 23);
             this.RollHPBonus.TabIndex = 11;
@@ -569,14 +578,14 @@
             "Troglodyte",
             "Yuan-Ti",
             "Yugoloth"});
-            this.TagDropDown.Location = new System.Drawing.Point(216, 62);
+            this.TagDropDown.Location = new System.Drawing.Point(218, 59);
             this.TagDropDown.Name = "TagDropDown";
             this.TagDropDown.Size = new System.Drawing.Size(100, 21);
             this.TagDropDown.TabIndex = 3;
             // 
             // ACSourceTextBox
             // 
-            this.ACSourceTextBox.Location = new System.Drawing.Point(144, 111);
+            this.ACSourceTextBox.Location = new System.Drawing.Point(146, 108);
             this.ACSourceTextBox.Name = "ACSourceTextBox";
             this.ACSourceTextBox.Size = new System.Drawing.Size(172, 20);
             this.ACSourceTextBox.TabIndex = 6;
@@ -588,7 +597,7 @@
             0,
             0,
             0});
-            this.burrowUpDown.Location = new System.Drawing.Point(272, 192);
+            this.burrowUpDown.Location = new System.Drawing.Point(274, 189);
             this.burrowUpDown.Name = "burrowUpDown";
             this.burrowUpDown.Size = new System.Drawing.Size(44, 20);
             this.burrowUpDown.TabIndex = 16;
@@ -600,7 +609,7 @@
             0,
             0,
             0});
-            this.ClimbUpDown.Location = new System.Drawing.Point(272, 218);
+            this.ClimbUpDown.Location = new System.Drawing.Point(274, 215);
             this.ClimbUpDown.Name = "ClimbUpDown";
             this.ClimbUpDown.Size = new System.Drawing.Size(44, 20);
             this.ClimbUpDown.TabIndex = 17;
@@ -612,7 +621,7 @@
             0,
             0,
             0});
-            this.FlyUpDown.Location = new System.Drawing.Point(94, 244);
+            this.FlyUpDown.Location = new System.Drawing.Point(96, 241);
             this.FlyUpDown.Name = "FlyUpDown";
             this.FlyUpDown.Size = new System.Drawing.Size(44, 20);
             this.FlyUpDown.TabIndex = 14;
@@ -624,7 +633,7 @@
             0,
             0,
             0});
-            this.SwimUpDown.Location = new System.Drawing.Point(94, 218);
+            this.SwimUpDown.Location = new System.Drawing.Point(96, 215);
             this.SwimUpDown.Name = "SwimUpDown";
             this.SwimUpDown.Size = new System.Drawing.Size(44, 20);
             this.SwimUpDown.TabIndex = 13;
@@ -636,7 +645,7 @@
             0,
             0,
             0});
-            this.SpeedUpDown.Location = new System.Drawing.Point(94, 192);
+            this.SpeedUpDown.Location = new System.Drawing.Point(96, 189);
             this.SpeedUpDown.Name = "SpeedUpDown";
             this.SpeedUpDown.Size = new System.Drawing.Size(44, 20);
             this.SpeedUpDown.TabIndex = 12;
@@ -649,7 +658,7 @@
             // Speed
             // 
             this.Speed.AutoSize = true;
-            this.Speed.Location = new System.Drawing.Point(12, 194);
+            this.Speed.Location = new System.Drawing.Point(14, 191);
             this.Speed.Name = "Speed";
             this.Speed.Size = new System.Drawing.Size(38, 13);
             this.Speed.TabIndex = 41;
@@ -658,7 +667,7 @@
             // Burrow
             // 
             this.Burrow.AutoSize = true;
-            this.Burrow.Location = new System.Drawing.Point(213, 194);
+            this.Burrow.Location = new System.Drawing.Point(215, 191);
             this.Burrow.Name = "Burrow";
             this.Burrow.Size = new System.Drawing.Size(40, 13);
             this.Burrow.TabIndex = 16;
@@ -667,7 +676,7 @@
             // Climb
             // 
             this.Climb.AutoSize = true;
-            this.Climb.Location = new System.Drawing.Point(213, 220);
+            this.Climb.Location = new System.Drawing.Point(215, 217);
             this.Climb.Name = "Climb";
             this.Climb.Size = new System.Drawing.Size(32, 13);
             this.Climb.TabIndex = 18;
@@ -676,7 +685,7 @@
             // Fly
             // 
             this.Fly.AutoSize = true;
-            this.Fly.Location = new System.Drawing.Point(12, 246);
+            this.Fly.Location = new System.Drawing.Point(14, 243);
             this.Fly.Name = "Fly";
             this.Fly.Size = new System.Drawing.Size(20, 13);
             this.Fly.TabIndex = 44;
@@ -685,7 +694,7 @@
             // Swim
             // 
             this.Swim.AutoSize = true;
-            this.Swim.Location = new System.Drawing.Point(12, 220);
+            this.Swim.Location = new System.Drawing.Point(14, 217);
             this.Swim.Name = "Swim";
             this.Swim.Size = new System.Drawing.Size(32, 13);
             this.Swim.TabIndex = 45;
@@ -694,7 +703,7 @@
             // HoverCheckBox
             // 
             this.HoverCheckBox.AutoSize = true;
-            this.HoverCheckBox.Location = new System.Drawing.Point(144, 247);
+            this.HoverCheckBox.Location = new System.Drawing.Point(146, 244);
             this.HoverCheckBox.Name = "HoverCheckBox";
             this.HoverCheckBox.Size = new System.Drawing.Size(55, 17);
             this.HoverCheckBox.TabIndex = 15;
@@ -704,7 +713,7 @@
             // ChallengeRating
             // 
             this.ChallengeRating.AutoSize = true;
-            this.ChallengeRating.Location = new System.Drawing.Point(11, 653);
+            this.ChallengeRating.Location = new System.Drawing.Point(2, 654);
             this.ChallengeRating.Name = "ChallengeRating";
             this.ChallengeRating.Size = new System.Drawing.Size(88, 13);
             this.ChallengeRating.TabIndex = 48;
@@ -748,7 +757,7 @@
             "28",
             "29",
             "30"});
-            this.ChallengeRatingDropDown.Location = new System.Drawing.Point(105, 650);
+            this.ChallengeRatingDropDown.Location = new System.Drawing.Point(96, 651);
             this.ChallengeRatingDropDown.Name = "ChallengeRatingDropDown";
             this.ChallengeRatingDropDown.Size = new System.Drawing.Size(121, 21);
             this.ChallengeRatingDropDown.TabIndex = 49;
@@ -758,7 +767,7 @@
             // Profiency
             // 
             this.Profiency.AutoSize = true;
-            this.Profiency.Location = new System.Drawing.Point(11, 680);
+            this.Profiency.Location = new System.Drawing.Point(3, 676);
             this.Profiency.Name = "Profiency";
             this.Profiency.Size = new System.Drawing.Size(59, 13);
             this.Profiency.TabIndex = 50;
@@ -767,7 +776,7 @@
             // ProfBonus
             // 
             this.ProfBonus.AutoSize = true;
-            this.ProfBonus.Location = new System.Drawing.Point(102, 680);
+            this.ProfBonus.Location = new System.Drawing.Point(94, 676);
             this.ProfBonus.Name = "ProfBonus";
             this.ProfBonus.Size = new System.Drawing.Size(25, 13);
             this.ProfBonus.TabIndex = 51;
@@ -775,42 +784,42 @@
             // 
             // StrSaveBonusUpDown
             // 
-            this.StrSaveBonusUpDown.Location = new System.Drawing.Point(328, 327);
+            this.StrSaveBonusUpDown.Location = new System.Drawing.Point(319, 318);
             this.StrSaveBonusUpDown.Name = "StrSaveBonusUpDown";
             this.StrSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
             this.StrSaveBonusUpDown.TabIndex = 24;
             // 
             // DexSaveBonusUpDown
             // 
-            this.DexSaveBonusUpDown.Location = new System.Drawing.Point(378, 327);
+            this.DexSaveBonusUpDown.Location = new System.Drawing.Point(369, 318);
             this.DexSaveBonusUpDown.Name = "DexSaveBonusUpDown";
             this.DexSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
             this.DexSaveBonusUpDown.TabIndex = 25;
             // 
             // ConSaveBonusUpDown
             // 
-            this.ConSaveBonusUpDown.Location = new System.Drawing.Point(430, 327);
+            this.ConSaveBonusUpDown.Location = new System.Drawing.Point(421, 318);
             this.ConSaveBonusUpDown.Name = "ConSaveBonusUpDown";
             this.ConSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
             this.ConSaveBonusUpDown.TabIndex = 26;
             // 
             // IntSaveBonusUpDown
             // 
-            this.IntSaveBonusUpDown.Location = new System.Drawing.Point(330, 371);
+            this.IntSaveBonusUpDown.Location = new System.Drawing.Point(321, 362);
             this.IntSaveBonusUpDown.Name = "IntSaveBonusUpDown";
             this.IntSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
             this.IntSaveBonusUpDown.TabIndex = 27;
             // 
             // WisSaveBonusUpDown
             // 
-            this.WisSaveBonusUpDown.Location = new System.Drawing.Point(380, 371);
+            this.WisSaveBonusUpDown.Location = new System.Drawing.Point(371, 362);
             this.WisSaveBonusUpDown.Name = "WisSaveBonusUpDown";
             this.WisSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
             this.WisSaveBonusUpDown.TabIndex = 28;
             // 
             // ChaSaveBonusUpDown
             // 
-            this.ChaSaveBonusUpDown.Location = new System.Drawing.Point(430, 371);
+            this.ChaSaveBonusUpDown.Location = new System.Drawing.Point(421, 362);
             this.ChaSaveBonusUpDown.Name = "ChaSaveBonusUpDown";
             this.ChaSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
             this.ChaSaveBonusUpDown.TabIndex = 29;
@@ -818,7 +827,7 @@
             // SavingThrowBonuses
             // 
             this.SavingThrowBonuses.AutoSize = true;
-            this.SavingThrowBonuses.Location = new System.Drawing.Point(315, 286);
+            this.SavingThrowBonuses.Location = new System.Drawing.Point(317, 283);
             this.SavingThrowBonuses.Name = "SavingThrowBonuses";
             this.SavingThrowBonuses.Size = new System.Drawing.Size(117, 13);
             this.SavingThrowBonuses.TabIndex = 56;
@@ -827,7 +836,7 @@
             // StrSaveBonus
             // 
             this.StrSaveBonus.AutoSize = true;
-            this.StrSaveBonus.Location = new System.Drawing.Point(325, 311);
+            this.StrSaveBonus.Location = new System.Drawing.Point(316, 302);
             this.StrSaveBonus.Name = "StrSaveBonus";
             this.StrSaveBonus.Size = new System.Drawing.Size(29, 13);
             this.StrSaveBonus.TabIndex = 59;
@@ -836,7 +845,7 @@
             // DexSaveBonus
             // 
             this.DexSaveBonus.AutoSize = true;
-            this.DexSaveBonus.Location = new System.Drawing.Point(375, 311);
+            this.DexSaveBonus.Location = new System.Drawing.Point(366, 302);
             this.DexSaveBonus.Name = "DexSaveBonus";
             this.DexSaveBonus.Size = new System.Drawing.Size(29, 13);
             this.DexSaveBonus.TabIndex = 60;
@@ -845,7 +854,7 @@
             // ConSaveBonus
             // 
             this.ConSaveBonus.AutoSize = true;
-            this.ConSaveBonus.Location = new System.Drawing.Point(427, 311);
+            this.ConSaveBonus.Location = new System.Drawing.Point(418, 302);
             this.ConSaveBonus.Name = "ConSaveBonus";
             this.ConSaveBonus.Size = new System.Drawing.Size(30, 13);
             this.ConSaveBonus.TabIndex = 61;
@@ -854,7 +863,7 @@
             // IntSaveBonus
             // 
             this.IntSaveBonus.AutoSize = true;
-            this.IntSaveBonus.Location = new System.Drawing.Point(327, 355);
+            this.IntSaveBonus.Location = new System.Drawing.Point(318, 346);
             this.IntSaveBonus.Name = "IntSaveBonus";
             this.IntSaveBonus.Size = new System.Drawing.Size(25, 13);
             this.IntSaveBonus.TabIndex = 62;
@@ -863,7 +872,7 @@
             // WisSaveBonus
             // 
             this.WisSaveBonus.AutoSize = true;
-            this.WisSaveBonus.Location = new System.Drawing.Point(377, 355);
+            this.WisSaveBonus.Location = new System.Drawing.Point(368, 346);
             this.WisSaveBonus.Name = "WisSaveBonus";
             this.WisSaveBonus.Size = new System.Drawing.Size(28, 13);
             this.WisSaveBonus.TabIndex = 63;
@@ -872,7 +881,7 @@
             // ChaSaveBonus
             // 
             this.ChaSaveBonus.AutoSize = true;
-            this.ChaSaveBonus.Location = new System.Drawing.Point(427, 355);
+            this.ChaSaveBonus.Location = new System.Drawing.Point(418, 346);
             this.ChaSaveBonus.Name = "ChaSaveBonus";
             this.ChaSaveBonus.Size = new System.Drawing.Size(29, 13);
             this.ChaSaveBonus.TabIndex = 64;
@@ -881,7 +890,7 @@
             // AbilityScores
             // 
             this.AbilityScores.AutoSize = true;
-            this.AbilityScores.Location = new System.Drawing.Point(12, 297);
+            this.AbilityScores.Location = new System.Drawing.Point(3, 288);
             this.AbilityScores.Name = "AbilityScores";
             this.AbilityScores.Size = new System.Drawing.Size(70, 13);
             this.AbilityScores.TabIndex = 65;
@@ -922,14 +931,14 @@
             "Restrained",
             "Stunned",
             "Unconcious"});
-            this.DamageConditionDropDown.Location = new System.Drawing.Point(26, 406);
+            this.DamageConditionDropDown.Location = new System.Drawing.Point(17, 397);
             this.DamageConditionDropDown.Name = "DamageConditionDropDown";
             this.DamageConditionDropDown.Size = new System.Drawing.Size(378, 21);
             this.DamageConditionDropDown.TabIndex = 30;
             // 
             // AddVulnerabilityButton
             // 
-            this.AddVulnerabilityButton.Location = new System.Drawing.Point(26, 433);
+            this.AddVulnerabilityButton.Location = new System.Drawing.Point(17, 424);
             this.AddVulnerabilityButton.Name = "AddVulnerabilityButton";
             this.AddVulnerabilityButton.Size = new System.Drawing.Size(123, 23);
             this.AddVulnerabilityButton.TabIndex = 31;
@@ -939,7 +948,7 @@
             // 
             // AddResistanceButton
             // 
-            this.AddResistanceButton.Location = new System.Drawing.Point(155, 433);
+            this.AddResistanceButton.Location = new System.Drawing.Point(146, 424);
             this.AddResistanceButton.Name = "AddResistanceButton";
             this.AddResistanceButton.Size = new System.Drawing.Size(123, 23);
             this.AddResistanceButton.TabIndex = 32;
@@ -949,7 +958,7 @@
             // 
             // AddImmunityButton
             // 
-            this.AddImmunityButton.Location = new System.Drawing.Point(281, 433);
+            this.AddImmunityButton.Location = new System.Drawing.Point(272, 424);
             this.AddImmunityButton.Name = "AddImmunityButton";
             this.AddImmunityButton.Size = new System.Drawing.Size(123, 23);
             this.AddImmunityButton.TabIndex = 33;
@@ -960,7 +969,7 @@
             // TraitsList
             // 
             this.TraitsList.FormattingEnabled = true;
-            this.TraitsList.Location = new System.Drawing.Point(322, 53);
+            this.TraitsList.Location = new System.Drawing.Point(324, 50);
             this.TraitsList.Name = "TraitsList";
             this.TraitsList.Size = new System.Drawing.Size(186, 225);
             this.TraitsList.TabIndex = 55;
@@ -971,7 +980,7 @@
             // TraitInstruction1
             // 
             this.TraitInstruction1.AutoSize = true;
-            this.TraitInstruction1.Location = new System.Drawing.Point(337, 9);
+            this.TraitInstruction1.Location = new System.Drawing.Point(339, 6);
             this.TraitInstruction1.Name = "TraitInstruction1";
             this.TraitInstruction1.Size = new System.Drawing.Size(150, 13);
             this.TraitInstruction1.TabIndex = 72;
@@ -986,14 +995,14 @@
             "Darkvision",
             "Tremorsense",
             "Truesight"});
-            this.SensesDropDown.Location = new System.Drawing.Point(26, 462);
+            this.SensesDropDown.Location = new System.Drawing.Point(17, 453);
             this.SensesDropDown.Name = "SensesDropDown";
             this.SensesDropDown.Size = new System.Drawing.Size(123, 21);
             this.SensesDropDown.TabIndex = 34;
             // 
             // AddSenseButton
             // 
-            this.AddSenseButton.Location = new System.Drawing.Point(281, 460);
+            this.AddSenseButton.Location = new System.Drawing.Point(272, 451);
             this.AddSenseButton.Name = "AddSenseButton";
             this.AddSenseButton.Size = new System.Drawing.Size(123, 23);
             this.AddSenseButton.TabIndex = 37;
@@ -1008,7 +1017,7 @@
             0,
             0,
             0});
-            this.DistanceUpDown.Location = new System.Drawing.Point(155, 463);
+            this.DistanceUpDown.Location = new System.Drawing.Point(146, 454);
             this.DistanceUpDown.Name = "DistanceUpDown";
             this.DistanceUpDown.Size = new System.Drawing.Size(42, 20);
             this.DistanceUpDown.TabIndex = 35;
@@ -1021,7 +1030,7 @@
             // Distance
             // 
             this.Distance.AutoSize = true;
-            this.Distance.Location = new System.Drawing.Point(203, 465);
+            this.Distance.Location = new System.Drawing.Point(194, 456);
             this.Distance.Name = "Distance";
             this.Distance.Size = new System.Drawing.Size(47, 13);
             this.Distance.TabIndex = 36;
@@ -1029,7 +1038,7 @@
             // 
             // AddLanguageButton
             // 
-            this.AddLanguageButton.Location = new System.Drawing.Point(281, 487);
+            this.AddLanguageButton.Location = new System.Drawing.Point(272, 478);
             this.AddLanguageButton.Name = "AddLanguageButton";
             this.AddLanguageButton.Size = new System.Drawing.Size(123, 23);
             this.AddLanguageButton.TabIndex = 39;
@@ -1039,7 +1048,7 @@
             // 
             // PreviewButton
             // 
-            this.PreviewButton.Location = new System.Drawing.Point(444, 675);
+            this.PreviewButton.Location = new System.Drawing.Point(434, 667);
             this.PreviewButton.Name = "PreviewButton";
             this.PreviewButton.Size = new System.Drawing.Size(75, 23);
             this.PreviewButton.TabIndex = 54;
@@ -1049,7 +1058,7 @@
             // 
             // AddAbilityButton
             // 
-            this.AddAbilityButton.Location = new System.Drawing.Point(94, 594);
+            this.AddAbilityButton.Location = new System.Drawing.Point(85, 595);
             this.AddAbilityButton.Name = "AddAbilityButton";
             this.AddAbilityButton.Size = new System.Drawing.Size(88, 23);
             this.AddAbilityButton.TabIndex = 46;
@@ -1059,7 +1068,7 @@
             // 
             // AddActionButton
             // 
-            this.AddActionButton.Location = new System.Drawing.Point(185, 594);
+            this.AddActionButton.Location = new System.Drawing.Point(176, 595);
             this.AddActionButton.Name = "AddActionButton";
             this.AddActionButton.Size = new System.Drawing.Size(88, 23);
             this.AddActionButton.TabIndex = 47;
@@ -1070,7 +1079,7 @@
             // TraitInstruction2
             // 
             this.TraitInstruction2.AutoSize = true;
-            this.TraitInstruction2.Location = new System.Drawing.Point(349, 22);
+            this.TraitInstruction2.Location = new System.Drawing.Point(351, 19);
             this.TraitInstruction2.Name = "TraitInstruction2";
             this.TraitInstruction2.Size = new System.Drawing.Size(125, 13);
             this.TraitInstruction2.TabIndex = 82;
@@ -1102,14 +1111,14 @@
             "Intimidation (Cha)",
             "Performance (Cha)",
             "Persuasion (Cha)"});
-            this.SkillDropDown.Location = new System.Drawing.Point(26, 525);
+            this.SkillDropDown.Location = new System.Drawing.Point(17, 526);
             this.SkillDropDown.Name = "SkillDropDown";
             this.SkillDropDown.Size = new System.Drawing.Size(328, 21);
             this.SkillDropDown.TabIndex = 40;
             // 
             // AddSkillButton
             // 
-            this.AddSkillButton.Location = new System.Drawing.Point(56, 552);
+            this.AddSkillButton.Location = new System.Drawing.Point(47, 553);
             this.AddSkillButton.Name = "AddSkillButton";
             this.AddSkillButton.Size = new System.Drawing.Size(82, 23);
             this.AddSkillButton.TabIndex = 42;
@@ -1120,14 +1129,14 @@
             // 
             // SkillBonus
             // 
-            this.SkillBonus.Location = new System.Drawing.Point(360, 525);
+            this.SkillBonus.Location = new System.Drawing.Point(351, 526);
             this.SkillBonus.Name = "SkillBonus";
             this.SkillBonus.Size = new System.Drawing.Size(44, 20);
             this.SkillBonus.TabIndex = 41;
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(444, 643);
+            this.SaveButton.Location = new System.Drawing.Point(434, 635);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 53;
@@ -1137,7 +1146,7 @@
             // 
             // LoadButton
             // 
-            this.LoadButton.Location = new System.Drawing.Point(444, 614);
+            this.LoadButton.Location = new System.Drawing.Point(434, 606);
             this.LoadButton.Name = "LoadButton";
             this.LoadButton.Size = new System.Drawing.Size(75, 23);
             this.LoadButton.TabIndex = 52;
@@ -1149,10 +1158,10 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(523, 0);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(559, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(589, 701);
+            this.panel1.Size = new System.Drawing.Size(550, 695);
             this.panel1.TabIndex = 90;
             // 
             // tableLayoutPanel1
@@ -1164,38 +1173,52 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.83501F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.164993F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(585, 697);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.38737F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.612625F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(546, 691);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 6;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnCount = 7;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 189F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
-            this.tableLayoutPanel2.Controls.Add(this.BackgroundCheckbox, 5, 0);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
             this.tableLayoutPanel2.Controls.Add(this.ExportCSV, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.PrintButton, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.ExportPNG, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.button1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.BackgroundCheckbox, 6, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 5, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 663);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 627);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(579, 31);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(540, 61);
             this.tableLayoutPanel2.TabIndex = 92;
+            // 
+            // BackgroundCheckbox
+            // 
+            this.BackgroundCheckbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.BackgroundCheckbox.AutoSize = true;
+            this.BackgroundCheckbox.Location = new System.Drawing.Point(383, 22);
+            this.BackgroundCheckbox.Name = "BackgroundCheckbox";
+            this.BackgroundCheckbox.Size = new System.Drawing.Size(106, 17);
+            this.BackgroundCheckbox.TabIndex = 4;
+            this.BackgroundCheckbox.Text = "Use Background";
+            this.BackgroundCheckbox.UseVisualStyleBackColor = true;
             // 
             // ExportCSV
             // 
-            this.ExportCSV.Location = new System.Drawing.Point(202, 3);
+            this.ExportCSV.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ExportCSV.Location = new System.Drawing.Point(201, 19);
             this.ExportCSV.Name = "ExportCSV";
-            this.ExportCSV.Size = new System.Drawing.Size(68, 23);
+            this.ExportCSV.Size = new System.Drawing.Size(54, 23);
             this.ExportCSV.TabIndex = 3;
             this.ExportCSV.Text = "CSV";
             this.ExportCSV.UseVisualStyleBackColor = true;
@@ -1203,9 +1226,10 @@
             // 
             // PrintButton
             // 
-            this.PrintButton.Location = new System.Drawing.Point(130, 3);
+            this.PrintButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.PrintButton.Location = new System.Drawing.Point(137, 19);
             this.PrintButton.Name = "PrintButton";
-            this.PrintButton.Size = new System.Drawing.Size(66, 23);
+            this.PrintButton.Size = new System.Drawing.Size(58, 23);
             this.PrintButton.TabIndex = 2;
             this.PrintButton.Text = "Print";
             this.PrintButton.UseVisualStyleBackColor = true;
@@ -1213,7 +1237,8 @@
             // 
             // ExportPNG
             // 
-            this.ExportPNG.Location = new System.Drawing.Point(65, 3);
+            this.ExportPNG.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ExportPNG.Location = new System.Drawing.Point(68, 19);
             this.ExportPNG.Name = "ExportPNG";
             this.ExportPNG.Size = new System.Drawing.Size(59, 23);
             this.ExportPNG.TabIndex = 1;
@@ -1223,7 +1248,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.button1.Location = new System.Drawing.Point(3, 19);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(56, 23);
             this.button1.TabIndex = 0;
@@ -1236,7 +1262,7 @@
             this.PreviewTemplateSelector.FormattingEnabled = true;
             this.PreviewTemplateSelector.Items.AddRange(new object[] {
             "Valloric\'s Statblock"});
-            this.PreviewTemplateSelector.Location = new System.Drawing.Point(268, 677);
+            this.PreviewTemplateSelector.Location = new System.Drawing.Point(267, 669);
             this.PreviewTemplateSelector.Name = "PreviewTemplateSelector";
             this.PreviewTemplateSelector.Size = new System.Drawing.Size(156, 21);
             this.PreviewTemplateSelector.TabIndex = 50;
@@ -1244,7 +1270,7 @@
             // 
             // GuessCR
             // 
-            this.GuessCR.Location = new System.Drawing.Point(268, 648);
+            this.GuessCR.Location = new System.Drawing.Point(267, 640);
             this.GuessCR.Name = "GuessCR";
             this.GuessCR.Size = new System.Drawing.Size(154, 23);
             this.GuessCR.TabIndex = 92;
@@ -1279,7 +1305,7 @@
             "Sylvan",
             "Terran",
             "Undercommon"});
-            this.LanguageComboBox.Location = new System.Drawing.Point(26, 489);
+            this.LanguageComboBox.Location = new System.Drawing.Point(17, 480);
             this.LanguageComboBox.Name = "LanguageComboBox";
             this.LanguageComboBox.Size = new System.Drawing.Size(252, 21);
             this.LanguageComboBox.TabIndex = 38;
@@ -1289,7 +1315,7 @@
             this.SkillStatCheckBox.AutoSize = true;
             this.SkillStatCheckBox.Checked = true;
             this.SkillStatCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.SkillStatCheckBox.Location = new System.Drawing.Point(144, 556);
+            this.SkillStatCheckBox.Location = new System.Drawing.Point(135, 557);
             this.SkillStatCheckBox.Name = "SkillStatCheckBox";
             this.SkillStatCheckBox.Size = new System.Drawing.Size(67, 17);
             this.SkillStatCheckBox.TabIndex = 43;
@@ -1301,7 +1327,7 @@
             this.SkillBonusCheckBox.AutoSize = true;
             this.SkillBonusCheckBox.Checked = true;
             this.SkillBonusCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.SkillBonusCheckBox.Location = new System.Drawing.Point(216, 556);
+            this.SkillBonusCheckBox.Location = new System.Drawing.Point(207, 557);
             this.SkillBonusCheckBox.Name = "SkillBonusCheckBox";
             this.SkillBonusCheckBox.Size = new System.Drawing.Size(78, 17);
             this.SkillBonusCheckBox.TabIndex = 44;
@@ -1313,7 +1339,7 @@
             this.SkillProfCheckBox.AutoSize = true;
             this.SkillProfCheckBox.Checked = true;
             this.SkillProfCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.SkillProfCheckBox.Location = new System.Drawing.Point(292, 556);
+            this.SkillProfCheckBox.Location = new System.Drawing.Point(283, 557);
             this.SkillProfCheckBox.Name = "SkillProfCheckBox";
             this.SkillProfCheckBox.Size = new System.Drawing.Size(100, 17);
             this.SkillProfCheckBox.TabIndex = 45;
@@ -1327,7 +1353,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(344, 37);
+            this.label1.Location = new System.Drawing.Point(346, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(140, 13);
             this.label1.TabIndex = 97;
@@ -1335,7 +1361,7 @@
             // 
             // NewMonsterButton
             // 
-            this.NewMonsterButton.Location = new System.Drawing.Point(444, 585);
+            this.NewMonsterButton.Location = new System.Drawing.Point(434, 577);
             this.NewMonsterButton.Name = "NewMonsterButton";
             this.NewMonsterButton.Size = new System.Drawing.Size(75, 23);
             this.NewMonsterButton.TabIndex = 51;
@@ -1346,7 +1372,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(72, 634);
+            this.label2.Location = new System.Drawing.Point(63, 635);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(155, 13);
             this.label2.TabIndex = 99;
@@ -1354,7 +1380,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(279, 594);
+            this.button2.Location = new System.Drawing.Point(270, 595);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(88, 23);
             this.button2.TabIndex = 48;
@@ -1362,119 +1388,168 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.AddLegendary);
             // 
-            // BackgroundCheckbox
+            // PreviewColumns
             // 
-            this.BackgroundCheckbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.BackgroundCheckbox.AutoSize = true;
-            this.BackgroundCheckbox.Location = new System.Drawing.Point(465, 7);
-            this.BackgroundCheckbox.Name = "BackgroundCheckbox";
-            this.BackgroundCheckbox.Size = new System.Drawing.Size(106, 17);
-            this.BackgroundCheckbox.TabIndex = 4;
-            this.BackgroundCheckbox.Text = "Use Background";
-            this.BackgroundCheckbox.UseVisualStyleBackColor = true;
+            this.PreviewColumns.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PreviewColumns.Location = new System.Drawing.Point(3, 20);
+            this.PreviewColumns.Name = "PreviewColumns";
+            this.PreviewColumns.Size = new System.Drawing.Size(80, 20);
+            this.PreviewColumns.TabIndex = 100;
+            this.PreviewColumns.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.PreviewColumns, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(291, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(86, 55);
+            this.tableLayoutPanel3.TabIndex = 101;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 2);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.TabIndex = 101;
+            this.label3.Text = "Columns";
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.panel2, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.panel1, 1, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1112, 701);
+            this.tableLayoutPanel4.TabIndex = 102;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.MonsterName);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.MonsterNameTextBox);
+            this.panel2.Controls.Add(this.ACUpDown);
+            this.panel2.Controls.Add(this.NewMonsterButton);
+            this.panel2.Controls.Add(this.ArmorClass);
+            this.panel2.Controls.Add(this.SkillProfCheckBox);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.SkillBonusCheckBox);
+            this.panel2.Controls.Add(this.TypeDropDown);
+            this.panel2.Controls.Add(this.SkillStatCheckBox);
+            this.panel2.Controls.Add(this.TypeAndTag);
+            this.panel2.Controls.Add(this.GuessCR);
+            this.panel2.Controls.Add(this.Alignment);
+            this.panel2.Controls.Add(this.PreviewTemplateSelector);
+            this.panel2.Controls.Add(this.AlignmentDropDown);
+            this.panel2.Controls.Add(this.LoadButton);
+            this.panel2.Controls.Add(this.LanguageComboBox);
+            this.panel2.Controls.Add(this.SaveButton);
+            this.panel2.Controls.Add(this.HitPoints);
+            this.panel2.Controls.Add(this.SkillBonus);
+            this.panel2.Controls.Add(this.HitDieDropDown);
+            this.panel2.Controls.Add(this.AddSkillButton);
+            this.panel2.Controls.Add(this.HitDieUpDown);
+            this.panel2.Controls.Add(this.SkillDropDown);
+            this.panel2.Controls.Add(this.AddActionButton);
+            this.panel2.Controls.Add(this.HitDieTextBox);
+            this.panel2.Controls.Add(this.AddAbilityButton);
+            this.panel2.Controls.Add(this.GenerateHPBonus);
+            this.panel2.Controls.Add(this.PreviewButton);
+            this.panel2.Controls.Add(this.StrUpDown);
+            this.panel2.Controls.Add(this.ProfBonus);
+            this.panel2.Controls.Add(this.DexUpDown);
+            this.panel2.Controls.Add(this.Profiency);
+            this.panel2.Controls.Add(this.ConUpDown);
+            this.panel2.Controls.Add(this.ChallengeRatingDropDown);
+            this.panel2.Controls.Add(this.TraitInstruction2);
+            this.panel2.Controls.Add(this.ChallengeRating);
+            this.panel2.Controls.Add(this.IntUpDown);
+            this.panel2.Controls.Add(this.WisUpDown);
+            this.panel2.Controls.Add(this.ChaUpDown);
+            this.panel2.Controls.Add(this.Str);
+            this.panel2.Controls.Add(this.AddLanguageButton);
+            this.panel2.Controls.Add(this.Dex);
+            this.panel2.Controls.Add(this.Distance);
+            this.panel2.Controls.Add(this.Con);
+            this.panel2.Controls.Add(this.DistanceUpDown);
+            this.panel2.Controls.Add(this.Int);
+            this.panel2.Controls.Add(this.AddSenseButton);
+            this.panel2.Controls.Add(this.Wis);
+            this.panel2.Controls.Add(this.SensesDropDown);
+            this.panel2.Controls.Add(this.Cha);
+            this.panel2.Controls.Add(this.TraitInstruction1);
+            this.panel2.Controls.Add(this.StrBonus);
+            this.panel2.Controls.Add(this.TraitsList);
+            this.panel2.Controls.Add(this.DexBonus);
+            this.panel2.Controls.Add(this.AddImmunityButton);
+            this.panel2.Controls.Add(this.ConBonus);
+            this.panel2.Controls.Add(this.AddResistanceButton);
+            this.panel2.Controls.Add(this.IntBonus);
+            this.panel2.Controls.Add(this.AddVulnerabilityButton);
+            this.panel2.Controls.Add(this.WisBonus);
+            this.panel2.Controls.Add(this.DamageConditionDropDown);
+            this.panel2.Controls.Add(this.ChaBonus);
+            this.panel2.Controls.Add(this.AbilityScores);
+            this.panel2.Controls.Add(this.SizeDropDown);
+            this.panel2.Controls.Add(this.ChaSaveBonus);
+            this.panel2.Controls.Add(this.SizeLabel);
+            this.panel2.Controls.Add(this.WisSaveBonus);
+            this.panel2.Controls.Add(this.RollHPBonus);
+            this.panel2.Controls.Add(this.IntSaveBonus);
+            this.panel2.Controls.Add(this.TagDropDown);
+            this.panel2.Controls.Add(this.ConSaveBonus);
+            this.panel2.Controls.Add(this.ACSourceTextBox);
+            this.panel2.Controls.Add(this.DexSaveBonus);
+            this.panel2.Controls.Add(this.burrowUpDown);
+            this.panel2.Controls.Add(this.StrSaveBonus);
+            this.panel2.Controls.Add(this.ClimbUpDown);
+            this.panel2.Controls.Add(this.SavingThrowBonuses);
+            this.panel2.Controls.Add(this.FlyUpDown);
+            this.panel2.Controls.Add(this.ChaSaveBonusUpDown);
+            this.panel2.Controls.Add(this.SwimUpDown);
+            this.panel2.Controls.Add(this.WisSaveBonusUpDown);
+            this.panel2.Controls.Add(this.SpeedUpDown);
+            this.panel2.Controls.Add(this.IntSaveBonusUpDown);
+            this.panel2.Controls.Add(this.Speed);
+            this.panel2.Controls.Add(this.ConSaveBonusUpDown);
+            this.panel2.Controls.Add(this.Burrow);
+            this.panel2.Controls.Add(this.DexSaveBonusUpDown);
+            this.panel2.Controls.Add(this.Climb);
+            this.panel2.Controls.Add(this.StrSaveBonusUpDown);
+            this.panel2.Controls.Add(this.Fly);
+            this.panel2.Controls.Add(this.Swim);
+            this.panel2.Controls.Add(this.HoverCheckBox);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(550, 695);
+            this.panel2.TabIndex = 103;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 701);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.NewMonsterButton);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.SkillProfCheckBox);
-            this.Controls.Add(this.SkillBonusCheckBox);
-            this.Controls.Add(this.SkillStatCheckBox);
-            this.Controls.Add(this.LanguageComboBox);
-            this.Controls.Add(this.GuessCR);
-            this.Controls.Add(this.PreviewTemplateSelector);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.LoadButton);
-            this.Controls.Add(this.SaveButton);
-            this.Controls.Add(this.SkillBonus);
-            this.Controls.Add(this.AddSkillButton);
-            this.Controls.Add(this.SkillDropDown);
-            this.Controls.Add(this.TraitInstruction2);
-            this.Controls.Add(this.AddActionButton);
-            this.Controls.Add(this.AddAbilityButton);
-            this.Controls.Add(this.PreviewButton);
-            this.Controls.Add(this.AddLanguageButton);
-            this.Controls.Add(this.Distance);
-            this.Controls.Add(this.DistanceUpDown);
-            this.Controls.Add(this.AddSenseButton);
-            this.Controls.Add(this.SensesDropDown);
-            this.Controls.Add(this.TraitInstruction1);
-            this.Controls.Add(this.TraitsList);
-            this.Controls.Add(this.AddImmunityButton);
-            this.Controls.Add(this.AddResistanceButton);
-            this.Controls.Add(this.AddVulnerabilityButton);
-            this.Controls.Add(this.DamageConditionDropDown);
-            this.Controls.Add(this.AbilityScores);
-            this.Controls.Add(this.ChaSaveBonus);
-            this.Controls.Add(this.WisSaveBonus);
-            this.Controls.Add(this.IntSaveBonus);
-            this.Controls.Add(this.ConSaveBonus);
-            this.Controls.Add(this.DexSaveBonus);
-            this.Controls.Add(this.StrSaveBonus);
-            this.Controls.Add(this.SavingThrowBonuses);
-            this.Controls.Add(this.ChaSaveBonusUpDown);
-            this.Controls.Add(this.WisSaveBonusUpDown);
-            this.Controls.Add(this.IntSaveBonusUpDown);
-            this.Controls.Add(this.ConSaveBonusUpDown);
-            this.Controls.Add(this.DexSaveBonusUpDown);
-            this.Controls.Add(this.StrSaveBonusUpDown);
-            this.Controls.Add(this.ProfBonus);
-            this.Controls.Add(this.Profiency);
-            this.Controls.Add(this.ChallengeRatingDropDown);
-            this.Controls.Add(this.ChallengeRating);
-            this.Controls.Add(this.HoverCheckBox);
-            this.Controls.Add(this.Swim);
-            this.Controls.Add(this.Fly);
-            this.Controls.Add(this.Climb);
-            this.Controls.Add(this.Burrow);
-            this.Controls.Add(this.Speed);
-            this.Controls.Add(this.SpeedUpDown);
-            this.Controls.Add(this.SwimUpDown);
-            this.Controls.Add(this.FlyUpDown);
-            this.Controls.Add(this.ClimbUpDown);
-            this.Controls.Add(this.burrowUpDown);
-            this.Controls.Add(this.ACSourceTextBox);
-            this.Controls.Add(this.TagDropDown);
-            this.Controls.Add(this.RollHPBonus);
-            this.Controls.Add(this.SizeLabel);
-            this.Controls.Add(this.SizeDropDown);
-            this.Controls.Add(this.ChaBonus);
-            this.Controls.Add(this.WisBonus);
-            this.Controls.Add(this.IntBonus);
-            this.Controls.Add(this.ConBonus);
-            this.Controls.Add(this.DexBonus);
-            this.Controls.Add(this.StrBonus);
-            this.Controls.Add(this.Cha);
-            this.Controls.Add(this.Wis);
-            this.Controls.Add(this.Int);
-            this.Controls.Add(this.Con);
-            this.Controls.Add(this.Dex);
-            this.Controls.Add(this.Str);
-            this.Controls.Add(this.ChaUpDown);
-            this.Controls.Add(this.WisUpDown);
-            this.Controls.Add(this.IntUpDown);
-            this.Controls.Add(this.ConUpDown);
-            this.Controls.Add(this.DexUpDown);
-            this.Controls.Add(this.StrUpDown);
-            this.Controls.Add(this.GenerateHPBonus);
-            this.Controls.Add(this.HitDieTextBox);
-            this.Controls.Add(this.HitDieUpDown);
-            this.Controls.Add(this.HitDieDropDown);
-            this.Controls.Add(this.HitPoints);
-            this.Controls.Add(this.AlignmentDropDown);
-            this.Controls.Add(this.Alignment);
-            this.Controls.Add(this.TypeAndTag);
-            this.Controls.Add(this.TypeDropDown);
-            this.Controls.Add(this.ArmorClass);
-            this.Controls.Add(this.ACUpDown);
-            this.Controls.Add(this.MonsterNameTextBox);
-            this.Controls.Add(this.MonsterName);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Controls.Add(this.tableLayoutPanel4);
             this.Name = "Main";
             this.Text = "DND Monster Maker";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -1503,8 +1578,13 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PreviewColumns)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1614,6 +1694,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckBox BackgroundCheckbox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.NumericUpDown PreviewColumns;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

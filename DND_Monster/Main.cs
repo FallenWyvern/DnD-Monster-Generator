@@ -466,6 +466,7 @@ namespace DND_Monster
         private void Preview(object sender, EventArgs e)
         {
             Help.useBG = BackgroundCheckbox.Checked;
+            Monster.columns = (int)PreviewColumns.Value;
             GenerateMonsterData();
             ShowMonster();
         }
