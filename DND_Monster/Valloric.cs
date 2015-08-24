@@ -524,6 +524,12 @@ namespace DND_Monster
             {
                 returnString += item + Environment.NewLine;
             }
+
+            if (CreatureName.Contains('*'))
+            {
+                returnString = returnString.Replace("The " + CreatureName, CreatureName.Replace('*', ' ').Trim());
+            }
+
             return returnString;            
         }
 
