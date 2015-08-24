@@ -1329,6 +1329,11 @@ namespace DND_Monster
                     TraitsList.Items.Add("Legendary: " + addLegendary.LegendaryAbility.Title);
                 }
             };
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }       
     }
 }
