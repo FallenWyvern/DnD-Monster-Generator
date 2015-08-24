@@ -123,7 +123,63 @@ namespace DND_Monster
         public string SpellBlockFormat()
         {
             if (!isSpell) return "";
-            return "";
+
+            string returnstring = "";
+            string spellSlots = Description.Split('|')[4];
+            string[] spells = Description.Split('|')[5].Split(',');
+
+            for (int i = 0; i < 10; i++)
+            {
+                if (i > 0 && Convert.ToInt16(spellSlots.Split(',')[i - 1]) == 0)
+                {
+                    Console.WriteLine("There are " + i + " level spells"); i = 10; break; 
+                }                
+
+                if (i == 0)
+                {
+                    returnstring += "<p>Cantrips (At Will): </p>";
+                }
+                else
+                {
+                    string suffix = "";
+                    switch (i)
+                    {
+                        case 1:
+                            suffix = "st";
+                            break;
+                        case 2:
+                            suffix = "nd";
+                            break;
+                        case 3:
+                            suffix = "rd";
+                            break;
+                        default:
+                            suffix = "th";
+                            break;
+                    }
+
+
+                    returnstring += i + suffix + " level (" + spellSlots.Split(',')[i - 1] + " slots): </p>";
+                }
+
+                returnstring += "<p><i>";
+
+                foreach (string item in spells)
+                {
+                    Console.WriteLine("ITEM: " + item);
+                    if (item.Contains(i + ":"))
+                    {
+                        if (!String.IsNullOrEmpty(item) || !String.IsNullOrWhiteSpace(item))
+                        {
+                            returnstring += item.Replace(i + ":", "") + ", ";
+                        }                            
+                    }
+                }
+                returnstring = returnstring.Substring(0, returnstring.Length - 2);
+                returnstring += "</i></p></br>";                
+            } 
+
+            return returnstring;
         }
     }
 
@@ -194,7 +250,7 @@ namespace DND_Monster
 
     public static class Help
     {
-        public static string Version = "1.4";
+        public static string Version = "1.5";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = @"C:\";
 

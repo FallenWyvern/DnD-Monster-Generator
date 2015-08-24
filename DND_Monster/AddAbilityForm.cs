@@ -38,8 +38,32 @@ namespace DND_Monster
         }
 
         public void LoadSpell(Ability values)
-        {            
+        {
+            NewAbility = values;
             tabControl1.SelectedIndex = 1;
+            string[] spellValues = values.Description.Split('|');
+            SpellClass.Text = spellValues[0];
+            SpellCastingAbility.Text = spellValues[1];
+            SpellcastingLevel.Value = Convert.ToInt32(spellValues[2]);
+            if (spellValues[3] == "Innate") { InnateCheckbox.Checked = true; }
+
+            Spellslot1.Value = Convert.ToInt32(spellValues[4].Split(',')[0]);
+            Spellslot2.Value = Convert.ToInt32(spellValues[4].Split(',')[1]);
+            Spellslot3.Value = Convert.ToInt32(spellValues[4].Split(',')[2]);
+            Spellslot4.Value = Convert.ToInt32(spellValues[4].Split(',')[3]);
+            Spellslot5.Value = Convert.ToInt32(spellValues[4].Split(',')[4]);
+            Spellslot6.Value = Convert.ToInt32(spellValues[4].Split(',')[5]);
+            Spellslot7.Value = Convert.ToInt32(spellValues[4].Split(',')[6]);
+            Spellslot8.Value = Convert.ToInt32(spellValues[4].Split(',')[7]);
+            Spellslot9.Value = Convert.ToInt32(spellValues[4].Split(',')[8]);
+
+            foreach (string item in spellValues[5].Split(','))
+            {
+                if (!String.IsNullOrWhiteSpace(item) || !String.IsNullOrEmpty(item))
+                {
+                    SpellList.Items.Add(item.Replace(':', '|'));
+                }
+            }
         }
 
         private void AddAbilityForm_Load(object sender, EventArgs e)
@@ -101,9 +125,12 @@ namespace DND_Monster
             {
                 foreach (string item in SpellList.Items)
                 {
-                    if (Convert.ToInt32(item.Split('|')[0]) == i)
+                    if (!String.IsNullOrEmpty(item) || !String.IsNullOrWhiteSpace(item))
                     {
-                        spellText += item.Split('|')[0].Trim() + ":" + item.Split('|')[1].Trim() + ",";
+                        if (Convert.ToInt32(item.Split('|')[0]) == i)
+                        {
+                            spellText += item.Split('|')[0].Trim() + ":" + item.Split('|')[1].Trim() + ",";
+                        }
                     }
                 }
             }
@@ -120,7 +147,7 @@ namespace DND_Monster
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SpellList.Items.Add(numericUpDown1.Value + " | " + textBox1.Text);
+            SpellList.Items.Add(numericUpDown1.Value + "|" + textBox1.Text);
             textBox1.Text = "";
         }        
     }
