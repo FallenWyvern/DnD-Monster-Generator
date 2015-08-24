@@ -71,7 +71,7 @@ namespace DND_Monster
             output.Add(@"<template id=""top-stats"">");
             TaperedRule();
             output.Add(@"<content></content>");
-            TaperedRule();
+            //TaperedRule();
             output.Add(@"</template>");
             #endregion
 
@@ -362,7 +362,7 @@ namespace DND_Monster
 
             output.Add(@"<property-line>");
             output.Add(@"<h4>Speed</h4>");
-            output.Add(@"<p>" + Speed + "ft</p>");
+            output.Add(@"<p>" + Speed + "</p>");
             output.Add(@"</property-line>");            
 
             // Stats            

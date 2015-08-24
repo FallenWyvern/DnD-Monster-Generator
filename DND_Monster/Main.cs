@@ -1056,14 +1056,14 @@ namespace DND_Monster
             Monster.WIS = (int)WisUpDown.Value;
             Monster.CHA = (int)ChaUpDown.Value;
 
-            Monster.Speed = SpeedUpDown.Value.ToString();
-            if (burrowUpDown.Value > 0) { Monster.Speed += ", Burrow: " + burrowUpDown.Value; }
-            if (ClimbUpDown.Value > 0) { Monster.Speed += ", Climb: " + ClimbUpDown.Value; }
-            if (FlyUpDown.Value > 0) { Monster.Speed += ", Fly: " + FlyUpDown.Value; }
+            Monster.Speed = SpeedUpDown.Value.ToString() + " ft.";
+            if (burrowUpDown.Value > 0) { Monster.Speed += ", Burrow: " + burrowUpDown.Value + " ft."; }
+            if (ClimbUpDown.Value > 0) { Monster.Speed += ", Climb: " + ClimbUpDown.Value + " ft."; }
+            if (FlyUpDown.Value > 0) { Monster.Speed += ", Fly: " + FlyUpDown.Value + " ft."; }
             if (HoverCheckBox.Checked) { Monster.Speed += " (Hover)"; }
-            if (SwimUpDown.Value > 0) { Monster.Speed += ", Swim: " + SwimUpDown.Value; }
+            if (SwimUpDown.Value > 0) { Monster.Speed += ", Swim: " + SwimUpDown.Value + " ft."; }
 
-            Monster.AC = ACUpDown.Value + " " + ACSourceTextBox.Text;
+            Monster.AC = ACUpDown.Value + " (" + ACSourceTextBox.Text + ")";
             Monster.HP = HitDieTextBox.Text;
             Monster.CR = currentCR;
             

@@ -209,20 +209,20 @@
             // 
             this.TypeDropDown.FormattingEnabled = true;
             this.TypeDropDown.Items.AddRange(new object[] {
-            "Aberration",
-            "Beast",
-            "Celestial",
-            "Construct",
-            "Dragon",
-            "Elemental",
-            "Fey",
-            "Fiend",
-            "Giant",
-            "Humanoid",
-            "Monstrosity",
-            "Ooze",
-            "Plant",
-            "Undead"});
+            "aberration",
+            "beast",
+            "celestial",
+            "construct",
+            "dragon",
+            "elemental",
+            "fey",
+            "fiend",
+            "giant",
+            "humanoid",
+            "monstrosity",
+            "ooze",
+            "plant",
+            "undead"});
             this.TypeDropDown.Location = new System.Drawing.Point(96, 59);
             this.TypeDropDown.Name = "TypeDropDown";
             this.TypeDropDown.Size = new System.Drawing.Size(116, 21);
@@ -250,19 +250,19 @@
             // 
             this.AlignmentDropDown.FormattingEnabled = true;
             this.AlignmentDropDown.Items.AddRange(new object[] {
-            "Lawful Good",
-            "Lawful Neutral",
-            "Lawful Evil",
+            "lawful good",
+            "lawful neutral",
+            "lawful evil",
             "",
-            "Neutral Good",
-            "True Neutral",
-            "Neutral Evil",
+            "neutral good",
+            "true neutral",
+            "neutral evil",
             "",
-            "Chaotic Good",
-            "Chaotic Neutral",
-            "Chaotic Evil",
+            "chaotic good",
+            "chaotic neutral",
+            "chaotic evil",
             "",
-            "Unaligned"});
+            "unaligned"});
             this.AlignmentDropDown.Location = new System.Drawing.Point(96, 84);
             this.AlignmentDropDown.Name = "AlignmentDropDown";
             this.AlignmentDropDown.Size = new System.Drawing.Size(222, 21);
@@ -552,32 +552,32 @@
             // 
             this.TagDropDown.FormattingEnabled = true;
             this.TagDropDown.Items.AddRange(new object[] {
-            "Aarakocra",
-            "Bullywug",
-            "Demon",
-            "Devil",
-            "Dwarf",
-            "Elf",
-            "Gith",
-            "Gnoll",
-            "Gnome",
-            "Goblinoid",
-            "Grimlock",
-            "Human",
-            "Kenku",
-            "Kobold",
-            "Kuo-toa",
-            "Lizardfolk",
-            "Merfolk",
-            "Orc",
-            "Quaggoth",
-            "Sahuagin",
-            "Shapechanger",
-            "Thri-Kreen",
-            "Titan",
-            "Troglodyte",
-            "Yuan-Ti",
-            "Yugoloth"});
+            "aarakocra",
+            "bullywug",
+            "demon",
+            "devil",
+            "dwarf",
+            "elf",
+            "gith",
+            "gnoll",
+            "gnome",
+            "goblinoid",
+            "grimlock",
+            "human",
+            "kenku",
+            "kobold",
+            "kuo-toa",
+            "lizardfolk",
+            "merfolk",
+            "orc",
+            "quaggoth",
+            "sahuagin",
+            "shapechanger",
+            "thri-Kreen",
+            "titan",
+            "troglodyte",
+            "yuan-Ti",
+            "yugoloth"});
             this.TagDropDown.Location = new System.Drawing.Point(218, 59);
             this.TagDropDown.Name = "TagDropDown";
             this.TagDropDown.Size = new System.Drawing.Size(100, 21);
@@ -990,11 +990,11 @@
             // 
             this.SensesDropDown.FormattingEnabled = true;
             this.SensesDropDown.Items.AddRange(new object[] {
-            "Passive Perception",
-            "Blindsight",
-            "Darkvision",
-            "Tremorsense",
-            "Truesight"});
+            "passive Perception",
+            "blindsight",
+            "darkvision",
+            "tremorsense",
+            "truesight"});
             this.SensesDropDown.Location = new System.Drawing.Point(17, 453);
             this.SensesDropDown.Name = "SensesDropDown";
             this.SensesDropDown.Size = new System.Drawing.Size(123, 21);
@@ -1048,7 +1048,7 @@
             // 
             // PreviewButton
             // 
-            this.PreviewButton.Location = new System.Drawing.Point(434, 667);
+            this.PreviewButton.Location = new System.Drawing.Point(452, 667);
             this.PreviewButton.Name = "PreviewButton";
             this.PreviewButton.Size = new System.Drawing.Size(75, 23);
             this.PreviewButton.TabIndex = 54;
@@ -1136,7 +1136,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(434, 635);
+            this.SaveButton.Location = new System.Drawing.Point(452, 635);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 53;
@@ -1146,7 +1146,7 @@
             // 
             // LoadButton
             // 
-            this.LoadButton.Location = new System.Drawing.Point(434, 606);
+            this.LoadButton.Location = new System.Drawing.Point(452, 606);
             this.LoadButton.Name = "LoadButton";
             this.LoadButton.Size = new System.Drawing.Size(75, 23);
             this.LoadButton.TabIndex = 52;
@@ -1310,7 +1310,7 @@
             // 
             this.GuessCR.Location = new System.Drawing.Point(267, 640);
             this.GuessCR.Name = "GuessCR";
-            this.GuessCR.Size = new System.Drawing.Size(154, 23);
+            this.GuessCR.Size = new System.Drawing.Size(156, 23);
             this.GuessCR.TabIndex = 92;
             this.GuessCR.Text = "Guess CR (Does Nothing)";
             this.GuessCR.UseVisualStyleBackColor = true;
@@ -1399,7 +1399,7 @@
             // 
             // NewMonsterButton
             // 
-            this.NewMonsterButton.Location = new System.Drawing.Point(434, 577);
+            this.NewMonsterButton.Location = new System.Drawing.Point(452, 577);
             this.NewMonsterButton.Name = "NewMonsterButton";
             this.NewMonsterButton.Size = new System.Drawing.Size(75, 23);
             this.NewMonsterButton.TabIndex = 51;
