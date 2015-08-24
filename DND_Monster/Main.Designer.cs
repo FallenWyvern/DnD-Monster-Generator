@@ -117,11 +117,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.BackgroundCheckbox = new System.Windows.Forms.CheckBox();
             this.ExportCSV = new System.Windows.Forms.Button();
             this.PrintButton = new System.Windows.Forms.Button();
             this.ExportPNG = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.BackgroundCheckbox = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.PreviewColumns = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             this.PreviewTemplateSelector = new System.Windows.Forms.ComboBox();
             this.GuessCR = new System.Windows.Forms.Button();
             this.LanguageComboBox = new System.Windows.Forms.ComboBox();
@@ -133,9 +136,6 @@
             this.NewMonsterButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.PreviewColumns = new System.Windows.Forms.NumericUpDown();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
@@ -162,8 +162,8 @@
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PreviewColumns)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PreviewColumns)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -1187,7 +1187,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.tableLayoutPanel2.Controls.Add(this.ExportCSV, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.PrintButton, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.ExportPNG, 1, 0);
@@ -1201,17 +1201,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(540, 61);
             this.tableLayoutPanel2.TabIndex = 92;
-            // 
-            // BackgroundCheckbox
-            // 
-            this.BackgroundCheckbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.BackgroundCheckbox.AutoSize = true;
-            this.BackgroundCheckbox.Location = new System.Drawing.Point(383, 22);
-            this.BackgroundCheckbox.Name = "BackgroundCheckbox";
-            this.BackgroundCheckbox.Size = new System.Drawing.Size(106, 17);
-            this.BackgroundCheckbox.TabIndex = 4;
-            this.BackgroundCheckbox.Text = "Use Background";
-            this.BackgroundCheckbox.UseVisualStyleBackColor = true;
             // 
             // ExportCSV
             // 
@@ -1256,6 +1245,55 @@
             this.button1.Text = "HTML";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.ExportHTML);
+            // 
+            // BackgroundCheckbox
+            // 
+            this.BackgroundCheckbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.BackgroundCheckbox.AutoSize = true;
+            this.BackgroundCheckbox.Location = new System.Drawing.Point(383, 22);
+            this.BackgroundCheckbox.Name = "BackgroundCheckbox";
+            this.BackgroundCheckbox.Size = new System.Drawing.Size(106, 17);
+            this.BackgroundCheckbox.TabIndex = 4;
+            this.BackgroundCheckbox.Text = "Use Background";
+            this.BackgroundCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.PreviewColumns, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(291, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(86, 55);
+            this.tableLayoutPanel3.TabIndex = 101;
+            // 
+            // PreviewColumns
+            // 
+            this.PreviewColumns.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PreviewColumns.Location = new System.Drawing.Point(3, 20);
+            this.PreviewColumns.Name = "PreviewColumns";
+            this.PreviewColumns.Size = new System.Drawing.Size(80, 20);
+            this.PreviewColumns.TabIndex = 100;
+            this.PreviewColumns.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 2);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.TabIndex = 101;
+            this.label3.Text = "Columns";
             // 
             // PreviewTemplateSelector
             // 
@@ -1387,44 +1425,6 @@
             this.button2.Text = "Add Legendary";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.AddLegendary);
-            // 
-            // PreviewColumns
-            // 
-            this.PreviewColumns.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.PreviewColumns.Location = new System.Drawing.Point(3, 20);
-            this.PreviewColumns.Name = "PreviewColumns";
-            this.PreviewColumns.Size = new System.Drawing.Size(80, 20);
-            this.PreviewColumns.TabIndex = 100;
-            this.PreviewColumns.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.PreviewColumns, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(291, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(86, 55);
-            this.tableLayoutPanel3.TabIndex = 101;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 2);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 101;
-            this.label3.Text = "Columns";
             // 
             // tableLayoutPanel4
             // 
@@ -1578,9 +1578,9 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PreviewColumns)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PreviewColumns)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

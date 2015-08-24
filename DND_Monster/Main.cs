@@ -20,7 +20,8 @@ namespace DND_Monster
     {        
         ChromiumWebBrowser b = new ChromiumWebBrowser("http://rendering/");
         Challenge_Rating currentCR = new Challenge_Rating();
-        
+        List<Control> statModList = new List<Control>();
+
         public Main()
         {
             InitializeComponent();           
@@ -69,6 +70,13 @@ namespace DND_Monster
             WisSaveBonusUpDown.ValueChanged += savingThrowModify;
             ChaSaveBonusUpDown.ValueChanged += savingThrowModify;
 
+            statModList.Add(StrBonus);
+            statModList.Add(DexBonus);
+            statModList.Add(ConBonus);
+            statModList.Add(IntBonus);
+            statModList.Add(ChaBonus);
+            statModList.Add(WisBonus);
+
             AddVulnerabilityButton.Click += addCondition;
             AddResistanceButton.Click += addCondition;
             AddImmunityButton.Click += addCondition;
@@ -95,12 +103,13 @@ namespace DND_Monster
         // This updates the labels next to stats, when the stats change.
         // This uses tags on the controls to match the numericUpDown to the Label.
         private void modchanged_ValueChanged(object sender, EventArgs e)
-        {
+        {            
             var temp = (NumericUpDown)sender;
-            foreach (Control item in this.Controls)
+            
+            foreach (Control item in statModList)
             {
                 if (item.Tag != null)
-                {
+                {                    
                     if (item.Tag.ToString().Contains(temp.Tag.ToString()))
                     {                        
                         UpdateModifier(temp, (Label)item);
@@ -892,7 +901,7 @@ namespace DND_Monster
         /// <param name="value">Input</param>
         /// <param name="target">Output</param>
         private void UpdateModifier(NumericUpDown value, Label target)
-        {
+        {            
             int modifier = (int)Math.Floor((double)(Convert.ToInt32(value.Value) - 10) / 2);
 
             if (modifier >= 0)
@@ -909,51 +918,55 @@ namespace DND_Monster
                 RecalculateAC("Mod Change");
             }
 
-            for (int i = 0; i < TraitsList.Items.Count; i++)
+            try
             {
-                string item = TraitsList.Items[i].ToString();
-                if (!item.Contains("Skill")) return;
-
-                string mod = target.Tag.ToString().ToLower().Replace("mod", "");
-                mod = mod[0].ToString().ToUpper() + mod.Substring(1, 2);
-
-                if (item.Split('|')[1].Contains(mod))
+                for (int i = 0; i < TraitsList.Items.Count; i++)
                 {
-                    string temp = item.Split('|')[1];
-                    string skillChanged = item.Split('(')[0];
-                    string addendum = "";
-                    skillChanged += "(" + mod + ") ";
+                    string item = TraitsList.Items[i].ToString();
+                    if (!item.Contains("Skill")) return;
 
-                    int totalBonus = 0;
-                    int modBonus = 0;
-                    int profBonus = 0;
-                    int skillBonus = 0;
+                    string mod = target.Tag.ToString().ToLower().Replace("mod", "");
+                    mod = mod[0].ToString().ToUpper() + mod.Substring(1, 2);
 
-                    if (temp.Contains(mod))
+                    if (item.Split('|')[1].Contains(mod))
                     {
-                        modBonus = modifier;
-                        addendum += mod + " " + modBonus + " ";                        
+                        string temp = item.Split('|')[1];
+                        string skillChanged = item.Split('(')[0];
+                        string addendum = "";
+                        skillChanged += "(" + mod + ") ";
+
+                        int totalBonus = 0;
+                        int modBonus = 0;
+                        int profBonus = 0;
+                        int skillBonus = 0;
+
+                        if (temp.Contains(mod))
+                        {
+                            modBonus = modifier;
+                            addendum += mod + " " + modBonus + " ";
+                        }
+
+                        if (temp.Contains("Prof."))
+                        {
+                            profBonus = currentCR.profBonus;
+                            addendum += "Prof. " + profBonus + " ";
+                        }
+
+                        if (temp.Contains("Bonus"))
+                        {
+                            skillBonus = (int)SkillBonus.Value;
+                            addendum += "Bonus " + skillBonus;
+                        }
+
+                        totalBonus = modBonus + profBonus + skillBonus;
+                        skillChanged += "+" + totalBonus + " | (" + addendum.Trim() + ")";
+
+                        TraitsList.Items.Remove(item);
+                        TraitsList.Items.Add(skillChanged);
                     }
-
-                    if (temp.Contains("Prof."))
-                    {
-                        profBonus = currentCR.profBonus;
-                        addendum += "Prof. " + profBonus + " ";
-                    }
-
-                    if (temp.Contains("Bonus"))
-                    {
-                        skillBonus = (int)SkillBonus.Value;
-                        addendum += "Bonus " + skillBonus;
-                    }
-
-                    totalBonus = modBonus + profBonus + skillBonus;
-                    skillChanged += "+" + totalBonus + " | (" + addendum.Trim() + ")";
-
-                    TraitsList.Items.Remove(item);
-                    TraitsList.Items.Add(skillChanged);
                 }
             }
+            catch { }
         }
 
         private void generateHP(object sender, EventArgs e)
