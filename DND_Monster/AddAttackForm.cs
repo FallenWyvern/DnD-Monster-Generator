@@ -45,6 +45,7 @@ namespace DND_Monster
 
                     NewAttack.Title = AttackNameField.Text;
                     NewAttack.isDamage = true;
+                    NewAttack.isSpell = false;
             }
             else if (tabControl1.SelectedIndex == 1)
             {                
@@ -52,6 +53,7 @@ namespace DND_Monster
                 NewAbility.Title = AttackAbilityNameField.Text;
                 NewAbility.Description = AttackAbilityDescriptionField.Text;
                 NewAbility.isDamage = false;
+                NewAttack.isSpell = false;
             }
             this.Close();
         }
@@ -77,6 +79,7 @@ namespace DND_Monster
             AttackAbilityDescriptionField.Text = values.Description;            
             NewAbility = values;
             NewAbility.isDamage = false;
+            NewAbility.isSpell = false;
         }
 
         public void LoadAttack(Attack values)
@@ -121,6 +124,7 @@ namespace DND_Monster
 
             NewAttack = values;
             NewAttack.isDamage = true;
+            NewAttack.isSpell = false;
         }
 
         private void tabPage1_Click(object sender, EventArgs e)

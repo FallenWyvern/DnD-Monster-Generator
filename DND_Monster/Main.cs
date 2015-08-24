@@ -377,21 +377,28 @@ namespace DND_Monster
                 
                 if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Ability")
                 {                    
-                    AddAbilityForm loadAttack = new AddAbilityForm();
+                    AddAbilityForm loadAbility = new AddAbilityForm();
 
                     foreach (Ability ability in Monster._Abilities)
                     {
                         if (ability.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
                         {
-                            loadAttack.LoadAbility(ability);
-                            loadAttack.Show();
+                            if (ability.isSpell)
+                            {
+                                loadAbility.LoadSpell(ability);
+                            }
+                            else
+                            {
+                                loadAbility.LoadAbility(ability);
+                            }
+                            loadAbility.Show();
 
-                            loadAttack.FormClosing += (senderx, ex) =>
+                            loadAbility.FormClosing += (senderx, ex) =>
                             {
                                 Monster._Abilities.Remove(ability);
-                                Monster._Abilities.Add(loadAttack.NewAbility);
+                                Monster._Abilities.Add(loadAbility.NewAbility);
                                 TraitsList.Items.Remove(TraitsList.SelectedItem);
-                                TraitsList.Items.Add("Ability: " + loadAttack.NewAbility.Title);
+                                TraitsList.Items.Add("Ability: " + loadAbility.NewAbility.Title);
                             };
                             return;
                         }
@@ -487,12 +494,13 @@ namespace DND_Monster
             Monster.Output(jsonMonster);
 
             SaveFileDialog dialog = new SaveFileDialog();
-            dialog.InitialDirectory = @"C:\";
+            dialog.InitialDirectory = Help.LastDirectory;
             dialog.Filter = "mm files (*.mm)|*.mm";
             dialog.RestoreDirectory = true;
 
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                Help.LastDirectory = dialog.FileName;
                 System.IO.File.WriteAllText(dialog.FileName, JsonConvert.SerializeObject(jsonMonster));
             }
         }
@@ -500,12 +508,14 @@ namespace DND_Monster
         private void LoadData(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.InitialDirectory = @"C:\";
+            dialog.InitialDirectory = Help.LastDirectory;
             dialog.Filter = "mm files (*.mm)|*.mm";
             dialog.RestoreDirectory = true;
 
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                Help.LastDirectory = dialog.FileName;
+
                 Data jsonMonster = new Data();
                 jsonMonster = JsonConvert.DeserializeObject<Data>(System.IO.File.ReadAllText(dialog.FileName));
                 TraitsList.Items.Clear();
@@ -690,7 +700,8 @@ namespace DND_Monster
                     int.TryParse(Monster.AC.Split(' ')[0], out ACValue);
 
                     ACUpDown.Value = ACValue;
-                    ACSourceTextBox.Text = Monster.AC.Split(' ')[1];
+                    string temp = Monster.AC.Split(' ')[1].Trim();
+                    ACSourceTextBox.Text = temp.Substring(1, temp.Length - 2);
                 }
                 catch { }
 
@@ -712,12 +723,13 @@ namespace DND_Monster
         private void ExportHTML(object sender, EventArgs e)
         {
             SaveFileDialog dialog = new SaveFileDialog();
-            dialog.InitialDirectory = @"C:\";
+            dialog.InitialDirectory = Help.LastDirectory;
             dialog.Filter = "html files (*.html)|*.html";
             dialog.RestoreDirectory = true;
             
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                Help.LastDirectory = dialog.FileName;
                 System.IO.File.WriteAllText(dialog.FileName,"");
 
                 foreach (string line in Monster.output){
@@ -729,12 +741,13 @@ namespace DND_Monster
         private void ExportPNG_Click(object sender, EventArgs e)
         {            
             SaveFileDialog dialog = new SaveFileDialog();
-            dialog.InitialDirectory = @"C:\";
+            dialog.InitialDirectory = Help.LastDirectory;
             dialog.Filter = "png files (*.png)|*.png";
             dialog.RestoreDirectory = true;
 
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                Help.LastDirectory = dialog.FileName;
                 Screenshot(dialog.FileName);
             }            
         }
@@ -895,12 +908,13 @@ namespace DND_Monster
             }
 
             SaveFileDialog dialog = new SaveFileDialog();
-            dialog.InitialDirectory = @"C:\";
+            dialog.InitialDirectory = Help.LastDirectory;
             dialog.Filter = "csv files (*.csv)|*.csv";
             dialog.RestoreDirectory = true;
 
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                Help.LastDirectory = dialog.FileName;
                 string output = CSVOutput.ToString();
                 if (output[output.Length - 1].ToString() == ",")
                 {

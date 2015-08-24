@@ -101,6 +101,30 @@ namespace DND_Monster
         public string Title { get; set; }
         public string Description { get; set; }
         public bool isDamage { get; set; }
+        public bool isSpell { get; set; }
+
+        public string SpellcasterBoilerplate(string name)
+        {
+            if (!isSpell) return "";
+            if (String.IsNullOrEmpty(name) || String.IsNullOrWhiteSpace(name)) { name = "Creature"; }
+
+            string returnstring = "";
+            returnstring += "The " + name + " is a " + Description.Split('|')[2] + " level spellcaster. ";
+            returnstring += "Its spellcasting ability is " + Description.Split('|')[1] + " (#SPELLSAVE#). ";
+            if (!Description.Contains("NotInnate"))
+            {
+                returnstring += "It requires no material components to cast its spells. ";
+            }
+            returnstring += "The " + name + " has the following " + Description.Split('|')[0] + " spells prepared:";
+
+            return "<h4>Spellcasting: </h4><p>" + returnstring + "</p></br></br>";
+        }
+
+        public string SpellBlockFormat()
+        {
+            if (!isSpell) return "";
+            return "";
+        }
     }
 
     public class Attack : Ability
@@ -172,6 +196,8 @@ namespace DND_Monster
     {
         public static string Version = "1.4";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
+        public static string LastDirectory = @"C:\";
+
         public static bool useBG = false;
         private static string bgURI = "";
         

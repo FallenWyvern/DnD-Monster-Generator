@@ -445,10 +445,26 @@ namespace DND_Monster
             // Abilities            
             foreach (Ability ability in _Abilities)
             {
-                output.Add(@"<property-block>");
-                output.Add(@"<h4>" + ability.Title + "</h4>");
-                output.Add(@"<p>" + " " + ability.Description + "</p>");
-                output.Add(@"</property-block>");
+                if (!ability.isSpell)
+                {
+                    output.Add(@"<property-block>");
+                    output.Add(@"<h4>" + ability.Title + "</h4>");
+                    output.Add(@"<p>" + " " + ability.Description + "</p>");
+                    output.Add(@"</property-block>");
+                }
+            }
+
+            foreach (Ability ability in _Abilities)
+            {
+                if (ability.isSpell)
+                {
+                    output.Add(@"<property-block>");
+                    output.Add(ability.SpellcasterBoilerplate(CreatureName));
+                    output.Add(ability.SpellBlockFormat());
+                    //output.Add(@"<h4>" + ability.Title + "</h4>");
+                    //output.Add(@"<p>" + " " + ability.Description + "</p>");
+                    output.Add(@"</property-block>");
+                }
             }
 
             if (_Attacks.Count > 0)

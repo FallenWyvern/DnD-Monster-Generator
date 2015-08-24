@@ -33,29 +33,82 @@
             this.AbilityName = new System.Windows.Forms.Label();
             this.AbilityDescription = new System.Windows.Forms.Label();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.SpellCastingAbility = new System.Windows.Forms.ComboBox();
+            this.InnateCheckbox = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.SpellClass = new System.Windows.Forms.ComboBox();
+            this.SpellList = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.Spellslot1 = new System.Windows.Forms.NumericUpDown();
+            this.Spellslot2 = new System.Windows.Forms.NumericUpDown();
+            this.Spellslot3 = new System.Windows.Forms.NumericUpDown();
+            this.Spellslot4 = new System.Windows.Forms.NumericUpDown();
+            this.Spellslot5 = new System.Windows.Forms.NumericUpDown();
+            this.Spellslot6 = new System.Windows.Forms.NumericUpDown();
+            this.Spellslot7 = new System.Windows.Forms.NumericUpDown();
+            this.Spellslot8 = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.Spellslot9 = new System.Windows.Forms.NumericUpDown();
+            this.SpellcastingLevel = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Spellslot1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spellslot2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spellslot3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spellslot4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spellslot5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spellslot6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spellslot7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spellslot8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spellslot9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SpellcastingLevel)).BeginInit();
             this.SuspendLayout();
             // 
             // DescriptionTextBox
             // 
             this.DescriptionTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DescriptionTextBox.Location = new System.Drawing.Point(0, 95);
+            this.DescriptionTextBox.Location = new System.Drawing.Point(3, 77);
             this.DescriptionTextBox.Name = "DescriptionTextBox";
-            this.DescriptionTextBox.Size = new System.Drawing.Size(284, 166);
+            this.DescriptionTextBox.Size = new System.Drawing.Size(499, 260);
             this.DescriptionTextBox.TabIndex = 1;
             this.DescriptionTextBox.Text = "";
             // 
             // AbilityNameTextBox
             // 
-            this.AbilityNameTextBox.Location = new System.Drawing.Point(83, 45);
+            this.AbilityNameTextBox.Location = new System.Drawing.Point(77, 29);
             this.AbilityNameTextBox.Name = "AbilityNameTextBox";
-            this.AbilityNameTextBox.Size = new System.Drawing.Size(189, 20);
+            this.AbilityNameTextBox.Size = new System.Drawing.Size(198, 20);
             this.AbilityNameTextBox.TabIndex = 0;
             this.AbilityNameTextBox.TextChanged += new System.EventHandler(this.UpdatePopOutTitle);
             // 
             // AbilityName
             // 
             this.AbilityName.AutoSize = true;
-            this.AbilityName.Location = new System.Drawing.Point(12, 48);
+            this.AbilityName.Location = new System.Drawing.Point(6, 32);
             this.AbilityName.Name = "AbilityName";
             this.AbilityName.Size = new System.Drawing.Size(65, 13);
             this.AbilityName.TabIndex = 2;
@@ -64,7 +117,7 @@
             // AbilityDescription
             // 
             this.AbilityDescription.AutoSize = true;
-            this.AbilityDescription.Location = new System.Drawing.Point(2, 79);
+            this.AbilityDescription.Location = new System.Drawing.Point(6, 58);
             this.AbilityDescription.Name = "AbilityDescription";
             this.AbilityDescription.Size = new System.Drawing.Size(60, 13);
             this.AbilityDescription.TabIndex = 3;
@@ -72,7 +125,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(197, 12);
+            this.SaveButton.Location = new System.Drawing.Point(200, 3);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 2;
@@ -80,22 +133,454 @@
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.Save);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(513, 385);
+            this.tabControl1.TabIndex = 4;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.SaveButton);
+            this.tabPage1.Controls.Add(this.DescriptionTextBox);
+            this.tabPage1.Controls.Add(this.AbilityDescription);
+            this.tabPage1.Controls.Add(this.AbilityName);
+            this.tabPage1.Controls.Add(this.AbilityNameTextBox);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(505, 340);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Ability";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.label16);
+            this.tabPage2.Controls.Add(this.SpellcastingLevel);
+            this.tabPage2.Controls.Add(this.tableLayoutPanel1);
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.SpellCastingAbility);
+            this.tabPage2.Controls.Add(this.InnateCheckbox);
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.SpellClass);
+            this.tabPage2.Controls.Add(this.SpellList);
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.numericUpDown1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(505, 359);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Spellcasting";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(201, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Save";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Save);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 78);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Casting Ability";
+            // 
+            // SpellCastingAbility
+            // 
+            this.SpellCastingAbility.FormattingEnabled = true;
+            this.SpellCastingAbility.Items.AddRange(new object[] {
+            "Intelligence",
+            "Wisdom",
+            "Charisma",
+            "Strength",
+            "Dexterity",
+            "Constitution"});
+            this.SpellCastingAbility.Location = new System.Drawing.Point(3, 94);
+            this.SpellCastingAbility.Name = "SpellCastingAbility";
+            this.SpellCastingAbility.Size = new System.Drawing.Size(121, 21);
+            this.SpellCastingAbility.TabIndex = 10;
+            this.SpellCastingAbility.Text = "Intelligence";
+            // 
+            // InnateCheckbox
+            // 
+            this.InnateCheckbox.AutoSize = true;
+            this.InnateCheckbox.Location = new System.Drawing.Point(160, 96);
+            this.InnateCheckbox.Name = "InnateCheckbox";
+            this.InnateCheckbox.Size = new System.Drawing.Size(116, 17);
+            this.InnateCheckbox.TabIndex = 9;
+            this.InnateCheckbox.Text = "Innate Spellcasting";
+            this.InnateCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Type of Spells";
+            // 
+            // SpellClass
+            // 
+            this.SpellClass.FormattingEnabled = true;
+            this.SpellClass.Items.AddRange(new object[] {
+            "Bard",
+            "Cleric",
+            "Druid",
+            "Paladin",
+            "Ranger",
+            "Sorcerer",
+            "Warlock",
+            "Wizard"});
+            this.SpellClass.Location = new System.Drawing.Point(3, 47);
+            this.SpellClass.Name = "SpellClass";
+            this.SpellClass.Size = new System.Drawing.Size(121, 21);
+            this.SpellClass.TabIndex = 7;
+            this.SpellClass.Text = "Bard";
+            // 
+            // SpellList
+            // 
+            this.SpellList.FormattingEnabled = true;
+            this.SpellList.Location = new System.Drawing.Point(3, 186);
+            this.SpellList.Name = "SpellList";
+            this.SpellList.Size = new System.Drawing.Size(273, 173);
+            this.SpellList.TabIndex = 6;
+            this.SpellList.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(198, 160);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Add Spell";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(212, 121);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Spell Name";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(73, 137);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(200, 20);
+            this.textBox1.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 121);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Spell Level";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(3, 137);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(56, 20);
+            this.numericUpDown1.TabIndex = 0;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.Spellslot9, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.label15, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.label13, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.label12, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label11, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label10, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.Spellslot1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.Spellslot2, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.Spellslot3, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.Spellslot4, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.Spellslot5, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.Spellslot6, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.Spellslot7, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label14, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.Spellslot8, 1, 8);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(282, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 10;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(220, 353);
+            this.tableLayoutPanel1.TabIndex = 13;
+            // 
+            // Spellslot1
+            // 
+            this.Spellslot1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Spellslot1.Location = new System.Drawing.Point(113, 42);
+            this.Spellslot1.Name = "Spellslot1";
+            this.Spellslot1.Size = new System.Drawing.Size(104, 20);
+            this.Spellslot1.TabIndex = 1;
+            // 
+            // Spellslot2
+            // 
+            this.Spellslot2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Spellslot2.Location = new System.Drawing.Point(113, 77);
+            this.Spellslot2.Name = "Spellslot2";
+            this.Spellslot2.Size = new System.Drawing.Size(104, 20);
+            this.Spellslot2.TabIndex = 2;
+            // 
+            // Spellslot3
+            // 
+            this.Spellslot3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Spellslot3.Location = new System.Drawing.Point(113, 112);
+            this.Spellslot3.Name = "Spellslot3";
+            this.Spellslot3.Size = new System.Drawing.Size(104, 20);
+            this.Spellslot3.TabIndex = 3;
+            // 
+            // Spellslot4
+            // 
+            this.Spellslot4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Spellslot4.Location = new System.Drawing.Point(113, 147);
+            this.Spellslot4.Name = "Spellslot4";
+            this.Spellslot4.Size = new System.Drawing.Size(104, 20);
+            this.Spellslot4.TabIndex = 4;
+            // 
+            // Spellslot5
+            // 
+            this.Spellslot5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Spellslot5.Location = new System.Drawing.Point(113, 182);
+            this.Spellslot5.Name = "Spellslot5";
+            this.Spellslot5.Size = new System.Drawing.Size(104, 20);
+            this.Spellslot5.TabIndex = 5;
+            // 
+            // Spellslot6
+            // 
+            this.Spellslot6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Spellslot6.Location = new System.Drawing.Point(113, 217);
+            this.Spellslot6.Name = "Spellslot6";
+            this.Spellslot6.Size = new System.Drawing.Size(104, 20);
+            this.Spellslot6.TabIndex = 6;
+            // 
+            // Spellslot7
+            // 
+            this.Spellslot7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Spellslot7.Location = new System.Drawing.Point(113, 252);
+            this.Spellslot7.Name = "Spellslot7";
+            this.Spellslot7.Size = new System.Drawing.Size(104, 20);
+            this.Spellslot7.TabIndex = 7;
+            // 
+            // Spellslot8
+            // 
+            this.Spellslot8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Spellslot8.Location = new System.Drawing.Point(113, 287);
+            this.Spellslot8.Name = "Spellslot8";
+            this.Spellslot8.Size = new System.Drawing.Size(104, 20);
+            this.Spellslot8.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(146, 11);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "At Will";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(32, 11);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Cantrips";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(17, 46);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "1st Level Slots";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(15, 81);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(80, 13);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "2nd Level Slots";
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(16, 116);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(77, 13);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "3rd Level Slots";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(16, 151);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(77, 13);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "4th Level Slots";
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(16, 186);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(77, 13);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "5th Level Slots";
+            // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(16, 221);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(77, 13);
+            this.label12.TabIndex = 17;
+            this.label12.Text = "6th Level Slots";
+            // 
+            // label13
+            // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(16, 256);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(77, 13);
+            this.label13.TabIndex = 18;
+            this.label13.Text = "7th Level Slots";
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(16, 291);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(77, 13);
+            this.label14.TabIndex = 19;
+            this.label14.Text = "8th Level Slots";
+            // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(16, 327);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(77, 13);
+            this.label15.TabIndex = 20;
+            this.label15.Text = "9th Level Slots";
+            // 
+            // Spellslot9
+            // 
+            this.Spellslot9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Spellslot9.Location = new System.Drawing.Point(113, 324);
+            this.Spellslot9.Name = "Spellslot9";
+            this.Spellslot9.Size = new System.Drawing.Size(104, 20);
+            this.Spellslot9.TabIndex = 21;
+            // 
+            // SpellcastingLevel
+            // 
+            this.SpellcastingLevel.Location = new System.Drawing.Point(153, 48);
+            this.SpellcastingLevel.Name = "SpellcastingLevel";
+            this.SpellcastingLevel.Size = new System.Drawing.Size(120, 20);
+            this.SpellcastingLevel.TabIndex = 14;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(150, 32);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(93, 13);
+            this.label16.TabIndex = 15;
+            this.label16.Text = "Spellcasting Level";
+            // 
             // AddAbilityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.SaveButton);
-            this.Controls.Add(this.AbilityDescription);
-            this.Controls.Add(this.AbilityName);
-            this.Controls.Add(this.AbilityNameTextBox);
-            this.Controls.Add(this.DescriptionTextBox);
+            this.ClientSize = new System.Drawing.Size(513, 385);
+            this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "AddAbilityForm";
             this.Text = "Add Abilities";
             this.Load += new System.EventHandler(this.AddAbilityForm_Load);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Spellslot1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spellslot2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spellslot3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spellslot4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spellslot5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spellslot6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spellslot7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spellslot8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spellslot9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SpellcastingLevel)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -106,5 +591,43 @@
         private System.Windows.Forms.Label AbilityName;
         private System.Windows.Forms.Label AbilityDescription;
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox SpellList;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox SpellCastingAbility;
+        private System.Windows.Forms.CheckBox InnateCheckbox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox SpellClass;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown Spellslot1;
+        private System.Windows.Forms.NumericUpDown Spellslot2;
+        private System.Windows.Forms.NumericUpDown Spellslot3;
+        private System.Windows.Forms.NumericUpDown Spellslot4;
+        private System.Windows.Forms.NumericUpDown Spellslot5;
+        private System.Windows.Forms.NumericUpDown Spellslot6;
+        private System.Windows.Forms.NumericUpDown Spellslot7;
+        private System.Windows.Forms.NumericUpDown Spellslot8;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown Spellslot9;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.NumericUpDown SpellcastingLevel;
     }
 }
