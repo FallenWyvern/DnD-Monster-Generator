@@ -63,6 +63,8 @@ namespace DND_Monster
         private void SaveTrait_Click(object sender, EventArgs e)
         {
             Traits.Items.Add(textBox1.Text + " | " + TraitDescriptionBox.Text);
+            textBox1.Text = "";
+            TraitDescriptionBox.Text = "";
         }
 
         private void LoadTrait_Click(object sender, EventArgs e)

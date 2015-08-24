@@ -222,7 +222,7 @@ namespace DND_Monster
             DamageVulnerability.Clear();
             ConditionImmunities.Clear();
             SavingThrowBonuses.Clear();
-            SkillBonuses.Clear();
+            SkillBonuses.Clear();            
 
             if (isNew)
             {
@@ -239,6 +239,7 @@ namespace DND_Monster
         {
             fillTarget._Abilities = _Abilities;
             fillTarget._Attacks = _Attacks;
+            fillTarget._Legendaries = _Legendaries;
             fillTarget._Languages = _Languages;
             fillTarget._Senses = _Senses;
             fillTarget.AC = AC;
@@ -268,8 +269,10 @@ namespace DND_Monster
 
         public static void Input(Data source)
         {
+            Monster.Clear(true);
             _Abilities = source._Abilities;
             _Attacks = source._Attacks;
+            _Legendaries = source._Legendaries;
             _Languages = source._Languages;
             _Senses = source._Senses;
             AC = source.AC;

@@ -510,13 +510,13 @@ namespace DND_Monster
                 jsonMonster = JsonConvert.DeserializeObject<Data>(System.IO.File.ReadAllText(dialog.FileName));
                 TraitsList.Items.Clear();
                 
-                Monster.Input(jsonMonster);
+                Monster.Input(jsonMonster);                
 
                 currentCR = Monster.CR;
                 ChallengeRatingDropDown.Text = "";
                 ChallengeRatingDropDown.SelectedText = Help.FindCRByIndex(Monster.CR.Index).CR;
                 crChangedUpdateProficiency(null, null);
-
+                
                 AlignmentDropDown.Text = "";
                 AlignmentDropDown.SelectedText = Monster.CreatureAlign;
 
@@ -533,33 +533,49 @@ namespace DND_Monster
                     string check = speed.Split(':')[0].Trim();                    
                     switch (check)
                     {
-                        case "Burrow":                            
-                            int Burrow = 0;
-                            int.TryParse(speed.Split(':')[1], out Burrow);
-                            burrowUpDown.Value = Burrow;
-                            break;
-                        case "Climb":                            
-                            int Climb = 0;
-                            int.TryParse(speed.Split(':')[1], out Climb);
-                            ClimbUpDown.Value = Climb;
-                            break;
-                        case "Fly":                            
-                            int Fly = 0;                                                        
-                            if (speed.Split(':')[1].Contains("(Hover)"))
+                        case "Burrow":
+                            try
                             {
-                                HoverCheckBox.Checked = true;
-                                int.TryParse(speed.Split(':')[1].Replace(" (Hover)", ""), out Fly);
+                                int Burrow = 0;
+                                int.TryParse(speed.Split(':')[1], out Burrow);
+                                burrowUpDown.Value = Burrow;
                             }
-                            else
-                            {
-                                int.TryParse(speed.Split(':')[1], out Fly);
-                            }
-                            FlyUpDown.Value = Fly;
+                            catch { }
                             break;
-                        case "Swim":                            
-                            int Swim = 0;
-                            int.TryParse(speed.Split(':')[1], out Swim);
-                            SwimUpDown.Value = Swim;
+                        case "Climb":
+                            try
+                            {
+                                int Climb = 0;
+                                int.TryParse(speed.Split(':')[1], out Climb);
+                                ClimbUpDown.Value = Climb;
+                            }
+                            catch { }
+                            break;
+                        case "Fly":
+                            try
+                            {
+                                int Fly = 0;
+                                if (speed.Split(':')[1].Contains("(Hover)"))
+                                {
+                                    HoverCheckBox.Checked = true;
+                                    int.TryParse(speed.Split(':')[1].Replace(" (Hover)", ""), out Fly);
+                                }
+                                else
+                                {
+                                    int.TryParse(speed.Split(':')[1], out Fly);
+                                }
+                                FlyUpDown.Value = Fly;
+                            }
+                            catch { }
+                            break;
+                        case "Swim":
+                            try
+                            {
+                                int Swim = 0;
+                                int.TryParse(speed.Split(':')[1], out Swim);
+                                SwimUpDown.Value = Swim;
+                            }
+                            catch { }
                             break;
                         default:                            
                             try
@@ -582,7 +598,12 @@ namespace DND_Monster
                 {
                     TraitsList.Items.Add("Attack: " + item.Title);
                 }
-
+                
+                foreach (Legendary epic in Monster._Legendaries)
+                {
+                    TraitsList.Items.Add("Legendary: " + epic.Title);
+                }
+                
                 foreach (string language in Monster._Languages)
                 {
                     TraitsList.Items.Add("Language: " + language);
@@ -648,6 +669,7 @@ namespace DND_Monster
                 }
 
                 HitDieTextBox.Text = Monster.HP;
+
                 try
                 {
                     string hpString = Monster.HP.Split('(')[1].Replace(')', ' ').Trim().Split('+')[0];
@@ -682,8 +704,7 @@ namespace DND_Monster
                 TypeDropDown.SelectedText = Monster.CreatureType.Split(' ')[0];
                 try { TagDropDown.SelectedText = Monster.CreatureType.Split(' ')[1].Replace('(', ' ').Replace(')', ' ').Trim(); }
                 catch { }
-
-                //Monster.SkillBonuses.Clear();
+                
                 Monster.Clear();
             }
         }        
@@ -1214,7 +1235,7 @@ namespace DND_Monster
 
         private void NewMonsterButton_Click(object sender, EventArgs e)
         {
-            Monster.Clear();
+            Monster.Clear(true);
             ClearUI();
         }
 

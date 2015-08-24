@@ -23,6 +23,7 @@ namespace DND_Monster
 
         public List<Ability> _Abilities = new List<Ability>();
         public List<Ability> _Attacks = new List<Ability>();
+        public List<Legendary> _Legendaries = new List<Legendary>();
 
         public string Title = "";
         public int STR = 0;
@@ -61,7 +62,7 @@ namespace DND_Monster
     public class Legendary
     {
         public string Title { get; set; }        
-        private List<LegendaryTrait> Traits = new List<LegendaryTrait>();
+        public List<LegendaryTrait> Traits = new List<LegendaryTrait>();
 
         public void AddTrait(string title, string ability)
         {
