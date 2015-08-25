@@ -472,13 +472,13 @@ namespace DND_Monster
                 }
             }
 
-            if (_Attacks.Count > 0)
+            if (_Actions.Count > 0)
             {                
                 output.Add(@"<h3 style=""border-bottom: 1px solid #7A200D; color:#7A200D; font-size: 18px; font-variant: small-caps; font-weight: normal; letter-spacing: 1px; margin: 0;"">Actions</h3>");                
             }            
 
             // Actions            
-            foreach (Ability ability in _Attacks)
+            foreach (Ability ability in _Actions)
             {                
                 if (!ability.isDamage)
                 {
@@ -489,9 +489,22 @@ namespace DND_Monster
                 }            
             }
 
-            foreach (Ability ability in _Attacks)
+            foreach (Ability ability in _Actions)
             {
                 if (ability.isDamage)
+                {
+                    output.Add(@"<property-block>");
+                    output.Add(@"<h4>" + ability.Title + "</h4>");
+                    output.Add(@"<p>" + ability.Description + "</p>");
+                    output.Add(@"</property-block>");
+                }
+            }
+
+            if (_Reactions.Count > 0)
+            {
+                output.Add(@"<h3 style=""border-bottom: 1px solid #7A200D; color:#7A200D; font-size: 18px; font-variant: small-caps; font-weight: normal; letter-spacing: 1px; margin: 0;"">Reactions</h3>");
+
+                foreach (Ability ability in _Reactions)
                 {
                     output.Add(@"<property-block>");
                     output.Add(@"<h4>" + ability.Title + "</h4>");

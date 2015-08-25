@@ -230,33 +230,43 @@ namespace DND_Monster
             addAbility.FormClosing += (senders, es) =>
             {
                 if (addAbility.NewAbility != null)
-                {
-                    Monster._Abilities.Add(addAbility.NewAbility);
+                {                    
+                    Monster.AddAbility(addAbility.NewAbility);
                     TraitsList.Items.Add("Ability: " + addAbility.NewAbility.Title);
                 }
             };
         }
 
         // Adds attacks to both the Monster._Attacks and TraitList
-        private void addAttack(object sender, EventArgs e)
+        private void addAction(object sender, EventArgs e)
         {
-            AddAttackForm addAttack = new AddAttackForm(ChallengeRatingDropDown.Text);
+            AddActionForm addAttack = new AddActionForm(ChallengeRatingDropDown.Text);
             addAttack.Show();
 
             addAttack.FormClosing += (senders, es) =>
             {
                 if (addAttack.NewAttack != null)
                 {
-                    if (TraitsList.Items.Contains(addAttack.NewAttack.Title)) { addAttack.NewAttack.Title += "_"; }
-                    Monster._Attacks.Add(addAttack.NewAttack);
-                    TraitsList.Items.Add("Attack: " + addAttack.NewAttack.Title);                    
+                    Console.WriteLine("1");
+                    if (TraitsList.Items.Contains(addAttack.NewAttack.Title)) { addAttack.NewAttack.Title += "_"; }                    
+                    Monster.AddAction(addAttack.NewAttack);
+                    TraitsList.Items.Add("Action: " + addAttack.NewAttack.Title);                    
                 }
 
                 if (addAttack.NewAbility != null)
                 {
-                    if (TraitsList.Items.Contains(addAttack.NewAbility.Title)) { addAttack.NewAbility.Title += "_"; }
-                    Monster._Attacks.Add(addAttack.NewAbility);
-                    TraitsList.Items.Add("Attack: " + addAttack.NewAbility.Title);                        
+                    Console.WriteLine("2");
+                    if (TraitsList.Items.Contains(addAttack.NewAbility.Title)) { addAttack.NewAbility.Title += "_"; }                    
+                    Monster.AddAction(addAttack.NewAbility);
+                    TraitsList.Items.Add("Action: " + addAttack.NewAbility.Title);                        
+                }
+
+                if (addAttack.NewReaction != null)
+                {
+                    Console.WriteLine("3");
+                    if (TraitsList.Items.Contains(addAttack.NewReaction.Title)) { addAttack.NewReaction.Title += "_"; }
+                    Monster.AddReaction(addAttack.NewReaction);
+                    TraitsList.Items.Add("Reaction: " + addAttack.NewReaction.Title);                        
                 }
             };
         }
@@ -272,8 +282,8 @@ namespace DND_Monster
                 addLegendary.SerializeTraits();
                 if (addLegendary.LegendaryAbility != null)
                 {                    
-                    if (TraitsList.Items.Contains(addLegendary.LegendaryAbility.Title)) { addLegendary.LegendaryAbility.Title += "_"; }
-                    Monster._Legendaries.Add(addLegendary.LegendaryAbility);
+                    if (TraitsList.Items.Contains(addLegendary.LegendaryAbility.Title)) { addLegendary.LegendaryAbility.Title += "_"; }                    
+                    Monster.AddLegendary(addLegendary.LegendaryAbility);
                     TraitsList.Items.Add("Legendary: " + addLegendary.LegendaryAbility.Title);
                 }
             };
@@ -354,25 +364,25 @@ namespace DND_Monster
                     }
                 }
 
-                if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Attack")
+                if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Action")
                 {
-                    AddAttackForm loadAttack = new AddAttackForm();
+                    AddActionForm loadAttack = new AddActionForm();
 
-                    foreach (Ability attack in Monster._Attacks)
+                    foreach (Ability attack in Monster._Actions)
                     {
                         if (attack.isDamage)
                         {
                             if (attack.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
                             {
-                                loadAttack.LoadAttack((Attack)attack);                                
+                                loadAttack.LoadAction((Attack)attack);                                
                                 loadAttack.Show();
 
                                 loadAttack.FormClosing += (senderx, ex) =>
                                 {
-                                    Monster._Attacks.Remove(attack);
-                                    Monster._Attacks.Add(loadAttack.NewAttack);
+                                    Monster._Actions.Remove(attack);
+                                    Monster._Actions.Add(loadAttack.NewAttack);
                                     TraitsList.Items.Remove(TraitsList.SelectedItem);
-                                    TraitsList.Items.Add("Attack: " + loadAttack.NewAttack.Title);
+                                    TraitsList.Items.Add("Action: " + loadAttack.NewAttack.Title);
                                 };
                                 return;
                             }
@@ -382,22 +392,45 @@ namespace DND_Monster
                         {
                             if (attack.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
                             {
-                                loadAttack.LoadAttack((Ability)attack);
+                                loadAttack.LoadAction((Ability)attack);
                                 loadAttack.Show();
 
                                 loadAttack.FormClosing += (senderx, ex) =>
                                 {
-                                    Monster._Attacks.Remove(attack);
-                                    Monster._Attacks.Add(loadAttack.NewAbility);
+                                    Monster._Actions.Remove(attack);
+                                    Monster._Actions.Add(loadAttack.NewAbility);
                                     TraitsList.Items.Remove(TraitsList.SelectedItem);
-                                    TraitsList.Items.Add("Attack: " + loadAttack.NewAbility.Title);
+                                    TraitsList.Items.Add("Action: " + loadAttack.NewAbility.Title);
                                 };
                                 return;
                             }
                         }
                     }
                 }
-                
+
+                if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Reaction")
+                {
+                    AddActionForm loadReaction = new AddActionForm();
+
+                    foreach (Ability reaction in Monster._Reactions)
+                    {
+                        if (reaction.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
+                        {
+                            loadReaction.LoadReaction(reaction);
+                            loadReaction.Show();
+
+                            loadReaction.FormClosing += (senderx, ex) =>
+                            {
+                                Monster._Reactions.Remove(reaction);
+                                Monster._Reactions.Add(loadReaction.NewReaction);
+                                TraitsList.Items.Remove(TraitsList.SelectedItem);
+                                TraitsList.Items.Add("Reaction: " + loadReaction.NewReaction.Title);
+                            };
+                            return;
+                        }                        
+                    }
+                }
+
                 if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Ability")
                 {                    
                     AddAbilityForm loadAbility = new AddAbilityForm();
@@ -457,11 +490,11 @@ namespace DND_Monster
                 }
 
                 if (TraitsList.Items.Count < 1 || TraitsList.SelectedItem == null) return;
-                if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Attack")
+                if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Action")
                 {                    
                     Ability temp = null;
 
-                    foreach (Ability item in Monster._Attacks)
+                    foreach (Ability item in Monster._Actions)
                     {                        
                         if (item.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
                         {
@@ -471,7 +504,7 @@ namespace DND_Monster
 
                     if (temp != null)
                     {
-                        Monster._Attacks.Remove(temp);
+                        Monster._Actions.Remove(temp);
                         TraitsList.Items.Remove(TraitsList.SelectedItem);
                     }
                 }
@@ -492,6 +525,26 @@ namespace DND_Monster
                     if (temp != null)
                     {
                         Monster._Legendaries.Remove(temp);
+                        TraitsList.Items.Remove(TraitsList.SelectedItem);
+                    }
+                }
+
+                if (TraitsList.Items.Count < 1 || TraitsList.SelectedItem == null) return;
+                if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Reaction")
+                {
+                    Ability temp = null;
+
+                    foreach (Ability item in Monster._Reactions)
+                    {
+                        if (item.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
+                        {
+                            temp = item;
+                        }
+                    }
+
+                    if (temp != null)
+                    {
+                        Monster._Reactions.Remove(temp);
                         TraitsList.Items.Remove(TraitsList.SelectedItem);
                     }
                 }
@@ -634,11 +687,16 @@ namespace DND_Monster
                     TraitsList.Items.Add("Ability: " + item.Title);
                 }
 
-                foreach (Ability item in Monster._Attacks)
+                foreach (Ability item in Monster._Actions)
                 {
-                    TraitsList.Items.Add("Attack: " + item.Title);
+                    TraitsList.Items.Add("Action: " + item.Title);
                 }
-                
+
+                foreach (Ability reaction in Monster._Reactions)
+                {
+                    TraitsList.Items.Add("Reaction: " + reaction.Title);
+                }
+
                 foreach (Legendary epic in Monster._Legendaries)
                 {
                     TraitsList.Items.Add("Legendary: " + epic.Title);
@@ -908,7 +966,7 @@ namespace DND_Monster
 
             CSVOutput.Append("Actions=");
 
-            foreach (Ability dimm in Monster._Attacks)
+            foreach (Ability dimm in Monster._Actions)
             {
                 if (!dimm.isDamage)
                 {
@@ -916,7 +974,7 @@ namespace DND_Monster
                 }
             }
 
-            foreach (Ability action in Monster._Attacks)
+            foreach (Ability action in Monster._Actions)
             {
                 if (action.isDamage)
                 {

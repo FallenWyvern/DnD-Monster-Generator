@@ -10,12 +10,13 @@ using System.Windows.Forms;
 
 namespace DND_Monster
 {
-    public partial class AddAttackForm : Form
+    public partial class AddActionForm : Form
     {
         public Ability NewAttack = null;
         public Ability NewAbility = null;
+        public Ability NewReaction = null;
 
-        public AddAttackForm(string currentCR = "")
+        public AddActionForm(string currentCR = "")
         {
             InitializeComponent();            
         }        
@@ -51,6 +52,14 @@ namespace DND_Monster
                 NewAbility.isDamage = false;
                 NewAbility.isSpell = false;
             }
+            else if (tabControl1.SelectedIndex == 2)
+            {
+                this.NewReaction = new Ability();
+                NewReaction.Title = ReactionName.Text;
+                NewReaction.Description = ReactionDescription.Text;
+                NewReaction.isDamage = false;
+                NewReaction.isSpell = false;
+            }
             this.Close();
         }
 
@@ -72,9 +81,8 @@ namespace DND_Monster
         }
 
         // Loads abilities.
-        public void LoadAttack(Ability values)
-        {
-            //NewAttack = null;
+        public void LoadAction(Ability values)
+        {            
             AttackAbilityNameField.Text = values.Title;
             AttackAbilityDescriptionField.Text = values.Description;            
 
@@ -86,7 +94,7 @@ namespace DND_Monster
         }
 
         // Loads attacks.
-        public void LoadAttack(Attack values)
+        public void LoadAction(Attack values)
         {
             //NewAbility = null;            
             AttackNameField.Text = values.Title;
@@ -131,5 +139,17 @@ namespace DND_Monster
             NewAttack.isDamage = true;
             NewAttack.isSpell = false;
         }                
+
+        // Loads reactions
+        public void LoadReaction(Ability values)
+        {
+            NewReaction = values;
+            ReactionName.Text = values.Title;
+            ReactionDescription.Text = values.Description;
+            NewReaction.isDamage = false;
+            NewReaction.isSpell = false;
+
+            tabControl1.SelectedIndex = 2;
+        }
     }
 }

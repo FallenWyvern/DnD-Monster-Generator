@@ -17,17 +17,27 @@ namespace DND_Monster
     {     
         // Methods for building monster.
         #region
-
-        public static void AddAbility(string title, string description)
-        {            
-            _Abilities.Add(new Ability { Title = title, Description = description });
-        }
-
-        public static void AddAttack(string title, string description)
-        {
-            _Attacks.Add(new Ability { Title = title, Description = description });
-        }
         
+        public static void AddAbility(Ability target)
+        {
+            _Abilities.Add(target);
+        }        
+
+        public static void AddAction(Ability target)
+        {
+            _Actions.Add(target);
+        }
+
+        public static void AddReaction(Ability target)
+        {
+            _Reactions.Add(target);
+        }
+
+        public static void AddLegendary(Legendary target)
+        {
+            _Legendaries.Add(target);
+        }
+
         private static string D_Immunities()
         {
             string immunities = "";
@@ -227,8 +237,9 @@ namespace DND_Monster
             if (isNew)
             {
                 _Abilities.Clear();
-                _Attacks.Clear();
+                _Actions.Clear();
                 _Legendaries.Clear();
+                _Reactions.Clear();
             }
 
             _Languages.Clear();
@@ -239,8 +250,9 @@ namespace DND_Monster
         public static void Output(Data fillTarget)
         {
             fillTarget._Abilities = _Abilities;
-            fillTarget._Attacks = _Attacks;
+            fillTarget._Actions = _Actions;
             fillTarget._Legendaries = _Legendaries;
+            fillTarget._Reactions = _Reactions;
             fillTarget._Languages = _Languages;
             fillTarget._Senses = _Senses;
             fillTarget.AC = AC;
@@ -273,8 +285,9 @@ namespace DND_Monster
         {
             Monster.Clear(true);
             _Abilities = source._Abilities;
-            _Attacks = source._Attacks;
+            _Actions = source._Actions;
             _Legendaries = source._Legendaries;
+            _Reactions = source._Reactions;
             _Languages = source._Languages;
             _Senses = source._Senses;
             AC = source.AC;
@@ -318,8 +331,9 @@ namespace DND_Monster
         public static List<string> _Languages = new List<string>();
 
         public static List<Ability> _Abilities = new List<Ability>();
-        public static List<Ability> _Attacks = new List<Ability>();
-        public static List<Legendary> _Legendaries = new List<Legendary>();
+        public static List<Ability> _Actions = new List<Ability>();
+        public static List<Ability> _Reactions = new List<Ability>();
+        public static List<Legendary> _Legendaries = new List<Legendary>();        
 
         public static string Title = "";        
         public static int STR = 0;

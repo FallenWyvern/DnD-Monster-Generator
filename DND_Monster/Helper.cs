@@ -23,8 +23,9 @@ namespace DND_Monster
         public List<string> _Languages = new List<string>();
 
         public List<Ability> _Abilities = new List<Ability>();
-        public List<Ability> _Attacks = new List<Ability>();
-        public List<Legendary> _Legendaries = new List<Legendary>();
+        public List<Ability> _Actions = new List<Ability>();
+        public List<Ability> _Reactions = new List<Ability>();
+        public List<Legendary> _Legendaries = new List<Legendary>();        
 
         public string Title = "";
         public int STR = 0;
@@ -281,10 +282,16 @@ namespace DND_Monster
         }
     }
 
+    // Reaction
+    public class Reaction : Ability
+    {
+
+    }
+
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "1.8";
+        public static string Version = "1.9";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = @"C:\";
 

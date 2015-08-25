@@ -1074,7 +1074,7 @@
             this.AddActionButton.TabIndex = 47;
             this.AddActionButton.Text = "Add Action";
             this.AddActionButton.UseVisualStyleBackColor = true;
-            this.AddActionButton.Click += new System.EventHandler(this.addAttack);
+            this.AddActionButton.Click += new System.EventHandler(this.addAction);
             // 
             // TraitInstruction2
             // 

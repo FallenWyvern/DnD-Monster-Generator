@@ -1,6 +1,6 @@
 ﻿namespace DND_Monster
 {
-    partial class AddAttackForm
+    partial class AddActionForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.ReactionSave = new System.Windows.Forms.Button();
             this.AttackTypeDropdown = new System.Windows.Forms.ComboBox();
             this.AttackType = new System.Windows.Forms.Label();
             this.AttackBonusUpDown = new System.Windows.Forms.NumericUpDown();
@@ -57,6 +57,11 @@
             this.ActionName = new System.Windows.Forms.Label();
             this.AttackAbilityNameField = new System.Windows.Forms.TextBox();
             this.AttackAbilityDescriptionField = new System.Windows.Forms.RichTextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ReactionName = new System.Windows.Forms.TextBox();
+            this.ReactionDescription = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.AttackBonusUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RangeUpDownClose)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -66,17 +71,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.HitDiceBonusDamage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitNumberOfDice)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // ReactionSave
             // 
-            this.button1.Location = new System.Drawing.Point(118, 289);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Save);
+            this.ReactionSave.Location = new System.Drawing.Point(118, 289);
+            this.ReactionSave.Name = "ReactionSave";
+            this.ReactionSave.Size = new System.Drawing.Size(75, 23);
+            this.ReactionSave.TabIndex = 0;
+            this.ReactionSave.Text = "Save";
+            this.ReactionSave.UseVisualStyleBackColor = true;
+            this.ReactionSave.Click += new System.EventHandler(this.Save);
             // 
             // AttackTypeDropdown
             // 
@@ -189,6 +195,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -225,7 +232,7 @@
             this.tabPage1.Size = new System.Drawing.Size(288, 261);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Weapon Attack";
-            this.tabPage1.UseVisualStyleBackColor = true;            
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -412,16 +419,64 @@
             this.AttackAbilityDescriptionField.TabIndex = 1;
             this.AttackAbilityDescriptionField.Text = "";
             // 
-            // AddAttackForm
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.label2);
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Controls.Add(this.ReactionName);
+            this.tabPage3.Controls.Add(this.ReactionDescription);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(288, 261);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Reaction";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Description";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(4, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Reaction Name";
+            // 
+            // ReactionName
+            // 
+            this.ReactionName.Location = new System.Drawing.Point(91, 4);
+            this.ReactionName.Name = "ReactionName";
+            this.ReactionName.Size = new System.Drawing.Size(189, 20);
+            this.ReactionName.TabIndex = 9;
+            // 
+            // ReactionDescription
+            // 
+            this.ReactionDescription.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ReactionDescription.Location = new System.Drawing.Point(3, 48);
+            this.ReactionDescription.Name = "ReactionDescription";
+            this.ReactionDescription.Size = new System.Drawing.Size(282, 210);
+            this.ReactionDescription.TabIndex = 10;
+            this.ReactionDescription.Text = "";
+            // 
+            // AddActionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(296, 312);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ReactionSave);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "AddAttackForm";
-            this.Text = "Add Actions";                        
+            this.Name = "AddActionForm";
+            this.Text = "Add Actions";
             ((System.ComponentModel.ISupportInitialize)(this.AttackBonusUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RangeUpDownClose)).EndInit();
             this.tabControl1.ResumeLayout(false);
@@ -433,13 +488,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.HitNumberOfDice)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ReactionSave;
         private System.Windows.Forms.ComboBox AttackTypeDropdown;
         private System.Windows.Forms.Label AttackType;
         private System.Windows.Forms.NumericUpDown AttackBonusUpDown;
@@ -468,5 +525,10 @@
         private System.Windows.Forms.NumericUpDown ReachUpDown;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown RangeUpDownFar;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox ReactionName;
+        private System.Windows.Forms.RichTextBox ReactionDescription;
     }
 }
