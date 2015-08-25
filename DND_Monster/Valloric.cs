@@ -283,6 +283,7 @@ namespace DND_Monster
 
             output.Add(@"#content-wrap {");
             output.Add(@"-webkit-column-count: " + columns + ";");
+            output.Add(@"-webkit-column-gap: 40px;");
             output.Add(@"font-family: 'Noto Sans', 'Myriad Pro', Scala Sans, Helvetica, Arial,");
             output.Add(@"sans-serif;");
             output.Add(@"font-size: 13px;");

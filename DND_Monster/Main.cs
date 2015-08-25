@@ -89,7 +89,8 @@ namespace DND_Monster
             tableLayoutPanel1.Controls.Add(b, 0, 0);
 
             this.FormClosing += (senderEnd, eEnd) => { Cef.Shutdown(); };
-            if (!Help.CheckForDownload())
+
+            if (!System.IO.File.Exists("skipupdate.dat") && !Help.CheckForDownload())
             {
                 if (MessageBox.Show("New Version Available. Open Download Page?", "New Version", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                 {
@@ -766,14 +767,8 @@ namespace DND_Monster
                 
                 await Task.Delay(500);
 
-                int width = 0;
+                int width = (Monster.width + (Monster.width * Monster.columns)) + 40;
                 int height = 0;
-
-                while (width == 0)
-                {
-                    width = BrowserInfo.BrowserWidth(browser);
-                    System.Threading.Thread.Sleep(100);
-                }
 
                 while (height == 0)
                 {

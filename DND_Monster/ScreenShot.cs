@@ -10,7 +10,7 @@ using CefSharp.OffScreen;
 public static class BrowserInfo
 {    
     public static int BrowserHeight(ChromiumWebBrowser b)
-    {
+    {        
         // Get Document Height
         var task = b.EvaluateScriptAsync("(function() { var body = document.body, html = document.documentElement; return  Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight ); })();");
 
