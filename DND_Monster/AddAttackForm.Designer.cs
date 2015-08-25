@@ -225,8 +225,7 @@
             this.tabPage1.Size = new System.Drawing.Size(288, 261);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Weapon Attack";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            this.tabPage1.UseVisualStyleBackColor = true;            
             // 
             // label1
             // 
@@ -422,9 +421,7 @@
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddAttackForm";
-            this.Text = "Add Actions";
-            this.Load += new System.EventHandler(this.AddAttackForm_Load);
-            this.Leave += new System.EventHandler(this.AddAttackForm_Leave);
+            this.Text = "Add Actions";                        
             ((System.ComponentModel.ISupportInitialize)(this.AttackBonusUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RangeUpDownClose)).EndInit();
             this.tabControl1.ResumeLayout(false);

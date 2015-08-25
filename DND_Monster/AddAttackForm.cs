@@ -18,13 +18,9 @@ namespace DND_Monster
         public AddAttackForm(string currentCR = "")
         {
             InitializeComponent();            
-        }
+        }        
 
-        private void AddAttackForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        // Saves the ability or attack based on the selected tab.
         private void Save(object sender, EventArgs e)
         {            
             if (tabControl1.SelectedIndex == 0)
@@ -58,6 +54,7 @@ namespace DND_Monster
             this.Close();
         }
 
+        // Convinence property to get the size of the die from a string.
         private int diceSize(string sizeOfDie)
         {
             int value = 0;
@@ -65,6 +62,7 @@ namespace DND_Monster
             return value;
         }
 
+        // Gets the average damage based on dice size, number of and bonus to add.
         private int AverageDamage(int numOfDie, string sizeOfDie, int bonus)
         {            
             int diceSize = 0;
@@ -73,6 +71,7 @@ namespace DND_Monster
             return average;
         }
 
+        // Loads abilities.
         public void LoadAttack(Ability values)
         {
             //NewAttack = null;
@@ -86,6 +85,7 @@ namespace DND_Monster
             tabControl1.SelectedIndex = 1;
         }
 
+        // Loads attacks.
         public void LoadAttack(Attack values)
         {
             //NewAbility = null;            
@@ -130,16 +130,6 @@ namespace DND_Monster
             NewAttack = values;
             NewAttack.isDamage = true;
             NewAttack.isSpell = false;
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AddAttackForm_Leave(object sender, EventArgs e)
-        {
-
-        }
+        }                
     }
 }

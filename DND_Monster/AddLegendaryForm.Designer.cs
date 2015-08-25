@@ -35,7 +35,7 @@
             this.SaveTrait = new System.Windows.Forms.Button();
             this.LoadTrait = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.AbilityName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -45,7 +45,7 @@
             this.LegendaryAbilityName.Name = "LegendaryAbilityName";
             this.LegendaryAbilityName.Size = new System.Drawing.Size(327, 20);
             this.LegendaryAbilityName.TabIndex = 0;
-            this.LegendaryAbilityName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.LegendaryAbilityName.TextChanged += new System.EventHandler(this.UpdateTitle);
             // 
             // label1
             // 
@@ -64,7 +64,7 @@
             this.Traits.Name = "Traits";
             this.Traits.Size = new System.Drawing.Size(379, 160);
             this.Traits.TabIndex = 3;
-            this.Traits.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
+            this.Traits.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.RemoveTrait);
             // 
             // TraitDescriptionBox
             // 
@@ -103,12 +103,12 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Double Click to Remove";
             // 
-            // textBox1
+            // AbilityName
             // 
-            this.textBox1.Location = new System.Drawing.Point(82, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(297, 20);
-            this.textBox1.TabIndex = 1;
+            this.AbilityName.Location = new System.Drawing.Point(82, 38);
+            this.AbilityName.Name = "AbilityName";
+            this.AbilityName.Size = new System.Drawing.Size(297, 20);
+            this.AbilityName.TabIndex = 1;
             // 
             // label3
             // 
@@ -125,7 +125,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 462);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.AbilityName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.LoadTrait);
             this.Controls.Add(this.SaveTrait);
@@ -151,7 +151,7 @@
         private System.Windows.Forms.Button SaveTrait;
         private System.Windows.Forms.Button LoadTrait;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox AbilityName;
         private System.Windows.Forms.Label label3;
     }
 }

@@ -21,6 +21,7 @@ namespace DND_Monster
         ChromiumWebBrowser b = new ChromiumWebBrowser("http://rendering/");
         Challenge_Rating currentCR = new Challenge_Rating();
         List<Control> statModList = new List<Control>();
+        static string saveFilename = "";
 
         public Main()
         {
@@ -63,12 +64,12 @@ namespace DND_Monster
             WisUpDown.ValueChanged += modchanged_ValueChanged;
             ChaUpDown.ValueChanged += modchanged_ValueChanged;
 
-            StrSaveBonusUpDown.ValueChanged += savingThrowModify;
-            DexSaveBonusUpDown.ValueChanged += savingThrowModify;
-            ConSaveBonusUpDown.ValueChanged += savingThrowModify;
-            IntSaveBonusUpDown.ValueChanged += savingThrowModify;
-            WisSaveBonusUpDown.ValueChanged += savingThrowModify;
-            ChaSaveBonusUpDown.ValueChanged += savingThrowModify;
+            // StrSaveBonusUpDown.ValueChanged += savingThrowModify;
+            // DexSaveBonusUpDown.ValueChanged += savingThrowModify;
+            // ConSaveBonusUpDown.ValueChanged += savingThrowModify;
+            // IntSaveBonusUpDown.ValueChanged += savingThrowModify;
+            // WisSaveBonusUpDown.ValueChanged += savingThrowModify;
+            // ChaSaveBonusUpDown.ValueChanged += savingThrowModify;
 
             statModList.Add(StrBonus);
             statModList.Add(DexBonus);
@@ -133,12 +134,8 @@ namespace DND_Monster
                 }
             }
         }
-
-        private void savingThrowModify(object sender, EventArgs e)
-        {
-
-        }
         
+        // Adds senses to TraitList
         private void addSense(object sender, EventArgs e)
         {
             string addString = "Sense: " + SensesDropDown.Text;
@@ -151,11 +148,13 @@ namespace DND_Monster
             TraitsList.Items.Add(addString);
         }
 
+        // Adds languages to TraitList
         private void addLanguage(object sender, EventArgs e)
         {
             TraitsList.Items.Add("Language: " + LanguageComboBox.Text);
         }
 
+        // Adds skills to TraitList
         private void addSkill(object sender, EventArgs e)
         {                      
             string skillToAdd = "Skill: ";
@@ -222,6 +221,7 @@ namespace DND_Monster
             }
         }
         
+        // Adds abilites to both the Monster._Abilities and TraitList
         private void addAbility(object sender, EventArgs e)
         {
             AddAbilityForm addAbility = new AddAbilityForm();
@@ -237,6 +237,7 @@ namespace DND_Monster
             };
         }
 
+        // Adds attacks to both the Monster._Attacks and TraitList
         private void addAttack(object sender, EventArgs e)
         {
             AddAttackForm addAttack = new AddAttackForm(ChallengeRatingDropDown.Text);
@@ -260,6 +261,25 @@ namespace DND_Monster
             };
         }
 
+        // Adds a Legendary
+        private void AddLegendary(object sender, EventArgs e)
+        {
+            AddLegendaryForm addLegendary = new AddLegendaryForm();
+            addLegendary.Show();
+
+            addLegendary.FormClosing += (senders, es) =>
+            {
+                addLegendary.SerializeTraits();
+                if (addLegendary.LegendaryAbility != null)
+                {                    
+                    if (TraitsList.Items.Contains(addLegendary.LegendaryAbility.Title)) { addLegendary.LegendaryAbility.Title += "_"; }
+                    Monster._Legendaries.Add(addLegendary.LegendaryAbility);
+                    TraitsList.Items.Add("Legendary: " + addLegendary.LegendaryAbility.Title);
+                }
+            };
+        }
+
+        // Adds Condition Resistance, Immunity, Vulerability to TraitList
         private void addCondition(object sender, EventArgs e)
         {
             var temp = (Button)sender;
@@ -300,6 +320,8 @@ namespace DND_Monster
             TraitsList.Items.Add(addString);
         }
 
+        /* Edits selected item in the TraitList. If it's an Ability/Attack,
+        Open the appropriate window and load that data. */
         private void editTrait(object sender, MouseEventArgs e)
         {            
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
@@ -408,6 +430,8 @@ namespace DND_Monster
             }
         }                
 
+        /* Removes trait from the traitlist. If it's an attack, 
+        ability or legendary also remove it from the monster. */
         private void deleteTrait(object sender, MouseEventArgs e)
         {            
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
@@ -480,6 +504,7 @@ namespace DND_Monster
             }            
         }
         
+        // Generates data, then passes it to the appropriate template.
         private void Preview(object sender, EventArgs e)
         {
             Help.useBG = BackgroundCheckbox.Checked;
@@ -488,6 +513,7 @@ namespace DND_Monster
             ShowMonster();
         }
 
+        // Converts monster to JSON, then saves to file.
         private void SaveData(object sender, EventArgs e)
         {            
             Data jsonMonster = new Data();
@@ -506,6 +532,7 @@ namespace DND_Monster
             }
         }
 
+        // Converts JSON string to Monster, loading data.
         private void LoadData(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -723,6 +750,7 @@ namespace DND_Monster
             }
         }        
 
+        // Saves Monster.Output into an HTML file.
         private void ExportHTML(object sender, EventArgs e)
         {
             SaveFileDialog dialog = new SaveFileDialog();
@@ -741,6 +769,7 @@ namespace DND_Monster
             }
         }
         
+        // Creates an offscreen browser, then saves the paint buffer as PNG.
         private void ExportPNG_Click(object sender, EventArgs e)
         {            
             SaveFileDialog dialog = new SaveFileDialog();
@@ -755,6 +784,7 @@ namespace DND_Monster
             }            
         }
 
+        // The task that creates the PNG.
         private static async void Screenshot(string filename)
         {
             // Create the offscreen Chromium browser.
@@ -782,8 +812,8 @@ namespace DND_Monster
                 await browser.ScreenshotAsync().ContinueWith(DisplayBitmap);
             }
         }
-
-        static string saveFilename = "";
+        
+        // The task that saves the PNG
         private static void DisplayBitmap(Task<Bitmap> task)
         {
             var bitmap = task.Result;
@@ -797,6 +827,7 @@ namespace DND_Monster
             bitmap.Dispose();
         }
 
+        // Convert Monster to CSV, then save the file.
         private void ExportCSV_Click(object sender, EventArgs e)
         {
             StringBuilder CSVOutput = new StringBuilder();
@@ -922,6 +953,7 @@ namespace DND_Monster
             }
         }        
 
+        // Opens the print dialog. 
         private void Print_Click(object sender, EventArgs e)
         {
             b.Print();            
@@ -1001,11 +1033,13 @@ namespace DND_Monster
             catch { }
         }
 
+        // Gets the Average HP.
         private void generateHP(object sender, EventArgs e)
         {
             ResolveHP(false);
         }
 
+        // Rolls HP.
         private void rollHP(object sender, EventArgs e)
         {
             ResolveHP(true);
@@ -1136,50 +1170,14 @@ namespace DND_Monster
                 Monster.AddSavingThrow("Cha +" + ChaSaveBonusUpDown.Value);
             }            
         }
-
+        
+        // Clears the monster data.
         public void Clear()
         {
             b.LoadHtml("<html><head></head><body></body></html", "http://rendering/");
         }
 
-        private static int BrowserHeight(ChromiumWebBrowser b)
-        {
-            // Get Document Height
-            var task = b.EvaluateScriptAsync("(function() { var body = document.body, html = document.documentElement; return  Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight ); })();");
-
-            task.ContinueWith(t =>
-            {
-                if (!t.IsFaulted)
-                {
-                    var response = t.Result;
-                    var EvaluateJavaScriptResult = response.Success ? (response.Result ?? "null") : response.Message;
-                    //MessageBox.Show(response.Result.ToString());                    
-                    //MessageBox.Show(EvaluateJavaScriptResult.ToString());                    
-                }
-            });
-
-            return Convert.ToInt32(task.Result.Result.ToString());
-        }
-
-        private static int BrowserWidth(ChromiumWebBrowser b)
-        {
-            // Get Document Height
-            var task = b.EvaluateScriptAsync("(function() { var body = document.body, html = document.documentElement; return  Math.max( body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth ); })();");
-
-            task.ContinueWith(t =>
-            {
-                if (!t.IsFaulted)
-                {
-                    var response = t.Result;
-                    var EvaluateJavaScriptResult = response.Success ? (response.Result ?? "null") : response.Message;
-                    //MessageBox.Show(response.Result.ToString());                    
-                    //MessageBox.Show(EvaluateJavaScriptResult.ToString());
-                }
-            });
-
-            return Convert.ToInt32(task.Result.Result.ToString());
-        }
-
+        // Monster has been generated, send to browser.
         public void ShowMonster()
         {
             this.Text = Monster.CreatureName.Replace('*', ' ').Trim();
@@ -1199,12 +1197,14 @@ namespace DND_Monster
             }
         }
 
+        // Recalculate AC based on CR/Dex.
         private void RecalculateAC(string source)
         {
             int mods = getStatMod("dex") + currentCR.ArmorClass;
             ACUpDown.Value = mods;
         }
 
+        // Gets the modifier of a specific statistic.
         private int getStatMod(string mod)
         {
             int returnStatMod = 0;
@@ -1234,11 +1234,13 @@ namespace DND_Monster
             return returnStatMod;
         }
 
+        // Does nothing.
         private void GuessCR_Click(object sender, EventArgs e)
         {
             
         }
 
+        // Sets the tooltip based on trait when hovering over the traits list.
         private void TraitsList_MouseHover(object sender, EventArgs e)
         {            
             try
@@ -1249,12 +1251,14 @@ namespace DND_Monster
             catch { TraitsListPopUp.SetToolTip(TraitsList, ""); }
         }
 
+        // Clears all data, starts a new monster.
         private void NewMonsterButton_Click(object sender, EventArgs e)
         {
             Monster.Clear(true);
             ClearUI();
         }
 
+        // Clears the UI. Will not clear monster data.
         private void ClearUI()
         {
             StrUpDown.Value = 10;
@@ -1306,6 +1310,7 @@ namespace DND_Monster
             ChallengeRatingDropDown.SelectedIndex = 0;
         }
 
+        // Sets the tooltip based on CR when hovering over the traits list.
         private void ChallengeRatingDropDown_MouseHover(object sender, EventArgs e)
         {
             string output = "CR: " + currentCR.CR + Environment.NewLine;
@@ -1314,28 +1319,6 @@ namespace DND_Monster
             output += "Save DC: " + currentCR.profBonus + Environment.NewLine;
             output += "Low HP: " + currentCR.LowHP + "  High HP: " + currentCR.HighHP + Environment.NewLine;
             TraitsListPopUp.SetToolTip(ChallengeRatingDropDown, output);
-        }
-
-        private void AddLegendary(object sender, EventArgs e)
-        {
-            AddLegendaryForm addLegendary = new AddLegendaryForm();
-            addLegendary.Show();
-
-            addLegendary.FormClosing += (senders, es) =>
-            {
-                addLegendary.SerializeTraits();
-                if (addLegendary.LegendaryAbility != null)
-                {                    
-                    if (TraitsList.Items.Contains(addLegendary.LegendaryAbility.Title)) { addLegendary.LegendaryAbility.Title += "_"; }
-                    Monster._Legendaries.Add(addLegendary.LegendaryAbility);
-                    TraitsList.Items.Add("Legendary: " + addLegendary.LegendaryAbility.Title);
-                }
-            };
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }       
+        }     
     }
 }

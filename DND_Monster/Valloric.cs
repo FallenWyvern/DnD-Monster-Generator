@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace DND_Monster
 {
+    // Class based on Valloric's template.
     public static partial class Monster
     {
+        // The width of the document is 212 + (212 * columns).
         public static int columns = 0;
         public static int width = 212;
 
@@ -17,9 +19,10 @@ namespace DND_Monster
             output.Clear();
 
             // Templates and Scripts            
+            #region
             output.Add(@"<!DOCTYPE html>");
             output.Add(@"<html>");
-
+                        
             // Head and Title
             #region
             output.Add(@"<head>");
@@ -333,7 +336,10 @@ namespace DND_Monster
             #region
             AddTemplateScript("stat-block");
             #endregion
+            #endregion
 
+            // Insert Data into Template
+            #region
             output.Add(@"");
             output.Add(@"");
             output.Add(@"");            
@@ -462,8 +468,6 @@ namespace DND_Monster
                     output.Add(@"<property-block>");
                     output.Add(ability.SpellcasterBoilerplate(CreatureName));
                     output.Add(ability.SpellBlockFormat());
-                    //output.Add(@"<h4>" + ability.Title + "</h4>");
-                    //output.Add(@"<p>" + " " + ability.Description + "</p>");
                     output.Add(@"</property-block>");
                 }
             }
@@ -517,8 +521,8 @@ namespace DND_Monster
             output.Add("</stat-block>");
             output.Add("</body>");
             output.Add("</html>");
-            
-            
+            #endregion
+
             // Writes out to file            
             string returnString = "";
             foreach (string item in output)
@@ -526,11 +530,13 @@ namespace DND_Monster
                 returnString += item + Environment.NewLine;
             }
 
+            // Fix proper names, if needed.
             if (CreatureName.Contains('*'))
             {
                 returnString = returnString.Replace("The " + CreatureName, CreatureName.Replace('*', ' ').Trim());
             }
 
+            // Provide the string back to the caller.
             return returnString;            
         }
 

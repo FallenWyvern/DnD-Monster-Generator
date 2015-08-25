@@ -9,6 +9,7 @@ using CefSharp.OffScreen;
 
 public static class BrowserInfo
 {    
+    // Gets the height of the HTML document.
     public static int BrowserHeight(ChromiumWebBrowser b)
     {        
         // Get Document Height
@@ -29,6 +30,7 @@ public static class BrowserInfo
         return Convert.ToInt32(task.Result.Result.ToString());
     }
 
+    // Gets the width of the HTML document.
     public static int BrowserWidth(ChromiumWebBrowser b)
     {
         // Get Document Height

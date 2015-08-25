@@ -29,6 +29,7 @@ namespace DND_Monster
             spellslots.Add(Spellslot9);
         }
 
+        // This loads non-spell abilities.
         public void LoadAbility(Ability values)
         {
             AbilityNameTextBox.Text = values.Title;
@@ -37,6 +38,7 @@ namespace DND_Monster
             NewAbility.isSpell = false;
         }
 
+        // This loads spells.
         public void LoadSpell(Ability values)
         {
             NewAbility = values;
@@ -64,19 +66,9 @@ namespace DND_Monster
                     SpellList.Items.Add(item.Replace(':', '|'));
                 }
             }
-        }
+        }        
 
-        private void AddAbilityForm_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void UpdatePopOutTitle(object sender, EventArgs e)
-        {
-            try { this.Text = AbilityNameTextBox.Text; }
-            catch { }
-        }
-
+        // This saves the ability based on which tab is currently selected.
         private void Save(object sender, EventArgs e)
         {
             if (tabControl1.SelectedIndex == 0)
@@ -99,6 +91,7 @@ namespace DND_Monster
             this.Close();
         }
 
+        // Creates the spell out into a string, to load into the description.
         private string ToDescription()
         {
             string spellText = "";
@@ -139,18 +132,21 @@ namespace DND_Monster
             return spellText;
         }
         
-        private void listBox1_DoubleClick(object sender, EventArgs e)
+        // Remove spells from the spell list.
+        private void SpellListItemRemove(object sender, EventArgs e)
         {
             if (SpellList.SelectedItem == null) return;
             SpellList.Items.Remove(SpellList.SelectedItem);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        // Adds the spell to the spell list.
+        private void AddSpellToList(object sender, EventArgs e)
         {
-            SpellList.Items.Add(numericUpDown1.Value + "|" + textBox1.Text);
+            SpellList.Items.Add(SpellLevel.Value + "|" + textBox1.Text);
             textBox1.Text = "";
         }
 
+        // Ensures maximum level of an added spell isn't higher than the highest spell slot.
         private void ChangeSpellLevelMax(object sender, EventArgs e)
         {
             NumericUpDown temp = (NumericUpDown)sender;
@@ -161,10 +157,18 @@ namespace DND_Monster
                 if (item.Value == 0)
                 {                
                     int tempValue = Convert.ToInt32(item.Tag.ToString());
-                    numericUpDown1.Maximum = tempValue - 1;                    
+                    SpellLevel.Maximum = tempValue - 1;                    
                     return;
                 }
             }
         }
+
+        // Updates the window title.
+        private void UpdatePopOutTitle(object sender, EventArgs e)
+        {
+            try { this.Text = AbilityNameTextBox.Text; }
+            catch { }
+        }
+
     }
 }

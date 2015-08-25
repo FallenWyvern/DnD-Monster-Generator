@@ -24,6 +24,7 @@ namespace DND_Monster
             Traits.Sorted = true;
         }
 
+        // Constructs the Legendary object.
         public void SerializeTraits()
         {
             if (Traits.Items.Count == 0 || String.IsNullOrEmpty(LegendaryAbilityName.Text)) { return; }
@@ -37,6 +38,7 @@ namespace DND_Monster
             }
         }
 
+        // Load a Legendary object.
         public void LoadLegendary(Legendary target)
         {
             LegendaryAbility = target;
@@ -48,28 +50,32 @@ namespace DND_Monster
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        // Updates the window title.
+        private void UpdateTitle(object sender, EventArgs e)
         {
             try { this.Text = LegendaryAbilityName.Text; }
             catch {this.Text = "Add Legendary Actions";}
         }
 
-        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        // Removes a legendary trait.
+        private void RemoveTrait(object sender, MouseEventArgs e)
         {
             if (Traits.SelectedItem == null) return;
             Traits.Items.Remove(Traits.SelectedItem);
         }
 
+        // Adds a Legendary trait.
         private void SaveTrait_Click(object sender, EventArgs e)
         {
-            Traits.Items.Add(textBox1.Text + " | " + TraitDescriptionBox.Text);
-            textBox1.Text = "";
+            Traits.Items.Add(AbilityName.Text + " | " + TraitDescriptionBox.Text);
+            AbilityName.Text = "";
             TraitDescriptionBox.Text = "";
         }
 
+        // Edit a Legendary trait
         private void LoadTrait_Click(object sender, EventArgs e)
         {
-            textBox1.Text = Traits.SelectedItem.ToString().Split('|')[0].Trim();
+            AbilityName.Text = Traits.SelectedItem.ToString().Split('|')[0].Trim();
             TraitDescriptionBox.Text = Traits.SelectedItem.ToString().Split('|')[1].Trim();
             Traits.Items.Remove(Traits.SelectedItem);
         }

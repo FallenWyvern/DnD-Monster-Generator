@@ -59,18 +59,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.Spellslot8 = new System.Windows.Forms.NumericUpDown();
-            this.button2 = new System.Windows.Forms.Button();
+            this.SpellcastingSave = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.SpellCastingAbility = new System.Windows.Forms.ComboBox();
             this.InnateCheckbox = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SpellClass = new System.Windows.Forms.ComboBox();
             this.SpellList = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddSpell = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.SpellLevel = new System.Windows.Forms.NumericUpDown();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -85,7 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Spellslot6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Spellslot7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Spellslot8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SpellLevel)).BeginInit();
             this.SuspendLayout();
             // 
             // DescriptionTextBox
@@ -164,18 +164,18 @@
             this.tabPage2.Controls.Add(this.label16);
             this.tabPage2.Controls.Add(this.SpellcastingLevel);
             this.tabPage2.Controls.Add(this.tableLayoutPanel1);
-            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.SpellcastingSave);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.SpellCastingAbility);
             this.tabPage2.Controls.Add(this.InnateCheckbox);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.SpellClass);
             this.tabPage2.Controls.Add(this.SpellList);
-            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.AddSpell);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.numericUpDown1);
+            this.tabPage2.Controls.Add(this.SpellLevel);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -442,15 +442,15 @@
             this.Spellslot8.Tag = "8";
             this.Spellslot8.ValueChanged += new System.EventHandler(this.ChangeSpellLevelMax);
             // 
-            // button2
+            // SpellcastingSave
             // 
-            this.button2.Location = new System.Drawing.Point(201, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Save";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Save);
+            this.SpellcastingSave.Location = new System.Drawing.Point(201, 3);
+            this.SpellcastingSave.Name = "SpellcastingSave";
+            this.SpellcastingSave.Size = new System.Drawing.Size(75, 23);
+            this.SpellcastingSave.TabIndex = 12;
+            this.SpellcastingSave.Text = "Save";
+            this.SpellcastingSave.UseVisualStyleBackColor = true;
+            this.SpellcastingSave.Click += new System.EventHandler(this.Save);
             // 
             // label4
             // 
@@ -521,17 +521,17 @@
             this.SpellList.Name = "SpellList";
             this.SpellList.Size = new System.Drawing.Size(273, 173);
             this.SpellList.TabIndex = 6;
-            this.SpellList.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
+            this.SpellList.DoubleClick += new System.EventHandler(this.SpellListItemRemove);
             // 
-            // button1
+            // AddSpell
             // 
-            this.button1.Location = new System.Drawing.Point(198, 160);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Add Spell";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.AddSpell.Location = new System.Drawing.Point(198, 160);
+            this.AddSpell.Name = "AddSpell";
+            this.AddSpell.Size = new System.Drawing.Size(75, 23);
+            this.AddSpell.TabIndex = 5;
+            this.AddSpell.Text = "Add Spell";
+            this.AddSpell.UseVisualStyleBackColor = true;
+            this.AddSpell.Click += new System.EventHandler(this.AddSpellToList);
             // 
             // label2
             // 
@@ -558,17 +558,17 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Spell Level";
             // 
-            // numericUpDown1
+            // SpellLevel
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(3, 137);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.SpellLevel.Location = new System.Drawing.Point(3, 137);
+            this.SpellLevel.Maximum = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(56, 20);
-            this.numericUpDown1.TabIndex = 0;
+            this.SpellLevel.Name = "SpellLevel";
+            this.SpellLevel.Size = new System.Drawing.Size(56, 20);
+            this.SpellLevel.TabIndex = 0;
             // 
             // AddAbilityForm
             // 
@@ -579,7 +579,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "AddAbilityForm";
             this.Text = "Add Abilities";
-            this.Load += new System.EventHandler(this.AddAbilityForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -597,7 +596,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Spellslot6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Spellslot7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Spellslot8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SpellLevel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -615,15 +614,15 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.NumericUpDown SpellLevel;
+        private System.Windows.Forms.Button AddSpell;
         private System.Windows.Forms.ListBox SpellList;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox SpellCastingAbility;
         private System.Windows.Forms.CheckBox InnateCheckbox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox SpellClass;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button SpellcastingSave;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;

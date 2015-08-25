@@ -235,6 +235,7 @@ namespace DND_Monster
             _Senses.Clear();
         }
 
+        // Saves the monster data to the data model.
         public static void Output(Data fillTarget)
         {
             fillTarget._Abilities = _Abilities;
@@ -267,6 +268,7 @@ namespace DND_Monster
             fillTarget.WIS = WIS;
         }
 
+        // Loads the monster data from data model.
         public static void Input(Data source)
         {
             Monster.Clear(true);
