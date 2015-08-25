@@ -53,7 +53,7 @@ namespace DND_Monster
                 NewAbility.Title = AttackAbilityNameField.Text;
                 NewAbility.Description = AttackAbilityDescriptionField.Text;
                 NewAbility.isDamage = false;
-                NewAttack.isSpell = false;
+                NewAbility.isSpell = false;
             }
             this.Close();
         }
@@ -75,15 +75,20 @@ namespace DND_Monster
 
         public void LoadAttack(Ability values)
         {
+            //NewAttack = null;
             AttackAbilityNameField.Text = values.Title;
             AttackAbilityDescriptionField.Text = values.Description;            
+
             NewAbility = values;
             NewAbility.isDamage = false;
             NewAbility.isSpell = false;
+            
+            tabControl1.SelectedIndex = 1;
         }
 
         public void LoadAttack(Attack values)
-        {            
+        {
+            //NewAbility = null;            
             AttackNameField.Text = values.Title;
 
             foreach (string item in AttackTypeDropdown.Items)

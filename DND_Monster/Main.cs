@@ -365,7 +365,7 @@ namespace DND_Monster
                                 loadAttack.FormClosing += (senderx, ex) =>
                                 {
                                     Monster._Attacks.Remove(attack);
-                                    Monster._Attacks.Add(loadAttack.NewAttack);
+                                    Monster._Attacks.Add(loadAttack.NewAbility);
                                     TraitsList.Items.Remove(TraitsList.SelectedItem);
                                     TraitsList.Items.Add("Attack: " + loadAttack.NewAbility.Title);
                                 };
@@ -1187,7 +1187,7 @@ namespace DND_Monster
 
         public void ShowMonster()
         {
-            this.Text = Monster.CreatureName;
+            this.Text = Monster.CreatureName.Replace('*', ' ').Trim();
             Clear();
             if (b.IsLoading)
             {

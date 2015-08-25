@@ -252,7 +252,7 @@ namespace DND_Monster
 
     public static class Help
     {
-        public static string Version = "1.5";
+        public static string Version = "1.7";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = @"C:\";
 
