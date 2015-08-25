@@ -164,6 +164,7 @@ namespace DND_Monster
 
                 returnstring += "<p><i>";
 
+                bool addedData = false;
                 foreach (string item in spells)
                 {
                     Console.WriteLine("ITEM: " + item);
@@ -171,11 +172,12 @@ namespace DND_Monster
                     {
                         if (!String.IsNullOrEmpty(item) || !String.IsNullOrWhiteSpace(item))
                         {
-                            returnstring += item.Replace(i + ":", "") + ", ";
+                            returnstring += item.Replace(i + ":", "").Replace("(", "</i></p>(").Replace(")", ")<p><i>") + ", ";
+                            addedData = true;
                         }                            
                     }
                 }
-                returnstring = returnstring.Substring(0, returnstring.Length - 2);
+                if (addedData) { returnstring = returnstring.Substring(0, returnstring.Length - 2); }
                 returnstring += "</i></p></br>";                
             } 
 

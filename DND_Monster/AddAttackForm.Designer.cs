@@ -123,6 +123,11 @@
             0,
             0});
             this.RangeUpDownClose.Location = new System.Drawing.Point(50, 188);
+            this.RangeUpDownClose.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.RangeUpDownClose.Name = "RangeUpDownClose";
             this.RangeUpDownClose.Size = new System.Drawing.Size(70, 20);
             this.RangeUpDownClose.TabIndex = 10;
@@ -240,6 +245,11 @@
             0,
             0});
             this.RangeUpDownFar.Location = new System.Drawing.Point(141, 188);
+            this.RangeUpDownFar.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.RangeUpDownFar.Name = "RangeUpDownFar";
             this.RangeUpDownFar.Size = new System.Drawing.Size(70, 20);
             this.RangeUpDownFar.TabIndex = 11;
@@ -266,6 +276,11 @@
             0,
             0});
             this.ReachUpDown.Location = new System.Drawing.Point(50, 162);
+            this.ReachUpDown.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.ReachUpDown.Name = "ReachUpDown";
             this.ReachUpDown.Size = new System.Drawing.Size(70, 20);
             this.ReachUpDown.TabIndex = 9;

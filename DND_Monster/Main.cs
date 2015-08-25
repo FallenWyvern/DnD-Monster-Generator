@@ -93,7 +93,7 @@ namespace DND_Monster
             {
                 if (MessageBox.Show("New Version Available. Open Download Page?", "New Version", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                 {
-                    System.Diagnostics.Process.Start(@"http://thegeniusinc.com/dd-monster-maker-download/");
+                    System.Diagnostics.Process.Start(@"http://thegeniusinc.com/dd-monster-maker-download/?ref=" + Help.Version);
                 }
             }
 
@@ -538,8 +538,10 @@ namespace DND_Monster
                 ChaUpDown.Value = Monster.CHA;
 
                 string[] speeds = Monster.Speed.Split(',');
+                
                 foreach (string speed in speeds)
-                {                    
+                {
+                    Console.WriteLine(speed);
                     string check = speed.Split(':')[0].Trim();                    
                     switch (check)
                     {
@@ -547,7 +549,7 @@ namespace DND_Monster
                             try
                             {
                                 int Burrow = 0;
-                                int.TryParse(speed.Split(':')[1], out Burrow);
+                                int.TryParse(speed.Split(':')[1].Replace("ft.", ""), out Burrow);
                                 burrowUpDown.Value = Burrow;
                             }
                             catch { }
@@ -556,7 +558,7 @@ namespace DND_Monster
                             try
                             {
                                 int Climb = 0;
-                                int.TryParse(speed.Split(':')[1], out Climb);
+                                int.TryParse(speed.Split(':')[1].Replace("ft.", ""), out Climb);
                                 ClimbUpDown.Value = Climb;
                             }
                             catch { }
@@ -568,11 +570,11 @@ namespace DND_Monster
                                 if (speed.Split(':')[1].Contains("(Hover)"))
                                 {
                                     HoverCheckBox.Checked = true;
-                                    int.TryParse(speed.Split(':')[1].Replace(" (Hover)", ""), out Fly);
+                                    int.TryParse(speed.Split(':')[1].Replace("ft.", "").Replace(" (Hover)", ""), out Fly);
                                 }
                                 else
                                 {
-                                    int.TryParse(speed.Split(':')[1], out Fly);
+                                    int.TryParse(speed.Split(':')[1].Replace("ft.", ""), out Fly);
                                 }
                                 FlyUpDown.Value = Fly;
                             }
@@ -582,7 +584,7 @@ namespace DND_Monster
                             try
                             {
                                 int Swim = 0;
-                                int.TryParse(speed.Split(':')[1], out Swim);
+                                int.TryParse(speed.Split(':')[1].Replace("ft.", ""), out Swim);
                                 SwimUpDown.Value = Swim;
                             }
                             catch { }
@@ -591,7 +593,7 @@ namespace DND_Monster
                             try
                             {
                                 int temp = 0;
-                                int.TryParse(check, out temp);
+                                int.TryParse(check.Replace("ft.", ""), out temp);
                                 SpeedUpDown.Value = temp;
                             }
                             catch { }                            
@@ -1077,7 +1079,12 @@ namespace DND_Monster
             if (HoverCheckBox.Checked) { Monster.Speed += " (Hover)"; }
             if (SwimUpDown.Value > 0) { Monster.Speed += ", Swim: " + SwimUpDown.Value + " ft."; }
 
-            Monster.AC = ACUpDown.Value + " (" + ACSourceTextBox.Text + ")";
+            Monster.AC = ACUpDown.Value + "";
+            if (ACSourceTextBox.Text.Length > 0)
+            {
+                Monster.AC += " (" + ACSourceTextBox.Text + ")";
+            }
+
             Monster.HP = HitDieTextBox.Text;
             Monster.CR = currentCR;
             
