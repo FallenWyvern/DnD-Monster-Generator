@@ -107,10 +107,35 @@ namespace DND_Monster
         {
             if (!isSpell) return "";
             if (String.IsNullOrEmpty(name) || String.IsNullOrWhiteSpace(name)) { name = "Creature"; }
+            string spellcastingstat = Description.Split('|')[1];            
+            int modifier = 0;
+
+            switch (spellcastingstat.ToLower().Substring(0, 3))
+            {
+                case "str":
+                    modifier = (int)Math.Floor((double)(Convert.ToInt32(Monster.STR) - 10) / 2);
+                    break;
+                case "int":
+                    modifier = (int)Math.Floor((double)(Convert.ToInt32(Monster.INT) - 10) / 2);
+                    break;
+                case "wis":
+                    modifier = (int)Math.Floor((double)(Convert.ToInt32(Monster.WIS) - 10) / 2);
+                    break;
+                case "cha":
+                    modifier = (int)Math.Floor((double)(Convert.ToInt32(Monster.CHA) - 10) / 2);
+                    break;
+                case "con":
+                    modifier = (int)Math.Floor((double)(Convert.ToInt32(Monster.CON) - 10) / 2);
+                    break;
+                case "dex":
+                    modifier = (int)Math.Floor((double)(Convert.ToInt32(Monster.DEX) - 10) / 2);
+                    break;
+            }
 
             string returnstring = "";
             returnstring += "The " + name + " is a " + Description.Split('|')[2] + " level spellcaster. ";
-            returnstring += "Its spellcasting ability is " + Description.Split('|')[1] + " (#SPELLSAVE#). ";
+            returnstring += "Its spellcasting ability is " + spellcastingstat + " (spell save DC " + (8 + Monster.CR.profBonus + modifier) + ", +" + (modifier + Monster.CR.profBonus) + " to hit with spell attacks). ";
+
             if (!Description.Contains("NotInnate"))
             {
                 returnstring += "It requires no material components to cast its spells. ";

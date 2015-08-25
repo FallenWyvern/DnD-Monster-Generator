@@ -149,6 +149,22 @@ namespace DND_Monster
         {
             SpellList.Items.Add(numericUpDown1.Value + "|" + textBox1.Text);
             textBox1.Text = "";
-        }        
+        }
+
+        private void ChangeSpellLevelMax(object sender, EventArgs e)
+        {
+            NumericUpDown temp = (NumericUpDown)sender;
+            int tagValue = Convert.ToInt32(temp.Tag.ToString());
+            
+            foreach (NumericUpDown item in spellslots)
+            {                
+                if (item.Value == 0)
+                {                
+                    int tempValue = Convert.ToInt32(item.Tag.ToString());
+                    numericUpDown1.Maximum = tempValue - 1;                    
+                    return;
+                }
+            }
+        }
     }
 }
