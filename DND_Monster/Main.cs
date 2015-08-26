@@ -1442,6 +1442,8 @@ namespace DND_Monster
             Monster._Legendaries = _Legendaries;
         }
 
+
+
         // Use arrow keys to sort the traits list.
         private void TraitsList_KeyDown(object sender, KeyEventArgs e)
         {            
@@ -1461,6 +1463,7 @@ namespace DND_Monster
         // Swaps two values in the traits list.
         public void MoveItem(int direction, ListBox target)
         {
+            // Remove alphabetizing.
             if (target.Sorted) { target.Sorted = false; }
 
             // Checking selected item
