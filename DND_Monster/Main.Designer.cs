@@ -973,7 +973,6 @@
             this.TraitsList.Name = "TraitsList";
             this.TraitsList.Size = new System.Drawing.Size(223, 225);
             this.TraitsList.TabIndex = 55;
-            this.TraitsList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TraitsList_KeyDown);
             this.TraitsList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.deleteTrait);
             this.TraitsList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.editTrait);
             this.TraitsList.MouseHover += new System.EventHandler(this.TraitsList_MouseHover);
