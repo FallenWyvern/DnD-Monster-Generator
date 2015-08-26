@@ -150,8 +150,22 @@ namespace DND_Monster
                     break;
             }
 
+            string levelSuffix = "th";
+            if (Description.Split('|')[2].Trim() == "1")
+            {
+                levelSuffix = "st";
+            } 
+            if (Description.Split('|')[2].Trim() == "2")
+            {
+                levelSuffix = "nd";
+            } 
+            if (Description.Split('|')[2].Trim() == "3")
+            {
+                levelSuffix = "rd";
+            }
+
             string returnstring = "";
-            returnstring += "The " + name + " is a " + Description.Split('|')[2] + " level spellcaster. ";
+            returnstring += "The " + name + " is a " + Description.Split('|')[2] + levelSuffix + " level spellcaster. ";
             returnstring += "Its spellcasting ability is " + spellcastingstat + " (spell save DC " + (8 + Monster.CR.profBonus + modifier) + ", +" + (modifier + Monster.CR.profBonus) + " to hit with spell attacks). ";
 
             if (!Description.Contains("NotInnate"))
@@ -288,7 +302,7 @@ namespace DND_Monster
             {
                 returnstring += "+";
             }
-            returnstring += HitDamageBonus + ") " + HitDamageType + " damage " + HitText;
+            returnstring += HitDamageBonus + ") " + HitDamageType + " damage. " + HitText;
 
             return returnstring;
         }

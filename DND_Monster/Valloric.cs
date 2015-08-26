@@ -479,26 +479,23 @@ namespace DND_Monster
 
             // Actions            
             foreach (Ability ability in _Actions)
-            {                
-                if (!ability.isDamage)
-                {
+            {                                
                     output.Add(@"<property-block>");
                     output.Add(@"<h4>" + ability.Title + ".</h4>");
                     output.Add(@"<p>" + ability.Description + "</p>");
-                    output.Add(@"</property-block>");
-                }            
+                    output.Add(@"</property-block>");                
             }            
 
-            foreach (Ability ability in _Actions)
-            {
-                if (ability.isDamage)
-                {
-                    output.Add(@"<property-block>");
-                    output.Add(@"<h4>" + ability.Title + ".</h4>");
-                    output.Add(@"<p>" + ability.Description + "</p>");
-                    output.Add(@"</property-block>");
-                }
-            }
+            //foreach (Ability ability in _Actions)
+            //{
+            //    if (ability.isDamage)
+            //    {
+            //        output.Add(@"<property-block>");
+            //        output.Add(@"<h4>" + ability.Title + ".</h4>");
+            //        output.Add(@"<p>" + ability.Description + "</p>");
+            //        output.Add(@"</property-block>");
+            //    }
+            //}
 
             if (_Reactions.Count > 0)
             {
