@@ -65,13 +65,6 @@ namespace DND_Monster
             WisUpDown.ValueChanged += modchanged_ValueChanged;
             ChaUpDown.ValueChanged += modchanged_ValueChanged;
 
-            // StrSaveBonusUpDown.ValueChanged += savingThrowModify;
-            // DexSaveBonusUpDown.ValueChanged += savingThrowModify;
-            // ConSaveBonusUpDown.ValueChanged += savingThrowModify;
-            // IntSaveBonusUpDown.ValueChanged += savingThrowModify;
-            // WisSaveBonusUpDown.ValueChanged += savingThrowModify;
-            // ChaSaveBonusUpDown.ValueChanged += savingThrowModify;
-
             statModList.Add(StrBonus);
             statModList.Add(DexBonus);
             statModList.Add(ConBonus);
@@ -1134,13 +1127,9 @@ namespace DND_Monster
         private void GenerateMonsterData()
         {
             Monster.SkillBonuses.Clear();
-            Monster.Clear();                
-            // Clear existing HTML
-            if (Monster.output.Count > 0)
-            {
-                
-            }
-
+            Monster.Clear();
+            Sort();
+           
             int.TryParse(ProfBonus.Text, out Monster.proficency);
 
             Monster.CreatureName = MonsterNameTextBox.Text;
@@ -1379,14 +1368,83 @@ namespace DND_Monster
             output += "Low HP: " + currentCR.LowHP + "  High HP: " + currentCR.HighHP + Environment.NewLine;
             TraitsListPopUp.SetToolTip(ChallengeRatingDropDown, output);
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        
+        // Sort the four lists.
+        private void Sort()
         {
+            List<Ability> _Abilities = new List<Ability>();
+            List<Ability> _Actions = new List<Ability>();
+            List<Ability> _Reactions = new List<Ability>();
+            List<Legendary> _Legendaries = new List<Legendary>();
 
+            foreach (string item in TraitsList.Items)
+            {
+                if (item.Contains("Ability"))
+                {
+                    foreach (Ability ability in Monster._Abilities)
+                    {
+                        if (item.Contains(ability.Title))
+                        {                            
+                            _Abilities.Add(ability);                            
+                        }
+                    }
+                }
+            }
+
+            Monster._Abilities = _Abilities;
+
+            foreach (string item in TraitsList.Items)
+            {
+                if (item.Contains("Action"))
+                {
+                    foreach (Ability action in Monster._Actions)
+                    {
+                        if (item.Contains(action.Title))
+                        {
+                            _Actions.Add(action);
+                        }
+                    }
+                }
+            }
+
+            Monster._Actions = _Actions;
+
+            foreach (string item in TraitsList.Items)
+            {
+                if (item.Contains("Reaction"))
+                {
+                    foreach (Ability reaction in Monster._Reactions)
+                    {
+                        if (item.Contains(reaction.Title))
+                        {
+                            _Reactions.Add(reaction);
+                        }
+                    }
+                }
+            }
+
+            Monster._Reactions = _Reactions;
+
+            foreach (string item in TraitsList.Items)
+            {
+                if (item.Contains("Legendary"))
+                {
+                    foreach (Legendary epic in Monster._Legendaries)
+                    {
+                        if (item.Contains(epic.Title))
+                        {
+                            _Legendaries.Add(epic);
+                        }
+                    }
+                }
+            }
+
+            Monster._Legendaries = _Legendaries;
         }
 
+        // Use arrow keys to sort the traits list.
         private void TraitsList_KeyDown(object sender, KeyEventArgs e)
-        {
+        {            
             if (e.KeyCode == Keys.Up)
             {
                 MoveItem(-1, TraitsList);
@@ -1396,8 +1454,11 @@ namespace DND_Monster
             {
                 MoveItem(1, TraitsList);
             }
+
+            e.SuppressKeyPress = true;
         }
 
+        // Swaps two values in the traits list.
         public void MoveItem(int direction, ListBox target)
         {
             if (target.Sorted) { target.Sorted = false; }
@@ -1421,6 +1482,12 @@ namespace DND_Monster
             target.Items.Insert(newIndex, selected);
             // Restore selection
             target.SetSelected(newIndex, true);
+        }
+
+        private void HelpLabelHover(object sender, EventArgs e)
+        {
+            TraitsListPopUp.SetToolTip(HelpLabel, "Double Click to Remove Items." + Environment.NewLine + "Right Click to Edit Items" + Environment.NewLine +
+                "Hover to Select Item and Inspect" + Environment.NewLine + "Sort with Up/Down keys.");
         }
     }
 }

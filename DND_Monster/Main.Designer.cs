@@ -99,7 +99,6 @@
             this.AddResistanceButton = new System.Windows.Forms.Button();
             this.AddImmunityButton = new System.Windows.Forms.Button();
             this.TraitsList = new System.Windows.Forms.ListBox();
-            this.TraitInstruction1 = new System.Windows.Forms.Label();
             this.SensesDropDown = new System.Windows.Forms.ComboBox();
             this.AddSenseButton = new System.Windows.Forms.Button();
             this.DistanceUpDown = new System.Windows.Forms.NumericUpDown();
@@ -108,7 +107,6 @@
             this.PreviewButton = new System.Windows.Forms.Button();
             this.AddAbilityButton = new System.Windows.Forms.Button();
             this.AddActionButton = new System.Windows.Forms.Button();
-            this.TraitInstruction2 = new System.Windows.Forms.Label();
             this.SkillDropDown = new System.Windows.Forms.ComboBox();
             this.AddSkillButton = new System.Windows.Forms.Button();
             this.SkillBonus = new System.Windows.Forms.NumericUpDown();
@@ -132,12 +130,12 @@
             this.SkillBonusCheckBox = new System.Windows.Forms.CheckBox();
             this.SkillProfCheckBox = new System.Windows.Forms.CheckBox();
             this.TraitsListPopUp = new System.Windows.Forms.ToolTip(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             this.NewMonsterButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.HelpLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StrUpDown)).BeginInit();
@@ -969,23 +967,14 @@
             // TraitsList
             // 
             this.TraitsList.FormattingEnabled = true;
-            this.TraitsList.Location = new System.Drawing.Point(324, 50);
+            this.TraitsList.Location = new System.Drawing.Point(324, 24);
             this.TraitsList.Name = "TraitsList";
-            this.TraitsList.Size = new System.Drawing.Size(223, 225);
+            this.TraitsList.Size = new System.Drawing.Size(214, 251);
             this.TraitsList.TabIndex = 55;
             this.TraitsList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TraitsList_KeyDown);
             this.TraitsList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.deleteTrait);
             this.TraitsList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.editTrait);
             this.TraitsList.MouseHover += new System.EventHandler(this.TraitsList_MouseHover);
-            // 
-            // TraitInstruction1
-            // 
-            this.TraitInstruction1.AutoSize = true;
-            this.TraitInstruction1.Location = new System.Drawing.Point(339, 6);
-            this.TraitInstruction1.Name = "TraitInstruction1";
-            this.TraitInstruction1.Size = new System.Drawing.Size(150, 13);
-            this.TraitInstruction1.TabIndex = 72;
-            this.TraitInstruction1.Text = "Double Click to Remove Items";
             // 
             // SensesDropDown
             // 
@@ -1076,15 +1065,6 @@
             this.AddActionButton.Text = "Add Action";
             this.AddActionButton.UseVisualStyleBackColor = true;
             this.AddActionButton.Click += new System.EventHandler(this.addAction);
-            // 
-            // TraitInstruction2
-            // 
-            this.TraitInstruction2.AutoSize = true;
-            this.TraitInstruction2.Location = new System.Drawing.Point(351, 19);
-            this.TraitInstruction2.Name = "TraitInstruction2";
-            this.TraitInstruction2.Size = new System.Drawing.Size(125, 13);
-            this.TraitInstruction2.TabIndex = 82;
-            this.TraitInstruction2.Text = "Right Click to Load Items";
             // 
             // SkillDropDown
             // 
@@ -1389,15 +1369,6 @@
             // 
             this.TraitsListPopUp.ShowAlways = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(346, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 13);
-            this.label1.TabIndex = 97;
-            this.label1.Text = "Hover to Select and Inspect";
-            // 
             // NewMonsterButton
             // 
             this.NewMonsterButton.Location = new System.Drawing.Point(452, 577);
@@ -1444,6 +1415,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.HelpLabel);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.MonsterName);
             this.panel2.Controls.Add(this.label2);
@@ -1452,7 +1424,6 @@
             this.panel2.Controls.Add(this.NewMonsterButton);
             this.panel2.Controls.Add(this.ArmorClass);
             this.panel2.Controls.Add(this.SkillProfCheckBox);
-            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.SkillBonusCheckBox);
             this.panel2.Controls.Add(this.TypeDropDown);
             this.panel2.Controls.Add(this.SkillStatCheckBox);
@@ -1481,7 +1452,6 @@
             this.panel2.Controls.Add(this.Profiency);
             this.panel2.Controls.Add(this.ConUpDown);
             this.panel2.Controls.Add(this.ChallengeRatingDropDown);
-            this.panel2.Controls.Add(this.TraitInstruction2);
             this.panel2.Controls.Add(this.ChallengeRating);
             this.panel2.Controls.Add(this.IntUpDown);
             this.panel2.Controls.Add(this.WisUpDown);
@@ -1497,7 +1467,6 @@
             this.panel2.Controls.Add(this.Wis);
             this.panel2.Controls.Add(this.SensesDropDown);
             this.panel2.Controls.Add(this.Cha);
-            this.panel2.Controls.Add(this.TraitInstruction1);
             this.panel2.Controls.Add(this.StrBonus);
             this.panel2.Controls.Add(this.TraitsList);
             this.panel2.Controls.Add(this.DexBonus);
@@ -1544,6 +1513,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(550, 695);
             this.panel2.TabIndex = 103;
+            // 
+            // HelpLabel
+            // 
+            this.HelpLabel.AutoSize = true;
+            this.HelpLabel.Location = new System.Drawing.Point(364, 6);
+            this.HelpLabel.Name = "HelpLabel";
+            this.HelpLabel.Size = new System.Drawing.Size(152, 13);
+            this.HelpLabel.TabIndex = 101;
+            this.HelpLabel.Text = "Hover Over This Text For Help";
+            this.HelpLabel.MouseHover += new System.EventHandler(this.HelpLabelHover);
             // 
             // Main
             // 
@@ -1661,7 +1640,6 @@
         private System.Windows.Forms.Button AddResistanceButton;
         private System.Windows.Forms.Button AddImmunityButton;
         private System.Windows.Forms.ListBox TraitsList;
-        private System.Windows.Forms.Label TraitInstruction1;
         private System.Windows.Forms.ComboBox SensesDropDown;
         private System.Windows.Forms.Button AddSenseButton;
         private System.Windows.Forms.NumericUpDown DistanceUpDown;
@@ -1670,7 +1648,6 @@
         private System.Windows.Forms.Button PreviewButton;
         private System.Windows.Forms.Button AddAbilityButton;
         private System.Windows.Forms.Button AddActionButton;
-        private System.Windows.Forms.Label TraitInstruction2;
         private System.Windows.Forms.ComboBox SkillDropDown;
         private System.Windows.Forms.Button AddSkillButton;
         private System.Windows.Forms.NumericUpDown SkillBonus;
@@ -1690,7 +1667,6 @@
         private System.Windows.Forms.CheckBox SkillBonusCheckBox;
         private System.Windows.Forms.CheckBox SkillProfCheckBox;
         private System.Windows.Forms.ToolTip TraitsListPopUp;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button NewMonsterButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
@@ -1700,6 +1676,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label HelpLabel;
     }
 }
 
