@@ -560,21 +560,12 @@ namespace DND_Monster
         
         // Generates data, then passes it to the appropriate template.
         private void Preview(object sender, EventArgs e)
-        {
-            Sort();
+        {            
             Help.useBG = BackgroundCheckbox.Checked;
             Monster.columns = (int)PreviewColumns.Value;            
             GenerateMonsterData();
             ShowMonster();
-        }
-
-        private void Sort()
-        {
-            foreach (string item in TraitsList.Items)
-            {
-
-            }
-        }
+        }        
 
         // Converts monster to JSON, then saves to file.
         private void SaveData(object sender, EventArgs e)
@@ -1392,6 +1383,44 @@ namespace DND_Monster
         private void button3_Click(object sender, EventArgs e)
         {
 
-        }     
+        }
+
+        private void TraitsList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
+            {
+                MoveItem(-1, TraitsList);
+            }
+
+            if (e.KeyCode == Keys.Down)
+            {
+                MoveItem(1, TraitsList);
+            }
+        }
+
+        public void MoveItem(int direction, ListBox target)
+        {
+            if (target.Sorted) { target.Sorted = false; }
+
+            // Checking selected item
+            if (target.SelectedItem == null || target.SelectedIndex < 0)
+                return; // No selected item - nothing to do
+
+            // Calculate new index using move direction
+            int newIndex = target.SelectedIndex + direction;
+
+            // Checking bounds of the range
+            if (newIndex < 0 || newIndex >= target.Items.Count)
+                return; // Index out of range - nothing to do
+
+            object selected = target.SelectedItem;
+
+            // Removing removable element
+            target.Items.Remove(selected);
+            // Insert it in new position
+            target.Items.Insert(newIndex, selected);
+            // Restore selection
+            target.SetSelected(newIndex, true);
+        }
     }
 }
