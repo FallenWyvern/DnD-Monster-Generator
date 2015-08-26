@@ -65,6 +65,13 @@ namespace DND_Monster
             WisUpDown.ValueChanged += modchanged_ValueChanged;
             ChaUpDown.ValueChanged += modchanged_ValueChanged;
 
+            // StrSaveBonusUpDown.ValueChanged += savingThrowModify;
+            // DexSaveBonusUpDown.ValueChanged += savingThrowModify;
+            // ConSaveBonusUpDown.ValueChanged += savingThrowModify;
+            // IntSaveBonusUpDown.ValueChanged += savingThrowModify;
+            // WisSaveBonusUpDown.ValueChanged += savingThrowModify;
+            // ChaSaveBonusUpDown.ValueChanged += savingThrowModify;
+
             statModList.Add(StrBonus);
             statModList.Add(DexBonus);
             statModList.Add(ConBonus);
@@ -553,12 +560,21 @@ namespace DND_Monster
         
         // Generates data, then passes it to the appropriate template.
         private void Preview(object sender, EventArgs e)
-        {            
+        {
+            Sort();
             Help.useBG = BackgroundCheckbox.Checked;
             Monster.columns = (int)PreviewColumns.Value;            
             GenerateMonsterData();
             ShowMonster();
-        }        
+        }
+
+        private void Sort()
+        {
+            foreach (string item in TraitsList.Items)
+            {
+
+            }
+        }
 
         // Converts monster to JSON, then saves to file.
         private void SaveData(object sender, EventArgs e)
@@ -1127,9 +1143,13 @@ namespace DND_Monster
         private void GenerateMonsterData()
         {
             Monster.SkillBonuses.Clear();
-            Monster.Clear();
-            Sort();
-           
+            Monster.Clear();                
+            // Clear existing HTML
+            if (Monster.output.Count > 0)
+            {
+                
+            }
+
             int.TryParse(ProfBonus.Text, out Monster.proficency);
 
             Monster.CreatureName = MonsterNameTextBox.Text;
@@ -1368,6 +1388,7 @@ namespace DND_Monster
             output += "Low HP: " + currentCR.LowHP + "  High HP: " + currentCR.HighHP + Environment.NewLine;
             TraitsListPopUp.SetToolTip(ChallengeRatingDropDown, output);
         }
+<<<<<<< HEAD
         
         // Sort the four lists.
         private void Sort()
@@ -1456,13 +1477,12 @@ namespace DND_Monster
             {
                 MoveItem(1, TraitsList);
             }
+=======
+>>>>>>> origin/master
 
-            e.SuppressKeyPress = true;
-        }
-
-        // Swaps two values in the traits list.
-        public void MoveItem(int direction, ListBox target)
+        private void button3_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             // Remove alphabetizing.
             if (target.Sorted) { target.Sorted = false; }
 
@@ -1476,21 +1496,9 @@ namespace DND_Monster
             // Checking bounds of the range
             if (newIndex < 0 || newIndex >= target.Items.Count)
                 return; // Index out of range - nothing to do
+=======
+>>>>>>> origin/master
 
-            object selected = target.SelectedItem;
-
-            // Removing removable element
-            target.Items.Remove(selected);
-            // Insert it in new position
-            target.Items.Insert(newIndex, selected);
-            // Restore selection
-            target.SetSelected(newIndex, true);
-        }
-
-        private void HelpLabelHover(object sender, EventArgs e)
-        {
-            TraitsListPopUp.SetToolTip(HelpLabel, "Double Click to Remove Items." + Environment.NewLine + "Right Click to Edit Items" + Environment.NewLine +
-                "Hover to Select Item and Inspect" + Environment.NewLine + "Sort with Up/Down keys.");
-        }
+        }     
     }
 }

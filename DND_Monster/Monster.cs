@@ -167,7 +167,14 @@ namespace DND_Monster
                     string bonus = " " + (10 + (modifier + proficency)) + " ";                    
                     temp = "passive Perception" + bonus;
                 }
-                senses += temp + ", ";
+                if (temp.Contains("passive"))
+                {
+                    senses += temp.Trim() + ", ";
+                }
+                else
+                {
+                    senses += temp + "., ";
+                }
             }
             if (senses.Length > 2)
             {
