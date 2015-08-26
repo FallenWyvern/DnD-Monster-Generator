@@ -309,19 +309,19 @@
             // 
             this.HitDamageType.FormattingEnabled = true;
             this.HitDamageType.Items.AddRange(new object[] {
-            "Acid",
-            "Bludgeoning",
-            "Cold",
-            "Fire",
-            "Force",
-            "Lightning",
-            "Necrotic",
-            "Piercing",
-            "Poison",
-            "Psychic",
-            "Radiant",
-            "Slashing",
-            "Thunder"});
+            "acid",
+            "bludgeoning",
+            "cold",
+            "fire",
+            "force",
+            "lightning",
+            "necrotic",
+            "piercing",
+            "poison",
+            "psychic",
+            "radiant",
+            "slashing",
+            "thunder"});
             this.HitDamageType.Location = new System.Drawing.Point(196, 108);
             this.HitDamageType.Name = "HitDamageType";
             this.HitDamageType.Size = new System.Drawing.Size(91, 21);

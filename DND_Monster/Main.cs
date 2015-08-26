@@ -50,6 +50,7 @@ namespace DND_Monster
         private void Form1_Load(object sender, EventArgs e)
         {
             // Check for version update here.
+            
             currentCR = Help.ChallengeRatings[0];
             ChallengeRatingDropDown.SelectedIndex = 0;
             AlignmentDropDown.SelectedIndex = AlignmentDropDown.Items.Count - 1;
@@ -560,10 +561,19 @@ namespace DND_Monster
         // Generates data, then passes it to the appropriate template.
         private void Preview(object sender, EventArgs e)
         {
+            Sort();
             Help.useBG = BackgroundCheckbox.Checked;
-            Monster.columns = (int)PreviewColumns.Value;
+            Monster.columns = (int)PreviewColumns.Value;            
             GenerateMonsterData();
             ShowMonster();
+        }
+
+        private void Sort()
+        {
+            foreach (string item in TraitsList.Items)
+            {
+
+            }
         }
 
         // Converts monster to JSON, then saves to file.
@@ -1377,6 +1387,11 @@ namespace DND_Monster
             output += "Save DC: " + currentCR.profBonus + Environment.NewLine;
             output += "Low HP: " + currentCR.LowHP + "  High HP: " + currentCR.HighHP + Environment.NewLine;
             TraitsListPopUp.SetToolTip(ChallengeRatingDropDown, output);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }     
     }
 }

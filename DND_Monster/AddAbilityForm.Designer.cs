@@ -500,19 +500,19 @@
             // 
             this.SpellClass.FormattingEnabled = true;
             this.SpellClass.Items.AddRange(new object[] {
-            "Bard",
-            "Cleric",
-            "Druid",
-            "Paladin",
-            "Ranger",
-            "Sorcerer",
-            "Warlock",
-            "Wizard"});
+            "bard",
+            "cleric",
+            "druid",
+            "paladin",
+            "ranger",
+            "sorcerer",
+            "warlock",
+            "wizard"});
             this.SpellClass.Location = new System.Drawing.Point(3, 47);
             this.SpellClass.Name = "SpellClass";
             this.SpellClass.Size = new System.Drawing.Size(121, 21);
             this.SpellClass.TabIndex = 7;
-            this.SpellClass.Text = "Bard";
+            this.SpellClass.Text = "bard";
             // 
             // SpellList
             // 

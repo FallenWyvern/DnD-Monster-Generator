@@ -971,7 +971,7 @@
             this.TraitsList.FormattingEnabled = true;
             this.TraitsList.Location = new System.Drawing.Point(324, 50);
             this.TraitsList.Name = "TraitsList";
-            this.TraitsList.Size = new System.Drawing.Size(186, 225);
+            this.TraitsList.Size = new System.Drawing.Size(223, 225);
             this.TraitsList.TabIndex = 55;
             this.TraitsList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.deleteTrait);
             this.TraitsList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.editTrait);
@@ -1542,7 +1542,7 @@
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(550, 695);
-            this.panel2.TabIndex = 103;            
+            this.panel2.TabIndex = 103;
             // 
             // Main
             // 

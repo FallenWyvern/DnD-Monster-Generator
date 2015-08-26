@@ -66,6 +66,7 @@ namespace DND_Monster
     public class Legendary
     {
         public string Title { get; set; }        
+
         public List<LegendaryTrait> Traits = new List<LegendaryTrait>();
 
         public void AddTrait(string title, string ability)
@@ -84,6 +85,10 @@ namespace DND_Monster
             {
                 name = "creature";
             }
+            else
+            {
+                if (!name.Contains('*')) { name = name.ToLower(); }
+            }
             return "The " + name + " can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. The " + name + " regains spent legendary actions at the start of its turn.";
         }
     }
@@ -92,7 +97,7 @@ namespace DND_Monster
     public class LegendaryTrait
     {
         public string Title { get; set; }
-        public string Ability { get; set; }
+        public string Ability { get; set; }        
 
         public LegendaryTrait(string title, string ability)
         {
@@ -105,14 +110,21 @@ namespace DND_Monster
     public class Ability
     {
         public string Title { get; set; }
-        public string Description { get; set; }
+        public string Description { get; set; }        
         public bool isDamage { get; set; }
         public bool isSpell { get; set; }
 
         public string SpellcasterBoilerplate(string name)
         {
             if (!isSpell) return "";
-            if (String.IsNullOrEmpty(name) || String.IsNullOrWhiteSpace(name)) { name = "Creature"; }
+            if (String.IsNullOrEmpty(name) || String.IsNullOrWhiteSpace(name)) 
+            { 
+                name = "Creature"; 
+            }
+            else
+            {
+                if (!name.Contains('*')) { name = name.ToLower(); }
+            }
             string spellcastingstat = Description.Split('|')[1];            
             int modifier = 0;
 
@@ -148,7 +160,7 @@ namespace DND_Monster
             }
             returnstring += "The " + name + " has the following " + Description.Split('|')[0] + " spells prepared:";
 
-            return "<h4>Spellcasting: </h4><p>" + returnstring + "</p></br></br>";
+            return "<h4>Spellcasting. </h4><p>" + returnstring + "</p></br></br>";
         }
 
         public string SpellBlockFormat()
@@ -168,7 +180,7 @@ namespace DND_Monster
 
                 if (i == 0)
                 {
-                    returnstring += "<p>Cantrips (At Will): </p>";
+                    returnstring += "<p>Cantrips (at will): </p>";
                 }
                 else
                 {

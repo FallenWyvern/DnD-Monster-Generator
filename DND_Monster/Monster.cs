@@ -139,7 +139,8 @@ namespace DND_Monster
             string skills = "";
             foreach (string item in SkillBonuses)
             {
-                skills += item.Split(':')[1].Split('|')[0].Trim() + ", ";
+                skills += item.Split(':')[1].Split('|')[0].Replace("(Str)", "").Replace("(Dex)", "").Replace("(Con)", "")
+                    .Replace("(Int)", "").Replace("(Wis)", "").Replace("(Cha)", "").Trim() + ", ";
             }
             if (skills.Length > 2)
             {
@@ -160,11 +161,11 @@ namespace DND_Monster
             {
                 string temp = item;
 
-                if (temp.Contains("Passive"))
+                if (temp.ToLower().Contains("passive"))
                 {
                     int modifier = (int)Math.Floor((double)(WIS - 10) / 2);
                     string bonus = " " + (10 + (modifier + proficency)) + " ";                    
-                    temp = "Passive Perception" + bonus;
+                    temp = "passive Perception" + bonus;
                 }
                 senses += temp + ", ";
             }

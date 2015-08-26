@@ -142,7 +142,7 @@ namespace DND_Monster
         // Adds the spell to the spell list.
         private void AddSpellToList(object sender, EventArgs e)
         {
-            SpellList.Items.Add(SpellLevel.Value + "|" + textBox1.Text);
+            SpellList.Items.Add(SpellLevel.Value + " | " + textBox1.Text);
             textBox1.Text = "";
         }
 

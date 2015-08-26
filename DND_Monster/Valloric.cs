@@ -455,7 +455,7 @@ namespace DND_Monster
                 if (!ability.isSpell)
                 {
                     output.Add(@"<property-block>");
-                    output.Add(@"<h4>" + ability.Title + "</h4>");
+                    output.Add(@"<h4>" + ability.Title + ".</h4>");
                     output.Add(@"<p>" + " " + ability.Description + "</p>");
                     output.Add(@"</property-block>");
                 }
@@ -483,18 +483,18 @@ namespace DND_Monster
                 if (!ability.isDamage)
                 {
                     output.Add(@"<property-block>");
-                    output.Add(@"<h4>" + ability.Title + "</h4>");
+                    output.Add(@"<h4>" + ability.Title + ".</h4>");
                     output.Add(@"<p>" + ability.Description + "</p>");
                     output.Add(@"</property-block>");
                 }            
-            }
+            }            
 
             foreach (Ability ability in _Actions)
             {
                 if (ability.isDamage)
                 {
                     output.Add(@"<property-block>");
-                    output.Add(@"<h4>" + ability.Title + "</h4>");
+                    output.Add(@"<h4>" + ability.Title + ".</h4>");
                     output.Add(@"<p>" + ability.Description + "</p>");
                     output.Add(@"</property-block>");
                 }
@@ -507,7 +507,7 @@ namespace DND_Monster
                 foreach (Ability ability in _Reactions)
                 {
                     output.Add(@"<property-block>");
-                    output.Add(@"<h4>" + ability.Title + "</h4>");
+                    output.Add(@"<h4>" + ability.Title + ".</h4>");
                     output.Add(@"<p>" + ability.Description + "</p>");
                     output.Add(@"</property-block>");
                 }
