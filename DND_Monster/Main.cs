@@ -561,7 +561,7 @@ namespace DND_Monster
         // Generates data, then passes it to the appropriate template.
         private void Preview(object sender, EventArgs e)
         {
-            Sort();
+            SortTraits();
             Help.useBG = BackgroundCheckbox.Checked;
             Monster.columns = (int)PreviewColumns.Value;            
             GenerateMonsterData();
@@ -1388,10 +1388,9 @@ namespace DND_Monster
             output += "Low HP: " + currentCR.LowHP + "  High HP: " + currentCR.HighHP + Environment.NewLine;
             TraitsListPopUp.SetToolTip(ChallengeRatingDropDown, output);
         }
-<<<<<<< HEAD
-        
+      
         // Sort the four lists.
-        private void Sort()
+        private void SortTraits()
         {
             List<Ability> _Abilities = new List<Ability>();
             List<Ability> _Actions = new List<Ability>();
@@ -1464,10 +1463,9 @@ namespace DND_Monster
         }
 
 
-
         // Use arrow keys to sort the traits list.
         private void TraitsList_KeyDown(object sender, KeyEventArgs e)
-        {            
+        {
             if (e.KeyCode == Keys.Up)
             {
                 MoveItem(-1, TraitsList);
@@ -1477,12 +1475,12 @@ namespace DND_Monster
             {
                 MoveItem(1, TraitsList);
             }
-=======
->>>>>>> origin/master
 
-        private void button3_Click(object sender, EventArgs e)
+            e.SuppressKeyPress = true;
+        }
+
+        private void MoveItem(int direction, ListBox target)
         {
-<<<<<<< HEAD
             // Remove alphabetizing.
             if (target.Sorted) { target.Sorted = false; }
 
@@ -1496,9 +1494,16 @@ namespace DND_Monster
             // Checking bounds of the range
             if (newIndex < 0 || newIndex >= target.Items.Count)
                 return; // Index out of range - nothing to do
-=======
->>>>>>> origin/master
 
-        }     
+            object selected = target.SelectedItem;
+
+            // Removing removable element
+            target.Items.Remove(selected);
+            // Insert it in new position
+            target.Items.Insert(newIndex, selected);
+            // Restore selection
+            target.SetSelected(newIndex, true);
+        }
+
     }
 }
