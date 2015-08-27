@@ -136,9 +136,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.TraitException = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StrUpDown)).BeginInit();
@@ -177,6 +177,7 @@
             this.MonsterName.Size = new System.Drawing.Size(76, 13);
             this.MonsterName.TabIndex = 0;
             this.MonsterName.Text = "Monster Name";
+            this.MonsterName.MouseHover += new System.EventHandler(this.MonsterName_MouseHover);
             // 
             // MonsterNameTextBox
             // 
@@ -666,6 +667,7 @@
             this.Speed.Tag = "Speed";
             this.Speed.Text = "Speed";
             this.Speed.Click += new System.EventHandler(this.CustomizeSpeed);
+            this.Speed.MouseHover += new System.EventHandler(this.Speed_MouseHover);
             // 
             // Burrow
             // 
@@ -677,6 +679,7 @@
             this.Burrow.Tag = "Burrow";
             this.Burrow.Text = "Burrow";
             this.Burrow.Click += new System.EventHandler(this.CustomizeSpeed);
+            this.Burrow.MouseHover += new System.EventHandler(this.Speed_MouseHover);
             // 
             // Climb
             // 
@@ -688,6 +691,7 @@
             this.Climb.Tag = "Climb";
             this.Climb.Text = "Climb";
             this.Climb.Click += new System.EventHandler(this.CustomizeSpeed);
+            this.Climb.MouseHover += new System.EventHandler(this.Speed_MouseHover);
             // 
             // Fly
             // 
@@ -699,6 +703,7 @@
             this.Fly.Tag = "Fly";
             this.Fly.Text = "Fly";
             this.Fly.Click += new System.EventHandler(this.CustomizeSpeed);
+            this.Fly.MouseHover += new System.EventHandler(this.Speed_MouseHover);
             // 
             // Swim
             // 
@@ -710,6 +715,7 @@
             this.Swim.Tag = "Swim";
             this.Swim.Text = "Swim";
             this.Swim.Click += new System.EventHandler(this.CustomizeSpeed);
+            this.Swim.MouseHover += new System.EventHandler(this.Speed_MouseHover);
             // 
             // HoverCheckBox
             // 
@@ -1543,6 +1549,15 @@
             this.panel2.Size = new System.Drawing.Size(550, 695);
             this.panel2.TabIndex = 103;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(108, 264);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(169, 13);
+            this.label5.TabIndex = 102;
+            this.label5.Text = "Click a speed label to customize it.";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -1558,15 +1573,6 @@
             this.TraitException.Name = "TraitException";
             this.TraitException.Size = new System.Drawing.Size(171, 20);
             this.TraitException.TabIndex = 100;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(108, 264);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(169, 13);
-            this.label5.TabIndex = 102;
-            this.label5.Text = "Click a speed label to customize it.";
             // 
             // Main
             // 

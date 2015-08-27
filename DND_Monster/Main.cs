@@ -1588,7 +1588,8 @@ namespace DND_Monster
             target.Enabled = !target.Enabled;
             if (target.Enabled)
             {
-                target.Tag = "";
+                target.Tag = null;
+                TraitsListPopUp.SetToolTip(this, "");
             }
             else
             {
@@ -1603,14 +1604,66 @@ namespace DND_Monster
 
                 speedPrompt.FormClosed += (senders, es) =>
                 {
-                    target.Value = speedPrompt.SpeedUpDown.Value;
-                    target.Tag = speedPrompt.SpeedDescription.Text;
-                    if (isFly)
+                    if (String.IsNullOrWhiteSpace(speedPrompt.SpeedDescription.Text) || String.IsNullOrEmpty(speedPrompt.SpeedDescription.Text))
                     {
-                        HoverCheckBox.Checked = speedPrompt.HoverCheckBox.Checked;
+                        target.Enabled = true;
+                        target.Tag = null;
+                        TraitsListPopUp.SetToolTip(this, "");
+                    }
+                    else
+                    {
+                        target.Value = speedPrompt.SpeedUpDown.Value;
+                        target.Tag = speedPrompt.SpeedDescription.Text;
+                        if (isFly)
+                        {
+                            HoverCheckBox.Checked = speedPrompt.HoverCheckBox.Checked;
+                        }
                     }
                 };
             }
+        }
+
+        // Sets tooltip for speed hovers.
+        private void Speed_MouseHover(object sender, EventArgs e)
+        {
+            Label temp = (Label)sender;
+            NumericUpDown target = null;
+            
+            switch (temp.Tag.ToString())
+            {
+                case "Speed":
+                    target = (NumericUpDown)SpeedUpDown;
+                    break;
+                case "Swim":
+                    target = (NumericUpDown)SwimUpDown;
+                    break;
+                case "Fly":
+                    target = (NumericUpDown)FlyUpDown;
+                    break;
+                case "Burrow":
+                    target = (NumericUpDown)burrowUpDown;
+                    break;
+                case "Climb":
+                    target = (NumericUpDown)ClimbUpDown;
+                    break;
+            }
+
+            if (target.Tag != null)
+            {
+                if (!String.IsNullOrWhiteSpace(target.Tag.ToString()) && !String.IsNullOrEmpty(target.Tag.ToString()))
+                {                    
+                    TraitsListPopUp.SetToolTip(temp, target.Tag.ToString());
+                }
+            }
+            else
+            {                
+                TraitsListPopUp.SetToolTip(temp, "Click To Customize " + temp.Tag);
+            }
+        }
+
+        private void MonsterName_MouseHover(object sender, EventArgs e)
+        {
+            TraitsListPopUp.SetToolTip(MonsterName, "If you use a * in the monster name, it becomes a proper name.");
         }
     }
 }
