@@ -1177,36 +1177,37 @@ namespace DND_Monster
             Monster.CHA = (int)ChaUpDown.Value;
 
             Monster.Speed = SpeedUpDown.Value.ToString() + " ft.";
+
             if (!SpeedUpDown.Enabled) 
             {
                 Monster.Speed += " " + SpeedUpDown.Tag;
             }
 
-            if (burrowUpDown.Value > 0) { Monster.Speed += ", Burrow: " + burrowUpDown.Value + " ft."; }
+            if (burrowUpDown.Value > 0) { Monster.Speed += ", burrow: " + burrowUpDown.Value + " ft."; }
             if (!burrowUpDown.Enabled)
             {
                 Monster.Speed += " " + burrowUpDown.Tag;
             }
 
-            if (ClimbUpDown.Value > 0) { Monster.Speed += ", Climb: " + ClimbUpDown.Value + " ft."; }
+            if (ClimbUpDown.Value > 0) { Monster.Speed += ", climb: " + ClimbUpDown.Value + " ft."; }
             if (!ClimbUpDown.Enabled)
             {
                 Monster.Speed += " " + ClimbUpDown.Tag;
             }
 
-            if (FlyUpDown.Value > 0) { Monster.Speed += ", Fly: " + FlyUpDown.Value + " ft."; }
+            if (FlyUpDown.Value > 0) { Monster.Speed += ", fly: " + FlyUpDown.Value + " ft."; }
             if (!FlyUpDown.Enabled)
             {
                 Monster.Speed += " " + FlyUpDown.Tag;
             }
 
-            if (HoverCheckBox.Checked) { Monster.Speed += " (Hover)"; }
+            if (HoverCheckBox.Checked) { Monster.Speed += " (hover)"; }
             if (!HoverCheckBox.Enabled)
             {
                 Monster.Speed += " " + HoverCheckBox.Tag;
             }
 
-            if (SwimUpDown.Value > 0) { Monster.Speed += ", Swim: " + SwimUpDown.Value + " ft."; }
+            if (SwimUpDown.Value > 0) { Monster.Speed += ", swim: " + SwimUpDown.Value + " ft."; }
             if (!SwimUpDown.Enabled)
             {
                 Monster.Speed += " " + SwimUpDown.Tag;

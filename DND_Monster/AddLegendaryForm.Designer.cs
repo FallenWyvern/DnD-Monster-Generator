@@ -64,6 +64,7 @@
             this.Traits.Name = "Traits";
             this.Traits.Size = new System.Drawing.Size(379, 160);
             this.Traits.TabIndex = 3;
+            this.Traits.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TraitsList_KeyDown);
             this.Traits.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.RemoveTrait);
             // 
             // TraitDescriptionBox

@@ -454,7 +454,7 @@ namespace DND_Monster
                 if (!ability.isSpell)
                 {
                     output.Add(@"<property-block>");
-                    output.Add(@"<h4>" + ability.Title + ".</h4>");
+                    output.Add(@"<h4>" + ability.ProperName() + ".</h4>");
                     output.Add(@"<p>" + " " + ability.Description + "</p>");
                     output.Add(@"</property-block>");
                 }
@@ -480,7 +480,7 @@ namespace DND_Monster
             foreach (Ability ability in _Actions)
             {                                
                     output.Add(@"<property-block>");
-                    output.Add(@"<h4>" + ability.Title + ".</h4>");
+                    output.Add(@"<h4>" + ability.ProperName() + ".</h4>");
                     output.Add(@"<p>" + ability.Description + "</p>");
                     output.Add(@"</property-block>");                
             }            
@@ -492,7 +492,7 @@ namespace DND_Monster
                 foreach (Ability ability in _Reactions)
                 {
                     output.Add(@"<property-block>");
-                    output.Add(@"<h4>" + ability.Title + ".</h4>");
+                    output.Add(@"<h4>" + ability.ProperName() + ".</h4>");
                     output.Add(@"<p>" + ability.Description + "</p>");
                     output.Add(@"</property-block>");
                 }
@@ -508,7 +508,7 @@ namespace DND_Monster
                     output.Add(@"<p>" + ability.Boilerplate(CreatureName) + "</p></br></br>");
                     foreach (LegendaryTrait trait in ability.TraitList())
                     {
-                        output.Add(@"<h4>" + trait.Title + ". </h4>");
+                        output.Add(@"<h4>" + trait.ProperName() + ". </h4>");
                         output.Add(@"<p>" + trait.Ability + "</p><br>");
                     }
                     output.Add(@"</property-block>");

@@ -21,7 +21,7 @@ namespace DND_Monster
 
         private void AddLegendaryForm_Load(object sender, EventArgs e)
         {
-            Traits.Sorted = true;
+            //Traits.Sorted = true;
         }
 
         // Constructs the Legendary object.
@@ -78,6 +78,48 @@ namespace DND_Monster
             AbilityName.Text = Traits.SelectedItem.ToString().Split('|')[0].Trim();
             TraitDescriptionBox.Text = Traits.SelectedItem.ToString().Split('|')[1].Trim();
             Traits.Items.Remove(Traits.SelectedItem);
+        }
+
+        // Use arrow keys to sort the traits list.
+        private void TraitsList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
+            {
+                MoveItem(-1, Traits);
+            }
+
+            if (e.KeyCode == Keys.Down)
+            {
+                MoveItem(1, Traits);
+            }
+
+            e.SuppressKeyPress = true;
+        }
+
+        private void MoveItem(int direction, ListBox target)
+        {
+            // Remove alphabetizing.
+            if (target.Sorted) { target.Sorted = false; }
+
+            // Checking selected item
+            if (target.SelectedItem == null || target.SelectedIndex < 0)
+                return; // No selected item - nothing to do
+
+            // Calculate new index using move direction
+            int newIndex = target.SelectedIndex + direction;
+
+            // Checking bounds of the range
+            if (newIndex < 0 || newIndex >= target.Items.Count)
+                return; // Index out of range - nothing to do
+
+            object selected = target.SelectedItem;
+
+            // Removing removable element
+            target.Items.Remove(selected);
+            // Insert it in new position
+            target.Items.Insert(newIndex, selected);
+            // Restore selection
+            target.SetSelected(newIndex, true);
         }
     }
 }

@@ -95,6 +95,7 @@
             this.AttackTypeDropdown.Name = "AttackTypeDropdown";
             this.AttackTypeDropdown.Size = new System.Drawing.Size(239, 21);
             this.AttackTypeDropdown.TabIndex = 1;
+            this.AttackTypeDropdown.SelectedIndexChanged += new System.EventHandler(this.ConfigureRange);
             // 
             // AttackType
             // 

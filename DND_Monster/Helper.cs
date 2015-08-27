@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Net;
 
@@ -104,6 +105,12 @@ namespace DND_Monster
             Title = title;
             Ability = ability;
         }
+
+        public string ProperName()
+        {
+            string s = Regex.Replace(Title, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
+            return s;
+        }
     }
 
     // Ability
@@ -113,6 +120,12 @@ namespace DND_Monster
         public string Description { get; set; }        
         public bool isDamage { get; set; }
         public bool isSpell { get; set; }
+
+        public string ProperName()
+        {
+            string s = Regex.Replace(Title, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
+            return s;
+        }
 
         public string SpellcasterBoilerplate(string name)
         {
@@ -307,7 +320,7 @@ namespace DND_Monster
             {
                 returnstring += "+";
             }
-            returnstring += HitDamageBonus + ") " + HitDamageType + " damage. " + HitText;
+            returnstring += HitDamageBonus + ") " + HitDamageType.ToLower() + " damage. " + HitText;
 
             return returnstring;
         }

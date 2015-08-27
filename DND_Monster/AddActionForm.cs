@@ -151,5 +151,24 @@ namespace DND_Monster
 
             tabControl1.SelectedIndex = 2;
         }
+
+        private void ConfigureRange(object sender, EventArgs e)
+        {
+            switch (AttackTypeDropdown.SelectedIndex)
+            {
+                case 0:
+                    RangeUpDownClose.Value = 0;
+                    RangeUpDownFar.Value = 0;
+                    break;
+                case 1:
+                    RangeUpDownClose.Value = 5;
+                    RangeUpDownFar.Value = 5;
+                    break;
+                case 2:
+                    RangeUpDownClose.Value = 0;
+                    RangeUpDownFar.Value = 0;
+                    break;
+            }
+        }
     }
 }
