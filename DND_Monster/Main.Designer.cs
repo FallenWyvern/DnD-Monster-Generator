@@ -99,7 +99,6 @@
             this.AddResistanceButton = new System.Windows.Forms.Button();
             this.AddImmunityButton = new System.Windows.Forms.Button();
             this.TraitsList = new System.Windows.Forms.ListBox();
-            this.TraitInstruction1 = new System.Windows.Forms.Label();
             this.SensesDropDown = new System.Windows.Forms.ComboBox();
             this.AddSenseButton = new System.Windows.Forms.Button();
             this.DistanceUpDown = new System.Windows.Forms.NumericUpDown();
@@ -108,7 +107,6 @@
             this.PreviewButton = new System.Windows.Forms.Button();
             this.AddAbilityButton = new System.Windows.Forms.Button();
             this.AddActionButton = new System.Windows.Forms.Button();
-            this.TraitInstruction2 = new System.Windows.Forms.Label();
             this.SkillDropDown = new System.Windows.Forms.ComboBox();
             this.AddSkillButton = new System.Windows.Forms.Button();
             this.SkillBonus = new System.Windows.Forms.NumericUpDown();
@@ -138,6 +136,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TraitException = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StrUpDown)).BeginInit();
@@ -209,20 +210,20 @@
             // 
             this.TypeDropDown.FormattingEnabled = true;
             this.TypeDropDown.Items.AddRange(new object[] {
-            "aberration",
-            "beast",
-            "celestial",
-            "construct",
-            "dragon",
-            "elemental",
-            "fey",
-            "fiend",
-            "giant",
-            "humanoid",
-            "monstrosity",
-            "ooze",
-            "plant",
-            "undead"});
+            "Aberration",
+            "Beast",
+            "Celestial",
+            "Construct",
+            "Dragon",
+            "Elemental",
+            "Fey",
+            "Fiend",
+            "Giant",
+            "Humanoid",
+            "Monstrosity",
+            "Ooze",
+            "Plant",
+            "Undead"});
             this.TypeDropDown.Location = new System.Drawing.Point(96, 59);
             this.TypeDropDown.Name = "TypeDropDown";
             this.TypeDropDown.Size = new System.Drawing.Size(116, 21);
@@ -250,19 +251,19 @@
             // 
             this.AlignmentDropDown.FormattingEnabled = true;
             this.AlignmentDropDown.Items.AddRange(new object[] {
-            "lawful good",
-            "lawful neutral",
-            "lawful evil",
+            "Lawful Good",
+            "Lawful Neutral",
+            "Lawful Evil",
             "",
-            "neutral good",
-            "true neutral",
-            "neutral evil",
+            "Neutral Good",
+            "True Neutral",
+            "Neutral Evil",
             "",
-            "chaotic good",
-            "chaotic neutral",
-            "chaotic evil",
+            "Chaotic Good",
+            "Chaotic Neutral",
+            "Chaotic Evil",
             "",
-            "unaligned"});
+            "Unaligned"});
             this.AlignmentDropDown.Location = new System.Drawing.Point(96, 84);
             this.AlignmentDropDown.Name = "AlignmentDropDown";
             this.AlignmentDropDown.Size = new System.Drawing.Size(222, 21);
@@ -552,31 +553,31 @@
             // 
             this.TagDropDown.FormattingEnabled = true;
             this.TagDropDown.Items.AddRange(new object[] {
-            "aarakocra",
-            "bullywug",
-            "demon",
-            "devil",
-            "dwarf",
-            "elf",
-            "gith",
-            "gnoll",
-            "gnome",
-            "goblinoid",
-            "grimlock",
-            "human",
-            "kenku",
-            "kobold",
-            "kuo-toa",
-            "lizardfolk",
-            "merfolk",
-            "orc",
-            "quaggoth",
-            "sahuagin",
-            "shapechanger",
-            "thri-Kreen",
-            "titan",
-            "troglodyte",
-            "yuan-Ti",
+            "Aarakocra",
+            "Bullywug",
+            "Demon",
+            "Devil",
+            "Dwarf",
+            "Elf",
+            "Gith",
+            "Gnoll",
+            "Gnome",
+            "Goblinoid",
+            "Grimlock",
+            "Human",
+            "Kenku",
+            "Kobold",
+            "Kuo-toa",
+            "Lizardfolk",
+            "Merfolk",
+            "Orc",
+            "Quaggoth",
+            "Sahuagin",
+            "Shapechanger",
+            "Thri-Kreen",
+            "Titan",
+            "Troglodyte",
+            "Yuan-Ti",
             "yugoloth"});
             this.TagDropDown.Location = new System.Drawing.Point(218, 59);
             this.TagDropDown.Name = "TagDropDown";
@@ -662,7 +663,9 @@
             this.Speed.Name = "Speed";
             this.Speed.Size = new System.Drawing.Size(38, 13);
             this.Speed.TabIndex = 41;
+            this.Speed.Tag = "Speed";
             this.Speed.Text = "Speed";
+            this.Speed.Click += new System.EventHandler(this.CustomizeSpeed);
             // 
             // Burrow
             // 
@@ -671,7 +674,9 @@
             this.Burrow.Name = "Burrow";
             this.Burrow.Size = new System.Drawing.Size(40, 13);
             this.Burrow.TabIndex = 16;
+            this.Burrow.Tag = "Burrow";
             this.Burrow.Text = "Burrow";
+            this.Burrow.Click += new System.EventHandler(this.CustomizeSpeed);
             // 
             // Climb
             // 
@@ -680,7 +685,9 @@
             this.Climb.Name = "Climb";
             this.Climb.Size = new System.Drawing.Size(32, 13);
             this.Climb.TabIndex = 18;
+            this.Climb.Tag = "Climb";
             this.Climb.Text = "Climb";
+            this.Climb.Click += new System.EventHandler(this.CustomizeSpeed);
             // 
             // Fly
             // 
@@ -689,7 +696,9 @@
             this.Fly.Name = "Fly";
             this.Fly.Size = new System.Drawing.Size(20, 13);
             this.Fly.TabIndex = 44;
+            this.Fly.Tag = "Fly";
             this.Fly.Text = "Fly";
+            this.Fly.Click += new System.EventHandler(this.CustomizeSpeed);
             // 
             // Swim
             // 
@@ -698,7 +707,9 @@
             this.Swim.Name = "Swim";
             this.Swim.Size = new System.Drawing.Size(32, 13);
             this.Swim.TabIndex = 45;
+            this.Swim.Tag = "Swim";
             this.Swim.Text = "Swim";
+            this.Swim.Click += new System.EventHandler(this.CustomizeSpeed);
             // 
             // HoverCheckBox
             // 
@@ -900,40 +911,40 @@
             // 
             this.DamageConditionDropDown.FormattingEnabled = true;
             this.DamageConditionDropDown.Items.AddRange(new object[] {
-            "acid",
-            "bludgeoning",
-            "cold",
-            "fire",
-            "force",
-            "lightning",
-            "necrotic",
-            "piercing",
-            "poison",
-            "psychic",
-            "radiant",
-            "slashing",
-            "thunder",
+            "Acid",
+            "Bludgeoning",
+            "Cold",
+            "Fire",
+            "Force",
+            "Lightning",
+            "Necrotic",
+            "Piercing",
+            "Poison",
+            "Psychic",
+            "Radiant",
+            "Slashing",
+            "Thunder",
             "",
-            "blinded",
-            "charmed",
-            "deafended",
-            "encumbered",
-            "exhaustion",
-            "frightened",
-            "grappled",
-            "incorporeal",
-            "intoxicated",
-            "invisible",
-            "paralyzed",
-            "petrified",
-            "poisoned",
-            "prone",
-            "restrained",
-            "stunned",
-            "unconcious"});
+            "Blinded",
+            "Charmed",
+            "Deafended",
+            "Encumbered",
+            "Exhaustion",
+            "Frightened",
+            "Grappled",
+            "Incorporeal",
+            "Intoxicated",
+            "Invisible",
+            "Paralyzed",
+            "Petrified",
+            "Poisoned",
+            "Prone",
+            "Restrained",
+            "Stunned",
+            "Unconcious"});
             this.DamageConditionDropDown.Location = new System.Drawing.Point(17, 397);
             this.DamageConditionDropDown.Name = "DamageConditionDropDown";
-            this.DamageConditionDropDown.Size = new System.Drawing.Size(378, 21);
+            this.DamageConditionDropDown.Size = new System.Drawing.Size(201, 21);
             this.DamageConditionDropDown.TabIndex = 30;
             // 
             // AddVulnerabilityButton
@@ -969,33 +980,24 @@
             // TraitsList
             // 
             this.TraitsList.FormattingEnabled = true;
-            this.TraitsList.Location = new System.Drawing.Point(324, 50);
+            this.TraitsList.Location = new System.Drawing.Point(324, 24);
             this.TraitsList.Name = "TraitsList";
-            this.TraitsList.Size = new System.Drawing.Size(223, 225);
+            this.TraitsList.Size = new System.Drawing.Size(223, 251);
             this.TraitsList.TabIndex = 55;
             this.TraitsList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TraitsList_KeyDown);
             this.TraitsList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.deleteTrait);
             this.TraitsList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.editTrait);
             this.TraitsList.MouseHover += new System.EventHandler(this.TraitsList_MouseHover);
             // 
-            // TraitInstruction1
-            // 
-            this.TraitInstruction1.AutoSize = true;
-            this.TraitInstruction1.Location = new System.Drawing.Point(339, 6);
-            this.TraitInstruction1.Name = "TraitInstruction1";
-            this.TraitInstruction1.Size = new System.Drawing.Size(150, 13);
-            this.TraitInstruction1.TabIndex = 72;
-            this.TraitInstruction1.Text = "Double Click to Remove Items";
-            // 
             // SensesDropDown
             // 
             this.SensesDropDown.FormattingEnabled = true;
             this.SensesDropDown.Items.AddRange(new object[] {
-            "passive Perception",
-            "blindsight",
-            "darkvision",
-            "tremorsense",
-            "truesight"});
+            "Passive Perception",
+            "Blindsight",
+            "Darkvision",
+            "Tremorsense",
+            "Truesight"});
             this.SensesDropDown.Location = new System.Drawing.Point(17, 453);
             this.SensesDropDown.Name = "SensesDropDown";
             this.SensesDropDown.Size = new System.Drawing.Size(123, 21);
@@ -1076,15 +1078,6 @@
             this.AddActionButton.Text = "Add Action";
             this.AddActionButton.UseVisualStyleBackColor = true;
             this.AddActionButton.Click += new System.EventHandler(this.addAction);
-            // 
-            // TraitInstruction2
-            // 
-            this.TraitInstruction2.AutoSize = true;
-            this.TraitInstruction2.Location = new System.Drawing.Point(351, 19);
-            this.TraitInstruction2.Name = "TraitInstruction2";
-            this.TraitInstruction2.Size = new System.Drawing.Size(125, 13);
-            this.TraitInstruction2.TabIndex = 82;
-            this.TraitInstruction2.Text = "Right Click to Load Items";
             // 
             // SkillDropDown
             // 
@@ -1343,7 +1336,10 @@
             "Primordial",
             "Sylvan",
             "Terran",
-            "Undercommon"});
+            "Undercommon",
+            "Worg",
+            "White Wolf",
+            "Yeti"});
             this.LanguageComboBox.Location = new System.Drawing.Point(17, 480);
             this.LanguageComboBox.Name = "LanguageComboBox";
             this.LanguageComboBox.Size = new System.Drawing.Size(252, 21);
@@ -1392,11 +1388,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(346, 34);
+            this.label1.Location = new System.Drawing.Point(348, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 13);
+            this.label1.Size = new System.Drawing.Size(155, 13);
             this.label1.TabIndex = 97;
-            this.label1.Text = "Hover to Select and Inspect";
+            this.label1.Text = "Hover For Help With List Below";
+            this.label1.MouseHover += new System.EventHandler(this.TraitsListHoverHelp);
             // 
             // NewMonsterButton
             // 
@@ -1444,6 +1441,9 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.TraitException);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.MonsterName);
             this.panel2.Controls.Add(this.label2);
@@ -1481,7 +1481,6 @@
             this.panel2.Controls.Add(this.Profiency);
             this.panel2.Controls.Add(this.ConUpDown);
             this.panel2.Controls.Add(this.ChallengeRatingDropDown);
-            this.panel2.Controls.Add(this.TraitInstruction2);
             this.panel2.Controls.Add(this.ChallengeRating);
             this.panel2.Controls.Add(this.IntUpDown);
             this.panel2.Controls.Add(this.WisUpDown);
@@ -1497,7 +1496,6 @@
             this.panel2.Controls.Add(this.Wis);
             this.panel2.Controls.Add(this.SensesDropDown);
             this.panel2.Controls.Add(this.Cha);
-            this.panel2.Controls.Add(this.TraitInstruction1);
             this.panel2.Controls.Add(this.StrBonus);
             this.panel2.Controls.Add(this.TraitsList);
             this.panel2.Controls.Add(this.DexBonus);
@@ -1544,6 +1542,31 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(550, 695);
             this.panel2.TabIndex = 103;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(401, 401);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 13);
+            this.label4.TabIndex = 101;
+            this.label4.Text = "< Exception Text";
+            // 
+            // TraitException
+            // 
+            this.TraitException.Location = new System.Drawing.Point(224, 398);
+            this.TraitException.Name = "TraitException";
+            this.TraitException.Size = new System.Drawing.Size(171, 20);
+            this.TraitException.TabIndex = 100;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(108, 264);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(169, 13);
+            this.label5.TabIndex = 102;
+            this.label5.Text = "Click a speed label to customize it.";
             // 
             // Main
             // 
@@ -1661,7 +1684,6 @@
         private System.Windows.Forms.Button AddResistanceButton;
         private System.Windows.Forms.Button AddImmunityButton;
         private System.Windows.Forms.ListBox TraitsList;
-        private System.Windows.Forms.Label TraitInstruction1;
         private System.Windows.Forms.ComboBox SensesDropDown;
         private System.Windows.Forms.Button AddSenseButton;
         private System.Windows.Forms.NumericUpDown DistanceUpDown;
@@ -1670,7 +1692,6 @@
         private System.Windows.Forms.Button PreviewButton;
         private System.Windows.Forms.Button AddAbilityButton;
         private System.Windows.Forms.Button AddActionButton;
-        private System.Windows.Forms.Label TraitInstruction2;
         private System.Windows.Forms.ComboBox SkillDropDown;
         private System.Windows.Forms.Button AddSkillButton;
         private System.Windows.Forms.NumericUpDown SkillBonus;
@@ -1700,6 +1721,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox TraitException;
+        private System.Windows.Forms.Label label5;
     }
 }
 

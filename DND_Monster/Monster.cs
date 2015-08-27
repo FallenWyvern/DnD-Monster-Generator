@@ -43,7 +43,7 @@ namespace DND_Monster
             string immunities = "";
             foreach (string item in DamageImmunities)
             {
-                immunities += item + ", ";
+                immunities += item.ToLower() + ", ";
             }
             if (immunities.Length > 2)
             {
@@ -62,7 +62,7 @@ namespace DND_Monster
             string resistance = "";
             foreach (string item in DamageResistances)
             {
-                resistance += item + ", ";
+                resistance += item.ToLower() + ", ";
             }
             if (resistance.Length > 2)
             {
@@ -82,7 +82,7 @@ namespace DND_Monster
             string vulnerability = "";
             foreach (string item in DamageVulnerability)
             {
-                vulnerability += item + ", ";
+                vulnerability += item.ToLower() + ", ";
             }
             if (vulnerability.Length > 2)
             {
@@ -101,7 +101,7 @@ namespace DND_Monster
             string immunities = "";
             foreach (string item in ConditionImmunities)
             {
-                immunities += item + ", ";
+                immunities += item.ToLower() + ", ";
             }
             if (immunities.Length > 2)
             {
@@ -173,7 +173,7 @@ namespace DND_Monster
                 }
                 else
                 {
-                    senses += temp + "., ";
+                    senses += temp.ToLower() + "., ";
                 }
             }
             if (senses.Length > 2)
@@ -191,16 +191,23 @@ namespace DND_Monster
 
         private static string Languages()
         {
-            string languages = "";
-            foreach (string item in _Languages)
+            if (_Languages.Count > 0)
             {
-                languages += item + ", ";
+                string languages = "";
+                foreach (string item in _Languages)
+                {
+                    languages += item + ", ";
+                }
+                if (languages.Length > 2)
+                {
+                    languages = languages.Substring(0, languages.Length - 2);
+                }
+                return languages;
             }
-            if (languages.Length > 2)
+            else
             {
-                languages = languages.Substring(0, languages.Length - 2);
-            }            
-            return languages;
+                return "-";
+            }
         }
 
         public static void AddLanguage(string language)

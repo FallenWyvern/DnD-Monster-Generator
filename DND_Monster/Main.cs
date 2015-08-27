@@ -328,6 +328,11 @@ namespace DND_Monster
             }
 
             addString += DamageConditionDropDown.Text;
+            
+            if (TraitException.Text.Length > 0){
+                addString += " " + TraitException.Text;
+            }
+            
             TraitsList.Items.Add(addString);
         }
 
@@ -564,6 +569,7 @@ namespace DND_Monster
             SortTraits();
             Help.useBG = BackgroundCheckbox.Checked;
             Monster.columns = (int)PreviewColumns.Value;            
+
             GenerateMonsterData();
             ShowMonster();
         }
@@ -610,7 +616,8 @@ namespace DND_Monster
                 Data jsonMonster = new Data();
                 jsonMonster = JsonConvert.DeserializeObject<Data>(System.IO.File.ReadAllText(dialog.FileName));
                 TraitsList.Items.Clear();
-                
+                TraitsList.Sorted = false;
+
                 Monster.Input(jsonMonster);                
 
                 currentCR = Monster.CR;
@@ -1170,16 +1177,52 @@ namespace DND_Monster
             Monster.CHA = (int)ChaUpDown.Value;
 
             Monster.Speed = SpeedUpDown.Value.ToString() + " ft.";
+            if (!SpeedUpDown.Enabled) 
+            {
+                Monster.Speed += " " + SpeedUpDown.Tag;
+            }
+
             if (burrowUpDown.Value > 0) { Monster.Speed += ", Burrow: " + burrowUpDown.Value + " ft."; }
+            if (!burrowUpDown.Enabled)
+            {
+                Monster.Speed += " " + burrowUpDown.Tag;
+            }
+
             if (ClimbUpDown.Value > 0) { Monster.Speed += ", Climb: " + ClimbUpDown.Value + " ft."; }
+            if (!ClimbUpDown.Enabled)
+            {
+                Monster.Speed += " " + ClimbUpDown.Tag;
+            }
+
             if (FlyUpDown.Value > 0) { Monster.Speed += ", Fly: " + FlyUpDown.Value + " ft."; }
+            if (!FlyUpDown.Enabled)
+            {
+                Monster.Speed += " " + FlyUpDown.Tag;
+            }
+
             if (HoverCheckBox.Checked) { Monster.Speed += " (Hover)"; }
+            if (!HoverCheckBox.Enabled)
+            {
+                Monster.Speed += " " + HoverCheckBox.Tag;
+            }
+
             if (SwimUpDown.Value > 0) { Monster.Speed += ", Swim: " + SwimUpDown.Value + " ft."; }
+            if (!SwimUpDown.Enabled)
+            {
+                Monster.Speed += " " + SwimUpDown.Tag;
+            }
 
             Monster.AC = ACUpDown.Value + "";
             if (ACSourceTextBox.Text.Length > 0)
             {
-                Monster.AC += " (" + ACSourceTextBox.Text + ")";
+                if (ACSourceTextBox.Text.Contains('('))
+                {
+                    Monster.AC += " " + ACSourceTextBox.Text;
+                }
+                else
+                {
+                    Monster.AC += " (" + ACSourceTextBox.Text + ")";
+                }
             }
 
             Monster.HP = HitDieTextBox.Text;
@@ -1505,5 +1548,68 @@ namespace DND_Monster
             target.SetSelected(newIndex, true);
         }
 
+        // Pop up text changes to traitslist help.
+        private void TraitsListHoverHelp(object sender, EventArgs e)
+        {
+            TraitsListPopUp.SetToolTip(label1, "Double Click to Remove Items" + Environment.NewLine +
+                                                "Right Click to Load Items" + Environment.NewLine +
+                                                "Hover to Select and Inspect Items" + Environment.NewLine +
+                                                "Use Up/Down Keys to Sort");
+        }
+
+        // Allows for customized speeds
+        private void CustomizeSpeed(object sender, EventArgs e)
+        {
+            Label temp = (Label)sender;
+            NumericUpDown target = null;
+            bool isFly = false;
+
+            switch (temp.Tag.ToString())
+            {
+                case "Speed":
+                    target = (NumericUpDown)SpeedUpDown;
+                    break;
+                case "Swim":
+                    target = (NumericUpDown)SwimUpDown;
+                    break;
+                case "Fly":
+                    target = (NumericUpDown)FlyUpDown;
+                    isFly = true;
+                    break;
+                case "Burrow":
+                    target = (NumericUpDown)burrowUpDown;
+                    break;
+                case "Climb":
+                    target = (NumericUpDown)ClimbUpDown;
+                    break;
+            }
+
+            target.Enabled = !target.Enabled;
+            if (target.Enabled)
+            {
+                target.Tag = "";
+            }
+            else
+            {
+                CustomSpeed speedPrompt = new CustomSpeed();
+                speedPrompt.SpeedUpDown.Value = target.Value;
+                if (isFly)
+                {
+                    speedPrompt.HoverCheckBox.Enabled = true;
+                    speedPrompt.HoverCheckBox.Checked = HoverCheckBox.Checked;
+                }
+                speedPrompt.Show();
+
+                speedPrompt.FormClosed += (senders, es) =>
+                {
+                    target.Value = speedPrompt.SpeedUpDown.Value;
+                    target.Tag = speedPrompt.SpeedDescription.Text;
+                    if (isFly)
+                    {
+                        HoverCheckBox.Checked = speedPrompt.HoverCheckBox.Checked;
+                    }
+                };
+            }
+        }
     }
 }

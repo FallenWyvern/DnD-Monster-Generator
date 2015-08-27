@@ -165,7 +165,7 @@ namespace DND_Monster
             }
 
             string returnstring = "";
-            returnstring += "The " + name + " is a " + Description.Split('|')[2] + levelSuffix + " level spellcaster. ";
+            returnstring += "The " + name + " is a " + Description.Split('|')[2] + levelSuffix + "-level spellcaster. ";
             returnstring += "Its spellcasting ability is " + spellcastingstat + " (spell save DC " + (8 + Monster.CR.profBonus + modifier) + ", +" + (modifier + Monster.CR.profBonus) + " to hit with spell attacks). ";
 
             if (!Description.Contains("NotInnate"))
@@ -297,6 +297,11 @@ namespace DND_Monster
             }
 
             returnstring += Target;
+            if (Target[Target.Length - 1] != '.')
+            {
+                returnstring += ".";                
+            }
+                
             returnstring += " <i>Hit:</i> " + HitAverageDamage + " (" + HitDiceNumber + "d" + HitDiceSize;
             if (HitDamageBonus > -1)
             {

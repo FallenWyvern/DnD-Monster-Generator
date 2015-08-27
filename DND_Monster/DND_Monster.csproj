@@ -89,6 +89,12 @@
     <Compile Include="AddLegendaryForm.Designer.cs">
       <DependentUpon>AddLegendaryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomSpeed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomSpeed.Designer.cs">
+      <DependentUpon>CustomSpeed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helper.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddLegendaryForm.resx">
       <DependentUpon>AddLegendaryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomSpeed.resx">
+      <DependentUpon>CustomSpeed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
