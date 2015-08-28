@@ -358,12 +358,13 @@ namespace DND_Monster
                             loadLegendary.FormClosing += (senderx, ex) =>
                             {
                                 loadLegendary.SerializeTraits();
+                                int index = Monster._Legendaries.IndexOf(legendary);
+                                Monster._Legendaries.RemoveAt(index);
+                                Monster._Legendaries.Insert(index, loadLegendary.LegendaryAbility);
 
-                                Monster._Legendaries.Remove(legendary);
-                                Monster._Legendaries.Add(loadLegendary.LegendaryAbility);
-
-                                TraitsList.Items.Remove(TraitsList.SelectedItem);
-                                TraitsList.Items.Add("Legendary: " + loadLegendary.LegendaryAbility.Title);
+                                index = TraitsList.Items.IndexOf(TraitsList.SelectedItem);
+                                TraitsList.Items.RemoveAt(index);
+                                TraitsList.Items.Insert(index, "Legendary: " + loadLegendary.LegendaryAbility.Title);
                             };
                             return;
                         }
@@ -380,15 +381,18 @@ namespace DND_Monster
                         {
                             if (attack.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
                             {
-                                loadAttack.LoadAction((Attack)attack);                                
+                                loadAttack.LoadAttack(attack);                                
                                 loadAttack.Show();
 
                                 loadAttack.FormClosing += (senderx, ex) =>
                                 {
-                                    Monster._Actions.Remove(attack);
-                                    Monster._Actions.Add(loadAttack.NewAttack);
-                                    TraitsList.Items.Remove(TraitsList.SelectedItem);
-                                    TraitsList.Items.Add("Action: " + loadAttack.NewAttack.Title);
+                                    int index = Monster._Actions.IndexOf(attack);
+                                    Monster._Actions.RemoveAt(index);                                    
+                                    Monster._Actions.Insert(index, loadAttack.NewAttack);
+
+                                    index = TraitsList.Items.IndexOf(TraitsList.SelectedItem);
+                                    TraitsList.Items.RemoveAt(index);
+                                    TraitsList.Items.Insert(index, "Action: " + loadAttack.NewAttack.Title);
                                 };
                                 return;
                             }
@@ -403,10 +407,13 @@ namespace DND_Monster
 
                                 loadAttack.FormClosing += (senderx, ex) =>
                                 {
-                                    Monster._Actions.Remove(attack);
-                                    Monster._Actions.Add(loadAttack.NewAbility);
-                                    TraitsList.Items.Remove(TraitsList.SelectedItem);
-                                    TraitsList.Items.Add("Action: " + loadAttack.NewAbility.Title);
+                                    int index = Monster._Actions.IndexOf(attack);
+                                    Monster._Actions.RemoveAt(index);
+                                    Monster._Actions.Insert(index, loadAttack.NewAbility);
+
+                                    index = TraitsList.Items.IndexOf(TraitsList.SelectedItem);
+                                    TraitsList.Items.RemoveAt(index);
+                                    TraitsList.Items.Insert(index, "Action: " + loadAttack.NewAbility.Title);
                                 };
                                 return;
                             }
@@ -427,10 +434,13 @@ namespace DND_Monster
 
                             loadReaction.FormClosing += (senderx, ex) =>
                             {
-                                Monster._Reactions.Remove(reaction);
-                                Monster._Reactions.Add(loadReaction.NewReaction);
-                                TraitsList.Items.Remove(TraitsList.SelectedItem);
-                                TraitsList.Items.Add("Reaction: " + loadReaction.NewReaction.Title);
+                                int index = Monster._Reactions.IndexOf(reaction);
+                                Monster._Reactions.RemoveAt(index);
+                                Monster._Reactions.Insert(index, loadReaction.NewReaction);
+
+                                index = TraitsList.Items.IndexOf(TraitsList.SelectedItem);
+                                TraitsList.Items.RemoveAt(index);
+                                TraitsList.Items.Insert(index, "Reaction: " + loadReaction.NewReaction.Title);
                             };
                             return;
                         }                        
@@ -457,10 +467,13 @@ namespace DND_Monster
 
                             loadAbility.FormClosing += (senderx, ex) =>
                             {
-                                Monster._Abilities.Remove(ability);
-                                Monster._Abilities.Add(loadAbility.NewAbility);
-                                TraitsList.Items.Remove(TraitsList.SelectedItem);
-                                TraitsList.Items.Add("Ability: " + loadAbility.NewAbility.Title);
+                                int index = Monster._Abilities.IndexOf(ability);
+                                Monster._Abilities.RemoveAt(index);
+                                Monster._Abilities.Insert(index, loadAbility.NewAbility);
+
+                                index = TraitsList.Items.IndexOf(TraitsList.SelectedItem);
+                                TraitsList.Items.RemoveAt(index);
+                                TraitsList.Items.Insert(index, "Ability: " + loadAbility.NewAbility.Title);
                             };
                             return;
                         }
@@ -995,10 +1008,10 @@ namespace DND_Monster
             {
                 if (action.isDamage)
                 {
-                    Attack dimm = (Attack)action;
+                    Attack dimm = action.attack;
 
                     CSVOutput.Append("[" +
-                        "Name=" + dimm.Title + "," +
+                        "Name=" + action.Title + "," +
                         "Type=" + dimm._Attack + "," +
                         "ToHit=" + dimm.Bonus + "," +
                         "Reach=" + dimm.Reach + "," +

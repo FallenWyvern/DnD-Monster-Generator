@@ -26,7 +26,8 @@ namespace DND_Monster
         {            
             if (tabControl1.SelectedIndex == 0)
             {
-                this.NewAttack = new Attack(
+                this.NewAttack = new Ability();
+                this.NewAttack.attack = new Attack(
                     AttackTypeDropdown.Text,
                     AttackBonusUpDown.Value.ToString(),
                     (int)ReachUpDown.Value,
@@ -94,46 +95,46 @@ namespace DND_Monster
         }
 
         // Loads attacks.
-        public void LoadAction(Attack values)
+        public void LoadAttack(Ability values)
         {
-            //NewAbility = null;            
+            NewAttack = values;         
             AttackNameField.Text = values.Title;
 
             foreach (string item in AttackTypeDropdown.Items)
             {
-                if (values._Attack == item)
+                if (values.attack._Attack == item)
                 {
                     AttackTypeDropdown.SelectedItem = item;
                 }
             }
 
-            AttackBonusUpDown.Value = Convert.ToInt32(values.Bonus);
+            AttackBonusUpDown.Value = Convert.ToInt32(values.attack.Bonus);
 
-            ReachUpDown.Value = values.Reach;
-            RangeUpDownClose.Value = values.RangeClose;
-            RangeUpDownFar.Value = values.RangeFar;
-            AttackTargetField.Text = values.Target;
+            ReachUpDown.Value = values.attack.Reach;
+            RangeUpDownClose.Value = values.attack.RangeClose;
+            RangeUpDownFar.Value = values.attack.RangeFar;
+            AttackTargetField.Text = values.attack.Target;
 
             foreach (string item in HitDiceType.Items)
             {
-                if (item.Split('d')[1].Contains(values.HitDiceSize.ToString()))
+                if (item.Split('d')[1].Contains(values.attack.HitDiceSize.ToString()))
                 {
                     HitDiceType.SelectedItem = item;
                 }
             }
 
-            HitNumberOfDice.Value = values.HitDiceNumber;
-            HitDiceBonusDamage.Value = values.HitDamageBonus;
+            HitNumberOfDice.Value = values.attack.HitDiceNumber;
+            HitDiceBonusDamage.Value = values.attack.HitDamageBonus;
 
             foreach (string item in HitDamageType.Items)
             {
-                if (item.Contains(values.HitDamageType))
+                if (item.Contains(values.attack.HitDamageType))
                 {
                     HitDamageType.SelectedItem = item;
                 }
             }
 
-            HitDamageEffect.Text = values.HitText;
+            HitDamageEffect.Text = values.attack.HitText;
 
             NewAttack = values;
             NewAttack.isDamage = true;
@@ -156,17 +157,23 @@ namespace DND_Monster
         {
             switch (AttackTypeDropdown.SelectedIndex)
             {
+                // Melee
                 case 0:
                     RangeUpDownClose.Value = 0;
                     RangeUpDownFar.Value = 0;
+                    ReachUpDown.Value = 5;
                     break;
+                // Ranged
                 case 1:
                     RangeUpDownClose.Value = 5;
                     RangeUpDownFar.Value = 5;
+                    ReachUpDown.Value = 0;
                     break;
+                // Both
                 case 2:
                     RangeUpDownClose.Value = 0;
                     RangeUpDownFar.Value = 0;
+                    ReachUpDown.Value = 5;
                     break;
             }
         }

@@ -481,7 +481,15 @@ namespace DND_Monster
             {                                
                     output.Add(@"<property-block>");
                     output.Add(@"<h4>" + ability.ProperName() + ".</h4>");
-                    output.Add(@"<p>" + ability.Description + "</p>");
+                    Console.WriteLine(ability.ProperName() + " " + ability.isDamage);
+                    if (ability.isDamage) 
+                    {
+                        output.Add(@"<p>" + ability.attack.Describe()+ "</p>");
+                    }
+                    else
+                    {
+                        output.Add(@"<p>" + ability.Description + "</p>");
+                    }
                     output.Add(@"</property-block>");                
             }            
 

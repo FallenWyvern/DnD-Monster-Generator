@@ -120,6 +120,7 @@ namespace DND_Monster
         public string Description { get; set; }        
         public bool isDamage { get; set; }
         public bool isSpell { get; set; }
+        public Attack attack { get; set; }
 
         public string ProperName()
         {
@@ -252,11 +253,11 @@ namespace DND_Monster
             } 
 
             return returnstring;
-        }
+        }        
     }
 
     // Attack
-    public class Attack : Ability
+    public class Attack 
     {
         public string _Attack { get; set; }
         public string Bonus { get; set; }
@@ -270,6 +271,12 @@ namespace DND_Monster
         public int HitAverageDamage { get; set; }
         public string HitText { get; set; }
         public string HitDamageType { get; set; }
+        public string Description { get; set; }
+
+        public Attack()
+        {
+
+        }
 
         public Attack(string attack, string bonus, int reach, int rangeClose, int rangeFar, string target, int hitAverageDamage, int hitDiceNumber, int hitDiceSize, int hitDamageBonus, string damageType, string hit)
         {
