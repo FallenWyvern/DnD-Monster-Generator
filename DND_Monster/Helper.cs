@@ -325,13 +325,20 @@ namespace DND_Monster
                     returnstring += ".";
                 }
             }
-                
-            returnstring += " <i>Hit:</i> " + HitAverageDamage + " (" + HitDiceNumber + "d" + HitDiceSize;
-            if (HitDamageBonus > -1)
+
+            returnstring += " <i>Hit:</i> ";
+
+            if (HitDiceNumber > 0)
             {
-                returnstring += "+";
+                returnstring += HitAverageDamage + " (" + HitDiceNumber + "d" + HitDiceSize;
+                if (HitDamageBonus > -1)
+                {
+                    returnstring += "+";
+                }
+                returnstring += HitDamageBonus + ") " + HitDamageType.ToLower() + " damage. ";
             }
-            returnstring += HitDamageBonus + ") " + HitDamageType.ToLower() + " damage. " + HitText;
+
+            returnstring += HitText;
 
             return returnstring;
         }
@@ -346,7 +353,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "2.0";
+        public static string Version = "2.1";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = @"C:\";
 
