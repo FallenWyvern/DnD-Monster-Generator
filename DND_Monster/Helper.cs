@@ -317,9 +317,13 @@ namespace DND_Monster
             }
 
             returnstring += Target;
-            if (Target[Target.Length - 1] != '.')
+
+            if (!String.IsNullOrEmpty(Target) || !String.IsNullOrWhiteSpace(Target))
             {
-                returnstring += ".";                
+                if (Target[Target.Length - 1] != '.')
+                {
+                    returnstring += ".";
+                }
             }
                 
             returnstring += " <i>Hit:</i> " + HitAverageDamage + " (" + HitDiceNumber + "d" + HitDiceSize;
