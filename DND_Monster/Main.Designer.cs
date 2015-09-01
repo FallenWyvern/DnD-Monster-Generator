@@ -933,7 +933,7 @@
             "",
             "Blinded",
             "Charmed",
-            "Deafended",
+            "Deafened",
             "Encumbered",
             "Exhaustion",
             "Frightened",
