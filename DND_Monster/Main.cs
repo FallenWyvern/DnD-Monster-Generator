@@ -337,156 +337,155 @@ namespace DND_Monster
         /* Edits selected item in the TraitList. If it's an Ability/Attack,
         Open the appropriate window and load that data. */
         private void editTrait(object sender, MouseEventArgs e)
-        {            
-            if (e.Button == System.Windows.Forms.MouseButtons.Right || sender.GetType() == typeof(Button))
-            {
-                if (TraitsList.SelectedItem == null) return;
+        {                        
+            if (TraitsList.SelectedItem == null) return;
                 
-                if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Legendary")
-                {
-                    AddLegendaryForm loadLegendary = new AddLegendaryForm();
+            if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Legendary")
+            {
+                AddLegendaryForm loadLegendary = new AddLegendaryForm();
                     
-                    foreach (Legendary legendary in Monster._Legendaries)
+                foreach (Legendary legendary in Monster._Legendaries)
+                {
+                    if (legendary.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
                     {
-                        if (legendary.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
-                        {
-                            loadLegendary.LoadLegendary(legendary);
-                            loadLegendary.Show();
+                        loadLegendary.LoadLegendary(legendary);
+                        loadLegendary.Show();
 
-                            loadLegendary.FormClosing += (senderx, ex) =>
+                        loadLegendary.FormClosing += (senderx, ex) =>
+                        {
+                            loadLegendary.SerializeTraits();
+                            int index = Monster._Legendaries.IndexOf(legendary);
+                            Monster._Legendaries.RemoveAt(index);
+                            Monster._Legendaries.Insert(index, loadLegendary.LegendaryAbility);
+
+                            index = TraitsList.Items.IndexOf(TraitsList.SelectedItem);
+                            TraitsList.Items.RemoveAt(index);
+                            TraitsList.Items.Insert(index, "Legendary: " + loadLegendary.LegendaryAbility.Title);
+                        };
+                        return;
+                    }
+                }
+            }
+
+            if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Action")
+            {
+                AddActionForm loadAttack = new AddActionForm();
+
+                foreach (Ability attack in Monster._Actions)
+                {
+                    if (attack.isDamage)
+                    {
+                        if (attack.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
+                        {
+                            loadAttack.LoadAttack(attack);                                
+                            loadAttack.Show();
+
+                            loadAttack.FormClosing += (senderx, ex) =>
                             {
-                                loadLegendary.SerializeTraits();
-                                int index = Monster._Legendaries.IndexOf(legendary);
-                                Monster._Legendaries.RemoveAt(index);
-                                Monster._Legendaries.Insert(index, loadLegendary.LegendaryAbility);
+                                int index = Monster._Actions.IndexOf(attack);
+                                Monster._Actions.RemoveAt(index);                                    
+                                Monster._Actions.Insert(index, loadAttack.NewAttack);
 
                                 index = TraitsList.Items.IndexOf(TraitsList.SelectedItem);
                                 TraitsList.Items.RemoveAt(index);
-                                TraitsList.Items.Insert(index, "Legendary: " + loadLegendary.LegendaryAbility.Title);
+                                TraitsList.Items.Insert(index, "Action: " + loadAttack.NewAttack.Title);
                             };
                             return;
                         }
                     }
-                }
 
-                if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Action")
-                {
-                    AddActionForm loadAttack = new AddActionForm();
-
-                    foreach (Ability attack in Monster._Actions)
+                    if (!attack.isDamage)
                     {
-                        if (attack.isDamage)
+                        if (attack.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
                         {
-                            if (attack.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
+                            loadAttack.LoadAction((Ability)attack);
+                            loadAttack.Show();
+
+                            loadAttack.FormClosing += (senderx, ex) =>
                             {
-                                loadAttack.LoadAttack(attack);                                
-                                loadAttack.Show();
-
-                                loadAttack.FormClosing += (senderx, ex) =>
-                                {
-                                    int index = Monster._Actions.IndexOf(attack);
-                                    Monster._Actions.RemoveAt(index);                                    
-                                    Monster._Actions.Insert(index, loadAttack.NewAttack);
-
-                                    index = TraitsList.Items.IndexOf(TraitsList.SelectedItem);
-                                    TraitsList.Items.RemoveAt(index);
-                                    TraitsList.Items.Insert(index, "Action: " + loadAttack.NewAttack.Title);
-                                };
-                                return;
-                            }
-                        }
-
-                        if (!attack.isDamage)
-                        {
-                            if (attack.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
-                            {
-                                loadAttack.LoadAction((Ability)attack);
-                                loadAttack.Show();
-
-                                loadAttack.FormClosing += (senderx, ex) =>
-                                {
-                                    int index = Monster._Actions.IndexOf(attack);
-                                    Monster._Actions.RemoveAt(index);
-                                    Monster._Actions.Insert(index, loadAttack.NewAbility);
-
-                                    index = TraitsList.Items.IndexOf(TraitsList.SelectedItem);
-                                    TraitsList.Items.RemoveAt(index);
-                                    TraitsList.Items.Insert(index, "Action: " + loadAttack.NewAbility.Title);
-                                };
-                                return;
-                            }
-                        }
-                    }
-                }
-
-                if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Reaction")
-                {
-                    AddActionForm loadReaction = new AddActionForm();
-
-                    foreach (Ability reaction in Monster._Reactions)
-                    {
-                        if (reaction.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
-                        {
-                            loadReaction.LoadReaction(reaction);
-                            loadReaction.Show();
-
-                            loadReaction.FormClosing += (senderx, ex) =>
-                            {
-                                int index = Monster._Reactions.IndexOf(reaction);
-                                Monster._Reactions.RemoveAt(index);
-                                Monster._Reactions.Insert(index, loadReaction.NewReaction);
+                                int index = Monster._Actions.IndexOf(attack);
+                                Monster._Actions.RemoveAt(index);
+                                Monster._Actions.Insert(index, loadAttack.NewAbility);
 
                                 index = TraitsList.Items.IndexOf(TraitsList.SelectedItem);
                                 TraitsList.Items.RemoveAt(index);
-                                TraitsList.Items.Insert(index, "Reaction: " + loadReaction.NewReaction.Title);
-                            };
-                            return;
-                        }                        
-                    }
-                }
-
-                if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Ability")
-                {                    
-                    AddAbilityForm loadAbility = new AddAbilityForm();
-
-                    foreach (Ability ability in Monster._Abilities)
-                    {
-                        if (ability.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
-                        {
-                            if (ability.isSpell)
-                            {
-                                loadAbility.LoadSpell(ability);
-                            }
-                            else
-                            {
-                                loadAbility.LoadAbility(ability);
-                            }
-                            loadAbility.Show();
-
-                            loadAbility.FormClosing += (senderx, ex) =>
-                            {
-                                int index = Monster._Abilities.IndexOf(ability);
-                                Monster._Abilities.RemoveAt(index);
-                                Monster._Abilities.Insert(index, loadAbility.NewAbility);
-
-                                index = TraitsList.Items.IndexOf(TraitsList.SelectedItem);
-                                TraitsList.Items.RemoveAt(index);
-                                TraitsList.Items.Insert(index, "Ability: " + loadAbility.NewAbility.Title);
+                                TraitsList.Items.Insert(index, "Action: " + loadAttack.NewAbility.Title);
                             };
                             return;
                         }
                     }
                 }
             }
-        }                
+
+            if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Reaction")
+            {
+                AddActionForm loadReaction = new AddActionForm();
+
+                foreach (Ability reaction in Monster._Reactions)
+                {
+                    if (reaction.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
+                    {
+                        loadReaction.LoadReaction(reaction);
+                        loadReaction.Show();
+
+                        loadReaction.FormClosing += (senderx, ex) =>
+                        {
+                            int index = Monster._Reactions.IndexOf(reaction);
+                            Monster._Reactions.RemoveAt(index);
+                            Monster._Reactions.Insert(index, loadReaction.NewReaction);
+
+                            index = TraitsList.Items.IndexOf(TraitsList.SelectedItem);
+                            TraitsList.Items.RemoveAt(index);
+                            TraitsList.Items.Insert(index, "Reaction: " + loadReaction.NewReaction.Title);
+                        };
+                        return;
+                    }                        
+                }
+            }
+
+            if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Ability")
+            {
+                AddAbilityForm loadAbility = new AddAbilityForm();
+
+                foreach (Ability ability in Monster._Abilities)
+                {
+                    if (ability.Title == TraitsList.SelectedItem.ToString().Split(':')[1].Trim())
+                    {
+                        if (ability.isSpell)
+                        {
+                            loadAbility.LoadSpell(ability);
+                        }
+                        else
+                        {
+                            loadAbility.LoadAbility(ability);
+                        }
+                        loadAbility.Show();
+
+                        loadAbility.FormClosing += (senderx, ex) =>
+                        {
+                            int index = Monster._Abilities.IndexOf(ability);
+                            Monster._Abilities.RemoveAt(index);
+                            Monster._Abilities.Insert(index, loadAbility.NewAbility);
+
+                            index = TraitsList.Items.IndexOf(TraitsList.SelectedItem);
+                            TraitsList.Items.RemoveAt(index);
+                            TraitsList.Items.Insert(index, "Ability: " + loadAbility.NewAbility.Title);
+                        };
+                        return;
+                    }
+                }
+            }
+        }                        
 
         /* Removes trait from the traitlist. If it's an attack, 
         ability or legendary also remove it from the monster. */
         private void deleteTrait(object sender, MouseEventArgs e)
         {            
-            if (e.Button == System.Windows.Forms.MouseButtons.Left || sender.GetType() == typeof(Button))
+            if (e.Button == System.Windows.Forms.MouseButtons.Right || sender.GetType() == typeof(Button))
             {
                 if (TraitsList.Items.Count < 1 || TraitsList.SelectedItem == null) return;
+                if (MessageBox.Show("Are you sure you wish to delete the selected item?", "Confirmation", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No) { return; }
+
                 if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Ability")
                 {                    
                     Ability temp = null;
@@ -1563,10 +1562,10 @@ namespace DND_Monster
         // Pop up text changes to traitslist help.
         private void TraitsListHoverHelp(object sender, EventArgs e)
         {
-            TraitsListPopUp.SetToolTip(label1, "Double Click to Remove Items" + Environment.NewLine +
-                                                "Right Click to Load Items" + Environment.NewLine +
-                                                "Hover to Select and Inspect Items" + Environment.NewLine +
-                                                "Use Up/Down Keys to Sort");
+            TraitsListPopUp.SetToolTip(label1, "Right Click to Remove Items" + Environment.NewLine +
+                                               "Double Click to Edit Items" + Environment.NewLine +
+                                               "Hover to Select and Inspect Items" + Environment.NewLine +
+                                               "Use Up/Down Keys to Sort");
         }
 
         // Allows for customized speeds

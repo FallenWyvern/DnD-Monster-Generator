@@ -133,6 +133,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.MoveTraitDownButton = new System.Windows.Forms.Button();
+            this.MoveTraitUpButton = new System.Windows.Forms.Button();
+            this.DeleteTraitButton = new System.Windows.Forms.Button();
+            this.EditTraitButton = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.DamageModificationType = new System.Windows.Forms.ComboBox();
@@ -147,10 +151,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.TraitException = new System.Windows.Forms.TextBox();
-            this.EditTraitButton = new System.Windows.Forms.Button();
-            this.DeleteTraitButton = new System.Windows.Forms.Button();
-            this.MoveTraitDownButton = new System.Windows.Forms.Button();
-            this.MoveTraitUpButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StrUpDown)).BeginInit();
@@ -985,8 +985,8 @@
             this.TraitsList.Size = new System.Drawing.Size(223, 238);
             this.TraitsList.TabIndex = 55;
             this.TraitsList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TraitsList_KeyDown);
-            this.TraitsList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.deleteTrait);
-            this.TraitsList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.editTrait);
+            this.TraitsList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.editTrait);
+            this.TraitsList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.deleteTrait);
             this.TraitsList.MouseHover += new System.EventHandler(this.TraitsList_MouseHover);
             // 
             // SensesDropDown
@@ -1545,6 +1545,48 @@
             this.panel2.TabIndex = 103;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // MoveTraitDownButton
+            // 
+            this.MoveTraitDownButton.BackgroundImage = global::DND_Monster.Properties.Resources.DownArrow;
+            this.MoveTraitDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MoveTraitDownButton.Location = new System.Drawing.Point(495, 268);
+            this.MoveTraitDownButton.Name = "MoveTraitDownButton";
+            this.MoveTraitDownButton.Size = new System.Drawing.Size(52, 23);
+            this.MoveTraitDownButton.TabIndex = 116;
+            this.MoveTraitDownButton.UseVisualStyleBackColor = true;
+            this.MoveTraitDownButton.Click += new System.EventHandler(this.MoveTraitDownButton_Click);
+            // 
+            // MoveTraitUpButton
+            // 
+            this.MoveTraitUpButton.BackgroundImage = global::DND_Monster.Properties.Resources.UpArrow;
+            this.MoveTraitUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MoveTraitUpButton.Location = new System.Drawing.Point(441, 268);
+            this.MoveTraitUpButton.Name = "MoveTraitUpButton";
+            this.MoveTraitUpButton.Size = new System.Drawing.Size(52, 23);
+            this.MoveTraitUpButton.TabIndex = 115;
+            this.MoveTraitUpButton.UseVisualStyleBackColor = true;
+            this.MoveTraitUpButton.Click += new System.EventHandler(this.MoveTraitUpButton_Click);
+            // 
+            // DeleteTraitButton
+            // 
+            this.DeleteTraitButton.Location = new System.Drawing.Point(383, 268);
+            this.DeleteTraitButton.Name = "DeleteTraitButton";
+            this.DeleteTraitButton.Size = new System.Drawing.Size(52, 23);
+            this.DeleteTraitButton.TabIndex = 114;
+            this.DeleteTraitButton.Text = "Delete";
+            this.DeleteTraitButton.UseVisualStyleBackColor = true;
+            this.DeleteTraitButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.deleteTrait);
+            // 
+            // EditTraitButton
+            // 
+            this.EditTraitButton.Location = new System.Drawing.Point(328, 268);
+            this.EditTraitButton.Name = "EditTraitButton";
+            this.EditTraitButton.Size = new System.Drawing.Size(52, 23);
+            this.EditTraitButton.TabIndex = 103;
+            this.EditTraitButton.Text = "Edit";
+            this.EditTraitButton.UseVisualStyleBackColor = true;
+            this.EditTraitButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.editTrait);
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -1676,48 +1718,6 @@
             this.TraitException.Name = "TraitException";
             this.TraitException.Size = new System.Drawing.Size(171, 20);
             this.TraitException.TabIndex = 100;
-            // 
-            // EditTraitButton
-            // 
-            this.EditTraitButton.Location = new System.Drawing.Point(328, 268);
-            this.EditTraitButton.Name = "EditTraitButton";
-            this.EditTraitButton.Size = new System.Drawing.Size(52, 23);
-            this.EditTraitButton.TabIndex = 103;
-            this.EditTraitButton.Text = "Edit";
-            this.EditTraitButton.UseVisualStyleBackColor = true;
-            this.EditTraitButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.editTrait);
-            // 
-            // DeleteTraitButton
-            // 
-            this.DeleteTraitButton.Location = new System.Drawing.Point(383, 268);
-            this.DeleteTraitButton.Name = "DeleteTraitButton";
-            this.DeleteTraitButton.Size = new System.Drawing.Size(52, 23);
-            this.DeleteTraitButton.TabIndex = 114;
-            this.DeleteTraitButton.Text = "Delete";
-            this.DeleteTraitButton.UseVisualStyleBackColor = true;
-            this.DeleteTraitButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.deleteTrait);
-            // 
-            // MoveTraitDownButton
-            // 
-            this.MoveTraitDownButton.BackgroundImage = global::DND_Monster.Properties.Resources.DownArrow;
-            this.MoveTraitDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MoveTraitDownButton.Location = new System.Drawing.Point(495, 268);
-            this.MoveTraitDownButton.Name = "MoveTraitDownButton";
-            this.MoveTraitDownButton.Size = new System.Drawing.Size(52, 23);
-            this.MoveTraitDownButton.TabIndex = 116;
-            this.MoveTraitDownButton.UseVisualStyleBackColor = true;
-            this.MoveTraitDownButton.Click += new System.EventHandler(this.MoveTraitDownButton_Click);
-            // 
-            // MoveTraitUpButton
-            // 
-            this.MoveTraitUpButton.BackgroundImage = global::DND_Monster.Properties.Resources.UpArrow;
-            this.MoveTraitUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MoveTraitUpButton.Location = new System.Drawing.Point(441, 268);
-            this.MoveTraitUpButton.Name = "MoveTraitUpButton";
-            this.MoveTraitUpButton.Size = new System.Drawing.Size(52, 23);
-            this.MoveTraitUpButton.TabIndex = 115;
-            this.MoveTraitUpButton.UseVisualStyleBackColor = true;
-            this.MoveTraitUpButton.Click += new System.EventHandler(this.MoveTraitUpButton_Click);
             // 
             // Main
             // 
