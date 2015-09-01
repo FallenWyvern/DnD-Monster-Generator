@@ -79,9 +79,8 @@ namespace DND_Monster
             statModList.Add(ChaBonus);
             statModList.Add(WisBonus);
 
-            AddVulnerabilityButton.Click += addCondition;
-            AddResistanceButton.Click += addCondition;
-            AddImmunityButton.Click += addCondition;
+            AddVulnerabilityButton.Click += addCondition;            
+            DamageModificationType.SelectedIndex = 0;
 
             TraitsList.Sorted = true;
 
@@ -293,11 +292,10 @@ namespace DND_Monster
         // Adds Condition Resistance, Immunity, Vulerability to TraitList
         private void addCondition(object sender, EventArgs e)
         {
-            var temp = (Button)sender;
-            string tag = temp.Tag.ToString().ToLower();
+            string tag = DamageModificationType.Items[DamageModificationType.SelectedIndex].ToString();
             string addString = "";
-
-            if (DamageConditionDropDown.SelectedIndex > 13 && tag != "addi")
+            
+            if (DamageConditionDropDown.SelectedIndex > 13 && tag != "Immunity")
             {
                 return;
             }
@@ -313,15 +311,15 @@ namespace DND_Monster
 
             switch (tag)
             {
-                case "addi":
+                case "Immunity":
                     // Immunity
                     addString += " Immunity: ";
                     break;
-                case "addr":
+                case "Resistance":
                     // Resistance
                     addString += " Resistance: ";
                     break;
-                case "addv":
+                case "Vulnerability":
                     // Vulnerability
                     addString += " Vulnerability: ";
                     break;
@@ -340,7 +338,7 @@ namespace DND_Monster
         Open the appropriate window and load that data. */
         private void editTrait(object sender, MouseEventArgs e)
         {            
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            if (e.Button == System.Windows.Forms.MouseButtons.Right || sender.GetType() == typeof(Button))
             {
                 if (TraitsList.SelectedItem == null) return;
                 
@@ -486,7 +484,7 @@ namespace DND_Monster
         ability or legendary also remove it from the monster. */
         private void deleteTrait(object sender, MouseEventArgs e)
         {            
-            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            if (e.Button == System.Windows.Forms.MouseButtons.Left || sender.GetType() == typeof(Button))
             {
                 if (TraitsList.Items.Count < 1 || TraitsList.SelectedItem == null) return;
                 if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Ability")
@@ -1677,6 +1675,21 @@ namespace DND_Monster
         private void MonsterName_MouseHover(object sender, EventArgs e)
         {
             TraitsListPopUp.SetToolTip(MonsterName, "If you use a * in the monster name, it becomes a proper name.");
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MoveTraitUpButton_Click(object sender, EventArgs e)
+        {
+            MoveItem(-1, TraitsList);
+        }
+
+        private void MoveTraitDownButton_Click(object sender, EventArgs e)
+        {
+            MoveItem(1, TraitsList);
         }
     }
 }
