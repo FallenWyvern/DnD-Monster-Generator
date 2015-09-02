@@ -27,7 +27,9 @@ namespace DND_Monster
 
         public Main()
         {
-            InitializeComponent();           
+            InitializeComponent();
+            AddSaved.Visible = false;
+            AddSaved.Enabled = false;
         }
 
         private void CefStartup()
@@ -1738,6 +1740,11 @@ namespace DND_Monster
             Previs();
             System.Windows.Forms.Clipboard.SetText(redditOutput.Text);
             MessageBox.Show("Copied to clipboard. Ready to paste to Reddit.");
+        }
+
+        private void AddSaved_Click(object sender, EventArgs e)
+        {
+            new AddSavedTrait().Show();
         }
     }
 }

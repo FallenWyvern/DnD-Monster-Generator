@@ -499,7 +499,7 @@ namespace DND_Monster
                     Console.WriteLine(ability.ProperName() + " " + ability.isDamage);
                     if (ability.isDamage) 
                     {
-                        output.Add(@"<p>" + ability.attack.Describe()+ "</p>");
+                        output.Add(@"<p>" + ability.attack.WebDescribe()+ "</p>");
                     }
                     else
                     {
@@ -508,8 +508,7 @@ namespace DND_Monster
                         foreach (string abilityWord in ability.Description.Split(' '))
                         {
                             if (!abilityWord.Contains('\n'))
-                            {
-                                Console.WriteLine("Adding " + abilityWord);                                
+                            {                                
                                 abilityDescription += abilityWord + " ";
                             }
                             else

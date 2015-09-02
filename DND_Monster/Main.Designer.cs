@@ -134,6 +134,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.AddSaved = new System.Windows.Forms.Button();
             this.MoveTraitDownButton = new System.Windows.Forms.Button();
             this.MoveTraitUpButton = new System.Windows.Forms.Button();
             this.DeleteTraitButton = new System.Windows.Forms.Button();
@@ -1062,7 +1063,7 @@
             // 
             // AddAbilityButton
             // 
-            this.AddAbilityButton.Location = new System.Drawing.Point(477, 338);
+            this.AddAbilityButton.Location = new System.Drawing.Point(474, 325);
             this.AddAbilityButton.Name = "AddAbilityButton";
             this.AddAbilityButton.Size = new System.Drawing.Size(88, 23);
             this.AddAbilityButton.TabIndex = 46;
@@ -1072,7 +1073,7 @@
             // 
             // AddActionButton
             // 
-            this.AddActionButton.Location = new System.Drawing.Point(477, 364);
+            this.AddActionButton.Location = new System.Drawing.Point(474, 351);
             this.AddActionButton.Name = "AddActionButton";
             this.AddActionButton.Size = new System.Drawing.Size(88, 23);
             this.AddActionButton.TabIndex = 47;
@@ -1425,7 +1426,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(477, 393);
+            this.button2.Location = new System.Drawing.Point(474, 380);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(88, 23);
             this.button2.TabIndex = 48;
@@ -1450,6 +1451,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.AddSaved);
             this.panel2.Controls.Add(this.MoveTraitDownButton);
             this.panel2.Controls.Add(this.MoveTraitUpButton);
             this.panel2.Controls.Add(this.DeleteTraitButton);
@@ -1563,6 +1565,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(569, 690);
             this.panel2.TabIndex = 103;
+            // 
+            // AddSaved
+            // 
+            this.AddSaved.Location = new System.Drawing.Point(474, 409);
+            this.AddSaved.Name = "AddSaved";
+            this.AddSaved.Size = new System.Drawing.Size(88, 23);
+            this.AddSaved.TabIndex = 117;
+            this.AddSaved.Text = "Add Saved";
+            this.AddSaved.UseVisualStyleBackColor = true;
+            this.AddSaved.Click += new System.EventHandler(this.AddSaved_Click);
             // 
             // MoveTraitDownButton
             // 
@@ -1907,6 +1919,7 @@
         private System.Windows.Forms.Button DeleteTraitButton;
         private System.Windows.Forms.Button EditTraitButton;
         private System.Windows.Forms.Button ExportReddit;
+        private System.Windows.Forms.Button AddSaved;
     }
 }
 

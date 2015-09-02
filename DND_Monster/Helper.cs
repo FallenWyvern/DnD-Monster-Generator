@@ -203,7 +203,7 @@ namespace DND_Monster
             {
                 if (i > 0 && Convert.ToInt16(spellSlots.Split(',')[i - 1]) == 0)
                 {
-                    Console.WriteLine("There are " + i + " level spells"); i = 10; break; 
+                    i = 10; break; 
                 }                
 
                 if (i == 0)
@@ -237,8 +237,7 @@ namespace DND_Monster
 
                 bool addedData = false;
                 foreach (string item in spells)
-                {
-                    Console.WriteLine("ITEM: " + item);
+                {                    
                     if (item.Contains(i + ":"))
                     {
                         if (!String.IsNullOrEmpty(item) || !String.IsNullOrWhiteSpace(item))
@@ -398,8 +397,7 @@ namespace DND_Monster
         public int HitAverageDamage { get; set; }
         public string HitText { get; set; }
         public string HitDamageType { get; set; }
-        public string Description { get; set; }
-
+        
         public Attack()
         {
 
@@ -418,11 +416,10 @@ namespace DND_Monster
             HitDiceSize = hitDiceSize;
             HitDamageBonus = hitDamageBonus;
             HitDamageType = damageType;
-            HitText = hit;
-            Description = Describe();
+            HitText = hit;            
         }
 
-        public string Describe()
+        public string WebDescribe()
         {
             string returnstring = "<i>";
             returnstring += _Attack + ": </i>+";
@@ -469,6 +466,53 @@ namespace DND_Monster
 
             return returnstring;
         }
+        public string TextDescribe()
+        {
+            string returnstring = "*";
+            returnstring += _Attack + ":* +";
+            returnstring += Bonus + ", ";
+
+            if (Reach > 0)
+            {
+                returnstring += "Reach: " + Reach + " ft., ";
+            }
+
+            if (RangeClose > 0)
+            {
+                returnstring += "Range: " + RangeClose;
+                if (RangeFar > 0)
+                {
+                    returnstring += "/" + RangeFar;
+                }
+                returnstring += " ft., ";
+            }
+
+            returnstring += Target;
+
+            if (!String.IsNullOrEmpty(Target) || !String.IsNullOrWhiteSpace(Target))
+            {
+                if (Target[Target.Length - 1] != '.')
+                {
+                    returnstring += ".";
+                }
+            }
+
+            returnstring += " *Hit:* ";
+
+            if (HitDiceNumber > 0)
+            {
+                returnstring += HitAverageDamage + " (" + HitDiceNumber + "d" + HitDiceSize;
+                if (HitDamageBonus > -1)
+                {
+                    returnstring += "+";
+                }
+                returnstring += HitDamageBonus + ") " + HitDamageType.ToLower() + " damage. ";
+            }
+
+            returnstring += HitText;
+
+            return returnstring;
+        }
     }
 
     // Reaction
@@ -480,7 +524,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "2.2.1";
+        public static string Version = "2.3.1";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = @"C:\";
 

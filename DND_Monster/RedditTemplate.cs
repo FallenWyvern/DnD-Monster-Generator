@@ -78,6 +78,10 @@ namespace DND_Monster
                 {
                     RedditMonster += Bold(action.ProperName(), action.Description);
                 }
+                else
+                {
+                    RedditMonster += Bold(action.ProperName(), action.attack.TextDescribe());
+                }
             }
 
             RedditMonster += HR();
