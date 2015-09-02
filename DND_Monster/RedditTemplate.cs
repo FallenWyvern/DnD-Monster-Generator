@@ -12,6 +12,7 @@ namespace DND_Monster
 
         public static string RedditOutput()
         {
+            RedditMonster = "";
             RedditMonster += Bold(CreatureName.Replace('*', ' ').Trim());
             RedditMonster += Italic(CreatureSize + " " + CreatureType.ToLower() + ", " + CreatureAlign.ToLower());
             RedditMonster += HR();
@@ -21,86 +22,130 @@ namespace DND_Monster
             RedditMonster += HR();
             RedditMonster += NonSpace("STR | DEX | CON | INT | WIS | CHA");
             RedditMonster += NonSpace(":-:|:-:|:-:|:-:|:-:|:-:|");
-            RedditMonster += NonSpace(STR + "|" + DEX + "|" + CON + "|" + INT + "|" + WIS + "|" + CHA);
+            RedditMonster += NonSpace(STR + " (" + StatMod(STR)  + ")|"
+                + DEX + " (" + StatMod(DEX) + ")|"
+                + CON + " (" + StatMod(CON) + ")|"
+                + INT + " (" + StatMod(INT) + ")|"
+                + WIS + " (" + StatMod(WIS) + ")|"
+                + CHA + " (" + StatMod(CHA) + ")|");
             RedditMonster += HR();
-            RedditMonster += Bold("Saving Throws", SavingThrows());
-            RedditMonster += Bold("Skills", Skills());
-            RedditMonster += Bold("Damage Immunities", D_Immunities());
-            RedditMonster += Bold("Damage Resistances", D_Resistances());
-            RedditMonster += Bold("Damage Vulnerabilities", D_Vulnerabilities());
-            RedditMonster += Bold("Condition Immunities", C_Immunities());
-            RedditMonster += Bold("Senses", Senses());
+            if (SavingThrows().Length > 0)
+            {
+                RedditMonster += Bold("Saving Throws", SavingThrows());
+            }
+
+            if (Skills().Length > 0)
+            {
+                RedditMonster += Bold("Skills", Skills());
+            }
+
+            if (D_Immunities().Length > 0)
+            {
+                RedditMonster += Bold("Damage Immunities", D_Immunities());
+            }
+
+            if (D_Resistances().Length > 0)
+            {
+                RedditMonster += Bold("Damage Resistances", D_Resistances());
+            }
+
+            if (D_Vulnerabilities().Length > 0)
+            {
+                RedditMonster += Bold("Damage Vulnerabilities", D_Vulnerabilities());
+            }
+
+            if (C_Immunities().Length > 0)
+            {
+                RedditMonster += Bold("Condition Immunities", C_Immunities());
+            }
+
+            if (Senses().Length > 0)
+            {
+                RedditMonster += Bold("Senses", Senses());
+            }
+
             RedditMonster += Bold("Languages", Languages());
             RedditMonster += Bold("Challenge", CR.CR + " (" + CR.XP + " XP)");
             RedditMonster += HR();
 
-            foreach (Ability ability in _Abilities)
+            if (_Abilities.Count > 0)
             {
-                // Non Spells
-                #region
-                if (!ability.isSpell)
+                foreach (Ability ability in _Abilities)
                 {
-                    string abilityDescription = "";
-
-                    foreach (string abilityWord in ability.Description.Split(' '))
+                    // Non Spells
+                    #region
+                    if (!ability.isSpell)
                     {
-                        if (!abilityWord.Contains('\n'))
+                        string abilityDescription = "";
+
+                        foreach (string abilityWord in ability.Description.Split(' '))
                         {
-                            abilityDescription += abilityWord + " ";
+                            if (!abilityWord.Contains('\n'))
+                            {
+                                abilityDescription += abilityWord + " ";
+                            }
+                            else
+                            {
+                                string breakString = Environment.NewLine + "        ";
+                                abilityDescription += abilityWord.Replace('\n'.ToString(), breakString) + " ";
+                            }
                         }
-                        else
-                        {
-                            string breakString = Environment.NewLine + "        ";
-                            abilityDescription += abilityWord.Replace('\n'.ToString(), breakString) + " ";
-                        }
+                        RedditMonster += Bold(ability.ProperName() + ".", abilityDescription);
                     }
-                    RedditMonster += Bold(ability.ProperName(), abilityDescription);
-                }
-                #endregion
+                    #endregion
 
-                // Spells
-                #region
-                if (ability.isSpell)
-                {
-                    RedditMonster += Bold("Spellcasting", ability.TextSpellcasterBoilerplate(CreatureName));
-                    RedditMonster += ability.TextSpellBlockFormat();
+                    // Spells
+                    #region
+                    if (ability.isSpell)
+                    {
+                        RedditMonster += Bold("Spellcasting.", ability.TextSpellcasterBoilerplate(CreatureName));
+                        RedditMonster += ability.TextSpellBlockFormat();
+                    }
+                    #endregion
                 }
-                #endregion
+                RedditMonster += HR();
             }
 
-            RedditMonster += HR();
-
-            RedditMonster += Bold("--Actions--");
-
-            foreach (Ability action in _Actions)
+            if (_Actions.Count > 0)
             {
-                if (!action.isDamage)
+                RedditMonster += Bold("--Actions--");
+                foreach (Ability action in _Actions)
                 {
-                    RedditMonster += Bold(action.ProperName(), action.Description);
+                    if (!action.isDamage)
+                    {
+                        RedditMonster += Bold(action.ProperName() + ".", action.Description);
+                    }
+                    else
+                    {
+                        RedditMonster += Bold(action.ProperName() + ".", action.attack.TextDescribe());
+                    }
                 }
-                else
-                {
-                    RedditMonster += Bold(action.ProperName(), action.attack.TextDescribe());
-                }
+                RedditMonster += HR();
             }
 
-            RedditMonster += HR();
-            RedditMonster += Bold("--Reactions--");
-
-            foreach (Ability reaction in _Reactions)
+            if (_Reactions.Count > 0)
             {
-                RedditMonster += Bold(reaction.ProperName(), reaction.Description);
+                RedditMonster += Bold("--Reactions--");
+
+                foreach (Ability reaction in _Reactions)
+                {
+                    RedditMonster += Bold(reaction.ProperName() + ".", reaction.Description);
+                }
+
+                RedditMonster += HR();
             }
 
-            RedditMonster += HR();
-            RedditMonster += Bold("--Legendary Action--");
-
-            foreach (Legendary legendary in _Legendaries)
+            if (_Legendaries.Count > 0)
             {
-                RedditMonster += Regular(legendary.WebBoilerplate(CreatureName));
-                foreach (LegendaryTrait trait in legendary.Traits)
+                RedditMonster += Bold("--Legendary Action--");
+
+                foreach (Legendary legendary in _Legendaries)
                 {
-                    RedditMonster += BoldItalic(trait.ProperName(), trait.Ability);
+                    RedditMonster += Regular(legendary.WebBoilerplate(CreatureName));
+                    foreach (LegendaryTrait trait in legendary.Traits)
+                    {
+                        RedditMonster += BoldItalic(trait.ProperName() + ".", trait.Ability);
+                    }
                 }
             }
 
@@ -109,38 +154,38 @@ namespace DND_Monster
 
         public static string Bold(string input)
         {
-            return "**" + input + "** " + Environment.NewLine + Environment.NewLine;
+            return "**" + input + "** " + "  " + Environment.NewLine;
         }
 
         public static string Bold(string input, string nonBold)
         {
-            return "**" + input + "** " + nonBold + Environment.NewLine + Environment.NewLine;
+            return "**" + input + "** " + nonBold + "  " + Environment.NewLine;
         }
 
         public static string Italic(string input)
         {
-            return "*" + input + "* " + Environment.NewLine + Environment.NewLine;
+            return "*" + input + "* " + "  " + Environment.NewLine;
         }
 
         public static string Italic(string input, string nonItalic)
         {
-            return "*" + input + "* " + nonItalic + Environment.NewLine + Environment.NewLine;
+            return "*" + input + "* " + nonItalic + "  " + Environment.NewLine;
         }
 
         public static string BoldItalic(string input)
         {
-            return "***" + input + "*** " + Environment.NewLine + Environment.NewLine;
+            return "***" + input + "*** " + "  " + Environment.NewLine;
         }
 
         public static string BoldItalic(string input, string nonBoldItalic)
         {
-            return "***" + input + "*** " + nonBoldItalic + Environment.NewLine + Environment.NewLine;
+            return "***" + input + "*** " + nonBoldItalic + "  " + Environment.NewLine;
         }
 
 
         public static string Regular(string input)
         {
-            return input + Environment.NewLine + Environment.NewLine;
+            return input + "  " + Environment.NewLine;
         }
 
         public static string NonSpace(string input)
@@ -150,7 +195,23 @@ namespace DND_Monster
 
         public static string HR()
         {
-            return "___" + Environment.NewLine + Environment.NewLine;
+            return "___" + "  " + Environment.NewLine;
+        }
+
+        public static string StatMod(int stat)
+        {
+            string returnMod = "";
+            int modifier = (int)Math.Floor((double)(stat - 10) / 2);
+
+            if (modifier >= 0)
+            {
+                returnMod = "+" + modifier;
+            }
+            else
+            {
+                returnMod = modifier + "";
+            }
+            return returnMod;
         }
     }
 }

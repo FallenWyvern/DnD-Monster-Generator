@@ -438,6 +438,11 @@ namespace DND_Monster
                 returnstring += "Reach: " + Reach + " ft., ";
             }
 
+            if (Reach > 0 && (RangeFar > 0 || RangeClose > 0))
+            {
+                returnstring += " or ";
+            }
+
             if (RangeClose > 0)
             {
                 returnstring += "Range: " + RangeClose;
@@ -483,6 +488,11 @@ namespace DND_Monster
             if (Reach > 0)
             {
                 returnstring += "Reach: " + Reach + " ft., ";
+            }
+
+            if (Reach > 0 && (RangeFar > 0 || RangeClose > 0))
+            {
+                returnstring += " or ";
             }
 
             if (RangeClose > 0)
@@ -532,7 +542,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "2.3.1";
+        public static string Version = "2.3.2";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = @"C:\";
 

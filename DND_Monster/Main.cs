@@ -1193,7 +1193,14 @@ namespace DND_Monster
                 }
             }
 
-            HitDieTextBox.Text = AverageHP + " (" + multiplier + "d" + size + "+" + (conmod * multiplier) + ")";
+            if (conmod * multiplier >= 0)
+            {
+                HitDieTextBox.Text = AverageHP + " (" + multiplier + "d" + size + " + " + (conmod * multiplier) + ")";
+            }
+            else
+            {
+                HitDieTextBox.Text = AverageHP + " (" + multiplier + "d" + size + (conmod * multiplier).ToString().Replace("-", " - ") + ")";
+            }
         }
       
         // Generates the actual monster itself.
