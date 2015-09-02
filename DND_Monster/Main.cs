@@ -681,11 +681,37 @@ namespace DND_Monster
                 IntUpDown.Value = Monster.INT;
                 ChaUpDown.Value = Monster.CHA;
 
+                SwimUpDown.Enabled = true;
+                SpeedUpDown.Enabled = true;
+                ClimbUpDown.Enabled = true;
+                burrowUpDown.Enabled = true;
+                FlyUpDown.Enabled = true;
+                HoverCheckBox.Checked = false;
+
                 string[] speeds = Monster.Speed.Split(',');
                 
                 foreach (string speed in speeds)
-                {                    
-                    bool custom = speed.Replace(" (hover)", "").Contains('(');
+                {
+                    bool custom = false;
+                    string customString = "";
+
+                    // So this checks each bit of the line for something that isn't a speed tag, ft. or hover.
+                    // If that happens, it makes sure it isn't a number first. And if that's the case, then it switches custom.
+                    foreach (string x in speed.Split(' '))
+                    {
+                        if (!String.IsNullOrEmpty(x) || !String.IsNullOrWhiteSpace(x))
+                        {                            
+                            if (x != "burrow:" && x != "fly:" && x != "climb:" && x != "swim:" && x != "ft." && x != "(hover)")
+                            {
+                                int tester = 0;
+                                if (!int.TryParse(x.Trim(), out tester))
+                                {
+                                    custom = true;
+                                    customString += x + " ";
+                                }
+                            }
+                        }
+                    }
 
                     if (!custom)
                     {
@@ -749,8 +775,56 @@ namespace DND_Monster
                     }
                     else
                     {
-                        // custom Speed stuff goes here.
-                        Console.WriteLine(speed + " is custom");
+                        int tester = 0;
+                        string whichSpeed = "speed:";
+                        NumericUpDown target = null;
+                        bool isFly = false;
+                            
+                        // custom Speed stuff goes here.                        
+                        foreach (string x in speed.Split(' ')){                            
+                            if (x == "burrow:" || x == "fly:" || x == "swim:" || x == "climb:")
+                            {                                
+                                whichSpeed = x;
+                                switch (whichSpeed)
+                                {
+                                    case "speed:":
+                                        target = (NumericUpDown)SpeedUpDown;
+                                        break;
+                                    case "swim:":
+                                        target = (NumericUpDown)SwimUpDown;
+                                        break;
+                                    case "fly:":
+                                        target = (NumericUpDown)FlyUpDown;
+                                        isFly = true;
+                                        break;
+                                    case "burrow:":
+                                        target = (NumericUpDown)burrowUpDown;
+                                        break;
+                                    case "climb:":
+                                        target = (NumericUpDown)ClimbUpDown;
+                                        break;
+                                }
+                            }
+                                                        
+                            if (int.TryParse(x, out tester))
+                            {
+                                if (target != null)
+                                {
+                                    Console.WriteLine("Name: " + target.Name);
+                                    target.Enabled = false;
+                                    target.Value = tester;
+
+                                    if (speed.Contains("hover") && isFly)
+                                    {                                        
+                                        HoverCheckBox.Checked = true;
+                                    }
+
+                                    target.Tag = customString;
+                                    Console.WriteLine(tester + " " + customString);
+                                }
+                            }
+                        }
+
                     }
                 }
                 
@@ -1481,6 +1555,11 @@ namespace DND_Monster
             FlyUpDown.Value = 0;
             ClimbUpDown.Value = 0;
             burrowUpDown.Value = 0;
+            SwimUpDown.Enabled = true;
+            SpeedUpDown.Enabled = true;
+            ClimbUpDown.Enabled = true;
+            burrowUpDown.Enabled = true;
+            FlyUpDown.Enabled = true;            
             HoverCheckBox.Checked = false;
 
             DamageConditionDropDown.Text = "";
