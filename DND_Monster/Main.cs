@@ -684,65 +684,74 @@ namespace DND_Monster
                 string[] speeds = Monster.Speed.Split(',');
                 
                 foreach (string speed in speeds)
-                {
-                    Console.WriteLine(speed);
-                    string check = speed.Split(':')[0].Trim();                    
-                    switch (check)
+                {                    
+                    bool custom = speed.Replace(" (hover)", "").Contains('(');
+
+                    if (!custom)
                     {
-                        case "Burrow":
-                            try
-                            {
-                                int Burrow = 0;
-                                int.TryParse(speed.Split(':')[1].Replace("ft.", ""), out Burrow);
-                                burrowUpDown.Value = Burrow;
-                            }
-                            catch { }
-                            break;
-                        case "Climb":
-                            try
-                            {
-                                int Climb = 0;
-                                int.TryParse(speed.Split(':')[1].Replace("ft.", ""), out Climb);
-                                ClimbUpDown.Value = Climb;
-                            }
-                            catch { }
-                            break;
-                        case "Fly":
-                            try
-                            {
-                                int Fly = 0;
-                                if (speed.Split(':')[1].Contains("(Hover)"))
+                        string check = speed.Split(':')[0].Trim().ToLower();
+                        switch (check)
+                        {
+                            case "burrow":
+                                try
                                 {
-                                    HoverCheckBox.Checked = true;
-                                    int.TryParse(speed.Split(':')[1].Replace("ft.", "").Replace(" (Hover)", ""), out Fly);
+                                    int Burrow = 0;
+                                    int.TryParse(speed.Split(':')[1].Replace("ft.", ""), out Burrow);
+                                    burrowUpDown.Value = Burrow;
                                 }
-                                else
+                                catch { }
+                                break;
+                            case "climb":
+                                try
                                 {
-                                    int.TryParse(speed.Split(':')[1].Replace("ft.", ""), out Fly);
+                                    int Climb = 0;
+                                    int.TryParse(speed.Split(':')[1].Replace("ft.", ""), out Climb);
+                                    ClimbUpDown.Value = Climb;
                                 }
-                                FlyUpDown.Value = Fly;
-                            }
-                            catch { }
-                            break;
-                        case "Swim":
-                            try
-                            {
-                                int Swim = 0;
-                                int.TryParse(speed.Split(':')[1].Replace("ft.", ""), out Swim);
-                                SwimUpDown.Value = Swim;
-                            }
-                            catch { }
-                            break;
-                        default:                            
-                            try
-                            {
-                                int temp = 0;
-                                int.TryParse(check.Replace("ft.", ""), out temp);
-                                SpeedUpDown.Value = temp;
-                            }
-                            catch { }                            
-                            break;
-                    }                    
+                                catch { }
+                                break;
+                            case "fly":
+                                try
+                                {
+                                    int Fly = 0;
+                                    if (speed.Split(':')[1].Contains("(hover)"))
+                                    {
+                                        HoverCheckBox.Checked = true;
+                                        int.TryParse(speed.Split(':')[1].Replace("ft.", "").Replace(" (hover)", ""), out Fly);
+                                    }
+                                    else
+                                    {
+                                        int.TryParse(speed.Split(':')[1].Replace("ft.", ""), out Fly);
+                                    }
+                                    FlyUpDown.Value = Fly;
+                                }
+                                catch { }
+                                break;
+                            case "swim":
+                                try
+                                {
+                                    int Swim = 0;
+                                    int.TryParse(speed.Split(':')[1].Replace("ft.", ""), out Swim);
+                                    SwimUpDown.Value = Swim;
+                                }
+                                catch { }
+                                break;
+                            default:
+                                try
+                                {
+                                    int temp = 0;
+                                    int.TryParse(check.Replace("ft.", ""), out temp);
+                                    SpeedUpDown.Value = temp;
+                                }
+                                catch { }
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        // custom Speed stuff goes here.
+                        Console.WriteLine(speed + " is custom");
+                    }
                 }
                 
                 foreach (Ability item in Monster._Abilities)
