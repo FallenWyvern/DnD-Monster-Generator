@@ -80,7 +80,7 @@ namespace DND_Monster
             return Traits;
         }
 
-        public string Boilerplate(string name)
+        public string WebBoilerplate(string name)
         {
             if (String.IsNullOrEmpty(name) || String.IsNullOrWhiteSpace(name))
             {
@@ -128,7 +128,7 @@ namespace DND_Monster
             return s;
         }
 
-        public string SpellcasterBoilerplate(string name)
+        public string WebSpellcasterBoilerplate(string name)
         {
             if (!isSpell) return "";
             if (String.IsNullOrEmpty(name) || String.IsNullOrWhiteSpace(name)) 
@@ -191,7 +191,7 @@ namespace DND_Monster
             return "<h4>Spellcasting. </h4><p>" + returnstring + "</p></br></br>";
         }
 
-        public string SpellBlockFormat()
+        public string WebSpellBlockFormat()
         {
             if (!isSpell) return "";
 
@@ -251,6 +251,133 @@ namespace DND_Monster
                 if (addedData) { returnstring = returnstring.Substring(0, returnstring.Length - 2); }
                 returnstring += "</i></p></br>";                
             } 
+
+            return returnstring;
+        }
+        
+        public string TextSpellcasterBoilerplate(string name)
+        {
+            if (!isSpell) return "";
+            if (String.IsNullOrEmpty(name) || String.IsNullOrWhiteSpace(name))
+            {
+                name = "Creature";
+            }
+            else
+            {
+                if (!name.Contains('*')) { name = name.ToLower(); }
+            }
+            string spellcastingstat = Description.Split('|')[1];
+            int modifier = 0;
+
+            switch (spellcastingstat.ToLower().Substring(0, 3))
+            {
+                case "str":
+                    modifier = (int)Math.Floor((double)(Convert.ToInt32(Monster.STR) - 10) / 2);
+                    break;
+                case "int":
+                    modifier = (int)Math.Floor((double)(Convert.ToInt32(Monster.INT) - 10) / 2);
+                    break;
+                case "wis":
+                    modifier = (int)Math.Floor((double)(Convert.ToInt32(Monster.WIS) - 10) / 2);
+                    break;
+                case "cha":
+                    modifier = (int)Math.Floor((double)(Convert.ToInt32(Monster.CHA) - 10) / 2);
+                    break;
+                case "con":
+                    modifier = (int)Math.Floor((double)(Convert.ToInt32(Monster.CON) - 10) / 2);
+                    break;
+                case "dex":
+                    modifier = (int)Math.Floor((double)(Convert.ToInt32(Monster.DEX) - 10) / 2);
+                    break;
+            }
+
+            string levelSuffix = "th";
+            if (Description.Split('|')[2].Trim() == "1")
+            {
+                levelSuffix = "st";
+            }
+            if (Description.Split('|')[2].Trim() == "2")
+            {
+                levelSuffix = "nd";
+            }
+            if (Description.Split('|')[2].Trim() == "3")
+            {
+                levelSuffix = "rd";
+            }
+
+            string returnstring = "";
+            returnstring += "The " + name + " is a " + Description.Split('|')[2] + levelSuffix + "-level spellcaster. ";
+            returnstring += "Its spellcasting ability is " + spellcastingstat + " (spell save DC " + (8 + Monster.CR.profBonus + modifier) + ", +" + (modifier + Monster.CR.profBonus) + " to hit with spell attacks). ";
+
+            if (!Description.Contains("NotInnate"))
+            {
+                returnstring += "It requires no material components to cast its spells. ";
+            }
+            returnstring += "The " + name + " has the following " + Description.Split('|')[0] + " spells prepared:";
+
+            return returnstring + Environment.NewLine + Environment.NewLine;
+        }
+        
+        public string TextSpellBlockFormat()
+        {
+            if (!isSpell) return "";
+
+            string returnstring = "";
+            string spellSlots = Description.Split('|')[4];
+            string[] spells = Description.Split('|')[5].Split(',');
+
+            for (int i = 0; i < 10; i++)
+            {
+                if (i > 0 && Convert.ToInt16(spellSlots.Split(',')[i - 1]) == 0)
+                {
+                    i = 10; break;
+                }
+
+                if (i == 0)
+                {
+                    returnstring += "- Cantrips (at will): ";
+                }
+                else
+                {
+                    string suffix = "";
+                    switch (i)
+                    {
+                        case 1:
+                            suffix = "st";
+                            break;
+                        case 2:
+                            suffix = "nd";
+                            break;
+                        case 3:
+                            suffix = "rd";
+                            break;
+                        default:
+                            suffix = "th";
+                            break;
+                    }
+
+
+                    returnstring += "- " + i + suffix + " level (" + spellSlots.Split(',')[i - 1] + " slots): ";
+                }
+
+                returnstring += "";
+
+                bool addedData = false;
+                foreach (string item in spells)
+                {                    
+                    if (item.Contains(i + ":"))
+                    {
+                        if (!String.IsNullOrEmpty(item) || !String.IsNullOrWhiteSpace(item))
+                        {
+                            returnstring += "*" + item.Replace(i + ":", "").Replace("(", "*(").Replace(")", ")") + "*, ";
+                            addedData = true;
+                        }
+                    }
+                }
+                
+                if (addedData) { returnstring = returnstring.Substring(0, returnstring.Length - 3); }
+                returnstring += "*" + Environment.NewLine + Environment.NewLine;
+            }
 
             return returnstring;
         }        

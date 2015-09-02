@@ -116,11 +116,12 @@
             this.ExportCSV = new System.Windows.Forms.Button();
             this.PrintButton = new System.Windows.Forms.Button();
             this.ExportPNG = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ExportWeb = new System.Windows.Forms.Button();
             this.BackgroundCheckbox = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.PreviewColumns = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.ExportReddit = new System.Windows.Forms.Button();
             this.PreviewTemplateSelector = new System.Windows.Forms.ComboBox();
             this.LanguageComboBox = new System.Windows.Forms.ComboBox();
             this.SkillStatCheckBox = new System.Windows.Forms.CheckBox();
@@ -1167,8 +1168,8 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.38737F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.612625F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.5481F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.45189F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(565, 686);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -1185,21 +1186,24 @@
             this.tableLayoutPanel2.Controls.Add(this.ExportCSV, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.PrintButton, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.ExportPNG, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.ExportWeb, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.BackgroundCheckbox, 6, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 5, 0);
+            this.tableLayoutPanel2.Controls.Add(this.ExportReddit, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 623);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 583);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(559, 60);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(559, 100);
             this.tableLayoutPanel2.TabIndex = 92;
             // 
             // ExportCSV
             // 
             this.ExportCSV.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.ExportCSV.Location = new System.Drawing.Point(201, 18);
+            this.ExportCSV.Enabled = false;
+            this.ExportCSV.Location = new System.Drawing.Point(201, 14);
             this.ExportCSV.Name = "ExportCSV";
             this.ExportCSV.Size = new System.Drawing.Size(54, 23);
             this.ExportCSV.TabIndex = 3;
@@ -1210,7 +1214,8 @@
             // PrintButton
             // 
             this.PrintButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.PrintButton.Location = new System.Drawing.Point(137, 18);
+            this.PrintButton.Enabled = false;
+            this.PrintButton.Location = new System.Drawing.Point(137, 14);
             this.PrintButton.Name = "PrintButton";
             this.PrintButton.Size = new System.Drawing.Size(58, 23);
             this.PrintButton.TabIndex = 2;
@@ -1221,7 +1226,8 @@
             // ExportPNG
             // 
             this.ExportPNG.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.ExportPNG.Location = new System.Drawing.Point(68, 18);
+            this.ExportPNG.Enabled = false;
+            this.ExportPNG.Location = new System.Drawing.Point(68, 14);
             this.ExportPNG.Name = "ExportPNG";
             this.ExportPNG.Size = new System.Drawing.Size(59, 23);
             this.ExportPNG.TabIndex = 1;
@@ -1229,22 +1235,23 @@
             this.ExportPNG.UseVisualStyleBackColor = true;
             this.ExportPNG.Click += new System.EventHandler(this.ExportPNG_Click);
             // 
-            // button1
+            // ExportWeb
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button1.Location = new System.Drawing.Point(3, 18);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "HTML";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.ExportHTML);
+            this.ExportWeb.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ExportWeb.Enabled = false;
+            this.ExportWeb.Location = new System.Drawing.Point(3, 14);
+            this.ExportWeb.Name = "ExportWeb";
+            this.ExportWeb.Size = new System.Drawing.Size(56, 23);
+            this.ExportWeb.TabIndex = 0;
+            this.ExportWeb.Text = "HTML";
+            this.ExportWeb.UseVisualStyleBackColor = true;
+            this.ExportWeb.Click += new System.EventHandler(this.ExportHTML);
             // 
             // BackgroundCheckbox
             // 
             this.BackgroundCheckbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.BackgroundCheckbox.AutoSize = true;
-            this.BackgroundCheckbox.Location = new System.Drawing.Point(383, 21);
+            this.BackgroundCheckbox.Location = new System.Drawing.Point(383, 17);
             this.BackgroundCheckbox.Name = "BackgroundCheckbox";
             this.BackgroundCheckbox.Size = new System.Drawing.Size(106, 17);
             this.BackgroundCheckbox.TabIndex = 4;
@@ -1263,13 +1270,13 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(86, 54);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(86, 45);
             this.tableLayoutPanel3.TabIndex = 101;
             // 
             // PreviewColumns
             // 
             this.PreviewColumns.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.PreviewColumns.Location = new System.Drawing.Point(3, 20);
+            this.PreviewColumns.Location = new System.Drawing.Point(3, 15);
             this.PreviewColumns.Name = "PreviewColumns";
             this.PreviewColumns.Size = new System.Drawing.Size(80, 20);
             this.PreviewColumns.TabIndex = 100;
@@ -1283,17 +1290,30 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 2);
+            this.label3.Location = new System.Drawing.Point(19, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.Size = new System.Drawing.Size(47, 12);
             this.label3.TabIndex = 101;
             this.label3.Text = "Columns";
+            // 
+            // ExportReddit
+            // 
+            this.ExportReddit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ExportReddit.Enabled = false;
+            this.ExportReddit.Location = new System.Drawing.Point(3, 64);
+            this.ExportReddit.Name = "ExportReddit";
+            this.ExportReddit.Size = new System.Drawing.Size(59, 23);
+            this.ExportReddit.TabIndex = 102;
+            this.ExportReddit.Text = "Reddit";
+            this.ExportReddit.UseVisualStyleBackColor = true;
+            this.ExportReddit.Click += new System.EventHandler(this.RedditOutput);
             // 
             // PreviewTemplateSelector
             // 
             this.PreviewTemplateSelector.FormattingEnabled = true;
             this.PreviewTemplateSelector.Items.AddRange(new object[] {
-            "Valloric\'s Statblock"});
+            "Valloric\'s Statblock",
+            "Reddit"});
             this.PreviewTemplateSelector.Location = new System.Drawing.Point(305, 664);
             this.PreviewTemplateSelector.Name = "PreviewTemplateSelector";
             this.PreviewTemplateSelector.Size = new System.Drawing.Size(156, 21);
@@ -1543,7 +1563,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(569, 690);
             this.panel2.TabIndex = 103;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // MoveTraitDownButton
             // 
@@ -1848,7 +1867,7 @@
         private System.Windows.Forms.Button LoadButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ExportWeb;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button ExportPNG;
         private System.Windows.Forms.Button PrintButton;
@@ -1887,6 +1906,7 @@
         private System.Windows.Forms.Button MoveTraitUpButton;
         private System.Windows.Forms.Button DeleteTraitButton;
         private System.Windows.Forms.Button EditTraitButton;
+        private System.Windows.Forms.Button ExportReddit;
     }
 }
 

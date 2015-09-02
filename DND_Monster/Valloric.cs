@@ -460,8 +460,7 @@ namespace DND_Monster
                     foreach (string abilityWord in ability.Description.Split(' '))
                     {
                         if (!abilityWord.Contains('\n'))
-                        {
-                            Console.WriteLine("Adding " + abilityWord);
+                        {                            
                             abilityDescription += abilityWord + " ";
                         }
                         else
@@ -481,8 +480,8 @@ namespace DND_Monster
                 if (ability.isSpell)
                 {
                     output.Add(@"<property-block>");
-                    output.Add(ability.SpellcasterBoilerplate(CreatureName));
-                    output.Add(ability.SpellBlockFormat());
+                    output.Add(ability.WebSpellcasterBoilerplate(CreatureName));
+                    output.Add(ability.WebSpellBlockFormat());
                     output.Add(@"</property-block>");
                 }
             }
@@ -545,7 +544,7 @@ namespace DND_Monster
                 foreach (Legendary ability in _Legendaries)
                 {
                     output.Add(@"<property-block>");                    
-                    output.Add(@"<p>" + ability.Boilerplate(CreatureName) + "</p></br></br>");
+                    output.Add(@"<p>" + ability.WebBoilerplate(CreatureName) + "</p></br></br>");
                     foreach (LegendaryTrait trait in ability.TraitList())
                     {
                         output.Add(@"<h4>" + trait.ProperName() + ". </h4>");

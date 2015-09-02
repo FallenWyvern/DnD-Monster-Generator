@@ -18,7 +18,9 @@ namespace DND_Monster
 {
     public partial class Main : Form
     {        
-        ChromiumWebBrowser b = new ChromiumWebBrowser("http://rendering/");
+        ChromiumWebBrowser browserOutput = new ChromiumWebBrowser("http://rendering/");
+        RichTextBox redditOutput = new RichTextBox();
+
         Challenge_Rating currentCR = new Challenge_Rating();
         List<Control> statModList = new List<Control>();
         static string saveFilename = "";
@@ -42,7 +44,7 @@ namespace DND_Monster
                 UniversalAccessFromFileUrlsAllowed = true,
                 WebSecurityDisabled = true
             };
-            b.BrowserSettings = settings;
+            browserOutput.BrowserSettings = settings;
         }
              
 
@@ -86,8 +88,8 @@ namespace DND_Monster
 
             CefStartup();
 
-            b.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Controls.Add(b, 0, 0);
+            browserOutput.Dock = DockStyle.Fill;
+            redditOutput.Dock = DockStyle.Fill;
 
             this.FormClosing += (senderEnd, eEnd) => { Cef.Shutdown(); };
 
@@ -576,12 +578,42 @@ namespace DND_Monster
         // Generates data, then passes it to the appropriate template.
         private void Preview(object sender, EventArgs e)
         {
+            Previs();
+            tableLayoutPanel1.Controls.Remove(browserOutput);
+            tableLayoutPanel1.Controls.Remove(redditOutput);
+            
+            ExportCSV.Enabled = false;
+            ExportWeb.Enabled = false;
+            ExportPNG.Enabled = false;
+            PrintButton.Enabled = false;
+            ExportReddit.Enabled = false;
+
+            switch (PreviewTemplateSelector.SelectedIndex) 
+            { 
+                case 0:
+                    tableLayoutPanel1.Controls.Add(browserOutput, 0, 0);
+                    ShowMonsterInBrowser();                    
+                    ExportCSV.Enabled = true;
+                    ExportWeb.Enabled = true;
+                    ExportPNG.Enabled = true;
+                    PrintButton.Enabled = true;
+                    break;
+                case 1:
+                    tableLayoutPanel1.Controls.Add(redditOutput, 0, 0);
+                    redditOutput.Text = "";
+                    ShowMonsterInText();
+                    ExportReddit.Enabled = true;
+                    break;
+            }            
+        }
+
+        private void Previs()
+        {
             SortTraits();
             Help.useBG = BackgroundCheckbox.Checked;
-            Monster.columns = (int)PreviewColumns.Value;            
+            Monster.columns = (int)PreviewColumns.Value;
 
             GenerateMonsterData();
-            ShowMonster();
         }
 
         private void Sort()
@@ -838,6 +870,7 @@ namespace DND_Monster
         // Saves Monster.Output into an HTML file.
         private void ExportHTML(object sender, EventArgs e)
         {
+            Previs();
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.InitialDirectory = Help.LastDirectory;
             dialog.Filter = "html files (*.html)|*.html";
@@ -856,7 +889,8 @@ namespace DND_Monster
         
         // Creates an offscreen browser, then saves the paint buffer as PNG.
         private void ExportPNG_Click(object sender, EventArgs e)
-        {            
+        {
+            Previs();
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.InitialDirectory = Help.LastDirectory;
             dialog.Filter = "png files (*.png)|*.png";
@@ -915,6 +949,7 @@ namespace DND_Monster
         // Convert Monster to CSV, then save the file.
         private void ExportCSV_Click(object sender, EventArgs e)
         {
+            Previs();
             StringBuilder CSVOutput = new StringBuilder();
             CSVOutput.Append(Monster.Title + ",");
             CSVOutput.Append(Monster.CreatureName + ",");
@@ -1041,7 +1076,8 @@ namespace DND_Monster
         // Opens the print dialog. 
         private void Print_Click(object sender, EventArgs e)
         {
-            b.Print();            
+            Previs();
+            browserOutput.Print();            
         }    
 
         /// <summary>
@@ -1296,18 +1332,18 @@ namespace DND_Monster
         // Clears the monster data.
         public void Clear()
         {
-            b.LoadHtml("<html><head></head><body></body></html", "http://rendering/");
+            browserOutput.LoadHtml("<html><head></head><body></body></html", "http://rendering/");
         }
 
         // Monster has been generated, send to browser.
-        public void ShowMonster()
+        public void ShowMonsterInBrowser()
         {
             this.Text = Monster.CreatureName.Replace('*', ' ').Trim();
             Clear();
-            if (b.IsLoading)
+            if (browserOutput.IsLoading)
             {
-                b.Stop();
-                while (b.IsLoading)
+                browserOutput.Stop();
+                while (browserOutput.IsLoading)
                 {
                     System.Threading.Thread.Sleep(100);
                 }
@@ -1315,8 +1351,16 @@ namespace DND_Monster
 
             if (PreviewTemplateSelector.Text == "Valloric's Statblock")
             {
-                b.LoadHtml(Monster.ValloricStatBlock(), "http://rendering/");
+                browserOutput.LoadHtml(Monster.ValloricStatBlock(), "http://rendering/");
             }
+        }
+
+        // Monster has been generated, send to RichTextBox
+        public void ShowMonsterInText()
+        {
+            this.Text = Monster.CreatureName.Replace('*', ' ').Trim();
+            Clear();
+            redditOutput.Text = Monster.RedditOutput();
         }
 
         // Recalculate AC based on CR/Dex.
@@ -1516,7 +1560,6 @@ namespace DND_Monster
             Monster._Legendaries = _Legendaries;
         }
 
-
         // Use arrow keys to sort the traits list.
         private void TraitsList_KeyDown(object sender, KeyEventArgs e)
         {
@@ -1671,24 +1714,30 @@ namespace DND_Monster
             }
         }
 
+        // Tooltip for monster name hovering.
         private void MonsterName_MouseHover(object sender, EventArgs e)
         {
             TraitsListPopUp.SetToolTip(MonsterName, "If you use a * in the monster name, it becomes a proper name.");
-        }
+        }        
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        // Moving traits up the list by button
         private void MoveTraitUpButton_Click(object sender, EventArgs e)
         {
             MoveItem(-1, TraitsList);
         }
 
+        // Moving traits down the list by button
         private void MoveTraitDownButton_Click(object sender, EventArgs e)
         {
             MoveItem(1, TraitsList);
+        }
+
+        // Save the Reddit output to file/copy buffer
+        private void RedditOutput(object sender, EventArgs e)
+        {
+            Previs();
+            System.Windows.Forms.Clipboard.SetText(redditOutput.Text);
+            MessageBox.Show("Copied to clipboard. Ready to paste to Reddit.");
         }
     }
 }
