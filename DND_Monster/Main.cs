@@ -28,8 +28,10 @@ namespace DND_Monster
         public Main()
         {
             InitializeComponent();
-            AddSaved.Visible = false;
-            AddSaved.Enabled = false;
+            if (!System.IO.File.Exists("SavedTraits.dat"))
+            {                
+                AddSaved.Enabled = false;
+            }
         }
 
         private void CefStartup()

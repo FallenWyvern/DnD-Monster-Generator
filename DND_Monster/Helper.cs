@@ -49,6 +49,14 @@ namespace DND_Monster
         public string CreatureAlign = "";
     }
 
+    public class SavedTraitData
+    {
+        List<Ability> _Abilities = new List<Ability>();
+        List<Ability> _Actions = new List<Ability>();
+        List<Ability> _Reactions = new List<Ability>();
+        List<Legendary> _Legendaries = new List<Legendary>();
+    }
+
     // Data Construct for Challenge Ratings
     public class Challenge_Rating
     {
