@@ -181,6 +181,11 @@ namespace DND_Monster
                 senses = senses.Substring(0, senses.Length - 2);
             }
 
+            if (!senses.Contains("passive")) 
+            {
+                senses += " passive Perception " + (10 + Convert.ToInt32(StatMod(WIS)));
+            }
+
             return senses;
         }
 
