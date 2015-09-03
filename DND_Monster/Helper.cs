@@ -431,11 +431,11 @@ namespace DND_Monster
         {
             string returnstring = "<i>";
             returnstring += _Attack + ": </i>+";
-            returnstring += Bonus + ", ";
+            returnstring += Bonus + " to hit, ";
 
             if (Reach > 0)
             {
-                returnstring += "Reach: " + Reach + " ft., ";
+                returnstring += "reach " + Reach + " ft., ";
             }
 
             if (Reach > 0 && (RangeFar > 0 || RangeClose > 0))
@@ -445,7 +445,7 @@ namespace DND_Monster
 
             if (RangeClose > 0)
             {
-                returnstring += "Range: " + RangeClose;
+                returnstring += "range " + RangeClose;
                 if (RangeFar > 0)
                 {
                     returnstring += "/" + RangeFar;
@@ -483,11 +483,11 @@ namespace DND_Monster
         {
             string returnstring = "*";
             returnstring += _Attack + ":* +";
-            returnstring += Bonus + ", ";
+            returnstring += Bonus + " to hit, ";
 
             if (Reach > 0)
             {
-                returnstring += "Reach: " + Reach + " ft., ";
+                returnstring += "reach " + Reach + " ft., ";
             }
 
             if (Reach > 0 && (RangeFar > 0 || RangeClose > 0))
@@ -497,7 +497,7 @@ namespace DND_Monster
 
             if (RangeClose > 0)
             {
-                returnstring += "Range: " + RangeClose;
+                returnstring += "range " + RangeClose;
                 if (RangeFar > 0)
                 {
                     returnstring += "/" + RangeFar;
@@ -542,7 +542,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "2.3.3";
+        public static string Version = "2.3.4";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = @"C:\";
 

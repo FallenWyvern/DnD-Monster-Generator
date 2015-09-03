@@ -90,7 +90,10 @@
             this.AttackTypeDropdown.Items.AddRange(new object[] {
             "Melee Weapon Attack",
             "Ranged Weapon Attack",
-            "Melee or Ranged Weapon Attack"});
+            "Melee or Ranged Weapon Attack",
+            "Melee Spell Attack",
+            "Ranged Spell Attack",
+            "Melee or Ranged Spell Attack"});
             this.AttackTypeDropdown.Location = new System.Drawing.Point(49, 29);
             this.AttackTypeDropdown.Name = "AttackTypeDropdown";
             this.AttackTypeDropdown.Size = new System.Drawing.Size(239, 21);

@@ -33,6 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.HoverCheckBox = new System.Windows.Forms.CheckBox();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SpeedUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,11 +82,33 @@
             this.HoverCheckBox.Text = "Hover";
             this.HoverCheckBox.UseVisualStyleBackColor = true;
             // 
+            // SaveButton
+            // 
+            this.SaveButton.Location = new System.Drawing.Point(116, 37);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveButton.TabIndex = 6;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.Save);
+            // 
+            // CancelButton
+            // 
+            this.CancelButton.Location = new System.Drawing.Point(197, 37);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelButton.TabIndex = 7;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.Cancel);
+            // 
             // CustomSpeed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.HoverCheckBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -105,5 +129,7 @@
         public System.Windows.Forms.NumericUpDown SpeedUpDown;
         public System.Windows.Forms.RichTextBox SpeedDescription;
         public System.Windows.Forms.CheckBox HoverCheckBox;
+        private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Button CancelButton;
     }
 }

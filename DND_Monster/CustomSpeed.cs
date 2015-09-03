@@ -16,5 +16,16 @@ namespace DND_Monster
         {
             InitializeComponent();
         }
+
+        private void Save(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Cancel(object sender, EventArgs e)
+        {
+            SpeedDescription.Text = "";
+            this.Close();
+        }
     }
 }

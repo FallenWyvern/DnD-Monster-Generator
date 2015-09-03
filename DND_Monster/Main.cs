@@ -698,14 +698,14 @@ namespace DND_Monster
                     // So this checks each bit of the line for something that isn't a speed tag, ft. or hover.
                     // If that happens, it makes sure it isn't a number first. And if that's the case, then it switches custom.
                     foreach (string x in speed.Split(' '))
-                    {
+                    {                        
                         if (!String.IsNullOrEmpty(x) || !String.IsNullOrWhiteSpace(x))
                         {                            
                             if (x != "burrow:" && x != "fly:" && x != "climb:" && x != "swim:" && x != "ft." && x != "(hover)")
-                            {
+                            {                                
                                 int tester = 0;
                                 if (!int.TryParse(x.Trim(), out tester))
-                                {
+                                {                                    
                                     custom = true;
                                     customString += x + " ";
                                 }
@@ -775,56 +775,69 @@ namespace DND_Monster
                     }
                     else
                     {
+                        Console.WriteLine(speed + " is a custom speed");
                         int tester = 0;
-                        string whichSpeed = "speed:";
+                        string whichSpeed = "";
                         NumericUpDown target = null;
                         bool isFly = false;
                             
-                        // custom Speed stuff goes here.                        
-                        foreach (string x in speed.Split(' ')){                            
-                            if (x == "burrow:" || x == "fly:" || x == "swim:" || x == "climb:")
+                        // custom Speed stuff goes here.                          
+                        foreach (string x in speed.Split(' '))
+                        {
+                            if (target == null)
                             {                                
-                                whichSpeed = x;
-                                switch (whichSpeed)
+                                if (x == "burrow:" || x == "fly:" || x == "swim:" || x == "climb:")
                                 {
-                                    case "speed:":
-                                        target = (NumericUpDown)SpeedUpDown;
-                                        break;
-                                    case "swim:":
-                                        target = (NumericUpDown)SwimUpDown;
-                                        break;
-                                    case "fly:":
-                                        target = (NumericUpDown)FlyUpDown;
-                                        isFly = true;
-                                        break;
-                                    case "burrow:":
-                                        target = (NumericUpDown)burrowUpDown;
-                                        break;
-                                    case "climb:":
-                                        target = (NumericUpDown)ClimbUpDown;
-                                        break;
+                                    whichSpeed = x;                                    
+                                    switch (whichSpeed)
+                                    {
+                                        case "speed:":
+                                            target = (NumericUpDown)SpeedUpDown;
+                                            break;
+                                        case "swim:":
+                                            target = (NumericUpDown)SwimUpDown;
+                                            break;
+                                        case "fly:":
+                                            target = (NumericUpDown)FlyUpDown;
+                                            isFly = true;
+                                            break;
+                                        case "burrow:":
+                                            target = (NumericUpDown)burrowUpDown;
+                                            break;
+                                        case "climb:":
+                                            target = (NumericUpDown)ClimbUpDown;
+                                            break;
+                                    }
                                 }
+
+                                if (target == null) {
+                                    int temp = 0;
+                                    if (int.TryParse(x, out temp))
+                                    {
+                                        target = (NumericUpDown)SpeedUpDown; whichSpeed = "speed:";
+                                        Console.WriteLine("Custom speed type: " + whichSpeed + " " + target.Name);
+                                    }
+                                }                                
                             }
-                                                        
-                            if (int.TryParse(x, out tester))
+
+
+                            if (target != null)
                             {
-                                if (target != null)
+                                if (int.TryParse(x, out tester))
                                 {
-                                    Console.WriteLine("Name: " + target.Name);
                                     target.Enabled = false;
                                     target.Value = tester;
 
                                     if (speed.Contains("hover") && isFly)
-                                    {                                        
+                                    {
                                         HoverCheckBox.Checked = true;
                                     }
 
                                     target.Tag = customString;
-                                    Console.WriteLine(tester + " " + customString);
+                                    target = null;
                                 }
                             }
                         }
-
                     }
                 }
                 
