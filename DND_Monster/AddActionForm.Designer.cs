@@ -112,6 +112,11 @@
             // AttackBonusUpDown
             // 
             this.AttackBonusUpDown.Location = new System.Drawing.Point(50, 56);
+            this.AttackBonusUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.AttackBonusUpDown.Name = "AttackBonusUpDown";
             this.AttackBonusUpDown.Size = new System.Drawing.Size(43, 20);
             this.AttackBonusUpDown.TabIndex = 2;
@@ -134,7 +139,7 @@
             0});
             this.RangeUpDownClose.Location = new System.Drawing.Point(50, 188);
             this.RangeUpDownClose.Maximum = new decimal(new int[] {
-            1000,
+            100000,
             0,
             0,
             0});
@@ -256,7 +261,7 @@
             0});
             this.RangeUpDownFar.Location = new System.Drawing.Point(141, 188);
             this.RangeUpDownFar.Maximum = new decimal(new int[] {
-            1000,
+            100000,
             0,
             0,
             0});
@@ -287,7 +292,7 @@
             0});
             this.ReachUpDown.Location = new System.Drawing.Point(50, 162);
             this.ReachUpDown.Maximum = new decimal(new int[] {
-            1000,
+            100000,
             0,
             0,
             0});
@@ -334,6 +339,11 @@
             // HitDiceBonusDamage
             // 
             this.HitDiceBonusDamage.Location = new System.Drawing.Point(149, 110);
+            this.HitDiceBonusDamage.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.HitDiceBonusDamage.Minimum = new decimal(new int[] {
             100,
             0,
@@ -362,6 +372,11 @@
             // HitNumberOfDice
             // 
             this.HitNumberOfDice.Location = new System.Drawing.Point(49, 109);
+            this.HitNumberOfDice.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.HitNumberOfDice.Name = "HitNumberOfDice";
             this.HitNumberOfDice.Size = new System.Drawing.Size(38, 20);
             this.HitNumberOfDice.TabIndex = 4;

@@ -203,6 +203,11 @@
             // ACUpDown
             // 
             this.ACUpDown.Location = new System.Drawing.Point(96, 109);
+            this.ACUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.ACUpDown.Name = "ACUpDown";
             this.ACUpDown.Size = new System.Drawing.Size(44, 20);
             this.ACUpDown.TabIndex = 5;
@@ -311,6 +316,11 @@
             // HitDieUpDown
             // 
             this.HitDieUpDown.Location = new System.Drawing.Point(96, 134);
+            this.HitDieUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.HitDieUpDown.Name = "HitDieUpDown";
             this.HitDieUpDown.Size = new System.Drawing.Size(44, 20);
             this.HitDieUpDown.TabIndex = 7;
@@ -341,6 +351,11 @@
             // StrUpDown
             // 
             this.StrUpDown.Location = new System.Drawing.Point(2, 341);
+            this.StrUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.StrUpDown.Name = "StrUpDown";
             this.StrUpDown.Size = new System.Drawing.Size(44, 20);
             this.StrUpDown.TabIndex = 18;
@@ -354,6 +369,11 @@
             // DexUpDown
             // 
             this.DexUpDown.Location = new System.Drawing.Point(84, 341);
+            this.DexUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.DexUpDown.Name = "DexUpDown";
             this.DexUpDown.Size = new System.Drawing.Size(44, 20);
             this.DexUpDown.TabIndex = 19;
@@ -367,6 +387,11 @@
             // ConUpDown
             // 
             this.ConUpDown.Location = new System.Drawing.Point(159, 341);
+            this.ConUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.ConUpDown.Name = "ConUpDown";
             this.ConUpDown.Size = new System.Drawing.Size(44, 20);
             this.ConUpDown.TabIndex = 20;
@@ -380,6 +405,11 @@
             // IntUpDown
             // 
             this.IntUpDown.Location = new System.Drawing.Point(234, 341);
+            this.IntUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.IntUpDown.Name = "IntUpDown";
             this.IntUpDown.Size = new System.Drawing.Size(44, 20);
             this.IntUpDown.TabIndex = 21;
@@ -393,6 +423,11 @@
             // WisUpDown
             // 
             this.WisUpDown.Location = new System.Drawing.Point(313, 341);
+            this.WisUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.WisUpDown.Name = "WisUpDown";
             this.WisUpDown.Size = new System.Drawing.Size(44, 20);
             this.WisUpDown.TabIndex = 22;
@@ -406,6 +441,11 @@
             // ChaUpDown
             // 
             this.ChaUpDown.Location = new System.Drawing.Point(389, 341);
+            this.ChaUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.ChaUpDown.Name = "ChaUpDown";
             this.ChaUpDown.Size = new System.Drawing.Size(44, 20);
             this.ChaUpDown.TabIndex = 23;
@@ -614,6 +654,11 @@
             0,
             0});
             this.burrowUpDown.Location = new System.Drawing.Point(275, 210);
+            this.burrowUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.burrowUpDown.Name = "burrowUpDown";
             this.burrowUpDown.Size = new System.Drawing.Size(44, 20);
             this.burrowUpDown.TabIndex = 16;
@@ -626,6 +671,11 @@
             0,
             0});
             this.ClimbUpDown.Location = new System.Drawing.Point(275, 236);
+            this.ClimbUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.ClimbUpDown.Name = "ClimbUpDown";
             this.ClimbUpDown.Size = new System.Drawing.Size(44, 20);
             this.ClimbUpDown.TabIndex = 17;
@@ -638,6 +688,11 @@
             0,
             0});
             this.FlyUpDown.Location = new System.Drawing.Point(97, 262);
+            this.FlyUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.FlyUpDown.Name = "FlyUpDown";
             this.FlyUpDown.Size = new System.Drawing.Size(44, 20);
             this.FlyUpDown.TabIndex = 14;
@@ -650,6 +705,11 @@
             0,
             0});
             this.SwimUpDown.Location = new System.Drawing.Point(97, 236);
+            this.SwimUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.SwimUpDown.Name = "SwimUpDown";
             this.SwimUpDown.Size = new System.Drawing.Size(44, 20);
             this.SwimUpDown.TabIndex = 13;
@@ -662,6 +722,11 @@
             0,
             0});
             this.SpeedUpDown.Location = new System.Drawing.Point(97, 210);
+            this.SpeedUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.SpeedUpDown.Name = "SpeedUpDown";
             this.SpeedUpDown.Size = new System.Drawing.Size(44, 20);
             this.SpeedUpDown.TabIndex = 12;
@@ -816,6 +881,11 @@
             // StrSaveBonusUpDown
             // 
             this.StrSaveBonusUpDown.Location = new System.Drawing.Point(2, 403);
+            this.StrSaveBonusUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.StrSaveBonusUpDown.Name = "StrSaveBonusUpDown";
             this.StrSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
             this.StrSaveBonusUpDown.TabIndex = 24;
@@ -823,6 +893,11 @@
             // DexSaveBonusUpDown
             // 
             this.DexSaveBonusUpDown.Location = new System.Drawing.Point(84, 403);
+            this.DexSaveBonusUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.DexSaveBonusUpDown.Name = "DexSaveBonusUpDown";
             this.DexSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
             this.DexSaveBonusUpDown.TabIndex = 25;
@@ -830,6 +905,11 @@
             // ConSaveBonusUpDown
             // 
             this.ConSaveBonusUpDown.Location = new System.Drawing.Point(159, 403);
+            this.ConSaveBonusUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.ConSaveBonusUpDown.Name = "ConSaveBonusUpDown";
             this.ConSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
             this.ConSaveBonusUpDown.TabIndex = 26;
@@ -837,6 +917,11 @@
             // IntSaveBonusUpDown
             // 
             this.IntSaveBonusUpDown.Location = new System.Drawing.Point(234, 403);
+            this.IntSaveBonusUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.IntSaveBonusUpDown.Name = "IntSaveBonusUpDown";
             this.IntSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
             this.IntSaveBonusUpDown.TabIndex = 27;
@@ -844,6 +929,11 @@
             // WisSaveBonusUpDown
             // 
             this.WisSaveBonusUpDown.Location = new System.Drawing.Point(313, 403);
+            this.WisSaveBonusUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.WisSaveBonusUpDown.Name = "WisSaveBonusUpDown";
             this.WisSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
             this.WisSaveBonusUpDown.TabIndex = 28;
@@ -851,6 +941,11 @@
             // ChaSaveBonusUpDown
             // 
             this.ChaSaveBonusUpDown.Location = new System.Drawing.Point(389, 403);
+            this.ChaSaveBonusUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.ChaSaveBonusUpDown.Name = "ChaSaveBonusUpDown";
             this.ChaSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
             this.ChaSaveBonusUpDown.TabIndex = 29;
@@ -1023,6 +1118,11 @@
             0,
             0});
             this.DistanceUpDown.Location = new System.Drawing.Point(145, 469);
+            this.DistanceUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.DistanceUpDown.Name = "DistanceUpDown";
             this.DistanceUpDown.Size = new System.Drawing.Size(42, 20);
             this.DistanceUpDown.TabIndex = 35;
@@ -1126,6 +1226,11 @@
             // SkillBonus
             // 
             this.SkillBonus.Location = new System.Drawing.Point(188, 527);
+            this.SkillBonus.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.SkillBonus.Name = "SkillBonus";
             this.SkillBonus.Size = new System.Drawing.Size(44, 20);
             this.SkillBonus.TabIndex = 41;
