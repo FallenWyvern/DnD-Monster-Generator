@@ -34,7 +34,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.HoverCheckBox = new System.Windows.Forms.CheckBox();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.CustomCancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SpeedUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,20 +94,20 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(197, 37);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 7;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.Cancel);
+            this.CustomCancelButton.Location = new System.Drawing.Point(197, 37);
+            this.CustomCancelButton.Name = "CancelButton";
+            this.CustomCancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CustomCancelButton.TabIndex = 7;
+            this.CustomCancelButton.Text = "Cancel";
+            this.CustomCancelButton.UseVisualStyleBackColor = true;
+            this.CustomCancelButton.Click += new System.EventHandler(this.Cancel);
             // 
             // CustomSpeed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.CustomCancelButton);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.HoverCheckBox);
             this.Controls.Add(this.label3);
@@ -130,6 +130,6 @@
         public System.Windows.Forms.RichTextBox SpeedDescription;
         public System.Windows.Forms.CheckBox HoverCheckBox;
         private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button CustomCancelButton;
     }
 }

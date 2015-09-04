@@ -689,7 +689,9 @@ namespace DND_Monster
                 HoverCheckBox.Checked = false;
 
                 string[] speeds = Monster.Speed.Split(',');
-                
+
+                // Speed stuff
+                #region
                 foreach (string speed in speeds)
                 {
                     bool custom = false;
@@ -840,7 +842,8 @@ namespace DND_Monster
                         }
                     }
                 }
-                
+                #endregion
+
                 foreach (Ability item in Monster._Abilities)
                 {
                     TraitsList.Items.Add("Ability: " + item.Title);
@@ -959,9 +962,15 @@ namespace DND_Monster
 
                 MonsterNameTextBox.Text = Monster.CreatureName;
                 SizeDropDown.SelectedText = Monster.CreatureSize;
-                TypeDropDown.SelectedText = Monster.CreatureType.Split(' ')[0];
-                try { TagDropDown.SelectedText = Monster.CreatureType.Split(' ')[1].Replace('(', ' ').Replace(')', ' ').Trim(); }
-                catch { }
+                TypeDropDown.Text = Monster.CreatureType.Split(' ')[0];
+                try 
+                {
+                    TagDropDown.Text = Monster.CreatureType.Replace(TypeDropDown.Text, "").Replace('(', ' ').Replace(')', ' ').Trim();                                        
+                }
+                catch
+                {
+                    
+                }
                 
                 Monster.Clear();
             }
