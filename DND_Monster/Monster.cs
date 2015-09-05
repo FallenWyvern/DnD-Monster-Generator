@@ -160,19 +160,27 @@ namespace DND_Monster
             foreach (string item in _Senses)
             {
                 string temp = item;
-
+                
                 if (temp.ToLower().Contains("passive"))
-                {
-                    int modifier = (int)Math.Floor((double)(WIS - 10) / 2);
-                    string bonus = " " + (10 + (modifier + proficency)) + " ";                    
-                    temp = "passive Perception" + bonus;
+                {                    
+                    if (temp.Split(' ').Length <= 2)
+                    {
+                        int modifier = (int)Math.Floor((double)(WIS - 10) / 2);
+                        string bonus = " " + (10 + (modifier + proficency)) + " ";
+                        temp = "passive Perception" + bonus;
+                    }
+                    else
+                    {
+                        temp = temp.Replace("Passive", "passive");
+                    }
                 }
-                if (temp.Contains("passive"))
-                {
+                
+                if (temp.ToLower().Contains("passive"))
+                {                    
                     senses += temp.Trim() + ", ";
                 }
                 else
-                {
+                {                    
                     senses += temp.ToLower() + "., ";
                 }
             }

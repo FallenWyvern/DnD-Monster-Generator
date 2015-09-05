@@ -150,6 +150,13 @@ namespace DND_Monster
             {
                 addString += " " + DistanceUpDown.Value + " ft";
             }
+            else
+            {
+                if (SkillBonus.Value != currentCR.profBonus)
+                {
+                    addString += " " + (10 + Convert.ToInt32(WisBonus.Text) + SkillBonus.Value);
+                }
+            }
 
             TraitsList.Items.Add(addString);
         }
