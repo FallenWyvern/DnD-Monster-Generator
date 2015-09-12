@@ -986,7 +986,7 @@ namespace DND_Monster
         // Saves Monster.Output into an HTML file.
         private void ExportHTML(object sender, EventArgs e)
         {
-            Previs();
+            //Previs();            
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.InitialDirectory = Help.LastDirectory;
             dialog.Filter = "html files (*.html)|*.html";
@@ -996,7 +996,7 @@ namespace DND_Monster
             {
                 Help.LastDirectory = dialog.FileName;
                 System.IO.File.WriteAllText(dialog.FileName,"");
-
+                
                 foreach (string line in Monster.output){
                     System.IO.File.AppendAllText(dialog.FileName, line + Environment.NewLine);
                 }
@@ -1319,7 +1319,8 @@ namespace DND_Monster
         private void GenerateMonsterData()
         {
             Monster.SkillBonuses.Clear();
-            Monster.Clear();                
+            Monster.Clear();    
+            
             // Clear existing HTML
             if (Monster.output.Count > 0)
             {
