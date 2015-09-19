@@ -957,7 +957,7 @@ namespace DND_Monster
                     int.TryParse(Monster.AC.Split(' ')[0], out ACValue);
 
                     ACUpDown.Value = ACValue;
-                    string temp = Monster.AC.Split(' ')[1].Trim();
+                    string temp = Monster.AC.Replace(ACValue.ToString(), "").Trim();
                     ACSourceTextBox.Text = temp.Substring(1, temp.Length - 2);
                 }
                 catch { }
