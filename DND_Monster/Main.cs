@@ -1028,9 +1028,8 @@ namespace DND_Monster
                 browser.LoadHtml("<html><head></head><body></body></html>", "http://rendering/");
                 browser.LoadHtml(Monster.ValloricStatBlock(), "http://rendering/");
 
-                saveFilename = filename;
-                
-                await Task.Delay(500);
+                saveFilename = filename;                                
+                await Help.Delay(500);
 
                 int width = (Monster.width + (Monster.width * Monster.columns)) + 40;
                 int height = 0;
@@ -1042,8 +1041,8 @@ namespace DND_Monster
                 }
 
                 browser.Size = new Size(width, height);
-                
-                await Task.Delay(500);
+
+                await Help.Delay(500);
                 await browser.ScreenshotAsync().ContinueWith(DisplayBitmap);
             }
         }
