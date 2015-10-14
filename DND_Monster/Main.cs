@@ -615,6 +615,14 @@ namespace DND_Monster
                     ShowMonsterInText();
                     ExportReddit.Enabled = true;
                     break;
+                case 2:
+                    tableLayoutPanel1.Controls.Add(browserOutput, 0, 0);
+                    ShowMonsterInBrowser();                    
+                    ExportCSV.Enabled = true;
+                    ExportWeb.Enabled = true;
+                    ExportPNG.Enabled = true;
+                    PrintButton.Enabled = true;
+                    break;
             }            
         }
 
@@ -1475,6 +1483,11 @@ namespace DND_Monster
             if (PreviewTemplateSelector.Text == "Valloric's Statblock")
             {
                 browserOutput.LoadHtml(Monster.ValloricStatBlock(), "http://rendering/");
+            }
+
+            if (PreviewTemplateSelector.Text == "Future")
+            {
+                browserOutput.LoadHtml(Monster.FutureStatBlock(), "http://rendering/");
             }
         }
 

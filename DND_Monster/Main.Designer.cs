@@ -1419,7 +1419,8 @@
             this.PreviewTemplateSelector.FormattingEnabled = true;
             this.PreviewTemplateSelector.Items.AddRange(new object[] {
             "Valloric\'s Statblock",
-            "Reddit"});
+            "Reddit",
+            "Future"});
             this.PreviewTemplateSelector.Location = new System.Drawing.Point(305, 664);
             this.PreviewTemplateSelector.Name = "PreviewTemplateSelector";
             this.PreviewTemplateSelector.Size = new System.Drawing.Size(156, 21);
