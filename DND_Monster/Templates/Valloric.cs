@@ -8,11 +8,7 @@ namespace DND_Monster
 {
     // Class based on Valloric's template.
     public static partial class Monster
-    {
-        // The width of the document is 212 + (212 * columns).
-        public static int columns = 0;
-        public static int width = 212;
-
+    {        
         // Writes out the HTML needed to render the stat block
         public static string ValloricStatBlock()        
         {
@@ -481,7 +477,14 @@ namespace DND_Monster
                 {
                     output.Add(@"<property-block>");
                     output.Add(ability.WebSpellcasterBoilerplate(CreatureName));
-                    output.Add(ability.WebSpellBlockFormat());
+                    if (ability.Description.Contains("NotInnate"))
+                    {
+                        output.Add(ability.WebSpellBlockFormat_NotInnate());
+                    }
+                    else
+                    {
+                        output.Add(ability.WebSpellBlockFormat_Innate());
+                    }
                     output.Add(@"</property-block>");
                 }
             }

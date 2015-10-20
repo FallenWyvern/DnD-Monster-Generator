@@ -64,6 +64,8 @@ namespace DND_Monster
             SizeDropDown.SelectedIndex = 0;
             SkillDropDown.SelectedIndex = 0;
 
+            ColumnWidthUpDown.Value = Monster.width;
+
             StrUpDown.ValueChanged += modchanged_ValueChanged;
             DexUpDown.ValueChanged += modchanged_ValueChanged;
             ConUpDown.ValueChanged += modchanged_ValueChanged;
@@ -630,7 +632,7 @@ namespace DND_Monster
         {
             SortTraits();
             Help.useBG = BackgroundCheckbox.Checked;
-            Monster.columns = (int)PreviewColumns.Value;
+            Monster.columns = (int)PreviewColumns.Value;            
 
             GenerateMonsterData();
         }
@@ -1884,6 +1886,11 @@ namespace DND_Monster
         private void AddSaved_Click(object sender, EventArgs e)
         {
             new AddSavedTrait().Show();
+        }
+
+        private void ColumnWidthUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            Monster.width = (int)ColumnWidthUpDown.Value;
         }
     }
 }

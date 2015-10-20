@@ -14,7 +14,11 @@ namespace DND_Monster
     // Input() and Output() either copies all data to or from this static class to a Data instance.
 
     public static partial class Monster
-    {     
+    {
+        // The width of the document is 212 + (212 * columns).
+        public static int columns = 0;
+        public static int width = 212;
+
         // Methods for building monster.
         #region
         

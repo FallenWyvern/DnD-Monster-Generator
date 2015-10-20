@@ -99,7 +99,14 @@ namespace DND_Monster
                     if (ability.isSpell)
                     {
                         RedditMonster += Bold("Spellcasting.", ability.TextSpellcasterBoilerplate(CreatureName));
-                        RedditMonster += ability.TextSpellBlockFormat();
+                        if (ability.Description.Contains("NotInnate"))
+                        {
+                            RedditMonster += ability.TextSpellBlockFormat_NotInnate();
+                        }
+                        else
+                        {
+                            RedditMonster += ability.TextSpellBlockFormat_Innate();
+                        }
                     }
                     #endregion
                 }

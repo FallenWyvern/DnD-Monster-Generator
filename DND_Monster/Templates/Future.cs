@@ -480,7 +480,14 @@ namespace DND_Monster
                 {
                     output.Add(@"<property-block>");
                     output.Add(ability.WebSpellcasterBoilerplate(CreatureName));
-                    output.Add(ability.WebSpellBlockFormat());
+                    if (ability.Description.Contains("NotInnate"))
+                    {
+                        output.Add(ability.WebSpellBlockFormat_NotInnate());
+                    }
+                    else
+                    {
+                        output.Add(ability.WebSpellBlockFormat_Innate());
+                    }
                     output.Add(@"</property-block>");
                 }
             }

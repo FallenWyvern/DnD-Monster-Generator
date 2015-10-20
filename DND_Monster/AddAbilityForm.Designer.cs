@@ -486,6 +486,7 @@
             this.InnateCheckbox.TabIndex = 9;
             this.InnateCheckbox.Text = "Innate Spellcasting";
             this.InnateCheckbox.UseVisualStyleBackColor = true;
+            this.InnateCheckbox.CheckedChanged += new System.EventHandler(this.InnateCheckbox_CheckedChanged);
             // 
             // label3
             // 

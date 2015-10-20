@@ -47,17 +47,21 @@ namespace DND_Monster
             SpellClass.Text = spellValues[0];
             SpellCastingAbility.Text = spellValues[1];
             SpellcastingLevel.Value = Convert.ToInt32(spellValues[2]);
-            if (spellValues[3] == "Innate") { InnateCheckbox.Checked = true; }
-
-            Spellslot1.Value = Convert.ToInt32(spellValues[4].Split(',')[0]);
-            Spellslot2.Value = Convert.ToInt32(spellValues[4].Split(',')[1]);
-            Spellslot3.Value = Convert.ToInt32(spellValues[4].Split(',')[2]);
-            Spellslot4.Value = Convert.ToInt32(spellValues[4].Split(',')[3]);
-            Spellslot5.Value = Convert.ToInt32(spellValues[4].Split(',')[4]);
-            Spellslot6.Value = Convert.ToInt32(spellValues[4].Split(',')[5]);
-            Spellslot7.Value = Convert.ToInt32(spellValues[4].Split(',')[6]);
-            Spellslot8.Value = Convert.ToInt32(spellValues[4].Split(',')[7]);
-            Spellslot9.Value = Convert.ToInt32(spellValues[4].Split(',')[8]);
+            if (spellValues[3] == "Innate") { 
+                InnateCheckbox.Checked = true; 
+            }
+            else
+            {
+                Spellslot1.Value = Convert.ToInt32(spellValues[4].Split(',')[0]);
+                Spellslot2.Value = Convert.ToInt32(spellValues[4].Split(',')[1]);
+                Spellslot3.Value = Convert.ToInt32(spellValues[4].Split(',')[2]);
+                Spellslot4.Value = Convert.ToInt32(spellValues[4].Split(',')[3]);
+                Spellslot5.Value = Convert.ToInt32(spellValues[4].Split(',')[4]);
+                Spellslot6.Value = Convert.ToInt32(spellValues[4].Split(',')[5]);
+                Spellslot7.Value = Convert.ToInt32(spellValues[4].Split(',')[6]);
+                Spellslot8.Value = Convert.ToInt32(spellValues[4].Split(',')[7]);
+                Spellslot9.Value = Convert.ToInt32(spellValues[4].Split(',')[8]);
+            }
 
             foreach (string item in spellValues[5].Split(','))
             {
@@ -82,7 +86,17 @@ namespace DND_Monster
             else
             {
                 this.NewAbility = new Ability();
-                string spellText = ToDescription();
+                string spellText = "";
+
+                if (InnateCheckbox.Checked)
+                {
+                    spellText = ToDescription_Innate();
+                }
+                else
+                {
+                   spellText = ToDescription_NotInnate();
+                }
+
                 NewAbility.Title = SpellClass.Text + " Spellcasting";
                 NewAbility.Description = spellText; 
                 NewAbility.isSpell = true;
@@ -92,7 +106,7 @@ namespace DND_Monster
         }
 
         // Creates the spell out into a string, to load into the description.
-        private string ToDescription()
+        private string ToDescription_NotInnate()
         {
             string spellText = "";
             spellText += SpellClass.Text + "|";
@@ -131,7 +145,38 @@ namespace DND_Monster
             spellText += "|";
             return spellText;
         }
+
+        // Creates the spell out into a string, to load into the description.
+        private string ToDescription_Innate()
+        {
+            return ToDescription_NotInnate();
+            string spellText = "";
+            spellText += SpellClass.Text + "|";
+            spellText += SpellCastingAbility.Text + "|";
+            spellText += SpellcastingLevel.Value + "|";
+
+            if (InnateCheckbox.Checked)
+            {
+                spellText += "Innate|";
+            }
+            else
+            {
+                spellText += "NotInnate|";
+            }
+
+            foreach (string item in SpellList.Items)
+            {
+                if (!String.IsNullOrEmpty(item) || !String.IsNullOrWhiteSpace(item))
+                {
+                    spellText += item.Split('|')[0].Trim() + ":" + item.Split('|')[1].Trim() + ",";            
+                }
+            }
+
+            spellText += "|";
+            return spellText;
+        }
         
+
         // Remove spells from the spell list.
         private void SpellListItemRemove(object sender, EventArgs e)
         {
@@ -148,7 +193,7 @@ namespace DND_Monster
 
         // Ensures maximum level of an added spell isn't higher than the highest spell slot.
         private void ChangeSpellLevelMax(object sender, EventArgs e)
-        {
+        {            
             NumericUpDown temp = (NumericUpDown)sender;
             int tagValue = Convert.ToInt32(temp.Tag.ToString());
             
@@ -168,6 +213,22 @@ namespace DND_Monster
         {
             try { this.Text = AbilityNameTextBox.Text; }
             catch { }
+        }
+
+        int oldMax = 0;
+        private void InnateCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (InnateCheckbox.Checked)
+            {
+                label1.Text = "Times Per Day";
+                oldMax = (int)SpellLevel.Maximum;
+                SpellLevel.Maximum = 9;
+            }
+            else
+            {
+                label1.Text = "Spell Level";
+                SpellLevel.Maximum = oldMax;
+            }
         }
 
     }

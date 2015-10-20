@@ -153,6 +153,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.TraitException = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.ColumnWidthUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StrUpDown)).BeginInit();
@@ -181,6 +184,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.PreviewColumns)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ColumnWidthUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // MonsterName
@@ -1296,12 +1301,13 @@
             this.tableLayoutPanel2.Controls.Add(this.BackgroundCheckbox, 6, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 5, 0);
             this.tableLayoutPanel2.Controls.Add(this.ExportReddit, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 5, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 583);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(559, 100);
             this.tableLayoutPanel2.TabIndex = 92;
             // 
@@ -1856,6 +1862,50 @@
             this.TraitException.Size = new System.Drawing.Size(171, 20);
             this.TraitException.TabIndex = 100;
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.ColumnWidthUpDown, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.label16, 0, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(291, 55);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 3;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(86, 42);
+            this.tableLayoutPanel5.TabIndex = 103;
+            // 
+            // ColumnWidthUpDown
+            // 
+            this.ColumnWidthUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ColumnWidthUpDown.Location = new System.Drawing.Point(3, 14);
+            this.ColumnWidthUpDown.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.ColumnWidthUpDown.Name = "ColumnWidthUpDown";
+            this.ColumnWidthUpDown.Size = new System.Drawing.Size(80, 20);
+            this.ColumnWidthUpDown.TabIndex = 100;
+            this.ColumnWidthUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ColumnWidthUpDown.ValueChanged += new System.EventHandler(this.ColumnWidthUpDown_ValueChanged);
+            // 
+            // label16
+            // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(73, 11);
+            this.label16.TabIndex = 101;
+            this.label16.Text = "Column Width";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1896,6 +1946,9 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ColumnWidthUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2026,6 +2079,9 @@
         private System.Windows.Forms.Button EditTraitButton;
         private System.Windows.Forms.Button ExportReddit;
         private System.Windows.Forms.Button AddSaved;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.NumericUpDown ColumnWidthUpDown;
+        private System.Windows.Forms.Label label16;
     }
 }
 

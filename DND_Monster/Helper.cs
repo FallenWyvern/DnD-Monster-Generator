@@ -192,14 +192,17 @@ namespace DND_Monster
 
             if (!Description.Contains("NotInnate"))
             {
-                returnstring += "It requires no material components to cast its spells. ";
+                returnstring += "It can innately cast the following spells, requiring no material components: ";                
             }
-            returnstring += "The " + name + " has the following " + Description.Split('|')[0] + " spells prepared:";
+            else
+            {
+                returnstring += "The " + name + " has the following " + Description.Split('|')[0] + " spells prepared:";
+            }
 
             return "<h4>Spellcasting. </h4><p>" + returnstring + "</p></br></br>";
         }
 
-        public string WebSpellBlockFormat()
+        public string WebSpellBlockFormat_NotInnate()
         {
             if (!isSpell) return "";
 
@@ -261,7 +264,48 @@ namespace DND_Monster
 
             return returnstring;
         }
+
+        public string WebSpellBlockFormat_Innate()
+        {
+            if (!isSpell) return "";
+
+            string returnstring = "";            
+            string[] spells = Description.Split('|')[5].Split(',');            
+
+            for (int i = 0; i < 10; i++)
+            {                
+                foreach (string item in spells)
+                {                    
+                    if (item.Contains(i + ":"))
+                    {
+                        if (i == 0)
+                        {
+                            if (!returnstring.Contains("At will"))
+                            {
+                                returnstring += "At will: ";
+                                returnstring += "<p><i>";
+                            }                            
+                        }
+                        else
+                        {
+                            if (!returnstring.Contains(i + "/day"))
+                            {
+                                returnstring += i + "/day each: ";
+                                returnstring += "<p><i>";
+                            }
+                        }
+                        
+                        returnstring += item.Split(':')[1].Trim() + ", ";
+                    }
+                }
+                
+                returnstring = returnstring.Trim().Substring(0, returnstring.Trim().Length - 1) + "</i></p></br>";                
+            }            
+
+            return returnstring;
+        }
         
+        // Fix these when innate is finished
         public string TextSpellcasterBoilerplate(string name)
         {
             if (!isSpell) return "";
@@ -320,12 +364,15 @@ namespace DND_Monster
             {
                 returnstring += "It requires no material components to cast its spells. ";
             }
-            returnstring += "The " + name + " has the following " + Description.Split('|')[0] + " spells prepared:";
+            else
+            {
+                returnstring += "The " + name + " has the following " + Description.Split('|')[0] + " spells prepared:";
+            }
 
             return returnstring + Environment.NewLine + Environment.NewLine;
         }
         
-        public string TextSpellBlockFormat()
+        public string TextSpellBlockFormat_NotInnate()
         {
             if (!isSpell) return "";
 
@@ -386,6 +433,44 @@ namespace DND_Monster
                 returnstring += "*" + Environment.NewLine + Environment.NewLine;
             }
 
+            return returnstring;
+        }
+
+        public string TextSpellBlockFormat_Innate()
+        {            
+            if (!isSpell) return "";
+
+            string returnstring = "";
+            string[] spells = Description.Split('|')[5].Split(',');            
+
+            for (int i = 0; i < 10; i++)
+            {
+                foreach (string item in spells)
+                {                    
+                    if (item.Contains(i + ":"))
+                    {
+                        if (i == 0)
+                        {
+                            if (!returnstring.Contains("At will"))
+                            {
+                                returnstring += "- At will: ";
+                            }
+                        }
+                        else
+                        {
+                            if (!returnstring.Contains(i + "/day"))
+                            {
+                                returnstring += "- " + i + "/day each: ";
+                            }
+                        }
+
+                        returnstring += "*" + item.Split(':')[1].Trim() + "*, ";                        
+                    }                    
+                }
+                returnstring = returnstring.Substring(0, returnstring.Length - 2) + Environment.NewLine + Environment.NewLine;                                    
+            }
+
+            returnstring = returnstring.Trim() + Environment.NewLine + Environment.NewLine;
             return returnstring;
         }        
     }
@@ -542,7 +627,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "3.0.5";
+        public static string Version = "3.1.0";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = @"C:\";
 
