@@ -17,7 +17,7 @@ namespace DND_Monster
     {
         // The width of the document is 212 + (212 * columns).
         public static int columns = 0;
-        public static int width = 212;
+        public static int width = 260;
 
         // Methods for building monster.
         #region
