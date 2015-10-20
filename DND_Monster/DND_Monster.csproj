@@ -92,34 +92,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddAbilityForm.cs">
+    <Compile Include="Views\AddAbilityForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddAbilityForm.Designer.cs">
+    <Compile Include="Views\AddAbilityForm.Designer.cs">
       <DependentUpon>AddAbilityForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddActionForm.cs">
+    <Compile Include="Views\AddActionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddActionForm.Designer.cs">
+    <Compile Include="Views\AddActionForm.Designer.cs">
       <DependentUpon>AddActionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddLegendaryForm.cs">
+    <Compile Include="Views\AddLegendaryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddLegendaryForm.Designer.cs">
+    <Compile Include="Views\AddLegendaryForm.Designer.cs">
       <DependentUpon>AddLegendaryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddSavedTrait.cs">
+    <Compile Include="Views\AddSavedTrait.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddSavedTrait.Designer.cs">
+    <Compile Include="Views\AddSavedTrait.Designer.cs">
       <DependentUpon>AddSavedTrait.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomSpeed.cs">
+    <Compile Include="Views\CustomSpeed.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomSpeed.Designer.cs">
+    <Compile Include="Views\CustomSpeed.Designer.cs">
       <DependentUpon>CustomSpeed.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper.cs" />
@@ -141,19 +141,19 @@
     <Compile Include="ScreenShot.cs" />
     <Compile Include="Templates\Future.cs" />
     <Compile Include="Templates\Valloric.cs" />
-    <EmbeddedResource Include="AddAbilityForm.resx">
+    <EmbeddedResource Include="Views\AddAbilityForm.resx">
       <DependentUpon>AddAbilityForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddActionForm.resx">
+    <EmbeddedResource Include="Views\AddActionForm.resx">
       <DependentUpon>AddActionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddLegendaryForm.resx">
+    <EmbeddedResource Include="Views\AddLegendaryForm.resx">
       <DependentUpon>AddLegendaryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddSavedTrait.resx">
+    <EmbeddedResource Include="Views\AddSavedTrait.resx">
       <DependentUpon>AddSavedTrait.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomSpeed.resx">
+    <EmbeddedResource Include="Views\CustomSpeed.resx">
       <DependentUpon>CustomSpeed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
@@ -164,10 +164,13 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="background-small.uri">
+    <None Include="Resource\background-carbon.uri">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="background.uri">
+    <None Include="Resource\background-small.uri">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\background.uri">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
@@ -185,8 +188,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DownArrow.png" />
-    <EmbeddedResource Include="UpArrow.png" />
+    <EmbeddedResource Include="Resource\DownArrow.png" />
+    <EmbeddedResource Include="Resource\UpArrow.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -627,7 +627,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "3.1.1";
+        public static string Version = "3.1.2";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = @"C:\";
 
@@ -726,7 +726,7 @@ namespace DND_Monster
         {
             if (useBG)
             {
-                if (bgURI == "") { bgURI = System.IO.File.ReadAllText("background-small.uri"); }
+                if (bgURI == "") { bgURI = System.IO.File.ReadAllText("Resource/background-small.uri"); }
                 return bgURI;
             }
             else
@@ -740,7 +740,7 @@ namespace DND_Monster
         {
             if (useBG)
             {
-                if (bgURI == "") { bgURI = System.IO.File.ReadAllText("background-small.uri"); }
+                if (bgURI == "") { bgURI = System.IO.File.ReadAllText("Resource/background-carbon.uri"); }
                 return bgURI;
             }
             else

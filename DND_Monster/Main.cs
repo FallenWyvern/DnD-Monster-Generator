@@ -637,14 +637,6 @@ namespace DND_Monster
             GenerateMonsterData();
         }
 
-        private void Sort()
-        {
-            foreach (string item in TraitsList.Items)
-            {
-
-            }
-        }
-
         // Converts monster to JSON, then saves to file.
         private void SaveData(object sender, EventArgs e)
         {            
@@ -1644,7 +1636,7 @@ namespace DND_Monster
                 {
                     foreach (Ability ability in Monster._Abilities)
                     {
-                        if (item.Contains(ability.Title))
+                        if (item.Replace("Ability: ", "") == ability.Title)
                         {                            
                             _Abilities.Add(ability);                            
                         }
@@ -1660,7 +1652,7 @@ namespace DND_Monster
                 {
                     foreach (Ability action in Monster._Actions)
                     {
-                        if (item.Contains(action.Title))
+                        if (item.Replace("Action: ", "") == action.Title)
                         {
                             _Actions.Add(action);
                         }
@@ -1676,7 +1668,7 @@ namespace DND_Monster
                 {
                     foreach (Ability reaction in Monster._Reactions)
                     {
-                        if (item.Contains(reaction.Title))
+                        if (item.Replace("Reaction: ", "") == reaction.Title)
                         {
                             _Reactions.Add(reaction);
                         }
@@ -1692,7 +1684,7 @@ namespace DND_Monster
                 {
                     foreach (Legendary epic in Monster._Legendaries)
                     {
-                        if (item.Contains(epic.Title))
+                        if (item.Replace("Legendary: ", "") == epic.Title)
                         {
                             _Legendaries.Add(epic);
                         }
