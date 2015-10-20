@@ -903,6 +903,13 @@ namespace DND_Monster
                     TraitsList.Items.Add("Damage Vulnerability: " + DVulnerability);
                 }
 
+                StrSaveBonusUpDown.Value = 0;
+                DexSaveBonusUpDown.Value = 0;
+                ConSaveBonusUpDown.Value = 0;
+                ChaSaveBonusUpDown.Value = 0;
+                IntSaveBonusUpDown.Value = 0;
+                WisSaveBonusUpDown.Value = 0;
+
                 foreach (string SavingThrow in Monster.SavingThrowBonuses)
                 {
                     string temp = SavingThrow.Split(' ')[0];
