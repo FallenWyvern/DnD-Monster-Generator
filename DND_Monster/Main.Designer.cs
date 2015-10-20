@@ -1477,6 +1477,8 @@
             this.PreviewTemplateSelector.Size = new System.Drawing.Size(156, 21);
             this.PreviewTemplateSelector.TabIndex = 50;
             this.PreviewTemplateSelector.Text = "Valloric\'s Statblock";
+            this.PreviewTemplateSelector.SelectedIndexChanged += new System.EventHandler(this.PreviewTemplateSelector_SelectedIndexChanged);
+            this.PreviewTemplateSelector.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PreviewTemplateSelector_SelectedIndexChanged);
             // 
             // LanguageComboBox
             // 

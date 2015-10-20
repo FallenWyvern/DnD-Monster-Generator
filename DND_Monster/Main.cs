@@ -1884,5 +1884,17 @@ namespace DND_Monster
         {
             Monster.width = (int)ColumnWidthUpDown.Value;
         }
+
+        private void PreviewTemplateSelector_SelectedIndexChanged(object sender, EventArgs e)
+        {            
+            Help.TemplateName = PreviewTemplateSelector.Text;
+            Console.WriteLine("Template Name: " + PreviewTemplateSelector.Text);
+        }
+
+        private void PreviewTemplateSelector_SelectedIndexChanged(object sender, KeyPressEventArgs e)
+        {
+            Help.TemplateName = PreviewTemplateSelector.Text;
+            Console.WriteLine("Template Name: " + PreviewTemplateSelector.Text);
+        }
     }
 }

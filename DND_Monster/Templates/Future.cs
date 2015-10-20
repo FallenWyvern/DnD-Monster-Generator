@@ -43,7 +43,7 @@ namespace DND_Monster
 
             // Body Style
             #region
-            output.Add(@"<body style=""background-image: url('" + Help.FutureBackgroundURI() + @"'); background-repeat: repeat;"">");
+            output.Add(@"<body style=""background-image: url('" + Help.BackgroundImage() + @"'); background-repeat: repeat;"">");
             output.Add(@"<template id=""tapered-rule"">");
             output.Add(@"<style>");
             output.Add(@"svg {");

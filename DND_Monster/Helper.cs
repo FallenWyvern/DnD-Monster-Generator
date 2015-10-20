@@ -630,6 +630,7 @@ namespace DND_Monster
         public static string Version = "3.1.2";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = @"C:\";
+        public static string TemplateName = "Valloric's StatBlock";
 
         public static bool useBG = false;
         private static string bgURI = "";
@@ -719,6 +720,19 @@ namespace DND_Monster
             int tempHP = 0;
             int.TryParse(hp, out tempHP);
             return FindCRByHP(tempHP);
+        }
+
+        static public string BackgroundImage()
+        {            
+            switch (Help.TemplateName)
+            {
+                case "Future":
+                    bgURI = "";
+                    return FutureBackgroundURI();                   
+                default:
+                    bgURI = "";
+                    return ValloricBackgroundURI();                    
+            }
         }
 
         // Returns fantasy background from 'background-small.uri'
