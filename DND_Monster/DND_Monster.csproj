@@ -92,6 +92,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Settings.cs" />
     <Compile Include="Views\AddAbilityForm.cs">
       <SubType>Form</SubType>
     </Compile>

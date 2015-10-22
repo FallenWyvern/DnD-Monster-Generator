@@ -1917,6 +1917,7 @@
             this.Controls.Add(this.tableLayoutPanel4);
             this.Name = "Main";
             this.Text = "DND Monster Maker";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).EndInit();

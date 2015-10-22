@@ -32,6 +32,7 @@ namespace DND_Monster
             {                
                 AddSaved.Enabled = false;
             }
+            Settings.Load();
         }
 
         private void CefStartup()
@@ -1902,6 +1903,11 @@ namespace DND_Monster
         {
             Help.TemplateName = PreviewTemplateSelector.Text;
             Console.WriteLine("Template Name: " + PreviewTemplateSelector.Text);
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Settings.Save();
         }
     }
 }
