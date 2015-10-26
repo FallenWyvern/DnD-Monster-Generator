@@ -1748,7 +1748,7 @@ namespace DND_Monster
         // Pop up text changes to traitslist help.
         private void TraitsListHoverHelp(object sender, EventArgs e)
         {
-            TraitsListPopUp.SetToolTip(label1, "Right Click to Remove Items" + Environment.NewLine +
+            TraitsListPopUp.SetToolTip(TraitsListHelperLabel, "Right Click to Remove Items" + Environment.NewLine +
                                                "Double Click to Edit Items" + Environment.NewLine +
                                                "Hover to Select and Inspect Items" + Environment.NewLine +
                                                "Use Up/Down Keys to Sort");
@@ -1908,6 +1908,116 @@ namespace DND_Monster
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             Settings.Save();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            System.IO.File.WriteAllText(@"D:\localization.txt", "");
+            System.IO.File.AppendAllText(@"D:\localization.txt", "Main" + Environment.NewLine);
+            Form test;
+
+            #region
+            foreach (Control c in panel2.Controls)
+            {
+                AddLocalizationItem(c, @"D:\localization.txt", "Main");
+            }
+            #endregion
+
+            #region
+            System.IO.File.AppendAllText(@"D:\localization.txt", "Custom Speed" + Environment.NewLine);
+            test = new CustomSpeed();
+            foreach (Control c in test.Controls)
+            {
+                AddLocalizationItem(c, @"D:\localization.txt", "Speed");
+            }
+            #endregion
+
+            #region
+            System.IO.File.AppendAllText(@"D:\localization.txt", "Add Ability" + Environment.NewLine);
+            test = new AddAbilityForm();
+                        
+            foreach (Control c in test.Controls)
+            {
+                if (c is TabControl)
+                {
+                    TabControl temp = (TabControl)c;
+                    foreach (TabPage i in temp.Controls)
+                    {
+                        foreach (Control item in i.Controls)
+                        {
+                            AddLocalizationItem(c, @"D:\localization.txt", "Ability");
+                        }
+                    }
+                }
+            }
+            #endregion
+
+            #region
+            System.IO.File.AppendAllText(@"D:\localization.txt", "Add Action" + Environment.NewLine);
+            test = new AddActionForm();
+
+            foreach (Control c in test.Controls)
+            {
+                if (c is TabControl)
+                {
+                    AddLocalizationItem(c, @"D:\localization.txt", "Action");                    
+                }
+            }
+            #endregion
+
+            #region
+            System.IO.File.AppendAllText(@"D:\localization.txt", "Add Legendary" + Environment.NewLine);
+            test = new AddLegendaryForm();
+            foreach (Control c in test.Controls)
+            {                
+                AddLocalizationItem(c, @"D:\localization.txt", "Legendary");
+            }
+            #endregion
+        }
+
+        public void AddLocalizationItem(Control c, string filename, string type)
+        {
+            if (c is TabControl)
+            {
+                TabControl temp = (TabControl)c;
+                foreach (TabPage i in temp.Controls)
+                {
+                    foreach (Control item in i.Controls)
+                    {
+                        AddLocalizationItem(item, filename, "In-" + type);
+                    }
+                }
+                return;
+            }
+
+            if (c is TableLayoutPanel)
+            {
+                TableLayoutPanel tabletemp = (TableLayoutPanel)c;
+                for (int x = 0; x < tabletemp.RowCount; x++)
+                {
+                    for (int y = 0; y < tabletemp.ColumnCount; y++)
+                    {
+                        AddLocalizationItem(tabletemp.GetControlFromPosition(x, y), filename, "In-" + type);
+                    }
+                }
+            }
+
+            if (c is ComboBox)
+            {
+                ComboBox temp = (ComboBox)c;
+                foreach (string item in temp.Items)
+                {
+                    System.IO.File.AppendAllText(filename, "In-" + type + " : " + c.Name + " : " + item + Environment.NewLine);
+                }
+                return;
+            }
+            
+            System.IO.File.AppendAllText(filename, type + " : " + c.Name + " : " + c.Text + Environment.NewLine);            
+        }        
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

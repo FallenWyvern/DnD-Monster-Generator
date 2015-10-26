@@ -132,30 +132,31 @@
             this.SkillBonusCheckBox = new System.Windows.Forms.CheckBox();
             this.SkillProfCheckBox = new System.Windows.Forms.CheckBox();
             this.TraitsListPopUp = new System.Windows.Forms.ToolTip(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.TraitsListHelperLabel = new System.Windows.Forms.Label();
             this.NewMonsterButton = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.CRHelperLabel = new System.Windows.Forms.Label();
+            this.AddLegendaryButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.AddSaved = new System.Windows.Forms.Button();
             this.MoveTraitDownButton = new System.Windows.Forms.Button();
             this.MoveTraitUpButton = new System.Windows.Forms.Button();
             this.DeleteTraitButton = new System.Windows.Forms.Button();
             this.EditTraitButton = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.ExceptionSourceLabel = new System.Windows.Forms.Label();
+            this.ExceptionTypeLabel = new System.Windows.Forms.Label();
             this.DamageModificationType = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.DamageModificationLabel = new System.Windows.Forms.Label();
+            this.SkillSelectionLabel = new System.Windows.Forms.Label();
+            this.BonusModifierLabel = new System.Windows.Forms.Label();
+            this.SkillHeaderLabel = new System.Windows.Forms.Label();
+            this.SpeedsHeaderLabel = new System.Windows.Forms.Label();
+            this.SensesLabel = new System.Windows.Forms.Label();
+            this.LanguageHeaderLabel = new System.Windows.Forms.Label();
+            this.SensesHeaderLabel = new System.Windows.Forms.Label();
+            this.SpeedHelperLabel = new System.Windows.Forms.Label();
+            this.ExceptionText = new System.Windows.Forms.Label();
             this.TraitException = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
@@ -959,7 +960,7 @@
             // SavingThrowBonuses
             // 
             this.SavingThrowBonuses.AutoSize = true;
-            this.SavingThrowBonuses.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SavingThrowBonuses.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.SavingThrowBonuses.Location = new System.Drawing.Point(2, 371);
             this.SavingThrowBonuses.Name = "SavingThrowBonuses";
             this.SavingThrowBonuses.Size = new System.Drawing.Size(166, 16);
@@ -1023,7 +1024,7 @@
             // AbilityScores
             // 
             this.AbilityScores.AutoSize = true;
-            this.AbilityScores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AbilityScores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.AbilityScores.Location = new System.Drawing.Point(2, 307);
             this.AbilityScores.Name = "AbilityScores";
             this.AbilityScores.Size = new System.Drawing.Size(104, 16);
@@ -1294,7 +1295,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 179F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 183F));
             this.tableLayoutPanel2.Controls.Add(this.ExportCSV, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.PrintButton, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.ExportPNG, 1, 0);
@@ -1554,15 +1555,15 @@
             // 
             this.TraitsListPopUp.ShowAlways = true;
             // 
-            // label1
+            // TraitsListHelperLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(357, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 13);
-            this.label1.TabIndex = 97;
-            this.label1.Text = "Use the Buttons Below to Modify";
-            this.label1.MouseHover += new System.EventHandler(this.TraitsListHoverHelp);
+            this.TraitsListHelperLabel.AutoSize = true;
+            this.TraitsListHelperLabel.Location = new System.Drawing.Point(357, 9);
+            this.TraitsListHelperLabel.Name = "TraitsListHelperLabel";
+            this.TraitsListHelperLabel.Size = new System.Drawing.Size(161, 13);
+            this.TraitsListHelperLabel.TabIndex = 97;
+            this.TraitsListHelperLabel.Text = "Use the Buttons Below to Modify";
+            this.TraitsListHelperLabel.MouseHover += new System.EventHandler(this.TraitsListHoverHelp);
             // 
             // NewMonsterButton
             // 
@@ -1574,24 +1575,24 @@
             this.NewMonsterButton.UseVisualStyleBackColor = true;
             this.NewMonsterButton.Click += new System.EventHandler(this.NewMonsterButton_Click);
             // 
-            // label2
+            // CRHelperLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(101, 630);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 13);
-            this.label2.TabIndex = 99;
-            this.label2.Text = "Hover for suggested CR values";
+            this.CRHelperLabel.AutoSize = true;
+            this.CRHelperLabel.Location = new System.Drawing.Point(101, 630);
+            this.CRHelperLabel.Name = "CRHelperLabel";
+            this.CRHelperLabel.Size = new System.Drawing.Size(155, 13);
+            this.CRHelperLabel.TabIndex = 99;
+            this.CRHelperLabel.Text = "Hover for suggested CR values";
             // 
-            // button2
+            // AddLegendaryButton
             // 
-            this.button2.Location = new System.Drawing.Point(474, 380);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(88, 23);
-            this.button2.TabIndex = 48;
-            this.button2.Text = "Add Legendary";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.AddLegendary);
+            this.AddLegendaryButton.Location = new System.Drawing.Point(474, 380);
+            this.AddLegendaryButton.Name = "AddLegendaryButton";
+            this.AddLegendaryButton.Size = new System.Drawing.Size(88, 23);
+            this.AddLegendaryButton.TabIndex = 48;
+            this.AddLegendaryButton.Text = "Add Legendary";
+            this.AddLegendaryButton.UseVisualStyleBackColor = true;
+            this.AddLegendaryButton.Click += new System.EventHandler(this.AddLegendary);
             // 
             // tableLayoutPanel4
             // 
@@ -1610,34 +1611,35 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.AddSaved);
             this.panel2.Controls.Add(this.MoveTraitDownButton);
             this.panel2.Controls.Add(this.MoveTraitUpButton);
             this.panel2.Controls.Add(this.DeleteTraitButton);
             this.panel2.Controls.Add(this.EditTraitButton);
-            this.panel2.Controls.Add(this.label15);
-            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.ExceptionSourceLabel);
+            this.panel2.Controls.Add(this.ExceptionTypeLabel);
             this.panel2.Controls.Add(this.DamageModificationType);
-            this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.DamageModificationLabel);
+            this.panel2.Controls.Add(this.SkillSelectionLabel);
+            this.panel2.Controls.Add(this.BonusModifierLabel);
+            this.panel2.Controls.Add(this.SkillHeaderLabel);
+            this.panel2.Controls.Add(this.SpeedsHeaderLabel);
+            this.panel2.Controls.Add(this.SensesLabel);
+            this.panel2.Controls.Add(this.LanguageHeaderLabel);
+            this.panel2.Controls.Add(this.SensesHeaderLabel);
+            this.panel2.Controls.Add(this.SpeedHelperLabel);
+            this.panel2.Controls.Add(this.ExceptionText);
             this.panel2.Controls.Add(this.TraitException);
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.AddLegendaryButton);
             this.panel2.Controls.Add(this.MonsterName);
-            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.CRHelperLabel);
             this.panel2.Controls.Add(this.MonsterNameTextBox);
             this.panel2.Controls.Add(this.ACUpDown);
             this.panel2.Controls.Add(this.NewMonsterButton);
             this.panel2.Controls.Add(this.ArmorClass);
             this.panel2.Controls.Add(this.SkillProfCheckBox);
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.TraitsListHelperLabel);
             this.panel2.Controls.Add(this.SkillBonusCheckBox);
             this.panel2.Controls.Add(this.TypeDropDown);
             this.panel2.Controls.Add(this.SkillStatCheckBox);
@@ -1724,6 +1726,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(569, 690);
             this.panel2.TabIndex = 103;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(422, 564);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 23);
+            this.button1.TabIndex = 118;
+            this.button1.Text = "Output Localization";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // AddSaved
             // 
@@ -1777,23 +1790,23 @@
             this.EditTraitButton.UseVisualStyleBackColor = true;
             this.EditTraitButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.editTrait);
             // 
-            // label15
+            // ExceptionSourceLabel
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 581);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(91, 13);
-            this.label15.TabIndex = 113;
-            this.label15.Text = "Exception Source";
+            this.ExceptionSourceLabel.AutoSize = true;
+            this.ExceptionSourceLabel.Location = new System.Drawing.Point(6, 581);
+            this.ExceptionSourceLabel.Name = "ExceptionSourceLabel";
+            this.ExceptionSourceLabel.Size = new System.Drawing.Size(91, 13);
+            this.ExceptionSourceLabel.TabIndex = 113;
+            this.ExceptionSourceLabel.Text = "Exception Source";
             // 
-            // label14
+            // ExceptionTypeLabel
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(156, 581);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(81, 13);
-            this.label14.TabIndex = 112;
-            this.label14.Text = "Exception Type";
+            this.ExceptionTypeLabel.AutoSize = true;
+            this.ExceptionTypeLabel.Location = new System.Drawing.Point(156, 581);
+            this.ExceptionTypeLabel.Name = "ExceptionTypeLabel";
+            this.ExceptionTypeLabel.Size = new System.Drawing.Size(81, 13);
+            this.ExceptionTypeLabel.TabIndex = 112;
+            this.ExceptionTypeLabel.Text = "Exception Type";
             // 
             // DamageModificationType
             // 
@@ -1807,100 +1820,100 @@
             this.DamageModificationType.Size = new System.Drawing.Size(121, 21);
             this.DamageModificationType.TabIndex = 111;
             // 
-            // label13
+            // DamageModificationLabel
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(3, 564);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(155, 16);
-            this.label13.TabIndex = 110;
-            this.label13.Text = "Damage Modification";
+            this.DamageModificationLabel.AutoSize = true;
+            this.DamageModificationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.DamageModificationLabel.Location = new System.Drawing.Point(3, 564);
+            this.DamageModificationLabel.Name = "DamageModificationLabel";
+            this.DamageModificationLabel.Size = new System.Drawing.Size(155, 16);
+            this.DamageModificationLabel.TabIndex = 110;
+            this.DamageModificationLabel.Text = "Damage Modification";
             // 
-            // label12
+            // SkillSelectionLabel
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 513);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(73, 13);
-            this.label12.TabIndex = 109;
-            this.label12.Text = "Skill Selection";
+            this.SkillSelectionLabel.AutoSize = true;
+            this.SkillSelectionLabel.Location = new System.Drawing.Point(6, 513);
+            this.SkillSelectionLabel.Name = "SkillSelectionLabel";
+            this.SkillSelectionLabel.Size = new System.Drawing.Size(73, 13);
+            this.SkillSelectionLabel.TabIndex = 109;
+            this.SkillSelectionLabel.Text = "Skill Selection";
             // 
-            // label11
+            // BonusModifierLabel
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(185, 511);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(37, 13);
-            this.label11.TabIndex = 108;
-            this.label11.Text = "Bonus";
+            this.BonusModifierLabel.AutoSize = true;
+            this.BonusModifierLabel.Location = new System.Drawing.Point(185, 511);
+            this.BonusModifierLabel.Name = "BonusModifierLabel";
+            this.BonusModifierLabel.Size = new System.Drawing.Size(37, 13);
+            this.BonusModifierLabel.TabIndex = 108;
+            this.BonusModifierLabel.Text = "Bonus";
             // 
-            // label10
+            // SkillHeaderLabel
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 497);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(46, 16);
-            this.label10.TabIndex = 107;
-            this.label10.Text = "Skills";
+            this.SkillHeaderLabel.AutoSize = true;
+            this.SkillHeaderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.SkillHeaderLabel.Location = new System.Drawing.Point(3, 497);
+            this.SkillHeaderLabel.Name = "SkillHeaderLabel";
+            this.SkillHeaderLabel.Size = new System.Drawing.Size(46, 16);
+            this.SkillHeaderLabel.TabIndex = 107;
+            this.SkillHeaderLabel.Text = "Skills";
             // 
-            // label9
+            // SpeedsHeaderLabel
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(2, 187);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(62, 16);
-            this.label9.TabIndex = 106;
-            this.label9.Text = "Speeds";
+            this.SpeedsHeaderLabel.AutoSize = true;
+            this.SpeedsHeaderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.SpeedsHeaderLabel.Location = new System.Drawing.Point(2, 187);
+            this.SpeedsHeaderLabel.Name = "SpeedsHeaderLabel";
+            this.SpeedsHeaderLabel.Size = new System.Drawing.Size(62, 16);
+            this.SpeedsHeaderLabel.TabIndex = 106;
+            this.SpeedsHeaderLabel.Text = "Speeds";
             // 
-            // label8
+            // SensesLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 453);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(133, 13);
-            this.label8.TabIndex = 105;
-            this.label8.Text = "Sense/Passive Perception";
+            this.SensesLabel.AutoSize = true;
+            this.SensesLabel.Location = new System.Drawing.Point(6, 453);
+            this.SensesLabel.Name = "SensesLabel";
+            this.SensesLabel.Size = new System.Drawing.Size(133, 13);
+            this.SensesLabel.TabIndex = 105;
+            this.SensesLabel.Text = "Sense/Passive Perception";
             // 
-            // label7
+            // LanguageHeaderLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(310, 437);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(85, 16);
-            this.label7.TabIndex = 104;
-            this.label7.Text = "Languages";
+            this.LanguageHeaderLabel.AutoSize = true;
+            this.LanguageHeaderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LanguageHeaderLabel.Location = new System.Drawing.Point(310, 437);
+            this.LanguageHeaderLabel.Name = "LanguageHeaderLabel";
+            this.LanguageHeaderLabel.Size = new System.Drawing.Size(85, 16);
+            this.LanguageHeaderLabel.TabIndex = 104;
+            this.LanguageHeaderLabel.Text = "Languages";
             // 
-            // label6
+            // SensesHeaderLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 437);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 16);
-            this.label6.TabIndex = 103;
-            this.label6.Text = "Senses";
+            this.SensesHeaderLabel.AutoSize = true;
+            this.SensesHeaderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.SensesHeaderLabel.Location = new System.Drawing.Point(3, 437);
+            this.SensesHeaderLabel.Name = "SensesHeaderLabel";
+            this.SensesHeaderLabel.Size = new System.Drawing.Size(60, 16);
+            this.SensesHeaderLabel.TabIndex = 103;
+            this.SensesHeaderLabel.Text = "Senses";
             // 
-            // label5
+            // SpeedHelperLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(109, 285);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(169, 13);
-            this.label5.TabIndex = 102;
-            this.label5.Text = "Click a speed label to customize it.";
+            this.SpeedHelperLabel.AutoSize = true;
+            this.SpeedHelperLabel.Location = new System.Drawing.Point(109, 285);
+            this.SpeedHelperLabel.Name = "SpeedHelperLabel";
+            this.SpeedHelperLabel.Size = new System.Drawing.Size(169, 13);
+            this.SpeedHelperLabel.TabIndex = 102;
+            this.SpeedHelperLabel.Text = "Click a speed label to customize it.";
             // 
-            // label4
+            // ExceptionText
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(284, 581);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 13);
-            this.label4.TabIndex = 101;
-            this.label4.Text = "Exception Text";
+            this.ExceptionText.AutoSize = true;
+            this.ExceptionText.Location = new System.Drawing.Point(284, 581);
+            this.ExceptionText.Name = "ExceptionText";
+            this.ExceptionText.Size = new System.Drawing.Size(78, 13);
+            this.ExceptionText.TabIndex = 101;
+            this.ExceptionText.Text = "Exception Text";
             // 
             // TraitException
             // 
@@ -2053,30 +2066,30 @@
         private System.Windows.Forms.CheckBox SkillBonusCheckBox;
         private System.Windows.Forms.CheckBox SkillProfCheckBox;
         private System.Windows.Forms.ToolTip TraitsListPopUp;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label TraitsListHelperLabel;
         private System.Windows.Forms.Button NewMonsterButton;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label CRHelperLabel;
+        private System.Windows.Forms.Button AddLegendaryButton;
         private System.Windows.Forms.CheckBox BackgroundCheckbox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.NumericUpDown PreviewColumns;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label ExceptionText;
         private System.Windows.Forms.TextBox TraitException;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label SpeedHelperLabel;
+        private System.Windows.Forms.Label ExceptionSourceLabel;
+        private System.Windows.Forms.Label ExceptionTypeLabel;
         private System.Windows.Forms.ComboBox DamageModificationType;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label DamageModificationLabel;
+        private System.Windows.Forms.Label SkillSelectionLabel;
+        private System.Windows.Forms.Label BonusModifierLabel;
+        private System.Windows.Forms.Label SkillHeaderLabel;
+        private System.Windows.Forms.Label SpeedsHeaderLabel;
+        private System.Windows.Forms.Label SensesLabel;
+        private System.Windows.Forms.Label LanguageHeaderLabel;
+        private System.Windows.Forms.Label SensesHeaderLabel;
         private System.Windows.Forms.Button MoveTraitDownButton;
         private System.Windows.Forms.Button MoveTraitUpButton;
         private System.Windows.Forms.Button DeleteTraitButton;
@@ -2086,6 +2099,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.NumericUpDown ColumnWidthUpDown;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button button1;
     }
 }
 

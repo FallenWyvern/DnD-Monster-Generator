@@ -58,8 +58,8 @@
             this.AttackAbilityNameField = new System.Windows.Forms.TextBox();
             this.AttackAbilityDescriptionField = new System.Windows.Forms.RichTextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.DescriptionLabel = new System.Windows.Forms.Label();
+            this.ReactionNameLabel = new System.Windows.Forms.Label();
             this.ReactionName = new System.Windows.Forms.TextBox();
             this.ReactionDescription = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.AttackBonusUpDown)).BeginInit();
@@ -440,8 +440,8 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.label2);
-            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Controls.Add(this.DescriptionLabel);
+            this.tabPage3.Controls.Add(this.ReactionNameLabel);
             this.tabPage3.Controls.Add(this.ReactionName);
             this.tabPage3.Controls.Add(this.ReactionDescription);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -452,23 +452,23 @@
             this.tabPage3.Text = "Reaction";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // DescriptionLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 13);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Description";
+            this.DescriptionLabel.AutoSize = true;
+            this.DescriptionLabel.Location = new System.Drawing.Point(6, 30);
+            this.DescriptionLabel.Name = "DescriptionLabel";
+            this.DescriptionLabel.Size = new System.Drawing.Size(60, 13);
+            this.DescriptionLabel.TabIndex = 12;
+            this.DescriptionLabel.Text = "Description";
             // 
-            // label3
+            // ReactionNameLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Reaction Name";
+            this.ReactionNameLabel.AutoSize = true;
+            this.ReactionNameLabel.Location = new System.Drawing.Point(4, 7);
+            this.ReactionNameLabel.Name = "ReactionNameLabel";
+            this.ReactionNameLabel.Size = new System.Drawing.Size(81, 13);
+            this.ReactionNameLabel.TabIndex = 11;
+            this.ReactionNameLabel.Text = "Reaction Name";
             // 
             // ReactionName
             // 
@@ -545,8 +545,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown RangeUpDownFar;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label DescriptionLabel;
+        private System.Windows.Forms.Label ReactionNameLabel;
         private System.Windows.Forms.TextBox ReactionName;
         private System.Windows.Forms.RichTextBox ReactionDescription;
     }

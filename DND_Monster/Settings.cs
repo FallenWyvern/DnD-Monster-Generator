@@ -9,6 +9,8 @@ namespace DND_Monster
     public static class Settings
     {
         public static string SettingsFile = "DND_monster.ini";
+        public static string SpellTimesPerDay = "Times Per Day";
+        public static string SpellLevel = "Spell Level";
 
         public static void Load()
         {
@@ -46,6 +48,6 @@ namespace DND_Monster
                 });
             }
             catch { }
-        }
+        }        
     }
 }

@@ -36,7 +36,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label16 = new System.Windows.Forms.Label();
+            this.SpellcastingLevelLabel = new System.Windows.Forms.Label();
             this.SpellcastingLevel = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Spellslot9 = new System.Windows.Forms.NumericUpDown();
@@ -60,16 +60,16 @@
             this.label14 = new System.Windows.Forms.Label();
             this.Spellslot8 = new System.Windows.Forms.NumericUpDown();
             this.SpellcastingSave = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.CastingAbilityLabel = new System.Windows.Forms.Label();
             this.SpellCastingAbility = new System.Windows.Forms.ComboBox();
             this.InnateCheckbox = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.SpellClassLabel = new System.Windows.Forms.Label();
             this.SpellClass = new System.Windows.Forms.ComboBox();
             this.SpellList = new System.Windows.Forms.ListBox();
             this.AddSpell = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.SpellNameLabel = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.SpellLevelLabel = new System.Windows.Forms.Label();
             this.SpellLevel = new System.Windows.Forms.NumericUpDown();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -161,20 +161,20 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.label16);
+            this.tabPage2.Controls.Add(this.SpellcastingLevelLabel);
             this.tabPage2.Controls.Add(this.SpellcastingLevel);
             this.tabPage2.Controls.Add(this.tableLayoutPanel1);
             this.tabPage2.Controls.Add(this.SpellcastingSave);
-            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.CastingAbilityLabel);
             this.tabPage2.Controls.Add(this.SpellCastingAbility);
             this.tabPage2.Controls.Add(this.InnateCheckbox);
-            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.SpellClassLabel);
             this.tabPage2.Controls.Add(this.SpellClass);
             this.tabPage2.Controls.Add(this.SpellList);
             this.tabPage2.Controls.Add(this.AddSpell);
-            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.SpellNameLabel);
             this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.SpellLevelLabel);
             this.tabPage2.Controls.Add(this.SpellLevel);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -184,14 +184,14 @@
             this.tabPage2.Text = "Spellcasting";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label16
+            // SpellcastingLevelLabel
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(150, 32);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(93, 13);
-            this.label16.TabIndex = 15;
-            this.label16.Text = "Spellcasting Level";
+            this.SpellcastingLevelLabel.AutoSize = true;
+            this.SpellcastingLevelLabel.Location = new System.Drawing.Point(150, 32);
+            this.SpellcastingLevelLabel.Name = "SpellcastingLevelLabel";
+            this.SpellcastingLevelLabel.Size = new System.Drawing.Size(93, 13);
+            this.SpellcastingLevelLabel.TabIndex = 15;
+            this.SpellcastingLevelLabel.Text = "Spellcasting Level";
             // 
             // SpellcastingLevel
             // 
@@ -452,14 +452,14 @@
             this.SpellcastingSave.UseVisualStyleBackColor = true;
             this.SpellcastingSave.Click += new System.EventHandler(this.Save);
             // 
-            // label4
+            // CastingAbilityLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 78);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Casting Ability";
+            this.CastingAbilityLabel.AutoSize = true;
+            this.CastingAbilityLabel.Location = new System.Drawing.Point(3, 78);
+            this.CastingAbilityLabel.Name = "CastingAbilityLabel";
+            this.CastingAbilityLabel.Size = new System.Drawing.Size(72, 13);
+            this.CastingAbilityLabel.TabIndex = 11;
+            this.CastingAbilityLabel.Text = "Casting Ability";
             // 
             // SpellCastingAbility
             // 
@@ -488,14 +488,14 @@
             this.InnateCheckbox.UseVisualStyleBackColor = true;
             this.InnateCheckbox.CheckedChanged += new System.EventHandler(this.InnateCheckbox_CheckedChanged);
             // 
-            // label3
+            // SpellClassLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 31);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Type of Spells";
+            this.SpellClassLabel.AutoSize = true;
+            this.SpellClassLabel.Location = new System.Drawing.Point(3, 31);
+            this.SpellClassLabel.Name = "SpellClassLabel";
+            this.SpellClassLabel.Size = new System.Drawing.Size(74, 13);
+            this.SpellClassLabel.TabIndex = 8;
+            this.SpellClassLabel.Text = "Type of Spells";
             // 
             // SpellClass
             // 
@@ -534,14 +534,14 @@
             this.AddSpell.UseVisualStyleBackColor = true;
             this.AddSpell.Click += new System.EventHandler(this.AddSpellToList);
             // 
-            // label2
+            // SpellNameLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(212, 121);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Spell Name";
+            this.SpellNameLabel.AutoSize = true;
+            this.SpellNameLabel.Location = new System.Drawing.Point(212, 121);
+            this.SpellNameLabel.Name = "SpellNameLabel";
+            this.SpellNameLabel.Size = new System.Drawing.Size(61, 13);
+            this.SpellNameLabel.TabIndex = 3;
+            this.SpellNameLabel.Text = "Spell Name";
             // 
             // textBox1
             // 
@@ -550,14 +550,14 @@
             this.textBox1.Size = new System.Drawing.Size(200, 20);
             this.textBox1.TabIndex = 2;
             // 
-            // label1
+            // SpellLevelLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 121);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Spell Level";
+            this.SpellLevelLabel.AutoSize = true;
+            this.SpellLevelLabel.Location = new System.Drawing.Point(3, 121);
+            this.SpellLevelLabel.Name = "SpellLevelLabel";
+            this.SpellLevelLabel.Size = new System.Drawing.Size(59, 13);
+            this.SpellLevelLabel.TabIndex = 1;
+            this.SpellLevelLabel.Text = "Spell Level";
             // 
             // SpellLevel
             // 
@@ -612,16 +612,16 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label SpellNameLabel;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label SpellLevelLabel;
         private System.Windows.Forms.NumericUpDown SpellLevel;
         private System.Windows.Forms.Button AddSpell;
         private System.Windows.Forms.ListBox SpellList;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label CastingAbilityLabel;
         private System.Windows.Forms.ComboBox SpellCastingAbility;
         private System.Windows.Forms.CheckBox InnateCheckbox;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label SpellClassLabel;
         private System.Windows.Forms.ComboBox SpellClass;
         private System.Windows.Forms.Button SpellcastingSave;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -645,7 +645,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown Spellslot9;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label SpellcastingLevelLabel;
         private System.Windows.Forms.NumericUpDown SpellcastingLevel;
     }
 }

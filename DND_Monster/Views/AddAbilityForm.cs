@@ -220,13 +220,13 @@ namespace DND_Monster
         {
             if (InnateCheckbox.Checked)
             {
-                label1.Text = "Times Per Day";
+                SpellLevelLabel.Text = Settings.SpellTimesPerDay;
                 oldMax = (int)SpellLevel.Maximum;
                 SpellLevel.Maximum = 9;
             }
             else
             {
-                label1.Text = "Spell Level";
+                SpellLevelLabel.Text = Settings.SpellLevel;
                 SpellLevel.Maximum = oldMax;
             }
         }
