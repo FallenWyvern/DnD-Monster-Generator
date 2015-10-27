@@ -11,6 +11,7 @@ namespace DND_Monster
         public static string SettingsFile = "DND_monster.ini";
         public static string SpellTimesPerDay = "Times Per Day";
         public static string SpellLevel = "Spell Level";
+        public static string TranslationFile = "";
 
         public static void Load()
         {
@@ -32,6 +33,11 @@ namespace DND_Monster
                     if (arg.Contains("Last Directory="))
                     {
                         Help.LastDirectory = arg.Split('=')[1];
+                    }
+
+                    if (arg.Contains("Translation="))
+                    {
+                        TranslationFile = arg.Split('=')[1];
                     }
                 }
             }

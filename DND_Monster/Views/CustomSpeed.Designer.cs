@@ -124,12 +124,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label DescriptionLabel;
-        private System.Windows.Forms.Label SpeedLabel;
         public System.Windows.Forms.NumericUpDown SpeedUpDown;
         public System.Windows.Forms.RichTextBox SpeedDescription;
         public System.Windows.Forms.CheckBox HoverCheckBox;
-        private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.Button CustomCancelButton;
+        public System.Windows.Forms.Label DescriptionLabel;
+        public System.Windows.Forms.Label SpeedLabel;
+        public System.Windows.Forms.Button SaveButton;
+        public System.Windows.Forms.Button CustomCancelButton;
     }
 }

@@ -145,14 +145,15 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox LegendaryAbilityName;
-        private System.Windows.Forms.Label NameLabel;
-        private System.Windows.Forms.ListBox Traits;
-        private System.Windows.Forms.RichTextBox TraitDescriptionBox;
-        private System.Windows.Forms.Button SaveTrait;
-        private System.Windows.Forms.Button LoadTrait;
-        private System.Windows.Forms.Label ListHelperLabel;
-        private System.Windows.Forms.TextBox AbilityName;
-        private System.Windows.Forms.Label AbilityNameLabel;
+        public System.Windows.Forms.TextBox LegendaryAbilityName;
+        public System.Windows.Forms.Label NameLabel;
+        public System.Windows.Forms.ListBox Traits;
+        public System.Windows.Forms.RichTextBox TraitDescriptionBox;
+        public System.Windows.Forms.Button SaveTrait;
+        public System.Windows.Forms.Button LoadTrait;
+        public System.Windows.Forms.Label ListHelperLabel;
+        public System.Windows.Forms.TextBox AbilityName;
+        public System.Windows.Forms.Label AbilityNameLabel;
+
     }
 }

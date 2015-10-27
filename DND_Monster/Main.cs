@@ -1910,6 +1910,11 @@ namespace DND_Monster
             Settings.Save();
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }        
+        
         private void button1_Click(object sender, EventArgs e)
         {
             System.IO.File.WriteAllText(@"D:\localization.txt", "");
@@ -2014,10 +2019,5 @@ namespace DND_Monster
             
             System.IO.File.AppendAllText(filename, type + " : " + c.Name + " : " + c.Text + Environment.NewLine);            
         }        
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
