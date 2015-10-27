@@ -1916,7 +1916,7 @@ namespace DND_Monster
         }        
         
         private void button1_Click(object sender, EventArgs e)
-        {
+        {            
             System.IO.File.WriteAllText(@"D:\localization.txt", "");
             System.IO.File.AppendAllText(@"D:\localization.txt", "Main" + Environment.NewLine);
             Form test;
@@ -1943,17 +1943,7 @@ namespace DND_Monster
                         
             foreach (Control c in test.Controls)
             {
-                if (c is TabControl)
-                {
-                    TabControl temp = (TabControl)c;
-                    foreach (TabPage i in temp.Controls)
-                    {
-                        foreach (Control item in i.Controls)
-                        {
-                            AddLocalizationItem(c, @"D:\localization.txt", "Ability");
-                        }
-                    }
-                }
+                AddLocalizationItem(c, @"D:\localization.txt", "Ability");                
             }
             #endregion
 
@@ -1981,30 +1971,32 @@ namespace DND_Monster
         }
 
         public void AddLocalizationItem(Control c, string filename, string type)
-        {
+        {            
             if (c is TabControl)
             {
                 TabControl temp = (TabControl)c;
                 foreach (TabPage i in temp.Controls)
                 {
                     foreach (Control item in i.Controls)
-                    {
-                        AddLocalizationItem(item, filename, "In-" + type);
+                    {                        
+                       AddLocalizationItem(item, filename, "In-" + type);
                     }
                 }
                 return;
             }
-
+            
             if (c is TableLayoutPanel)
-            {
+            {                
                 TableLayoutPanel tabletemp = (TableLayoutPanel)c;
-                for (int x = 0; x < tabletemp.RowCount; x++)
+                
+                for (int x = 0; x < tabletemp.ColumnCount; x++)
                 {
-                    for (int y = 0; y < tabletemp.ColumnCount; y++)
-                    {
+                    for (int y = 0; y < tabletemp.RowCount; y++)
+                    {                                                
                         AddLocalizationItem(tabletemp.GetControlFromPosition(x, y), filename, "In-" + type);
                     }
                 }
+                return;
             }
 
             if (c is ComboBox)
@@ -2017,7 +2009,14 @@ namespace DND_Monster
                 return;
             }
             
-            System.IO.File.AppendAllText(filename, type + " : " + c.Name + " : " + c.Text + Environment.NewLine);            
+            int outInt = 0;
+            if (!String.IsNullOrEmpty(c.Text))
+            {
+                if (!int.TryParse(c.Text, out outInt))
+                {
+                    System.IO.File.AppendAllText(filename, type + " : " + c.Name + " : " + c.Text + Environment.NewLine);
+                }
+            }
         }        
     }
 }

@@ -15,27 +15,27 @@ namespace DND_Monster
         {
             if (target is Main)
             {
-                
+                Main temp = (Main)target;                
             }
 
             if (target is AddAbilityForm)
             {
-
+                AddAbilityForm temp = (AddAbilityForm)target;
             }
 
             if (target is AddActionForm)
             {
-            
+                AddActionForm temp = (AddActionForm)target;
             }
 
             if (target is AddLegendaryForm)
             {
-
+                AddLegendaryForm temp = (AddLegendaryForm)target;
             }
 
             if (target is CustomSpeed)
             {
-
+                CustomSpeed temp = (CustomSpeed)target;
             }
         }
 
