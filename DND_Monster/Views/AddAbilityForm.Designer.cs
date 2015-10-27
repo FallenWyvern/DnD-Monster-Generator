@@ -563,7 +563,7 @@
             // 
             this.SpellLevel.Location = new System.Drawing.Point(3, 137);
             this.SpellLevel.Maximum = new decimal(new int[] {
-            0,
+            9,
             0,
             0,
             0});
