@@ -194,18 +194,13 @@ namespace DND_Monster
         // Ensures maximum level of an added spell isn't higher than the highest spell slot.
         private void ChangeSpellLevelMax(object sender, EventArgs e)
         {            
-            NumericUpDown temp = (NumericUpDown)sender;
-            int tagValue = Convert.ToInt32(temp.Tag.ToString());
-            
-            foreach (NumericUpDown item in spellslots)
-            {                
-                if (item.Value == 0)
-                {                
-                    int tempValue = Convert.ToInt32(item.Tag.ToString());
-                    SpellLevel.Maximum = tempValue - 1;                    
-                    return;
-                }
-            }
+            // NumericUpDown temp = (NumericUpDown)sender;
+            // int tagValue = Convert.ToInt32(temp.Tag.ToString());
+
+            // if (SpellLevel.Maximum < tagValue)
+            // {
+            //     SpellLevel.Maximum = tagValue;
+            // }
         }
 
         // Updates the window title.
@@ -215,21 +210,20 @@ namespace DND_Monster
             catch { }
         }
 
-        int oldMax = 0;
+        // int oldMax = 0;
         private void InnateCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             if (InnateCheckbox.Checked)
             {
                 SpellLevelLabel.Text = Settings.SpellTimesPerDay;
-                oldMax = (int)SpellLevel.Maximum;
-                SpellLevel.Maximum = 9;
+                // oldMax = (int)SpellLevel.Maximum;
+                // SpellLevel.Maximum = 9;
             }
             else
             {
                 SpellLevelLabel.Text = Settings.SpellLevel;
-                SpellLevel.Maximum = oldMax;
+                // SpellLevel.Maximum = oldMax;
             }
         }
-
     }
 }
