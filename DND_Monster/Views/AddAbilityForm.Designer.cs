@@ -38,17 +38,17 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.SpellcastingLevelLabel = new System.Windows.Forms.Label();
             this.SpellcastingLevel = new System.Windows.Forms.NumericUpDown();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.SpellCastingTable = new System.Windows.Forms.TableLayoutPanel();
             this.Spellslot9 = new System.Windows.Forms.NumericUpDown();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.NinethLevelSpellSlotLabel = new System.Windows.Forms.Label();
+            this.SeventhLevelSpellSlotLabel = new System.Windows.Forms.Label();
+            this.SixthLevelSpellSlotLabel = new System.Windows.Forms.Label();
+            this.FifthLevelSpellSlotLabel = new System.Windows.Forms.Label();
+            this.FourthLevelSpellSlotLabel = new System.Windows.Forms.Label();
+            this.ThirdLevelSpellSlotLabel = new System.Windows.Forms.Label();
+            this.SecondLevelSpellSlotLabel = new System.Windows.Forms.Label();
+            this.FirstLevelSpellSlotLabel = new System.Windows.Forms.Label();
+            this.CantripLabel = new System.Windows.Forms.Label();
             this.Spellslot1 = new System.Windows.Forms.NumericUpDown();
             this.Spellslot2 = new System.Windows.Forms.NumericUpDown();
             this.Spellslot3 = new System.Windows.Forms.NumericUpDown();
@@ -56,8 +56,8 @@
             this.Spellslot5 = new System.Windows.Forms.NumericUpDown();
             this.Spellslot6 = new System.Windows.Forms.NumericUpDown();
             this.Spellslot7 = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.AtWillLabel = new System.Windows.Forms.Label();
+            this.EighthLevelSpellSlotLabel = new System.Windows.Forms.Label();
             this.Spellslot8 = new System.Windows.Forms.NumericUpDown();
             this.SpellcastingSave = new System.Windows.Forms.Button();
             this.CastingAbilityLabel = new System.Windows.Forms.Label();
@@ -75,7 +75,7 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpellcastingLevel)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.SpellCastingTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Spellslot9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Spellslot1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Spellslot2)).BeginInit();
@@ -163,7 +163,7 @@
             // 
             this.tabPage2.Controls.Add(this.SpellcastingLevelLabel);
             this.tabPage2.Controls.Add(this.SpellcastingLevel);
-            this.tabPage2.Controls.Add(this.tableLayoutPanel1);
+            this.tabPage2.Controls.Add(this.SpellCastingTable);
             this.tabPage2.Controls.Add(this.SpellcastingSave);
             this.tabPage2.Controls.Add(this.CastingAbilityLabel);
             this.tabPage2.Controls.Add(this.SpellCastingAbility);
@@ -200,47 +200,47 @@
             this.SpellcastingLevel.Size = new System.Drawing.Size(120, 20);
             this.SpellcastingLevel.TabIndex = 14;
             // 
-            // tableLayoutPanel1
+            // SpellCastingTable
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.Spellslot9, 1, 9);
-            this.tableLayoutPanel1.Controls.Add(this.label15, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.label13, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label12, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.label11, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label10, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.Spellslot1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.Spellslot2, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.Spellslot3, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.Spellslot4, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.Spellslot5, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.Spellslot6, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.Spellslot7, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label14, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.Spellslot8, 1, 8);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(282, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 10;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(220, 353);
-            this.tableLayoutPanel1.TabIndex = 13;
+            this.SpellCastingTable.ColumnCount = 2;
+            this.SpellCastingTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.SpellCastingTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.SpellCastingTable.Controls.Add(this.Spellslot9, 1, 9);
+            this.SpellCastingTable.Controls.Add(this.NinethLevelSpellSlotLabel, 0, 9);
+            this.SpellCastingTable.Controls.Add(this.SeventhLevelSpellSlotLabel, 0, 7);
+            this.SpellCastingTable.Controls.Add(this.SixthLevelSpellSlotLabel, 0, 6);
+            this.SpellCastingTable.Controls.Add(this.FifthLevelSpellSlotLabel, 0, 5);
+            this.SpellCastingTable.Controls.Add(this.FourthLevelSpellSlotLabel, 0, 4);
+            this.SpellCastingTable.Controls.Add(this.ThirdLevelSpellSlotLabel, 0, 3);
+            this.SpellCastingTable.Controls.Add(this.SecondLevelSpellSlotLabel, 0, 2);
+            this.SpellCastingTable.Controls.Add(this.FirstLevelSpellSlotLabel, 0, 1);
+            this.SpellCastingTable.Controls.Add(this.CantripLabel, 0, 0);
+            this.SpellCastingTable.Controls.Add(this.Spellslot1, 1, 1);
+            this.SpellCastingTable.Controls.Add(this.Spellslot2, 1, 2);
+            this.SpellCastingTable.Controls.Add(this.Spellslot3, 1, 3);
+            this.SpellCastingTable.Controls.Add(this.Spellslot4, 1, 4);
+            this.SpellCastingTable.Controls.Add(this.Spellslot5, 1, 5);
+            this.SpellCastingTable.Controls.Add(this.Spellslot6, 1, 6);
+            this.SpellCastingTable.Controls.Add(this.Spellslot7, 1, 7);
+            this.SpellCastingTable.Controls.Add(this.AtWillLabel, 1, 0);
+            this.SpellCastingTable.Controls.Add(this.EighthLevelSpellSlotLabel, 0, 8);
+            this.SpellCastingTable.Controls.Add(this.Spellslot8, 1, 8);
+            this.SpellCastingTable.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SpellCastingTable.Location = new System.Drawing.Point(282, 3);
+            this.SpellCastingTable.Name = "SpellCastingTable";
+            this.SpellCastingTable.RowCount = 10;
+            this.SpellCastingTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.SpellCastingTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.SpellCastingTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.SpellCastingTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.SpellCastingTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.SpellCastingTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.SpellCastingTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.SpellCastingTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.SpellCastingTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.SpellCastingTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.SpellCastingTable.Size = new System.Drawing.Size(220, 353);
+            this.SpellCastingTable.TabIndex = 13;
             // 
             // Spellslot9
             // 
@@ -252,95 +252,95 @@
             this.Spellslot9.Tag = "9";
             this.Spellslot9.ValueChanged += new System.EventHandler(this.ChangeSpellLevelMax);
             // 
-            // label15
+            // NinethLevelSpellSlotLabel
             // 
-            this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(16, 327);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(77, 13);
-            this.label15.TabIndex = 20;
-            this.label15.Text = "9th Level Slots";
+            this.NinethLevelSpellSlotLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.NinethLevelSpellSlotLabel.AutoSize = true;
+            this.NinethLevelSpellSlotLabel.Location = new System.Drawing.Point(16, 327);
+            this.NinethLevelSpellSlotLabel.Name = "NinethLevelSpellSlotLabel";
+            this.NinethLevelSpellSlotLabel.Size = new System.Drawing.Size(77, 13);
+            this.NinethLevelSpellSlotLabel.TabIndex = 20;
+            this.NinethLevelSpellSlotLabel.Text = "9th Level Slots";
             // 
-            // label13
+            // SeventhLevelSpellSlotLabel
             // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(16, 256);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(77, 13);
-            this.label13.TabIndex = 18;
-            this.label13.Text = "7th Level Slots";
+            this.SeventhLevelSpellSlotLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SeventhLevelSpellSlotLabel.AutoSize = true;
+            this.SeventhLevelSpellSlotLabel.Location = new System.Drawing.Point(16, 256);
+            this.SeventhLevelSpellSlotLabel.Name = "SeventhLevelSpellSlotLabel";
+            this.SeventhLevelSpellSlotLabel.Size = new System.Drawing.Size(77, 13);
+            this.SeventhLevelSpellSlotLabel.TabIndex = 18;
+            this.SeventhLevelSpellSlotLabel.Text = "7th Level Slots";
             // 
-            // label12
+            // SixthLevelSpellSlotLabel
             // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(16, 221);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 13);
-            this.label12.TabIndex = 17;
-            this.label12.Text = "6th Level Slots";
+            this.SixthLevelSpellSlotLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SixthLevelSpellSlotLabel.AutoSize = true;
+            this.SixthLevelSpellSlotLabel.Location = new System.Drawing.Point(16, 221);
+            this.SixthLevelSpellSlotLabel.Name = "SixthLevelSpellSlotLabel";
+            this.SixthLevelSpellSlotLabel.Size = new System.Drawing.Size(77, 13);
+            this.SixthLevelSpellSlotLabel.TabIndex = 17;
+            this.SixthLevelSpellSlotLabel.Text = "6th Level Slots";
             // 
-            // label11
+            // FifthLevelSpellSlotLabel
             // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 186);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(77, 13);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "5th Level Slots";
+            this.FifthLevelSpellSlotLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.FifthLevelSpellSlotLabel.AutoSize = true;
+            this.FifthLevelSpellSlotLabel.Location = new System.Drawing.Point(16, 186);
+            this.FifthLevelSpellSlotLabel.Name = "FifthLevelSpellSlotLabel";
+            this.FifthLevelSpellSlotLabel.Size = new System.Drawing.Size(77, 13);
+            this.FifthLevelSpellSlotLabel.TabIndex = 16;
+            this.FifthLevelSpellSlotLabel.Text = "5th Level Slots";
             // 
-            // label10
+            // FourthLevelSpellSlotLabel
             // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(16, 151);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 13);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "4th Level Slots";
+            this.FourthLevelSpellSlotLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.FourthLevelSpellSlotLabel.AutoSize = true;
+            this.FourthLevelSpellSlotLabel.Location = new System.Drawing.Point(16, 151);
+            this.FourthLevelSpellSlotLabel.Name = "FourthLevelSpellSlotLabel";
+            this.FourthLevelSpellSlotLabel.Size = new System.Drawing.Size(77, 13);
+            this.FourthLevelSpellSlotLabel.TabIndex = 15;
+            this.FourthLevelSpellSlotLabel.Text = "4th Level Slots";
             // 
-            // label9
+            // ThirdLevelSpellSlotLabel
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(16, 116);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(77, 13);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "3rd Level Slots";
+            this.ThirdLevelSpellSlotLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ThirdLevelSpellSlotLabel.AutoSize = true;
+            this.ThirdLevelSpellSlotLabel.Location = new System.Drawing.Point(16, 116);
+            this.ThirdLevelSpellSlotLabel.Name = "ThirdLevelSpellSlotLabel";
+            this.ThirdLevelSpellSlotLabel.Size = new System.Drawing.Size(77, 13);
+            this.ThirdLevelSpellSlotLabel.TabIndex = 14;
+            this.ThirdLevelSpellSlotLabel.Text = "3rd Level Slots";
             // 
-            // label8
+            // SecondLevelSpellSlotLabel
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 81);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(80, 13);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "2nd Level Slots";
+            this.SecondLevelSpellSlotLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SecondLevelSpellSlotLabel.AutoSize = true;
+            this.SecondLevelSpellSlotLabel.Location = new System.Drawing.Point(15, 81);
+            this.SecondLevelSpellSlotLabel.Name = "SecondLevelSpellSlotLabel";
+            this.SecondLevelSpellSlotLabel.Size = new System.Drawing.Size(80, 13);
+            this.SecondLevelSpellSlotLabel.TabIndex = 13;
+            this.SecondLevelSpellSlotLabel.Text = "2nd Level Slots";
             // 
-            // label7
+            // FirstLevelSpellSlotLabel
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 46);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 13);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "1st Level Slots";
+            this.FirstLevelSpellSlotLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.FirstLevelSpellSlotLabel.AutoSize = true;
+            this.FirstLevelSpellSlotLabel.Location = new System.Drawing.Point(17, 46);
+            this.FirstLevelSpellSlotLabel.Name = "FirstLevelSpellSlotLabel";
+            this.FirstLevelSpellSlotLabel.Size = new System.Drawing.Size(76, 13);
+            this.FirstLevelSpellSlotLabel.TabIndex = 12;
+            this.FirstLevelSpellSlotLabel.Text = "1st Level Slots";
             // 
-            // label6
+            // CantripLabel
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(32, 11);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Cantrips";
+            this.CantripLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CantripLabel.AutoSize = true;
+            this.CantripLabel.Location = new System.Drawing.Point(32, 11);
+            this.CantripLabel.Name = "CantripLabel";
+            this.CantripLabel.Size = new System.Drawing.Size(45, 13);
+            this.CantripLabel.TabIndex = 11;
+            this.CantripLabel.Text = "Cantrips";
             // 
             // Spellslot1
             // 
@@ -412,25 +412,25 @@
             this.Spellslot7.Tag = "7";
             this.Spellslot7.ValueChanged += new System.EventHandler(this.ChangeSpellLevelMax);
             // 
-            // label5
+            // AtWillLabel
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(146, 11);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "At Will";
+            this.AtWillLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.AtWillLabel.AutoSize = true;
+            this.AtWillLabel.Location = new System.Drawing.Point(146, 11);
+            this.AtWillLabel.Name = "AtWillLabel";
+            this.AtWillLabel.Size = new System.Drawing.Size(37, 13);
+            this.AtWillLabel.TabIndex = 10;
+            this.AtWillLabel.Text = "At Will";
             // 
-            // label14
+            // EighthLevelSpellSlotLabel
             // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(16, 291);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(77, 13);
-            this.label14.TabIndex = 19;
-            this.label14.Text = "8th Level Slots";
+            this.EighthLevelSpellSlotLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.EighthLevelSpellSlotLabel.AutoSize = true;
+            this.EighthLevelSpellSlotLabel.Location = new System.Drawing.Point(16, 291);
+            this.EighthLevelSpellSlotLabel.Name = "EighthLevelSpellSlotLabel";
+            this.EighthLevelSpellSlotLabel.Size = new System.Drawing.Size(77, 13);
+            this.EighthLevelSpellSlotLabel.TabIndex = 19;
+            this.EighthLevelSpellSlotLabel.Text = "8th Level Slots";
             // 
             // Spellslot8
             // 
@@ -586,8 +586,8 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpellcastingLevel)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.SpellCastingTable.ResumeLayout(false);
+            this.SpellCastingTable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Spellslot9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Spellslot1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Spellslot2)).EndInit();
@@ -604,48 +604,49 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox DescriptionTextBox;
-        private System.Windows.Forms.TextBox AbilityNameTextBox;
-        private System.Windows.Forms.Label AbilityName;
-        private System.Windows.Forms.Label AbilityDescription;
-        private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label SpellNameLabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label SpellLevelLabel;
-        private System.Windows.Forms.NumericUpDown SpellLevel;
-        private System.Windows.Forms.Button AddSpell;
-        private System.Windows.Forms.ListBox SpellList;
-        private System.Windows.Forms.Label CastingAbilityLabel;
-        private System.Windows.Forms.ComboBox SpellCastingAbility;
-        private System.Windows.Forms.CheckBox InnateCheckbox;
-        private System.Windows.Forms.Label SpellClassLabel;
-        private System.Windows.Forms.ComboBox SpellClass;
-        private System.Windows.Forms.Button SpellcastingSave;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.NumericUpDown Spellslot1;
-        private System.Windows.Forms.NumericUpDown Spellslot2;
-        private System.Windows.Forms.NumericUpDown Spellslot3;
-        private System.Windows.Forms.NumericUpDown Spellslot4;
-        private System.Windows.Forms.NumericUpDown Spellslot5;
-        private System.Windows.Forms.NumericUpDown Spellslot6;
-        private System.Windows.Forms.NumericUpDown Spellslot7;
-        private System.Windows.Forms.NumericUpDown Spellslot8;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown Spellslot9;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label SpellcastingLevelLabel;
-        private System.Windows.Forms.NumericUpDown SpellcastingLevel;
+        public System.Windows.Forms.RichTextBox DescriptionTextBox;
+        public System.Windows.Forms.TextBox AbilityNameTextBox;
+        public System.Windows.Forms.Label AbilityName;
+        public System.Windows.Forms.Label AbilityDescription;
+        public System.Windows.Forms.Button SaveButton;
+        public System.Windows.Forms.TabControl tabControl1;
+        public System.Windows.Forms.TabPage tabPage1;
+        public System.Windows.Forms.TabPage tabPage2;
+        public System.Windows.Forms.Label SpellNameLabel;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.Label SpellLevelLabel;
+        public System.Windows.Forms.NumericUpDown SpellLevel;
+        public System.Windows.Forms.Button AddSpell;
+        public System.Windows.Forms.ListBox SpellList;
+        public System.Windows.Forms.Label CastingAbilityLabel;
+        public System.Windows.Forms.ComboBox SpellCastingAbility;
+        public System.Windows.Forms.CheckBox InnateCheckbox;
+        public System.Windows.Forms.Label SpellClassLabel;
+        public System.Windows.Forms.ComboBox SpellClass;
+        public System.Windows.Forms.Button SpellcastingSave;
+        public System.Windows.Forms.TableLayoutPanel SpellCastingTable;
+        public System.Windows.Forms.Label EighthLevelSpellSlotLabel;
+        public System.Windows.Forms.Label SeventhLevelSpellSlotLabel;
+        public System.Windows.Forms.Label SixthLevelSpellSlotLabel;
+        public System.Windows.Forms.Label FifthLevelSpellSlotLabel;
+        public System.Windows.Forms.Label FourthLevelSpellSlotLabel;
+        public System.Windows.Forms.Label ThirdLevelSpellSlotLabel;
+        public System.Windows.Forms.Label SecondLevelSpellSlotLabel;
+        public System.Windows.Forms.Label FirstLevelSpellSlotLabel;
+        public System.Windows.Forms.Label CantripLabel;
+        public System.Windows.Forms.NumericUpDown Spellslot1;
+        public System.Windows.Forms.NumericUpDown Spellslot2;
+        public System.Windows.Forms.NumericUpDown Spellslot3;
+        public System.Windows.Forms.NumericUpDown Spellslot4;
+        public System.Windows.Forms.NumericUpDown Spellslot5;
+        public System.Windows.Forms.NumericUpDown Spellslot6;
+        public System.Windows.Forms.NumericUpDown Spellslot7;
+        public System.Windows.Forms.NumericUpDown Spellslot8;
+        public System.Windows.Forms.Label AtWillLabel;
+        public System.Windows.Forms.NumericUpDown Spellslot9;
+        public System.Windows.Forms.Label NinethLevelSpellSlotLabel;
+        public System.Windows.Forms.Label SpellcastingLevelLabel;
+        public System.Windows.Forms.NumericUpDown SpellcastingLevel;
+
     }
 }
