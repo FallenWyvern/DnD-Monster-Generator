@@ -627,7 +627,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "3.1.6";
+        public static string Version = "3.1.7";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = System.IO.Directory.GetCurrentDirectory().ToString();
         public static string TemplateName = "Valloric's StatBlock";
