@@ -148,9 +148,9 @@
             // 
             this.tabPage1.Controls.Add(this.SaveButton);
             this.tabPage1.Controls.Add(this.DescriptionTextBox);
+            this.tabPage1.Controls.Add(this.AbilityNameTextBox);
             this.tabPage1.Controls.Add(this.AbilityDescription);
             this.tabPage1.Controls.Add(this.AbilityName);
-            this.tabPage1.Controls.Add(this.AbilityNameTextBox);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -161,21 +161,21 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.SpellcastingLevelLabel);
             this.tabPage2.Controls.Add(this.SpellcastingLevel);
             this.tabPage2.Controls.Add(this.SpellCastingTable);
             this.tabPage2.Controls.Add(this.SpellcastingSave);
-            this.tabPage2.Controls.Add(this.CastingAbilityLabel);
             this.tabPage2.Controls.Add(this.SpellCastingAbility);
             this.tabPage2.Controls.Add(this.InnateCheckbox);
-            this.tabPage2.Controls.Add(this.SpellClassLabel);
             this.tabPage2.Controls.Add(this.SpellClass);
             this.tabPage2.Controls.Add(this.SpellList);
             this.tabPage2.Controls.Add(this.AddSpell);
-            this.tabPage2.Controls.Add(this.SpellNameLabel);
             this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.SpellLevelLabel);
             this.tabPage2.Controls.Add(this.SpellLevel);
+            this.tabPage2.Controls.Add(this.SpellcastingLevelLabel);
+            this.tabPage2.Controls.Add(this.CastingAbilityLabel);
+            this.tabPage2.Controls.Add(this.SpellClassLabel);
+            this.tabPage2.Controls.Add(this.SpellNameLabel);
+            this.tabPage2.Controls.Add(this.SpellLevelLabel);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);

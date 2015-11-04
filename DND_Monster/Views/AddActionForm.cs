@@ -18,7 +18,8 @@ namespace DND_Monster
 
         public AddActionForm(string currentCR = "")
         {
-            InitializeComponent();            
+            InitializeComponent();
+            Translation.Apply(this);
         }        
 
         // Saves the ability or attack based on the selected tab.

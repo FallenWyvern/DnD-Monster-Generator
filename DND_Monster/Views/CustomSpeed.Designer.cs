@@ -109,11 +109,11 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.CustomCancelButton);
             this.Controls.Add(this.SaveButton);
+            this.Controls.Add(this.SpeedDescription);
+            this.Controls.Add(this.SpeedUpDown);
             this.Controls.Add(this.HoverCheckBox);
             this.Controls.Add(this.SpeedLabel);
             this.Controls.Add(this.DescriptionLabel);
-            this.Controls.Add(this.SpeedDescription);
-            this.Controls.Add(this.SpeedUpDown);
             this.Name = "CustomSpeed";
             this.Text = "Custom Speed";
             ((System.ComponentModel.ISupportInitialize)(this.SpeedUpDown)).EndInit();

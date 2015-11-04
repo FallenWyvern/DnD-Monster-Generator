@@ -37,7 +37,7 @@ namespace DND_Monster
 
                     if (arg.Contains("Translation="))
                     {
-                        TranslationFile = arg.Split('=')[1];
+                        TranslationFile = arg.Split('=')[1];                        
                     }
                 }
             }
@@ -50,7 +50,8 @@ namespace DND_Monster
             {
                 File.WriteAllLines(SettingsFile, new List<string>()
                 {
-                    "Last Directory=" + Help.LastDirectory
+                    "Last Directory=" + Help.LastDirectory,
+                    "Translation=" + Settings.TranslationFile
                 });
             }
             catch { }

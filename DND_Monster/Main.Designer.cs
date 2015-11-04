@@ -121,11 +121,11 @@
             this.BackgroundCheckbox = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.PreviewColumns = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
+            this.ColumnsLabel = new System.Windows.Forms.Label();
             this.ExportReddit = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.ColumnWidthUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label16 = new System.Windows.Forms.Label();
+            this.ColumnWidthLabel = new System.Windows.Forms.Label();
             this.PreviewTemplateSelector = new System.Windows.Forms.ComboBox();
             this.LanguageComboBox = new System.Windows.Forms.ComboBox();
             this.SkillStatCheckBox = new System.Windows.Forms.CheckBox();
@@ -138,15 +138,17 @@
             this.AddLegendaryButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.AddSaved = new System.Windows.Forms.Button();
             this.MoveTraitDownButton = new System.Windows.Forms.Button();
             this.MoveTraitUpButton = new System.Windows.Forms.Button();
             this.DeleteTraitButton = new System.Windows.Forms.Button();
             this.EditTraitButton = new System.Windows.Forms.Button();
+            this.DamageModificationType = new System.Windows.Forms.ComboBox();
+            this.TraitException = new System.Windows.Forms.TextBox();
             this.ExceptionSourceLabel = new System.Windows.Forms.Label();
             this.ExceptionTypeLabel = new System.Windows.Forms.Label();
-            this.DamageModificationType = new System.Windows.Forms.ComboBox();
             this.DamageModificationLabel = new System.Windows.Forms.Label();
             this.SkillSelectionLabel = new System.Windows.Forms.Label();
             this.BonusModifierLabel = new System.Windows.Forms.Label();
@@ -157,7 +159,6 @@
             this.SensesHeaderLabel = new System.Windows.Forms.Label();
             this.SpeedHelperLabel = new System.Windows.Forms.Label();
             this.ExceptionText = new System.Windows.Forms.Label();
-            this.TraitException = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StrUpDown)).BeginInit();
@@ -188,6 +189,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ColumnWidthUpDown)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // MonsterName
@@ -1267,9 +1269,9 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(578, 3);
+            this.panel1.Location = new System.Drawing.Point(617, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(569, 690);
+            this.panel1.Size = new System.Drawing.Size(608, 690);
             this.panel1.TabIndex = 90;
             // 
             // tableLayoutPanel1
@@ -1283,7 +1285,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.5481F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.45189F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(565, 686);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(604, 686);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -1295,7 +1297,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 183F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 218F));
             this.tableLayoutPanel2.Controls.Add(this.ExportCSV, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.PrintButton, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.ExportPNG, 1, 0);
@@ -1310,7 +1312,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(559, 100);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(598, 100);
             this.tableLayoutPanel2.TabIndex = 92;
             // 
             // ExportCSV
@@ -1377,7 +1379,7 @@
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.PreviewColumns, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.ColumnsLabel, 0, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(291, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
@@ -1400,15 +1402,15 @@
             0,
             0});
             // 
-            // label3
+            // ColumnsLabel
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 12);
-            this.label3.TabIndex = 101;
-            this.label3.Text = "Columns";
+            this.ColumnsLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ColumnsLabel.AutoSize = true;
+            this.ColumnsLabel.Location = new System.Drawing.Point(19, 0);
+            this.ColumnsLabel.Name = "ColumnsLabel";
+            this.ColumnsLabel.Size = new System.Drawing.Size(47, 12);
+            this.ColumnsLabel.TabIndex = 101;
+            this.ColumnsLabel.Text = "Columns";
             // 
             // ExportReddit
             // 
@@ -1427,7 +1429,7 @@
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Controls.Add(this.ColumnWidthUpDown, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.label16, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.ColumnWidthLabel, 0, 0);
             this.tableLayoutPanel5.Location = new System.Drawing.Point(291, 55);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 3;
@@ -1450,21 +1452,21 @@
             this.ColumnWidthUpDown.Size = new System.Drawing.Size(80, 20);
             this.ColumnWidthUpDown.TabIndex = 100;
             this.ColumnWidthUpDown.Value = new decimal(new int[] {
-            1,
+            212,
             0,
             0,
             0});
             this.ColumnWidthUpDown.ValueChanged += new System.EventHandler(this.ColumnWidthUpDown_ValueChanged);
             // 
-            // label16
+            // ColumnWidthLabel
             // 
-            this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(73, 11);
-            this.label16.TabIndex = 101;
-            this.label16.Text = "Column Width";
+            this.ColumnWidthLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ColumnWidthLabel.AutoSize = true;
+            this.ColumnWidthLabel.Location = new System.Drawing.Point(6, 0);
+            this.ColumnWidthLabel.Name = "ColumnWidthLabel";
+            this.ColumnWidthLabel.Size = new System.Drawing.Size(73, 11);
+            this.ColumnWidthLabel.TabIndex = 101;
+            this.ColumnWidthLabel.Text = "Column Width";
             // 
             // PreviewTemplateSelector
             // 
@@ -1578,7 +1580,7 @@
             // CRHelperLabel
             // 
             this.CRHelperLabel.AutoSize = true;
-            this.CRHelperLabel.Location = new System.Drawing.Point(101, 630);
+            this.CRHelperLabel.Location = new System.Drawing.Point(101, 626);
             this.CRHelperLabel.Name = "CRHelperLabel";
             this.CRHelperLabel.Size = new System.Drawing.Size(155, 13);
             this.CRHelperLabel.TabIndex = 99;
@@ -1606,51 +1608,33 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1150, 696);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1228, 696);
             this.tableLayoutPanel4.TabIndex = 102;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.AddSaved);
             this.panel2.Controls.Add(this.MoveTraitDownButton);
             this.panel2.Controls.Add(this.MoveTraitUpButton);
             this.panel2.Controls.Add(this.DeleteTraitButton);
             this.panel2.Controls.Add(this.EditTraitButton);
-            this.panel2.Controls.Add(this.ExceptionSourceLabel);
-            this.panel2.Controls.Add(this.ExceptionTypeLabel);
             this.panel2.Controls.Add(this.DamageModificationType);
-            this.panel2.Controls.Add(this.DamageModificationLabel);
-            this.panel2.Controls.Add(this.SkillSelectionLabel);
-            this.panel2.Controls.Add(this.BonusModifierLabel);
-            this.panel2.Controls.Add(this.SkillHeaderLabel);
-            this.panel2.Controls.Add(this.SpeedsHeaderLabel);
-            this.panel2.Controls.Add(this.SensesLabel);
-            this.panel2.Controls.Add(this.LanguageHeaderLabel);
-            this.panel2.Controls.Add(this.SensesHeaderLabel);
-            this.panel2.Controls.Add(this.SpeedHelperLabel);
-            this.panel2.Controls.Add(this.ExceptionText);
             this.panel2.Controls.Add(this.TraitException);
             this.panel2.Controls.Add(this.AddLegendaryButton);
-            this.panel2.Controls.Add(this.MonsterName);
-            this.panel2.Controls.Add(this.CRHelperLabel);
             this.panel2.Controls.Add(this.MonsterNameTextBox);
             this.panel2.Controls.Add(this.ACUpDown);
             this.panel2.Controls.Add(this.NewMonsterButton);
-            this.panel2.Controls.Add(this.ArmorClass);
             this.panel2.Controls.Add(this.SkillProfCheckBox);
-            this.panel2.Controls.Add(this.TraitsListHelperLabel);
             this.panel2.Controls.Add(this.SkillBonusCheckBox);
             this.panel2.Controls.Add(this.TypeDropDown);
             this.panel2.Controls.Add(this.SkillStatCheckBox);
-            this.panel2.Controls.Add(this.TypeAndTag);
-            this.panel2.Controls.Add(this.Alignment);
             this.panel2.Controls.Add(this.PreviewTemplateSelector);
             this.panel2.Controls.Add(this.AlignmentDropDown);
             this.panel2.Controls.Add(this.LoadButton);
             this.panel2.Controls.Add(this.LanguageComboBox);
             this.panel2.Controls.Add(this.SaveButton);
-            this.panel2.Controls.Add(this.HitPoints);
             this.panel2.Controls.Add(this.SkillBonus);
             this.panel2.Controls.Add(this.HitDieDropDown);
             this.panel2.Controls.Add(this.AddSkillButton);
@@ -1664,24 +1648,15 @@
             this.panel2.Controls.Add(this.StrUpDown);
             this.panel2.Controls.Add(this.ProfBonus);
             this.panel2.Controls.Add(this.DexUpDown);
-            this.panel2.Controls.Add(this.Profiency);
             this.panel2.Controls.Add(this.ConUpDown);
             this.panel2.Controls.Add(this.ChallengeRatingDropDown);
-            this.panel2.Controls.Add(this.ChallengeRating);
             this.panel2.Controls.Add(this.IntUpDown);
             this.panel2.Controls.Add(this.WisUpDown);
             this.panel2.Controls.Add(this.ChaUpDown);
-            this.panel2.Controls.Add(this.Str);
             this.panel2.Controls.Add(this.AddLanguageButton);
-            this.panel2.Controls.Add(this.Dex);
-            this.panel2.Controls.Add(this.Distance);
-            this.panel2.Controls.Add(this.Con);
             this.panel2.Controls.Add(this.DistanceUpDown);
-            this.panel2.Controls.Add(this.Int);
             this.panel2.Controls.Add(this.AddSenseButton);
-            this.panel2.Controls.Add(this.Wis);
             this.panel2.Controls.Add(this.SensesDropDown);
-            this.panel2.Controls.Add(this.Cha);
             this.panel2.Controls.Add(this.StrBonus);
             this.panel2.Controls.Add(this.TraitsList);
             this.panel2.Controls.Add(this.DexBonus);
@@ -1691,42 +1666,81 @@
             this.panel2.Controls.Add(this.WisBonus);
             this.panel2.Controls.Add(this.DamageConditionDropDown);
             this.panel2.Controls.Add(this.ChaBonus);
-            this.panel2.Controls.Add(this.AbilityScores);
             this.panel2.Controls.Add(this.SizeDropDown);
-            this.panel2.Controls.Add(this.ChaSaveBonus);
-            this.panel2.Controls.Add(this.SizeLabel);
-            this.panel2.Controls.Add(this.WisSaveBonus);
             this.panel2.Controls.Add(this.RollHPBonus);
-            this.panel2.Controls.Add(this.IntSaveBonus);
             this.panel2.Controls.Add(this.TagDropDown);
-            this.panel2.Controls.Add(this.ConSaveBonus);
             this.panel2.Controls.Add(this.ACSourceTextBox);
-            this.panel2.Controls.Add(this.DexSaveBonus);
             this.panel2.Controls.Add(this.burrowUpDown);
-            this.panel2.Controls.Add(this.StrSaveBonus);
             this.panel2.Controls.Add(this.ClimbUpDown);
-            this.panel2.Controls.Add(this.SavingThrowBonuses);
             this.panel2.Controls.Add(this.FlyUpDown);
             this.panel2.Controls.Add(this.ChaSaveBonusUpDown);
             this.panel2.Controls.Add(this.SwimUpDown);
             this.panel2.Controls.Add(this.WisSaveBonusUpDown);
             this.panel2.Controls.Add(this.SpeedUpDown);
             this.panel2.Controls.Add(this.IntSaveBonusUpDown);
-            this.panel2.Controls.Add(this.Speed);
             this.panel2.Controls.Add(this.ConSaveBonusUpDown);
-            this.panel2.Controls.Add(this.Burrow);
             this.panel2.Controls.Add(this.DexSaveBonusUpDown);
-            this.panel2.Controls.Add(this.Climb);
             this.panel2.Controls.Add(this.StrSaveBonusUpDown);
+            this.panel2.Controls.Add(this.HoverCheckBox);
+            this.panel2.Controls.Add(this.ExceptionSourceLabel);
+            this.panel2.Controls.Add(this.ExceptionTypeLabel);
+            this.panel2.Controls.Add(this.DamageModificationLabel);
+            this.panel2.Controls.Add(this.SkillSelectionLabel);
+            this.panel2.Controls.Add(this.BonusModifierLabel);
+            this.panel2.Controls.Add(this.SkillHeaderLabel);
+            this.panel2.Controls.Add(this.SpeedsHeaderLabel);
+            this.panel2.Controls.Add(this.SensesLabel);
+            this.panel2.Controls.Add(this.LanguageHeaderLabel);
+            this.panel2.Controls.Add(this.SensesHeaderLabel);
+            this.panel2.Controls.Add(this.SpeedHelperLabel);
+            this.panel2.Controls.Add(this.ExceptionText);
+            this.panel2.Controls.Add(this.MonsterName);
+            this.panel2.Controls.Add(this.CRHelperLabel);
+            this.panel2.Controls.Add(this.ArmorClass);
+            this.panel2.Controls.Add(this.TraitsListHelperLabel);
+            this.panel2.Controls.Add(this.TypeAndTag);
+            this.panel2.Controls.Add(this.Alignment);
+            this.panel2.Controls.Add(this.HitPoints);
+            this.panel2.Controls.Add(this.Profiency);
+            this.panel2.Controls.Add(this.ChallengeRating);
+            this.panel2.Controls.Add(this.Str);
+            this.panel2.Controls.Add(this.Dex);
+            this.panel2.Controls.Add(this.Distance);
+            this.panel2.Controls.Add(this.Con);
+            this.panel2.Controls.Add(this.Int);
+            this.panel2.Controls.Add(this.Wis);
+            this.panel2.Controls.Add(this.Cha);
+            this.panel2.Controls.Add(this.AbilityScores);
+            this.panel2.Controls.Add(this.ChaSaveBonus);
+            this.panel2.Controls.Add(this.SizeLabel);
+            this.panel2.Controls.Add(this.WisSaveBonus);
+            this.panel2.Controls.Add(this.IntSaveBonus);
+            this.panel2.Controls.Add(this.ConSaveBonus);
+            this.panel2.Controls.Add(this.DexSaveBonus);
+            this.panel2.Controls.Add(this.StrSaveBonus);
+            this.panel2.Controls.Add(this.SavingThrowBonuses);
+            this.panel2.Controls.Add(this.Speed);
+            this.panel2.Controls.Add(this.Burrow);
+            this.panel2.Controls.Add(this.Climb);
             this.panel2.Controls.Add(this.Fly);
             this.panel2.Controls.Add(this.Swim);
-            this.panel2.Controls.Add(this.HoverCheckBox);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(569, 690);
+            this.panel2.Size = new System.Drawing.Size(608, 690);
             this.panel2.TabIndex = 103;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(553, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(52, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 103;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.SelectTranslation);
             // 
             // button1
             // 
@@ -1736,8 +1750,7 @@
             this.button1.TabIndex = 118;
             this.button1.Text = "Output Localization";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.GenerateTranslationText);
             // 
             // AddSaved
             // 
@@ -1791,6 +1804,25 @@
             this.EditTraitButton.UseVisualStyleBackColor = true;
             this.EditTraitButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.editTrait);
             // 
+            // DamageModificationType
+            // 
+            this.DamageModificationType.FormattingEnabled = true;
+            this.DamageModificationType.Items.AddRange(new object[] {
+            "Vulnerability",
+            "Resistance",
+            "Immunity"});
+            this.DamageModificationType.Location = new System.Drawing.Point(157, 597);
+            this.DamageModificationType.Name = "DamageModificationType";
+            this.DamageModificationType.Size = new System.Drawing.Size(121, 21);
+            this.DamageModificationType.TabIndex = 111;
+            // 
+            // TraitException
+            // 
+            this.TraitException.Location = new System.Drawing.Point(284, 597);
+            this.TraitException.Name = "TraitException";
+            this.TraitException.Size = new System.Drawing.Size(171, 20);
+            this.TraitException.TabIndex = 100;
+            // 
             // ExceptionSourceLabel
             // 
             this.ExceptionSourceLabel.AutoSize = true;
@@ -1808,18 +1840,6 @@
             this.ExceptionTypeLabel.Size = new System.Drawing.Size(81, 13);
             this.ExceptionTypeLabel.TabIndex = 112;
             this.ExceptionTypeLabel.Text = "Exception Type";
-            // 
-            // DamageModificationType
-            // 
-            this.DamageModificationType.FormattingEnabled = true;
-            this.DamageModificationType.Items.AddRange(new object[] {
-            "Vulnerability",
-            "Resistance",
-            "Immunity"});
-            this.DamageModificationType.Location = new System.Drawing.Point(157, 597);
-            this.DamageModificationType.Name = "DamageModificationType";
-            this.DamageModificationType.Size = new System.Drawing.Size(121, 21);
-            this.DamageModificationType.TabIndex = 111;
             // 
             // DamageModificationLabel
             // 
@@ -1901,7 +1921,7 @@
             // SpeedHelperLabel
             // 
             this.SpeedHelperLabel.AutoSize = true;
-            this.SpeedHelperLabel.Location = new System.Drawing.Point(109, 285);
+            this.SpeedHelperLabel.Location = new System.Drawing.Point(9, 285);
             this.SpeedHelperLabel.Name = "SpeedHelperLabel";
             this.SpeedHelperLabel.Size = new System.Drawing.Size(169, 13);
             this.SpeedHelperLabel.TabIndex = 102;
@@ -1916,18 +1936,11 @@
             this.ExceptionText.TabIndex = 101;
             this.ExceptionText.Text = "Exception Text";
             // 
-            // TraitException
-            // 
-            this.TraitException.Location = new System.Drawing.Point(284, 597);
-            this.TraitException.Name = "TraitException";
-            this.TraitException.Size = new System.Drawing.Size(171, 20);
-            this.TraitException.TabIndex = 100;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1150, 696);
+            this.ClientSize = new System.Drawing.Size(1228, 696);
             this.Controls.Add(this.tableLayoutPanel4);
             this.Name = "Main";
             this.Text = "DND Monster Maker";
@@ -1967,6 +1980,7 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2074,7 +2088,7 @@
         public System.Windows.Forms.CheckBox BackgroundCheckbox;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         public System.Windows.Forms.NumericUpDown PreviewColumns;
-        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label ColumnsLabel;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         public System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.Label ExceptionText;
@@ -2099,8 +2113,9 @@
         public System.Windows.Forms.Button AddSaved;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         public System.Windows.Forms.NumericUpDown ColumnWidthUpDown;
-        public System.Windows.Forms.Label label16;
+        public System.Windows.Forms.Label ColumnWidthLabel;
         public System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
 
     }
 }

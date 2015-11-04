@@ -16,7 +16,8 @@ namespace DND_Monster
 
         public AddLegendaryForm()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            Translation.Apply(this);
         }
 
         private void AddLegendaryForm_Load(object sender, EventArgs e)

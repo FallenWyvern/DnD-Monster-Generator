@@ -20,6 +20,7 @@ namespace DND_Monster
         public AddSavedTrait()
         {
             InitializeComponent();
+            Translation.Apply(this);
             AbilityGrid.DoubleClick += SelectItem;
             ActionGrid.DoubleClick += SelectItem;
             ReactionGrid.DoubleClick += SelectItem;

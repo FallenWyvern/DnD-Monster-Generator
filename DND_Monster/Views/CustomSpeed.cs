@@ -15,6 +15,7 @@ namespace DND_Monster
         public CustomSpeed()
         {
             InitializeComponent();
+            Translation.Apply(this);
         }
 
         private void Save(object sender, EventArgs e)

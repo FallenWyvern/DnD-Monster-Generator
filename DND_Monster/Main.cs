@@ -33,6 +33,12 @@ namespace DND_Monster
                 AddSaved.Enabled = false;
             }
             Settings.Load();
+            
+            if (!String.IsNullOrEmpty(Settings.TranslationFile))
+            {
+                Translation.LoadTranslationFile(Settings.TranslationFile);
+                Translation.Apply(this);
+            }
         }
 
         private void CefStartup()
@@ -1908,20 +1914,20 @@ namespace DND_Monster
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             Settings.Save();
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }        
+        }  
         
-        private void button1_Click(object sender, EventArgs e)
+        private void GenerateTranslationText(object sender, EventArgs e)
         {            
             System.IO.File.WriteAllText(@"D:\localization.txt", "");
             System.IO.File.AppendAllText(@"D:\localization.txt", "Main" + Environment.NewLine);
             Form test;
 
             #region
+            foreach (Control c in panel1.Controls)
+            {                
+                AddLocalizationItem(c, @"D:\localization.txt", "Main");
+            }
+
             foreach (Control c in panel2.Controls)
             {
                 AddLocalizationItem(c, @"D:\localization.txt", "Main");
@@ -1952,11 +1958,8 @@ namespace DND_Monster
             test = new AddActionForm();
 
             foreach (Control c in test.Controls)
-            {
-                if (c is TabControl)
-                {
-                    AddLocalizationItem(c, @"D:\localization.txt", "Action");                    
-                }
+            {                
+                AddLocalizationItem(c, @"D:\localization.txt", "Action");                                 
             }
             #endregion
 
@@ -1977,6 +1980,7 @@ namespace DND_Monster
                 TabControl temp = (TabControl)c;
                 foreach (TabPage i in temp.Controls)
                 {
+                    AddLocalizationItem(i, filename, "In-" + type);
                     foreach (Control item in i.Controls)
                     {                        
                        AddLocalizationItem(item, filename, "In-" + type);
@@ -2010,13 +2014,31 @@ namespace DND_Monster
             }
             
             int outInt = 0;
-            if (!String.IsNullOrEmpty(c.Text))
+            if (c != null)
             {
-                if (!int.TryParse(c.Text, out outInt))
+                if (!String.IsNullOrEmpty(c.Text))
                 {
-                    System.IO.File.AppendAllText(filename, type + " : " + c.Name + " : " + c.Text + Environment.NewLine);
+                    if (!int.TryParse(c.Text, out outInt))
+                    {
+                        System.IO.File.AppendAllText(filename, type + " : " + c.Name + " : " + c.Text + Environment.NewLine);
+                    }
                 }
             }
+        }
+
+        private void SelectTranslation(object sender, EventArgs e)
+        {            
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.InitialDirectory = Help.LastDirectory;
+            dialog.Filter = "JSON files (*.json)|*.json";
+            dialog.RestoreDirectory = true;
+
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Translation.LoadTranslationFile(dialog.FileName);
+                Settings.TranslationFile = dialog.FileName;
+            }
+            Translation.Apply(this);            
         }        
     }
 }

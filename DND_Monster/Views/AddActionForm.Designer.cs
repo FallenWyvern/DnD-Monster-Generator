@@ -216,25 +216,25 @@
             // 
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.RangeUpDownFar);
-            this.tabPage1.Controls.Add(this.Reach);
             this.tabPage1.Controls.Add(this.ReachUpDown);
-            this.tabPage1.Controls.Add(this.AttackRange);
             this.tabPage1.Controls.Add(this.HitDamageType);
             this.tabPage1.Controls.Add(this.HitDiceBonusDamage);
             this.tabPage1.Controls.Add(this.HitDiceType);
             this.tabPage1.Controls.Add(this.HitNumberOfDice);
-            this.tabPage1.Controls.Add(this.AttackName);
-            this.tabPage1.Controls.Add(this.AttackTarget);
             this.tabPage1.Controls.Add(this.AttackTargetField);
             this.tabPage1.Controls.Add(this.AttackTypeDropdown);
-            this.tabPage1.Controls.Add(this.AttackType);
             this.tabPage1.Controls.Add(this.AttackNameField);
             this.tabPage1.Controls.Add(this.AttackBonusUpDown);
-            this.tabPage1.Controls.Add(this.AttackHitEffect);
-            this.tabPage1.Controls.Add(this.AttackToHitBonus);
             this.tabPage1.Controls.Add(this.HitDamageEffect);
             this.tabPage1.Controls.Add(this.RangeUpDownClose);
             this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.Reach);
+            this.tabPage1.Controls.Add(this.AttackRange);
+            this.tabPage1.Controls.Add(this.AttackName);
+            this.tabPage1.Controls.Add(this.AttackTarget);
+            this.tabPage1.Controls.Add(this.AttackType);
+            this.tabPage1.Controls.Add(this.AttackHitEffect);
+            this.tabPage1.Controls.Add(this.AttackToHitBonus);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -392,10 +392,10 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.AttackAbilityDescription);
-            this.tabPage2.Controls.Add(this.ActionName);
             this.tabPage2.Controls.Add(this.AttackAbilityNameField);
             this.tabPage2.Controls.Add(this.AttackAbilityDescriptionField);
+            this.tabPage2.Controls.Add(this.AttackAbilityDescription);
+            this.tabPage2.Controls.Add(this.ActionName);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -440,10 +440,10 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.DescriptionLabel);
-            this.tabPage3.Controls.Add(this.ReactionNameLabel);
             this.tabPage3.Controls.Add(this.ReactionName);
             this.tabPage3.Controls.Add(this.ReactionDescription);
+            this.tabPage3.Controls.Add(this.DescriptionLabel);
+            this.tabPage3.Controls.Add(this.ReactionNameLabel);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);

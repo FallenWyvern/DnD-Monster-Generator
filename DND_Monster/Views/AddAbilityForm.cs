@@ -17,7 +17,9 @@ namespace DND_Monster
 
         public AddAbilityForm()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            Translation.Apply(this);
+
             spellslots.Add(Spellslot1); 
             spellslots.Add(Spellslot2);
             spellslots.Add(Spellslot3);

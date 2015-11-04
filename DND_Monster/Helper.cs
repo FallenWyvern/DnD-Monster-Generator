@@ -627,7 +627,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "3.1.7";
+        public static string Version = "4.0.0";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = System.IO.Directory.GetCurrentDirectory().ToString();
         public static string TemplateName = "Valloric's StatBlock";
@@ -643,6 +643,17 @@ namespace DND_Monster
                 string result = w.DownloadString(Help.VersionURL);
                 Console.WriteLine(result);
                 Console.WriteLine(Help.Version);
+                int currentVer = 0;
+                int webVer = 0;
+
+                int.TryParse(Help.Version.Replace(".", ""), out currentVer);
+                int.TryParse(result.Replace(".", ""), out webVer);
+
+                if (currentVer != 0 && webVer != 0)
+                {
+                    if (currentVer >= webVer) { return true; } else { return false; }
+                }
+
                 if (result == Help.Version) { return true; } else { return false; }
             }
         }        

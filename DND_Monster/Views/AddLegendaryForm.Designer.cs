@@ -126,13 +126,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 462);
             this.Controls.Add(this.AbilityNameLabel);
-            this.Controls.Add(this.AbilityName);
             this.Controls.Add(this.ListHelperLabel);
+            this.Controls.Add(this.NameLabel);
+            this.Controls.Add(this.AbilityName);
             this.Controls.Add(this.LoadTrait);
             this.Controls.Add(this.SaveTrait);
             this.Controls.Add(this.TraitDescriptionBox);
             this.Controls.Add(this.Traits);
-            this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.LegendaryAbilityName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddLegendaryForm";
