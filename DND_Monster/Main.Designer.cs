@@ -1401,6 +1401,7 @@
             0,
             0,
             0});
+            this.PreviewColumns.ValueChanged += new System.EventHandler(this.PreviewColumns_ValueChanged);
             // 
             // ColumnsLabel
             // 

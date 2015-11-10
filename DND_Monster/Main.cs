@@ -1058,9 +1058,18 @@ namespace DND_Monster
         {
             // Create the offscreen Chromium browser.
             using (var browser = new CefSharp.OffScreen.ChromiumWebBrowser())
-            {
+            {                
                 browser.LoadHtml("<html><head></head><body></body></html>", "http://rendering/");
-                browser.LoadHtml(Monster.ValloricStatBlock(), "http://rendering/");
+
+                switch (Help.TemplateName)
+                {
+                    case "Valloric's Statblock":
+                        browser.LoadHtml(Monster.ValloricStatBlock(), "http://rendering/");
+                        break;
+                    case "AshenGT's Statblock":
+                        browser.LoadHtml(Monster.AshenGTStatBlock(), "http://rendering/");
+                        break;
+                }                
 
                 saveFilename = filename;                                
                 await Help.Delay(500);
