@@ -39,6 +39,15 @@ namespace DND_Monster
                 Translation.LoadTranslationFile(Settings.TranslationFile);
                 Translation.Apply(this);
             }
+
+            try
+            {
+                if (PreviewTemplateSelector.Items.Contains(Help.TemplateName))
+                {
+                    PreviewTemplateSelector.SelectedIndex = PreviewTemplateSelector.Items.IndexOf(Help.TemplateName);
+                }
+            }
+            catch { }
         }
 
         private void CefStartup()
@@ -71,7 +80,8 @@ namespace DND_Monster
             SizeDropDown.SelectedIndex = 0;
             SkillDropDown.SelectedIndex = 0;
 
-            ColumnWidthUpDown.Value = Monster.width;
+            Monster.width = 212;
+            ColumnWidthUpDown.Value = 212;
 
             StrUpDown.ValueChanged += modchanged_ValueChanged;
             DexUpDown.ValueChanged += modchanged_ValueChanged;
@@ -2052,6 +2062,17 @@ namespace DND_Monster
                 Settings.TranslationFile = dialog.FileName;
             }
             Translation.Apply(this);            
+        }
+
+        private void PreviewColumns_ValueChanged(object sender, EventArgs e)
+        {
+            int width = 260;
+            if (Monster.columns == 0)
+            {
+                width = 212;                
+            }
+            Monster.width = width;
+            ColumnWidthUpDown.Value = width;            
         }        
     }
 }

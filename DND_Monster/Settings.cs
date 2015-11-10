@@ -39,6 +39,11 @@ namespace DND_Monster
                     {
                         TranslationFile = arg.Split('=')[1];                        
                     }
+
+                    if (arg.Contains("Last Template="))
+                    {
+                        Help.TemplateName = arg.Split('=')[1];
+                    }
                 }
             }
             catch { }
@@ -51,7 +56,8 @@ namespace DND_Monster
                 File.WriteAllLines(SettingsFile, new List<string>()
                 {
                     "Last Directory=" + Help.LastDirectory,
-                    "Translation=" + Settings.TranslationFile
+                    "Translation=" + Settings.TranslationFile,
+                    "Last Template=" + Help.TemplateName
                 });
             }
             catch { }
