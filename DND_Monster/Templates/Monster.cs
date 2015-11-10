@@ -388,5 +388,38 @@ namespace DND_Monster
         public static string CreatureAlign = "";
         
         #endregion
+
+        // Shared template methods.
+        #region
+        // Since the scripts in the original template were so
+        // similar, I just wrote this to re-write them over and over.
+        // Saves typing.
+        private static void AddTemplateScript(string identifier)
+        {
+            output.Add(@"<script>");
+            output.Add(@"(function(window, document) {");
+            output.Add(@"var elemName = '" + identifier + "';");
+            output.Add(@"var thatDoc = document;");
+            output.Add(@"var thisDoc = (thatDoc.currentScript || thatDoc._currentScript).ownerDocument;");
+            output.Add(@"var proto = Object.create(HTMLElement.prototype, {");
+            output.Add(@"createdCallback: {");
+            output.Add(@"value: function() {");
+            output.Add(@"var template = thisDoc.getElementById(elemName);");
+            output.Add(@"var clone = thatDoc.importNode(template.content, true);");
+            output.Add(@"this.createShadowRoot().appendChild(clone);");
+            output.Add(@"}");
+            output.Add(@"}");
+            output.Add(@"});");
+            output.Add(@"thatDoc.registerElement(elemName, {prototype: proto});");
+            output.Add(@"})(window, document);");
+            output.Add(@"</script>");
+        }
+
+        // Tapered Rule
+        private static void TaperedRule()
+        {
+            output.Add(@"<tapered-rule></tapered-rule>");
+        }
+        #endregion
     }
 }

@@ -1473,6 +1473,7 @@
             this.PreviewTemplateSelector.FormattingEnabled = true;
             this.PreviewTemplateSelector.Items.AddRange(new object[] {
             "Valloric\'s Statblock",
+            "AshenGT\'s Statblock",
             "Reddit",
             "Future"});
             this.PreviewTemplateSelector.Location = new System.Drawing.Point(305, 664);
@@ -1750,6 +1751,7 @@
             this.button1.TabIndex = 118;
             this.button1.Text = "Output Localization";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.GenerateTranslationText);
             // 
             // AddSaved
