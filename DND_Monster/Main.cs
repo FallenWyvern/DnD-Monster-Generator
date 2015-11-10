@@ -619,12 +619,20 @@ namespace DND_Monster
                     PrintButton.Enabled = true;
                     break;
                 case 1:
+                    tableLayoutPanel1.Controls.Add(browserOutput, 0, 0);
+                    ShowMonsterInBrowser();
+                    ExportCSV.Enabled = true;
+                    ExportWeb.Enabled = true;
+                    ExportPNG.Enabled = true;
+                    PrintButton.Enabled = true;
+                    break;
+                case 2:
                     tableLayoutPanel1.Controls.Add(redditOutput, 0, 0);
                     redditOutput.Text = "";
                     ShowMonsterInText();
                     ExportReddit.Enabled = true;
                     break;
-                case 2:
+                case 3:
                     tableLayoutPanel1.Controls.Add(browserOutput, 0, 0);
                     ShowMonsterInBrowser();                    
                     ExportCSV.Enabled = true;
@@ -1491,6 +1499,11 @@ namespace DND_Monster
             if (PreviewTemplateSelector.Text == "Valloric's Statblock")
             {
                 browserOutput.LoadHtml(Monster.ValloricStatBlock(), "http://rendering/");
+            }
+
+            if (PreviewTemplateSelector.Text == "AshenGT's Statblock")
+            {
+                browserOutput.LoadHtml(Monster.AshenGTStatBlock(), "http://rendering/");
             }
 
             if (PreviewTemplateSelector.Text == "Future")

@@ -10,7 +10,7 @@ namespace DND_Monster
     public static partial class Monster
     {        
         // Writes out the HTML needed to render the stat block
-        public static string ValloricStatBlock()        
+        public static string AshenGTStatBlock()        
         {
             output.Clear();
 
@@ -47,10 +47,10 @@ namespace DND_Monster
             output.Add(@"<template id=""tapered-rule"">");
             output.Add(@"<style>");
             output.Add(@"svg {");
-            output.Add(@"fill: #922610;");
-            output.Add(@"stroke: #922610;");
+            output.Add(@"fill: #3F4647;");
+            output.Add(@"stroke: #3F4647;");
             output.Add(@"margin-top: 0.7em;");
-            output.Add(@"margin-bottom: 0.35em;");            
+            output.Add(@"margin-bottom: 0.35em;");
             output.Add(@"}");
             output.Add(@"</style>");
             output.Add(@"<svg height=""5"" width=""400"">");
@@ -92,7 +92,7 @@ namespace DND_Monster
             output.Add(@"margin-top: -6px;");
             output.Add(@"margin-bottom: -2px;");
             output.Add(@"font-size: 25px;");
-            output.Add(@"letter-spacing: 1px;");
+            output.Add(@"letter-spacing: 2px;");
             output.Add(@"font-variant: small-caps;");
             output.Add(@"}");
 
@@ -286,10 +286,10 @@ namespace DND_Monster
             output.Add(@"sans-serif;");
             output.Add(@"font-size: 13px;");
             output.Add(@"display: block;");
-            output.Add(@"background: #FDF1DC;");
+            output.Add(@"background: #EBEEEF;");
             output.Add(@"padding: 0.6em;");
             output.Add(@"border: 1px #DDD solid;");
-            output.Add(@"box-shadow: 0 0 1.5em #867453;");
+            output.Add(@"box-shadow: 0 0 1.5em #244A6F;");
 
             output.Add(@"z-index: 0;");
 
@@ -298,7 +298,7 @@ namespace DND_Monster
             output.Add(@"}");
 
             output.Add(@"::content > h3 {");
-            output.Add(@"border-bottom: 1px solid #7A200D;");
+            output.Add(@"border-bottom: 1px solid #244A6F;");
             output.Add(@"color: #7A200D;");
             output.Add(@"font-size: 18px;");
             output.Add(@"font-variant: small-caps;");
@@ -313,7 +313,7 @@ namespace DND_Monster
 
             output.Add(@".bar {");
             output.Add(@"height: 5px;");
-            output.Add(@"background: #E69A28;");
+            output.Add(@"background: #52707A;");
             output.Add(@"border: 1px solid #000;");
             output.Add(@"position: relative;");
             output.Add(@"z-index: 1;");
