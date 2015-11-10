@@ -627,7 +627,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "4.0.0";
+        public static string Version = "4.0.1";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = System.IO.Directory.GetCurrentDirectory().ToString();
         public static string TemplateName = "Valloric's StatBlock";
@@ -637,24 +637,31 @@ namespace DND_Monster
         
         // Used to check for updates.
         public static bool CheckForDownload()
-        {            
-            using (WebClient w = new WebClient())
-            {                    
-                string result = w.DownloadString(Help.VersionURL);
-                Console.WriteLine(result);
-                Console.WriteLine(Help.Version);
-                int currentVer = 0;
-                int webVer = 0;
-
-                int.TryParse(Help.Version.Replace(".", ""), out currentVer);
-                int.TryParse(result.Replace(".", ""), out webVer);
-
-                if (currentVer != 0 && webVer != 0)
+        {
+            try
+            {
+                using (WebClient w = new WebClient())
                 {
-                    if (currentVer >= webVer) { return true; } else { return false; }
-                }
+                    string result = w.DownloadString(Help.VersionURL);
+                    Console.WriteLine(result);
+                    Console.WriteLine(Help.Version);
+                    int currentVer = 0;
+                    int webVer = 0;
 
-                if (result == Help.Version) { return true; } else { return false; }
+                    int.TryParse(Help.Version.Replace(".", ""), out currentVer);
+                    int.TryParse(result.Replace(".", ""), out webVer);
+
+                    if (currentVer != 0 && webVer != 0)
+                    {
+                        if (currentVer >= webVer) { return true; } else { return false; }
+                    }
+
+                    if (result == Help.Version) { return true; } else { return false; }
+                }
+            }
+            catch
+            {
+                return true;
             }
         }        
 

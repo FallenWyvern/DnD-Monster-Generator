@@ -50,7 +50,7 @@ namespace DND_Monster
             output.Add(@"fill: #922610;");
             output.Add(@"stroke: #922610;");
             output.Add(@"margin-top: 0.7em;");
-            output.Add(@"margin-bottom: 0.35em;");
+            output.Add(@"margin-bottom: 0.35em;");            
             output.Add(@"}");
             output.Add(@"</style>");
             output.Add(@"<svg height=""5"" width=""400"">");
