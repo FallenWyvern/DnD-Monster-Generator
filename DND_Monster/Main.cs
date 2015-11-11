@@ -621,35 +621,22 @@ namespace DND_Monster
             switch (PreviewTemplateSelector.SelectedIndex) 
             { 
                 case 0:
+                case 1:
+                case 2:
+                case 4:
                     tableLayoutPanel1.Controls.Add(browserOutput, 0, 0);
                     ShowMonsterInBrowser();                    
                     ExportCSV.Enabled = true;
                     ExportWeb.Enabled = true;
                     ExportPNG.Enabled = true;
                     PrintButton.Enabled = true;
-                    break;
-                case 1:
-                    tableLayoutPanel1.Controls.Add(browserOutput, 0, 0);
-                    ShowMonsterInBrowser();
-                    ExportCSV.Enabled = true;
-                    ExportWeb.Enabled = true;
-                    ExportPNG.Enabled = true;
-                    PrintButton.Enabled = true;
-                    break;
-                case 2:
+                    break;                                    
+                case 3:
                     tableLayoutPanel1.Controls.Add(redditOutput, 0, 0);
                     redditOutput.Text = "";
                     ShowMonsterInText();
                     ExportReddit.Enabled = true;
-                    break;
-                case 3:
-                    tableLayoutPanel1.Controls.Add(browserOutput, 0, 0);
-                    ShowMonsterInBrowser();                    
-                    ExportCSV.Enabled = true;
-                    ExportWeb.Enabled = true;
-                    ExportPNG.Enabled = true;
-                    PrintButton.Enabled = true;
-                    break;
+                    break;                                                    
             }            
         }
 
@@ -1068,6 +1055,9 @@ namespace DND_Monster
                         break;
                     case "AshenGT's Statblock":
                         browser.LoadHtml(Monster.AshenGTStatBlock(), "http://rendering/");
+                        break;
+                    case "Custom":
+                        browser.LoadHtml(Monster.CustomStatBlock(""), "http://rendering/");
                         break;
                 }                
 
@@ -1523,6 +1513,12 @@ namespace DND_Monster
             if (PreviewTemplateSelector.Text == "AshenGT's Statblock")
             {
                 browserOutput.LoadHtml(Monster.AshenGTStatBlock(), "http://rendering/");
+            }
+
+            if (PreviewTemplateSelector.Text == "Custom Statblock")
+            {
+                // Open a file here
+                browserOutput.LoadHtml(Monster.CustomStatBlock(""), "http://rendering/");
             }
 
             if (PreviewTemplateSelector.Text == "Future")

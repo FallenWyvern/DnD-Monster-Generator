@@ -1475,6 +1475,7 @@
             this.PreviewTemplateSelector.Items.AddRange(new object[] {
             "Valloric\'s Statblock",
             "AshenGT\'s Statblock",
+            "Custom Statblock",
             "Reddit",
             "Future"});
             this.PreviewTemplateSelector.Location = new System.Drawing.Point(305, 664);
