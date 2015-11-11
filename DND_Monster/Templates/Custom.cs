@@ -10,14 +10,29 @@ namespace DND_Monster
     public static partial class Monster
     {        
         private static List<string> Parameters = new List<string>();
+        private static string LastFile = "";
 
         // Writes out the HTML needed to render the stat block
-        public static string CustomStatBlock(string file)        
+        public static string CustomStatBlock(string file = "")        
         {
-            output.Clear();
-            if (!System.IO.File.Exists(file)) return "";            
-            Parameters = System.IO.File.ReadAllLines(file).ToList<string>();
+            Console.WriteLine("Custom: " + file + " : " + LastFile);
+            if (file == "" && LastFile == "") return "";
+            if (LastFile == "")
+            {
+                Console.WriteLine("Setting last file: " + file);
+                LastFile = file;                
+            }
 
+            if (file == "")
+            {
+                Console.WriteLine("Using last file: " + LastFile);
+                file = LastFile;                
+            }
+
+            output.Clear();
+            if (!System.IO.File.Exists(file)) { Console.WriteLine("File Not Found: " + file); return ""; }
+            Parameters = System.IO.File.ReadAllLines(file).ToList<string>();
+         
             // Templates and Scripts            
             #region
             output.Add(@"<!DOCTYPE html>");
@@ -38,9 +53,9 @@ namespace DND_Monster
             output.Add(@"margin: " + ParseParameters("body margin", "0") + ";");
             output.Add(@"}");
             output.Add(@"stat-block {");
-            output.Add(@"margin-left: " + ParseParameters("body margin-left", "20") + "px;");
-            output.Add(@"margin-top: " + ParseParameters("body margin-top", "20") + "px;");
-            output.Add(@"margin-bottom: " + ParseParameters("body margin-bottom", "20") + "px;");
+            output.Add(@"margin-left: " + ParseParameters("body margin-left", "20px") + ";");
+            output.Add(@"margin-top: " + ParseParameters("body margin-top", "20px") + ";");
+            output.Add(@"margin-bottom: " + ParseParameters("body margin-bottom", "20px") + ";");
             output.Add(@"</style>");
             output.Add(@"</head>");
             #endregion
@@ -53,8 +68,8 @@ namespace DND_Monster
             output.Add(@"svg {");
             output.Add(@"fill: " + ParseParameters("rule svg fill", "#922610") + ";");
             output.Add(@"stroke: " + ParseParameters("rule svg stroke", "#922610") + ";");
-            output.Add(@"margin-top: " + ParseParameters("rule svg margin-top", "0.7") + "em;");
-            output.Add(@"margin-bottom: " + ParseParameters("rule svg margin-bottom", "0.35") + "em;");
+            output.Add(@"margin-top: " + ParseParameters("rule svg margin-top", "0.7em") + ";");
+            output.Add(@"margin-bottom: " + ParseParameters("rule svg margin-bottom", "0.35em") + ";");
             output.Add(@"}");
             output.Add(@"</style>");
             output.Add(@"<svg height=""5"" width=""400"">");
@@ -91,20 +106,20 @@ namespace DND_Monster
             output.Add(@"font-family: 'Lora', 'Calisto MT', 'Bookman Old Style', Bookman,");
             output.Add(@"'Goudy Old Style', Garamond, 'Hoefler Text',");
             output.Add(@"'Bitstream Charter', Georgia, serif;");
-            output.Add(@"color: " + ParseParameters("creature heading color", "#7A200D") + ";");
-            output.Add(@"font-weight: 700;");
-            output.Add(@"margin-top: -6px;");
-            output.Add(@"margin-bottom: -2px;");
-            output.Add(@"font-size: 25px;");
-            output.Add(@"letter-spacing: 2px;");
-            output.Add(@"font-variant: small-caps;");
+            output.Add(@"color: " + ParseParameters("creature-h1 heading color", "#7A200D") + ";");
+            output.Add(@"font-weight: " + ParseParameters("creature-h1 font-weight", "700") + ";");
+            output.Add(@"margin-top: " + ParseParameters("creature-h1 margin-top", "-6px") + ";");
+            output.Add(@"margin-bottom: " + ParseParameters("creature-h1 margin-bottom", "-2px") + ";");
+            output.Add(@"font-size: " + ParseParameters("creature-h1 font-size", "25px") + ";");
+            output.Add(@"letter-spacing: " + ParseParameters("creature-h1 letter-spacing", "2px") + ";");
+            output.Add(@"font-variant: " + ParseParameters("creature-h1 font-variant", "small-caps") + ";");
             output.Add(@"}");
 
             output.Add(@"::content > h2 {");
-            output.Add(@"font-weight: normal;");
-            output.Add(@"font-style: italic;");
-            output.Add(@"font-size: 12px;");
-            output.Add(@"margin: 0;");
+            output.Add(@"font-weight: " + ParseParameters("creature-h2 font-weight", "normal") + ";");
+            output.Add(@"font-style: " + ParseParameters("creature-h2 font-style", "italic") + ";");
+            output.Add(@"font-size: " + ParseParameters("creature-h2 font-size", "12px") + ";");
+            output.Add(@"margin: " + ParseParameters("creature-h2 margin", "0") + ";");
             output.Add(@"}");
             output.Add(@"</style>");
             output.Add(@"<content select=""h1""></content>");
@@ -122,18 +137,18 @@ namespace DND_Monster
             output.Add(@"<template id=""abilities-block"">");
             output.Add(@"<style>");
             output.Add(@":host {");
-            output.Add(@"color: #7A200D;");
+            output.Add(@"color: " + ParseParameters("abilities-host color", "#7A200D") + ";");
             output.Add(@"}");
 
             output.Add(@"table {");
-            output.Add(@"width: 100%;");
-            output.Add(@"border: 0px;");
-            output.Add(@"border-collapse: collapse;");
+            output.Add(@"width: " + ParseParameters("abilities-host-table width", "100%") + ";");
+            output.Add(@"border: " + ParseParameters("abilities-host-table border", "100%") + ";");
+            output.Add(@"border-collapse: " + ParseParameters("abilities-host-table border-collapse", "collapse") + ";");
             output.Add(@"}");
 
             output.Add(@"th, td {");
-            output.Add(@"width: 50px;");
-            output.Add(@"text-align: center;");
+            output.Add(@"width: " + ParseParameters("abilities-host-table-thtd width", "50px") + ";");
+            output.Add(@"text-align: " + ParseParameters("abilities-host-table-thtd text-align", "center") + ";");
             output.Add(@"}");
             output.Add(@"</style>");
             TaperedRule();
@@ -219,18 +234,18 @@ namespace DND_Monster
             output.Add(@"<template id=""property-block"">");
             output.Add(@"<style>");
             output.Add(@"::content > h4 {");
-            output.Add(@"display: inline;");
-            output.Add(@"font-weight: bold;");
-            output.Add(@"font-style: italic;");
+            output.Add(@"display: " + ParseParameters("property-block-h4 display", "inline") + ";");
+            output.Add(@"font-weight: " + ParseParameters("property-block-h4 font-weight", "bold") + ";");
+            output.Add(@"font-style: " + ParseParameters("property-block-h4 font-style", "italic") + ";");
             output.Add(@"}");
 
             output.Add(@"::content > p {");
-            output.Add(@"display: inline;");
+            output.Add(@"display: " + ParseParameters("property-block-p display", "inline") + ";");
             output.Add(@"}");
 
             output.Add(@"p {");
-            output.Add(@"margin-top: 0.3em;");
-            output.Add(@"margin-bottom: 0.9em;");
+            output.Add(@"margin-top: " + ParseParameters("property-block-p margin-top", "0.3em") + ";");
+            output.Add(@"margin-bottom: " + ParseParameters("property-block-p margin-top", "0.9em") + ";");
             output.Add(@"}");
             output.Add(@"</style>");
 
@@ -248,20 +263,20 @@ namespace DND_Monster
             output.Add(@"<template id=""property-line"">");
             output.Add(@"<style>");
             output.Add(@":host {");
-            output.Add(@"color: #7A200D;");
+            output.Add(@"color: " + ParseParameters("property-line-host color", "#7A200D") + ";");
             output.Add(@"}");
 
             output.Add(@"div {");
-            output.Add(@"text-indent: -1em;");
-            output.Add(@"margin-left: 1em;");
+            output.Add(@"text-indent: " + ParseParameters("property-line-host-div text-indent", "-1em") + ";");
+            output.Add(@"margin-left: " + ParseParameters("property-line-host-div margin-left", "1em") + ";");
             output.Add(@"}");
 
             output.Add(@"::content > * {");
-            output.Add(@"display: inline;");
+            output.Add(@"display: " + ParseParameters("property-line-host-all display", "inline") + ";");
             output.Add(@"}");
 
             output.Add(@"::content > p {");
-            output.Add(@"margin-left: 0.4em;");
+            output.Add(@"margin-left: " + ParseParameters("property-line-host-p margin-left", "0.4em") + ";");
             output.Add(@"}");
 
             output.Add(@"</style>");
@@ -280,47 +295,46 @@ namespace DND_Monster
             output.Add(@"<style>");
             output.Add(@":host {");
             output.Add(@"width: " + (width + (width * columns)) + "px;");
-            output.Add(@"display: block;");
+            output.Add(@"display: " + ParseParameters("stat-block-host display", "block") + ";");
             output.Add(@"}");
 
             output.Add(@"#content-wrap {");
             output.Add(@"-webkit-column-count: " + columns + ";");
-            output.Add(@"-webkit-column-gap: 40px;");
-            output.Add(@"font-family: 'Noto Sans', 'Myriad Pro', Scala Sans, Helvetica, Arial,");
-            output.Add(@"sans-serif;");
-            output.Add(@"font-size: 13px;");
-            output.Add(@"display: block;");
-            output.Add(@"background: #EBEEEF;");
-            output.Add(@"padding: 0.6em;");
-            output.Add(@"border: 1px #DDD solid;");
-            output.Add(@"box-shadow: 0 0 1.5em #244A6F;");
+            output.Add(@"-webkit-column-gap: " + ParseParameters("stat-block-wrap -webkit-column-gap", "40px") + ";");
+            output.Add(@"font-family: 'Noto Sans', 'Myriad Pro', Scala Sans, Helvetica, Arial, sans-serif;");            
+            output.Add(@"font-size: " + ParseParameters("stat-block-wrap font-size", "13px") + ";");
+            output.Add(@"display: " + ParseParameters("stat-block-wrap display", "block") + ";");
+            output.Add(@"background: " + ParseParameters("stat-block-wrap background", "#FDF1DC") + ";");
+            output.Add(@"padding: " + ParseParameters("stat-block-wrap padding", "0.6em") + ";");
+            output.Add(@"border: " + ParseParameters("stat-block-wrap border", "1px #DDD solid") + ";");
+            output.Add(@"box-shadow: " + ParseParameters("stat-block-wrap box-shadow", "0 0 1.5em #867453") + ";");
 
-            output.Add(@"z-index: 0;");
+            output.Add(@"z-index: " + ParseParameters("stat-block-wrap z-index", "0") + ";");
 
-            output.Add(@"margin-left: 2px;");
-            output.Add(@"margin-right: 2px;");
+            output.Add(@"margin-left: " + ParseParameters("stat-block-wrap margin-left", "2px") + ";");
+            output.Add(@"margin-right: " + ParseParameters("stat-block-wrap margin-right", "2px") + ";");
             output.Add(@"}");
 
             output.Add(@"::content > h3 {");
-            output.Add(@"border-bottom: 1px solid #244A6F;");
-            output.Add(@"color: #7A200D;");
-            output.Add(@"font-size: 18px;");
-            output.Add(@"font-variant: small-caps;");
-            output.Add(@"font-weight: normal;");
-            output.Add(@"letter-spacing: 1px;");
-            output.Add(@"margin: 0;");
+            output.Add(@"border-bottom: " + ParseParameters("stat-block-h3 border-bottom", "1px solid #7A200D") + ";");
+            output.Add(@"color: " + ParseParameters("stat-block-h3 color", "#7A200D") + ";");
+            output.Add(@"font-size: " + ParseParameters("stat-block-h3 font-size", "18px") + ";");
+            output.Add(@"font-variant: " + ParseParameters("stat-block-h3 font-variant", "small-caps") + ";");
+            output.Add(@"font-weight: " + ParseParameters("stat-block-h3 font-weight", "normal") + ";");
+            output.Add(@"letter-spacing: " + ParseParameters("stat-block-h3 letter-spacing", "1px") + ";");
+            output.Add(@"margin: " + ParseParameters("stat-block-h3 margin", "0") + ";");
             output.Add(@"}");
 
             output.Add(@"::content property-block:last-child /deep/ p {");
-            output.Add(@"margin-bottom: 0;");
+            output.Add(@"margin-bottom: " + ParseParameters("stat-block-property-block margin-bottom", "0") + ";");
             output.Add(@"}");
 
             output.Add(@".bar {");
-            output.Add(@"height: 5px;");
-            output.Add(@"background: #52707A;");
-            output.Add(@"border: 1px solid #000;");
-            output.Add(@"position: relative;");
-            output.Add(@"z-index: 1;");
+            output.Add(@"height: " + ParseParameters("stat-block-bar height", "5px") + ";");
+            output.Add(@"background: " + ParseParameters("stat-block-bar background", "#E69A28") + ";");
+            output.Add(@"border: " + ParseParameters("stat-block-bar border", "1px solid #000") + ";");
+            output.Add(@"position: " + ParseParameters("stat-block-bar position", "relative") + ";");
+            output.Add(@"z-index: " + ParseParameters("stat-block-bar z-index", "1") + ";");
             output.Add(@"}");
             output.Add(@"</style>");
             output.Add(@"<div class=""bar""></div>");

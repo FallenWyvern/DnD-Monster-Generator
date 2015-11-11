@@ -1056,8 +1056,8 @@ namespace DND_Monster
                     case "AshenGT's Statblock":
                         browser.LoadHtml(Monster.AshenGTStatBlock(), "http://rendering/");
                         break;
-                    case "Custom":
-                        browser.LoadHtml(Monster.CustomStatBlock(""), "http://rendering/");
+                    case "Custom Statblock":
+                        browser.LoadHtml(Monster.CustomStatBlock(), "http://rendering/");
                         break;
                 }                
 
@@ -1518,7 +1518,15 @@ namespace DND_Monster
             if (PreviewTemplateSelector.Text == "Custom Statblock")
             {
                 // Open a file here
-                browserOutput.LoadHtml(Monster.CustomStatBlock(""), "http://rendering/");
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.InitialDirectory = Help.LastDirectory;
+                dialog.Filter = "tpl files (*.tpl)|*.tpl";
+                dialog.RestoreDirectory = true;
+
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    browserOutput.LoadHtml(Monster.CustomStatBlock(dialog.FileName), "http://rendering/");
+                }
             }
 
             if (PreviewTemplateSelector.Text == "Future")
