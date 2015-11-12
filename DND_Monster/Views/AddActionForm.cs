@@ -178,5 +178,43 @@ namespace DND_Monster
                     break;
             }
         }
+
+        private void FillActionOnTabChange(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex == 1)
+            {
+                try
+                {
+                    Ability Attack = new Ability();
+                    Attack.attack = new Attack(
+                        AttackTypeDropdown.Text,
+                        AttackBonusUpDown.Value.ToString(),
+                        (int)ReachUpDown.Value,
+                        (int)RangeUpDownClose.Value,
+                        (int)RangeUpDownFar.Value,
+                        AttackTargetField.Text,
+                        AverageDamage((int)HitNumberOfDice.Value, HitDiceType.Text, (int)HitDiceBonusDamage.Value),
+                        (int)HitNumberOfDice.Value,
+                        diceSize(HitDiceType.Text),
+                        (int)HitDiceBonusDamage.Value,
+                        HitDamageType.Text,
+                        HitDamageEffect.Text);
+
+                    Attack.Title = AttackNameField.Text;
+                    Attack.isDamage = true;
+                    Attack.isSpell = false;
+
+
+
+                    AttackAbilityDescriptionField.Text = Attack.attack.TextDescribe().Replace("*", "");
+                    AttackAbilityNameField.Text = Attack.attack._Attack;
+                }
+
+                catch
+                {
+
+                }
+            }
+        }
     }
 }

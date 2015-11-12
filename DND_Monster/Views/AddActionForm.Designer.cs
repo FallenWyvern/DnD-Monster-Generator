@@ -44,24 +44,24 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.RangeUpDownFar = new System.Windows.Forms.NumericUpDown();
-            this.Reach = new System.Windows.Forms.Label();
             this.ReachUpDown = new System.Windows.Forms.NumericUpDown();
-            this.AttackRange = new System.Windows.Forms.Label();
             this.HitDamageType = new System.Windows.Forms.ComboBox();
             this.HitDiceBonusDamage = new System.Windows.Forms.NumericUpDown();
             this.HitDiceType = new System.Windows.Forms.ComboBox();
             this.HitNumberOfDice = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
+            this.Reach = new System.Windows.Forms.Label();
+            this.AttackRange = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.AttackAbilityDescription = new System.Windows.Forms.Label();
-            this.ActionName = new System.Windows.Forms.Label();
             this.AttackAbilityNameField = new System.Windows.Forms.TextBox();
             this.AttackAbilityDescriptionField = new System.Windows.Forms.RichTextBox();
+            this.AttackAbilityDescription = new System.Windows.Forms.Label();
+            this.ActionName = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.DescriptionLabel = new System.Windows.Forms.Label();
-            this.ReactionNameLabel = new System.Windows.Forms.Label();
             this.ReactionName = new System.Windows.Forms.TextBox();
             this.ReactionDescription = new System.Windows.Forms.RichTextBox();
+            this.DescriptionLabel = new System.Windows.Forms.Label();
+            this.ReactionNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AttackBonusUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RangeUpDownClose)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -211,6 +211,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(296, 287);
             this.tabControl1.TabIndex = 1;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.FillActionOnTabChange);
             // 
             // tabPage1
             // 
@@ -274,15 +275,6 @@
             0,
             0});
             // 
-            // Reach
-            // 
-            this.Reach.AutoSize = true;
-            this.Reach.Location = new System.Drawing.Point(5, 164);
-            this.Reach.Name = "Reach";
-            this.Reach.Size = new System.Drawing.Size(39, 13);
-            this.Reach.TabIndex = 20;
-            this.Reach.Text = "Reach";
-            // 
             // ReachUpDown
             // 
             this.ReachUpDown.Increment = new decimal(new int[] {
@@ -304,15 +296,6 @@
             0,
             0,
             0});
-            // 
-            // AttackRange
-            // 
-            this.AttackRange.AutoSize = true;
-            this.AttackRange.Location = new System.Drawing.Point(5, 190);
-            this.AttackRange.Name = "AttackRange";
-            this.AttackRange.Size = new System.Drawing.Size(39, 13);
-            this.AttackRange.TabIndex = 18;
-            this.AttackRange.Text = "Range";
             // 
             // HitDamageType
             // 
@@ -390,6 +373,24 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "+";
             // 
+            // Reach
+            // 
+            this.Reach.AutoSize = true;
+            this.Reach.Location = new System.Drawing.Point(5, 164);
+            this.Reach.Name = "Reach";
+            this.Reach.Size = new System.Drawing.Size(39, 13);
+            this.Reach.TabIndex = 20;
+            this.Reach.Text = "Reach";
+            // 
+            // AttackRange
+            // 
+            this.AttackRange.AutoSize = true;
+            this.AttackRange.Location = new System.Drawing.Point(5, 190);
+            this.AttackRange.Name = "AttackRange";
+            this.AttackRange.Size = new System.Drawing.Size(39, 13);
+            this.AttackRange.TabIndex = 18;
+            this.AttackRange.Text = "Range";
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.AttackAbilityNameField);
@@ -403,6 +404,22 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Action";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // AttackAbilityNameField
+            // 
+            this.AttackAbilityNameField.Location = new System.Drawing.Point(75, 6);
+            this.AttackAbilityNameField.Name = "AttackAbilityNameField";
+            this.AttackAbilityNameField.Size = new System.Drawing.Size(205, 20);
+            this.AttackAbilityNameField.TabIndex = 0;
+            // 
+            // AttackAbilityDescriptionField
+            // 
+            this.AttackAbilityDescriptionField.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.AttackAbilityDescriptionField.Location = new System.Drawing.Point(3, 48);
+            this.AttackAbilityDescriptionField.Name = "AttackAbilityDescriptionField";
+            this.AttackAbilityDescriptionField.Size = new System.Drawing.Size(282, 210);
+            this.AttackAbilityDescriptionField.TabIndex = 1;
+            this.AttackAbilityDescriptionField.Text = "";
             // 
             // AttackAbilityDescription
             // 
@@ -422,22 +439,6 @@
             this.ActionName.TabIndex = 7;
             this.ActionName.Text = "Action Name";
             // 
-            // AttackAbilityNameField
-            // 
-            this.AttackAbilityNameField.Location = new System.Drawing.Point(75, 6);
-            this.AttackAbilityNameField.Name = "AttackAbilityNameField";
-            this.AttackAbilityNameField.Size = new System.Drawing.Size(205, 20);
-            this.AttackAbilityNameField.TabIndex = 0;
-            // 
-            // AttackAbilityDescriptionField
-            // 
-            this.AttackAbilityDescriptionField.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.AttackAbilityDescriptionField.Location = new System.Drawing.Point(3, 48);
-            this.AttackAbilityDescriptionField.Name = "AttackAbilityDescriptionField";
-            this.AttackAbilityDescriptionField.Size = new System.Drawing.Size(282, 210);
-            this.AttackAbilityDescriptionField.TabIndex = 1;
-            this.AttackAbilityDescriptionField.Text = "";
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.ReactionName);
@@ -451,6 +452,22 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Reaction";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // ReactionName
+            // 
+            this.ReactionName.Location = new System.Drawing.Point(91, 4);
+            this.ReactionName.Name = "ReactionName";
+            this.ReactionName.Size = new System.Drawing.Size(189, 20);
+            this.ReactionName.TabIndex = 9;
+            // 
+            // ReactionDescription
+            // 
+            this.ReactionDescription.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ReactionDescription.Location = new System.Drawing.Point(3, 48);
+            this.ReactionDescription.Name = "ReactionDescription";
+            this.ReactionDescription.Size = new System.Drawing.Size(282, 210);
+            this.ReactionDescription.TabIndex = 10;
+            this.ReactionDescription.Text = "";
             // 
             // DescriptionLabel
             // 
@@ -469,22 +486,6 @@
             this.ReactionNameLabel.Size = new System.Drawing.Size(81, 13);
             this.ReactionNameLabel.TabIndex = 11;
             this.ReactionNameLabel.Text = "Reaction Name";
-            // 
-            // ReactionName
-            // 
-            this.ReactionName.Location = new System.Drawing.Point(91, 4);
-            this.ReactionName.Name = "ReactionName";
-            this.ReactionName.Size = new System.Drawing.Size(189, 20);
-            this.ReactionName.TabIndex = 9;
-            // 
-            // ReactionDescription
-            // 
-            this.ReactionDescription.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ReactionDescription.Location = new System.Drawing.Point(3, 48);
-            this.ReactionDescription.Name = "ReactionDescription";
-            this.ReactionDescription.Size = new System.Drawing.Size(282, 210);
-            this.ReactionDescription.TabIndex = 10;
-            this.ReactionDescription.Text = "";
             // 
             // AddActionForm
             // 
