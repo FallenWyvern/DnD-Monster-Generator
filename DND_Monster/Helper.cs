@@ -298,8 +298,14 @@ namespace DND_Monster
                         returnstring += item.Split(':')[1].Trim() + ", ";
                     }
                 }
-                
-                returnstring = returnstring.Trim().Substring(0, returnstring.Trim().Length - 1) + "</i></p></br>";                
+                if (returnstring.Length > 0)
+                {
+                    returnstring = returnstring.Trim().Substring(0, returnstring.Trim().Length - 1) + "</i></p></br>";
+                }
+                else
+                {
+                    returnstring = returnstring + "</i></p></br>";
+                }
             }            
 
             return returnstring;
@@ -627,7 +633,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "4.2.0";
+        public static string Version = "4.2.1";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = System.IO.Directory.GetCurrentDirectory().ToString();
         public static string TemplateName = "Valloric's StatBlock";
