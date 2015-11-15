@@ -895,6 +895,11 @@
             0,
             0,
             0});
+            this.StrSaveBonusUpDown.Minimum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            -2147483648});
             this.StrSaveBonusUpDown.Name = "StrSaveBonusUpDown";
             this.StrSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
             this.StrSaveBonusUpDown.TabIndex = 24;
@@ -907,6 +912,11 @@
             0,
             0,
             0});
+            this.DexSaveBonusUpDown.Minimum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            -2147483648});
             this.DexSaveBonusUpDown.Name = "DexSaveBonusUpDown";
             this.DexSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
             this.DexSaveBonusUpDown.TabIndex = 25;
@@ -919,6 +929,11 @@
             0,
             0,
             0});
+            this.ConSaveBonusUpDown.Minimum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            -2147483648});
             this.ConSaveBonusUpDown.Name = "ConSaveBonusUpDown";
             this.ConSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
             this.ConSaveBonusUpDown.TabIndex = 26;
@@ -931,6 +946,11 @@
             0,
             0,
             0});
+            this.IntSaveBonusUpDown.Minimum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            -2147483648});
             this.IntSaveBonusUpDown.Name = "IntSaveBonusUpDown";
             this.IntSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
             this.IntSaveBonusUpDown.TabIndex = 27;
@@ -943,6 +963,11 @@
             0,
             0,
             0});
+            this.WisSaveBonusUpDown.Minimum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            -2147483648});
             this.WisSaveBonusUpDown.Name = "WisSaveBonusUpDown";
             this.WisSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
             this.WisSaveBonusUpDown.TabIndex = 28;
@@ -955,6 +980,11 @@
             0,
             0,
             0});
+            this.ChaSaveBonusUpDown.Minimum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            -2147483648});
             this.ChaSaveBonusUpDown.Name = "ChaSaveBonusUpDown";
             this.ChaSaveBonusUpDown.Size = new System.Drawing.Size(44, 20);
             this.ChaSaveBonusUpDown.TabIndex = 29;
