@@ -1459,29 +1459,71 @@ namespace DND_Monster
                 }
             }
             
-            if (StrSaveBonusUpDown.Value > 0)
+            if (StrSaveBonusUpDown.Value != 0)
             {
-                Monster.AddSavingThrow("Str +" + StrSaveBonusUpDown.Value);
+                if (StrSaveBonusUpDown.Value > 0)
+                {
+                    Monster.AddSavingThrow("Str +" + StrSaveBonusUpDown.Value);
+                }
+                else
+                {
+                    Monster.AddSavingThrow("Str " + StrSaveBonusUpDown.Value);
+                }
             }
-            if (DexSaveBonusUpDown.Value > 0)
+            if (DexSaveBonusUpDown.Value != 0)
             {
-                Monster.AddSavingThrow("Dex +" + DexSaveBonusUpDown.Value);
+                if (DexSaveBonusUpDown.Value > 0)
+                {
+                    Monster.AddSavingThrow("Dex +" + DexSaveBonusUpDown.Value);
+                }
+                else
+                {
+                    Monster.AddSavingThrow("Dex " + DexSaveBonusUpDown.Value);
+                }
             }
-            if (ConSaveBonusUpDown.Value > 0)
+            if (ConSaveBonusUpDown.Value != 0)
             {
-                Monster.AddSavingThrow("Con +" + ConSaveBonusUpDown.Value);
+                if (ConSaveBonusUpDown.Value > 0)
+                {
+                    Monster.AddSavingThrow("Con +" + ConSaveBonusUpDown.Value);
+                }
+                else
+                {
+                    Monster.AddSavingThrow("Con " + ConSaveBonusUpDown.Value);
+                }
             }
-            if (IntSaveBonusUpDown.Value > 0)
+            if (IntSaveBonusUpDown.Value != 0)
             {
-                Monster.AddSavingThrow("Int +" + IntSaveBonusUpDown.Value);
+                if (IntSaveBonusUpDown.Value > 0)
+                {
+                    Monster.AddSavingThrow("Int +" + IntSaveBonusUpDown.Value);
+                }
+                else
+                {
+                    Monster.AddSavingThrow("Int -" + IntSaveBonusUpDown.Value);
+                }
             }
-            if (WisSaveBonusUpDown.Value > 0)
+            if (WisSaveBonusUpDown.Value != 0)
             {
-                Monster.AddSavingThrow("Wis +" + WisSaveBonusUpDown.Value);
+                if (WisSaveBonusUpDown.Value > 0)
+                {
+                    Monster.AddSavingThrow("Wis +" + WisSaveBonusUpDown.Value);
+                }
+                else
+                {
+                    Monster.AddSavingThrow("Wis " + WisSaveBonusUpDown.Value);
+                }
             }
-            if (ChaSaveBonusUpDown.Value > 0)
+            if (ChaSaveBonusUpDown.Value != 0)
             {
-                Monster.AddSavingThrow("Cha +" + ChaSaveBonusUpDown.Value);
+                if (ChaSaveBonusUpDown.Value != 0)
+                {
+                    Monster.AddSavingThrow("Cha +" + ChaSaveBonusUpDown.Value);
+                }
+                else
+                {
+                    Monster.AddSavingThrow("Cha " + ChaSaveBonusUpDown.Value);
+                }
             }            
         }
         
