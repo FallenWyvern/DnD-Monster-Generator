@@ -1059,14 +1059,17 @@ namespace DND_Monster
                     case "Custom Statblock":
                         browser.LoadHtml(Monster.CustomStatBlock(), "http://rendering/");
                         break;
-                }                
+                    case "Future":
+                        browser.LoadHtml(Monster.FutureStatBlock(), "http://rendering/");
+                        break;
+                }
 
                 saveFilename = filename;                                
                 await Help.Delay(500);
-
+                
                 int width = (Monster.width + (Monster.width * Monster.columns)) + 40;
-                int height = 0;
-
+                int height = 0;                
+                
                 while (height == 0)
                 {
                     height = BrowserInfo.BrowserHeight(browser);

@@ -633,10 +633,10 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "4.2.3";
+        public static string Version = "4.2.4";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = System.IO.Directory.GetCurrentDirectory().ToString();
-        public static string TemplateName = "Valloric's StatBlock";
+        public static string TemplateName = "Valloric's Statblock";
 
         public static bool useBG = false;
         private static string bgURI = "";
