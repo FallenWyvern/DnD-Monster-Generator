@@ -1087,11 +1087,23 @@ namespace DND_Monster
 
             // Save the Bitmap to the path.
             // The image type is auto-detected via the ".png" extension.
-            bitmap.Save(saveFilename);
+            string filename = saveFilename.Split('\\')[saveFilename.Split('\\').Length - 1];                        
+            bitmap.Save(System.IO.Path.GetTempPath() + filename);
 
             // We no longer need the Bitmap.
             // Dispose it to avoid keeping the memory alive.  Especially important in 32-bit applications.
             bitmap.Dispose();
+
+            try
+            {
+                if (System.IO.File.Exists(saveFilename))
+                {
+                    System.IO.File.Delete(saveFilename);
+                }
+
+                System.IO.File.Move(System.IO.Path.GetTempPath() + filename, saveFilename);
+            }
+            catch (Exception ex) { MessageBox.Show("Error Saving File." + Environment.NewLine + "Error: " + ex.Message); }
         }
 
         // Convert Monster to CSV, then save the file.
