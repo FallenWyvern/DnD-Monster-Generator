@@ -187,15 +187,16 @@ namespace DND_Monster
             }
 
             string returnstring = "";
-            returnstring += "The " + name + " is a " + Description.Split('|')[2] + levelSuffix + "-level spellcaster. ";
-            returnstring += "Its spellcasting ability is " + spellcastingstat + " (spell save DC " + (8 + Monster.CR.profBonus + modifier) + ", +" + (modifier + Monster.CR.profBonus) + " to hit with spell attacks). ";
-
+            
             if (!Description.Contains("NotInnate"))
             {
-                returnstring += "It can innately cast the following spells, requiring no material components: ";                
+                returnstring += "The " + name + "'s spellcasting ability is " + spellcastingstat + " (spell save DC " + (8 + Monster.CR.profBonus + modifier) + "). ";
+                returnstring += "The " + name + " can innately cast the following spells, requiring no material components: ";                
             }
             else
             {
+                returnstring += "The " + name + " is a " + Description.Split('|')[2] + levelSuffix + "-level spellcaster. ";
+                returnstring += "Its spellcasting ability is " + spellcastingstat + " (spell save DC " + (8 + Monster.CR.profBonus + modifier) + ", +" + (modifier + Monster.CR.profBonus) + " to hit with spell attacks). ";
                 returnstring += "The " + name + " has the following " + Description.Split('|')[0] + " spells prepared:";
             }
 
@@ -633,7 +634,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "4.2.4";
+        public static string Version = "4.2.5";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = System.IO.Directory.GetCurrentDirectory().ToString();
         public static string TemplateName = "Valloric's Statblock";
