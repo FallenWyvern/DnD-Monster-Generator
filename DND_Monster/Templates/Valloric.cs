@@ -24,7 +24,7 @@ namespace DND_Monster
             output.Add(@"<head>");
 
             // Inline links
-            output.Add(@"<link href=""http://fonts.googleapis.com/css?family=Lora:700"" rel=""stylesheet"" type=""text/css""/>");
+            output.Add(@"<link href=""https://fonts.googleapis.com/css?family=Libre+Baskerville:700"" rel=""stylesheet"" type=""text/css""/>");
             output.Add(@"<link href=""http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic"" rel=""stylesheet"" type=""text/css""/><meta charset=""utf-8""/>");
             output.Add(@"<title>" + Title + "</title>");
 
@@ -43,13 +43,13 @@ namespace DND_Monster
 
             // Body Style
             #region
-            output.Add(@"<body style=""background-image: url('" + Help.ValloricBackgroundURI() + @"'); background-repeat: repeat-y;"">");
+            output.Add(@"<body style=""background-image: url('" + Help.BackgroundImage() + @"'); background-repeat: repeat-y;"">");
             output.Add(@"<template id=""tapered-rule"">");
             output.Add(@"<style>");
             output.Add(@"svg {");
             output.Add(@"fill: #922610;");
             output.Add(@"stroke: #922610;");
-            output.Add(@"margin-top: 0.7em;");
+            output.Add(@"margin-top: 0.6em;");
             output.Add(@"margin-bottom: 0.35em;");            
             output.Add(@"}");
             output.Add(@"</style>");
@@ -67,7 +67,8 @@ namespace DND_Monster
 
             // Tapered Rule Script and Top-Stats Template
             #region
-            output.Add(@"<template id=""top-stats"">");
+            output.Add(@"<template id=""top-stats"">");            
+            output.Add(@"<style> ::content * {color: #7A200D;} </style>");            
             TaperedRule();
             output.Add(@"<content></content>");            
             output.Add(@"</template>");
@@ -84,14 +85,12 @@ namespace DND_Monster
             output.Add(@"<style>");
 
             output.Add(@"::content > h1 {");
-            output.Add(@"font-family: 'Lora', 'Calisto MT', 'Bookman Old Style', Bookman,");
-            output.Add(@"'Goudy Old Style', Garamond, 'Hoefler Text',");
-            output.Add(@"'Bitstream Charter', Georgia, serif;");
+            output.Add(@"font-family: 'Libre Baskerville', 'Lora', 'Calisto MT', 'Bookman Old Style', Bookman, 'Goudy Old Style', 
+                Garamond, 'Hoefler Text', 'Bitstream Charter', Georgia, serif;");
             output.Add(@"color: #7A200D;");
             output.Add(@"font-weight: 700;");
-            output.Add(@"margin-top: -6px;");
-            output.Add(@"margin-bottom: -2px;");
-            output.Add(@"font-size: 25px;");
+            output.Add(@"margin: 0px;");
+            output.Add(@"font-size: 23px;");
             output.Add(@"letter-spacing: 1px;");
             output.Add(@"font-variant: small-caps;");
             output.Add(@"}");
@@ -117,9 +116,9 @@ namespace DND_Monster
             #region
             output.Add(@"<template id=""abilities-block"">");
             output.Add(@"<style>");
-            output.Add(@":host {");
-            output.Add(@"color: #7A200D;");
-            output.Add(@"}");
+            //output.Add(@":host {");
+            //output.Add(@"color: #7A200D;");
+            //output.Add(@"}");
 
             output.Add(@"table {");
             output.Add(@"width: 100%;");
@@ -189,6 +188,12 @@ namespace DND_Monster
             output.Add(@"createdCallback: {");
             output.Add(@"value: function() {");
             output.Add(@"var template = thisDoc.getElementById(elemName);");
+            output.Add(@"if (this.hasAttribute('data-content-height')){");
+            output.Add(@"var wrap = template.content.getElementById('content-wrap');");
+            output.Add(@"wrap.style.height = this.getAttribute('data-content-height') + 'px';");
+            output.Add(@"");
+            output.Add(@"");
+            output.Add(@"");
             output.Add(@"var clone = thatDoc.importNode(template.content, true);");
             output.Add(@"var root = this.createShadowRoot().appendChild(clone);");
             output.Add(@"}");
@@ -214,23 +219,32 @@ namespace DND_Monster
             #region
             output.Add(@"<template id=""property-block"">");
             output.Add(@"<style>");
+            output.Add(@"::host: {");
+            output.Add(@"margin-top: 0.3em;");
+            output.Add(@"margin-bottom: 0.9em;");
+            output.Add(@"line-height: 1.5;");
+            output.Add(@"display: block;");
+            output.Add(@"}");
+
             output.Add(@"::content > h4 {");
+            output.Add(@"margin: 0;");
             output.Add(@"display: inline;");
             output.Add(@"font-weight: bold;");
             output.Add(@"font-style: italic;");
             output.Add(@"}");
 
-            output.Add(@"::content > p {");
+            output.Add(@"::content > p:first-of-type {");
             output.Add(@"display: inline;");
+            output.Add(@"text-indent: 0;");
             output.Add(@"}");
 
             output.Add(@"p {");
-            output.Add(@"margin-top: 0.3em;");
-            output.Add(@"margin-bottom: 0.9em;");
+            output.Add(@"text-indent: 1em;");
+            output.Add(@"margin: 0;");
             output.Add(@"}");
             output.Add(@"</style>");
 
-            output.Add(@"<p><content></content></p>");
+            output.Add(@"<content></content>");
             output.Add(@"</template>");
             #endregion
 
@@ -244,24 +258,35 @@ namespace DND_Monster
             output.Add(@"<template id=""property-line"">");
             output.Add(@"<style>");
             output.Add(@":host {");
-            output.Add(@"color: #7A200D;");
-            output.Add(@"}");
-
-            output.Add(@"div {");
+            output.Add(@"line-height: 1.4;");
+            output.Add(@"display: block;");
             output.Add(@"text-indent: -1em;");
-            output.Add(@"margin-left: 1em;");
+            output.Add(@"padding-left: 1em;");
             output.Add(@"}");
 
-            output.Add(@"::content > * {");
+            //output.Add(@"div {");
+            //output.Add(@"text-indent: -1em;");
+            //output.Add(@"margin-left: 1em;");
+            //output.Add(@"}");
+
+            output.Add(@"::content > h4 {");
+            output.Add(@"margin: 0;");
             output.Add(@"display: inline;");
+            output.Add(@"font-weight: bold;");
+            output.Add(@"}");
+
+            output.Add(@"::content > p:first-of-type {");
+            output.Add(@"display: inline;");
+            output.Add(@"text-indent: 0;");
             output.Add(@"}");
 
             output.Add(@"::content > p {");
-            output.Add(@"margin-left: 0.4em;");
+            output.Add(@"text-indent: 1em;");
+            output.Add(@"margin: 0;");
             output.Add(@"}");
 
             output.Add(@"</style>");
-            output.Add(@"<div><content select=""h4""></content><content select=""p""></content></div>");
+            output.Add(@"<content></content>");
             output.Add(@"</template>");
             #endregion
 
@@ -276,7 +301,7 @@ namespace DND_Monster
             output.Add(@"<style>");
             output.Add(@":host {");
             output.Add(@"width: " + (width + (width * columns)) + "px;");
-            output.Add(@"display: block;");
+            output.Add(@"display: inline-block;");
             output.Add(@"}");
 
             output.Add(@"#content-wrap {");
@@ -284,10 +309,10 @@ namespace DND_Monster
             output.Add(@"-webkit-column-gap: 40px;");
             output.Add(@"font-family: 'Noto Sans', 'Myriad Pro', Scala Sans, Helvetica, Arial,");
             output.Add(@"sans-serif;");
-            output.Add(@"font-size: 13px;");
-            output.Add(@"display: block;");
+            output.Add(@"font-size: 13.5px;");
             output.Add(@"background: #FDF1DC;");
             output.Add(@"padding: 0.6em;");
+            output.Add(@"padding-bottom: 0.5em;");
             output.Add(@"border: 1px #DDD solid;");
             output.Add(@"box-shadow: 0 0 1.5em #867453;");
 
@@ -300,23 +325,33 @@ namespace DND_Monster
             output.Add(@"::content > h3 {");
             output.Add(@"border-bottom: 1px solid #7A200D;");
             output.Add(@"color: #7A200D;");
-            output.Add(@"font-size: 18px;");
+            output.Add(@"font-size: 21px;");
             output.Add(@"font-variant: small-caps;");
             output.Add(@"font-weight: normal;");
             output.Add(@"letter-spacing: 1px;");
             output.Add(@"margin: 0;");
+            output.Add(@"margin-bottom: 0.3em;");
+            output.Add(@"");
+            output.Add(@"break-before: column;");
+            output.Add(@"break-inside: avoid-column;");
+            output.Add(@"break-after: avoid-column;");
             output.Add(@"}");
 
-            output.Add(@"::content property-block:last-child /deep/ p {");
+            output.Add(@"::content > p {");
+            output.Add(@"margin-top: 0.3em;");
+            output.Add(@"margin-bottom: 0.9em;");
+            output.Add(@"line-height: 1.5;");
+            output.Add(@"}");
+
+            //output.Add(@".bar {");
+            //output.Add(@"height: 5px;");
+            //output.Add(@"background: #E69A28;");
+            //output.Add(@"border: 1px solid #000;");
+            //output.Add(@"position: relative;");
+            //output.Add(@"z-index: 1;");
+            //output.Add(@"}");
+            output.Add(@"::content > *:last-child {");
             output.Add(@"margin-bottom: 0;");
-            output.Add(@"}");
-
-            output.Add(@".bar {");
-            output.Add(@"height: 5px;");
-            output.Add(@"background: #E69A28;");
-            output.Add(@"border: 1px solid #000;");
-            output.Add(@"position: relative;");
-            output.Add(@"z-index: 1;");
             output.Add(@"}");
             output.Add(@"</style>");
             output.Add(@"<div class=""bar""></div>");
