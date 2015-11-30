@@ -219,7 +219,7 @@ namespace DND_Monster
             #region
             output.Add(@"<template id=""property-block"">");
             output.Add(@"<style>");
-            output.Add(@"::host: {");
+            output.Add(@":host {");
             output.Add(@"margin-top: 0.3em;");
             output.Add(@"margin-bottom: 0.9em;");
             output.Add(@"line-height: 1.5;");
@@ -238,7 +238,7 @@ namespace DND_Monster
             output.Add(@"text-indent: 0;");
             output.Add(@"}");
 
-            output.Add(@"p {");
+            output.Add(@"::content > p {");
             output.Add(@"text-indent: 1em;");
             output.Add(@"margin: 0;");
             output.Add(@"}");
@@ -343,13 +343,14 @@ namespace DND_Monster
             output.Add(@"line-height: 1.5;");
             output.Add(@"}");
 
-            //output.Add(@".bar {");
-            //output.Add(@"height: 5px;");
-            //output.Add(@"background: #E69A28;");
-            //output.Add(@"border: 1px solid #000;");
-            //output.Add(@"position: relative;");
-            //output.Add(@"z-index: 1;");
-            //output.Add(@"}");
+            output.Add(@".bar {");
+            output.Add(@"height: 5px;");
+            output.Add(@"background: #E69A28;");
+            output.Add(@"border: 1px solid #000;");
+            output.Add(@"position: relative;");
+            output.Add(@"z-index: 1;");
+            output.Add(@"}");
+
             output.Add(@"::content > *:last-child {");
             output.Add(@"margin-bottom: 0;");
             output.Add(@"}");
