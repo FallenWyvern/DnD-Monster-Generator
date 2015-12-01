@@ -405,6 +405,15 @@ namespace DND_Monster
             output.Add(@"createdCallback: {");
             output.Add(@"value: function() {");
             output.Add(@"var template = thisDoc.getElementById(elemName);");
+
+            if (identifier == "stat-block")
+            {
+                output.Add(@"if (this.hasAttribute('data-content-height')){");
+                output.Add(@"var wrap = template.content.getElementById('content-wrap');");
+                output.Add(@"wrap.style.height = this.getAttribute('data-content-height') + 'px';");
+                output.Add(@"}");
+            }
+
             output.Add(@"var clone = thatDoc.importNode(template.content, true);");
             output.Add(@"this.createShadowRoot().appendChild(clone);");
             output.Add(@"}");
