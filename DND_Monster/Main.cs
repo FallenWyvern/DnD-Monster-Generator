@@ -1352,13 +1352,20 @@ namespace DND_Monster
                 }
             }
 
-            if (conmod * multiplier >= 0)
+            if (conmod != 0)
             {
-                HitDieTextBox.Text = AverageHP + " (" + multiplier + "d" + size + " + " + (conmod * multiplier) + ")";
+                if (conmod * multiplier >= 0)
+                {
+                    HitDieTextBox.Text = AverageHP + " (" + multiplier + "d" + size + " + " + (conmod * multiplier) + ")";
+                }
+                else
+                {
+                    HitDieTextBox.Text = AverageHP + " (" + multiplier + "d" + size + (conmod * multiplier).ToString().Replace("-", " - ") + ")";
+                }
             }
             else
             {
-                HitDieTextBox.Text = AverageHP + " (" + multiplier + "d" + size + (conmod * multiplier).ToString().Replace("-", " - ") + ")";
+                HitDieTextBox.Text = AverageHP + " (" + multiplier + "d" + size  + ")";
             }
         }
       

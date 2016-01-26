@@ -560,13 +560,18 @@ namespace DND_Monster
             if (HitDiceNumber > 0)
             {
                 returnstring += HitAverageDamage + " (" + HitDiceNumber + "d" + HitDiceSize;
-                if (HitDamageBonus > -1)
+                if (HitDamageBonus != 0)
                 {
-                    returnstring += "+";
+                    if (HitDamageBonus > -1)
+                    {
+                        returnstring += "+";
+                    }
+                    returnstring += HitDamageBonus;
                 }
-                returnstring += HitDamageBonus + ") " + HitDamageType.ToLower() + " damage";
             }
-            
+
+            returnstring += ") " + HitDamageType.ToLower() + " damage";
+
             if (HitText.Split(' ')[0].ToLower() == "and")
             {
                 returnstring += " ";
@@ -622,14 +627,18 @@ namespace DND_Monster
             if (HitDiceNumber > 0)
             {
                 returnstring += HitAverageDamage + " (" + HitDiceNumber + "d" + HitDiceSize;
-                if (HitDamageBonus > -1)
+                if (HitDamageBonus != 0)
                 {
-                    returnstring += "+";
+                    if (HitDamageBonus > -1)
+                    {
+                        returnstring += "+";
+                    }
+                    returnstring += HitDamageBonus + ") " + HitDamageType.ToLower() + " damage";
                 }
-                returnstring += HitDamageBonus + ") " + HitDamageType.ToLower() + " damage";
+                returnstring += HitDamageBonus;
             }
-
-            Console.WriteLine(HitText);
+            returnstring += ") " + HitDamageType.ToLower() + " damage";
+            
             if (HitText.Split(' ')[0].ToLower() == "and")
             {
                 returnstring += " ";
@@ -654,7 +663,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "4.2.9";
+        public static string Version = "4.3.0";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = System.IO.Directory.GetCurrentDirectory().ToString();
         public static string TemplateName = "Valloric's Statblock";
