@@ -676,8 +676,11 @@ namespace DND_Monster
             dialog.Filter = "mm files (*.mm)|*.mm";
             dialog.RestoreDirectory = true;
 
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)            
             {
+                Monster.Clear(true);
+                ClearUI();
+
                 Help.LastDirectory = dialog.FileName;
 
                 Data jsonMonster = new Data();
