@@ -596,7 +596,7 @@ namespace DND_Monster
             // Provide the string back to the caller.
             if (!Settings.isFeet)
             {
-                returnString.Replace("feet", "meters").Replace("Feet", "Meters");
+                returnString.Replace("feet", "meters").Replace("Feet", "Meters").Replace("ft.", "meters");
             }
             return returnString;            
         }

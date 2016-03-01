@@ -605,10 +605,10 @@ namespace DND_Monster
                 returnString = returnString.Replace("The " + CreatureName, CreatureName.Replace('*', ' ').Trim());
             }
 
-            // Provide the string back to the caller.
+            // Provide the string back to the caller.            
             if (!Settings.isFeet)
-            {
-                returnString.Replace("feet", "meters").Replace("Feet", "Meters");
+            {                
+                returnString = returnString.Replace("feet", "meters").Replace("Feet", "Meters").Replace("ft.", "meters");                
             }
             return returnString;            
         }

@@ -158,7 +158,7 @@ namespace DND_Monster
 
             if (!Settings.isFeet)
             {
-                RedditMonster.Replace("feet", "meters").Replace("Feet", "Meters");
+                RedditMonster.Replace("feet", "meters").Replace("Feet", "Meters").Replace("ft.", "meters");
             }
             return RedditMonster;
         }
