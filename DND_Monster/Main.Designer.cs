@@ -159,6 +159,7 @@
             this.SensesHeaderLabel = new System.Windows.Forms.Label();
             this.SpeedHelperLabel = new System.Windows.Forms.Label();
             this.ExceptionText = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StrUpDown)).BeginInit();
@@ -1320,6 +1321,7 @@
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tableLayoutPanel2.ColumnCount = 7;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
@@ -1328,6 +1330,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 218F));
+            this.tableLayoutPanel2.Controls.Add(this.checkBox1, 6, 1);
             this.tableLayoutPanel2.Controls.Add(this.ExportCSV, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.PrintButton, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.ExportPNG, 1, 0);
@@ -1336,7 +1339,6 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 5, 0);
             this.tableLayoutPanel2.Controls.Add(this.ExportReddit, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 5, 1);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 583);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
@@ -1970,6 +1972,17 @@
             this.ExceptionText.TabIndex = 101;
             this.ExceptionText.Text = "Exception Text";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(383, 55);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(170, 17);
+            this.checkBox1.TabIndex = 103;
+            this.checkBox1.Text = "Use Feet (uncheck for Meters)";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2150,6 +2163,7 @@
         public System.Windows.Forms.Label ColumnWidthLabel;
         public System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
 
     }
 }

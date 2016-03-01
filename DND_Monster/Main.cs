@@ -1555,7 +1555,7 @@ namespace DND_Monster
         // Clears the monster data.
         public void Clear()
         {
-            browserOutput.LoadHtml("<html><head></head><body></body></html", "http://rendering/");
+            browserOutput.LoadHtml("<html><head></head><body></body></html>", "http://rendering/");
         }
 
         // Monster has been generated, send to browser.
@@ -2153,6 +2153,11 @@ namespace DND_Monster
             }
             Monster.width = width;
             ColumnWidthUpDown.Value = width;            
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.isFeet = checkBox1.Checked;
         }        
     }
 }

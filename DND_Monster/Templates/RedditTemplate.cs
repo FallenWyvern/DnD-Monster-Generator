@@ -156,6 +156,10 @@ namespace DND_Monster
                 }
             }
 
+            if (!Settings.isFeet)
+            {
+                RedditMonster.Replace("feet", "meters").Replace("Feet", "Meters");
+            }
             return RedditMonster;
         }
 

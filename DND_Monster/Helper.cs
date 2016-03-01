@@ -663,7 +663,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "4.3.1";
+        public static string Version = "4.3.2";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = System.IO.Directory.GetCurrentDirectory().ToString();
         public static string TemplateName = "Valloric's Statblock";
@@ -704,7 +704,7 @@ namespace DND_Monster
         // Object of all Challenge Ratings
         public static List<Challenge_Rating> ChallengeRatings = new List<Challenge_Rating>
         {
-            new Challenge_Rating {Index = 0, CR = "0", profBonus = 2, ArmorClass = 13, AttackBonus = 3, SaveDC = 13, LowHP = 1, HighHP = 6, XP = 0 },
+            new Challenge_Rating {Index = 0, CR = "0", profBonus = 2, ArmorClass = 13, AttackBonus = 3, SaveDC = 13, LowHP = 1, HighHP = 6, XP = 10 },
             new Challenge_Rating {Index = 1, CR = "1/8", profBonus = 2, ArmorClass = 13, AttackBonus = 3, SaveDC = 13, LowHP = 7, HighHP = 35, XP = 25},
             new Challenge_Rating {Index = 2, CR = "1/4", profBonus = 2, ArmorClass = 13, AttackBonus = 3, SaveDC = 13, LowHP = 36, HighHP = 49, XP = 50 },
             new Challenge_Rating {Index = 3, CR = "1/2", profBonus = 2, ArmorClass = 13, AttackBonus = 3, SaveDC = 13, LowHP = 50, HighHP = 70, XP = 100 },

@@ -12,6 +12,7 @@ namespace DND_Monster
         public static string SpellTimesPerDay = "Times Per Day";
         public static string SpellLevel = "Spell Level";
         public static string TranslationFile = "";
+        public static bool isFeet = true;
 
         public static void Load()
         {
