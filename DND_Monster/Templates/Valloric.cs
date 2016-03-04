@@ -481,7 +481,7 @@ namespace DND_Monster
                 {
                     output.Add(@"<property-block>");
                     output.Add(@"<h4>" + ability.ProperName() + ".</h4>");
-                    string abilityDescription = "";
+                    string abilityDescription = "<p>";
 
                     foreach (string abilityWord in ability.Description.Split(' '))
                     {
@@ -491,7 +491,7 @@ namespace DND_Monster
                         }
                         else
                         {
-                            string breakString = "</p></br><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                            string breakString = "</br></p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
                             abilityDescription += abilityWord.Replace('\n'.ToString(), breakString) + " ";
                         }
                     }
@@ -536,22 +536,22 @@ namespace DND_Monster
                     }
                     else
                     {
-                        string abilityDescription = "";
-                        
+                        string abilityDescription = "<p>";
+
                         foreach (string abilityWord in ability.Description.Split(' '))
                         {
                             if (!abilityWord.Contains('\n'))
-                            {                                
+                            {
                                 abilityDescription += abilityWord + " ";
                             }
                             else
                             {
-                                string breakString = "</p></br><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-                                abilityDescription += abilityWord.Replace('\n'.ToString(), breakString) + " " ;
+                                string breakString = "</br></p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                                abilityDescription += abilityWord.Replace('\n'.ToString(), breakString) + " ";
                             }
                         }
 
-                        output.Add(@"<p>" + abilityDescription + "</p>");                        
+                        output.Add(abilityDescription + "</p>");                        
                     }
                     output.Add(@"</property-block>");                
             }            

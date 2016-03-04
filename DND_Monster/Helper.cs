@@ -98,7 +98,8 @@ namespace DND_Monster
             {
                 if (!name.Contains('*')) { name = name.ToLower(); }
             }
-            return "The " + name + " can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. The " + name + " regains spent legendary actions at the start of its turn.";
+            return "The " + name + " can take 3 legendary actions, choosing from the options below. Only one legendary action can be" + 
+            "used at a time and only at the end of another creature's turn. The " + name + " regains spent legendary actions at the start of its turn.";
         }
     }
 
@@ -200,7 +201,7 @@ namespace DND_Monster
                 returnstring += "The " + name + " has the following " + Description.Split('|')[0] + " spells prepared:";
             }
 
-            return "<h4>Spellcasting. </h4><p>" + returnstring + "</p></br></br>";
+            return "<h4>Spellcasting. </h4><p>" + returnstring + "</p></br>";
         }
 
         public string WebSpellBlockFormat_NotInnate()
@@ -220,7 +221,7 @@ namespace DND_Monster
 
                 if (i == 0)
                 {
-                    returnstring += "<p>Cantrips (at will): </p>";
+                    returnstring += "<p>Cantrips (at will): ";
                 }
                 else
                 {
@@ -242,10 +243,10 @@ namespace DND_Monster
                     }
 
 
-                    returnstring += i + suffix + " level (" + spellSlots.Split(',')[i - 1] + " slots): </p>";
+                    returnstring += "<p>" + i + suffix + " level (" + spellSlots.Split(',')[i - 1] + " slots): ";
                 }
 
-                returnstring += "<p><i>";
+                returnstring += "<i>";
 
                 bool addedData = false;
                 foreach (string item in spells)
@@ -254,13 +255,13 @@ namespace DND_Monster
                     {
                         if (!String.IsNullOrEmpty(item) || !String.IsNullOrWhiteSpace(item))
                         {
-                            returnstring += item.Replace(i + ":", "").Replace("(", "</i></p>(").Replace(")", ")<p><i>") + ", ";
+                            returnstring += item.Replace(i + ":", "").Replace("(", "</i>(").Replace(")", ")<i>") + ", ";
                             addedData = true;
                         }                            
                     }
                 }
                 if (addedData) { returnstring = returnstring.Substring(0, returnstring.Length - 2); }
-                returnstring += "</i></p></br>";                
+                returnstring += "</i></br>" + "</p>";                
             } 
 
             return returnstring;
@@ -283,16 +284,16 @@ namespace DND_Monster
                         {
                             if (!returnstring.Contains("At will"))
                             {
-                                returnstring += "At will: ";
-                                returnstring += "<p><i>";
+                                returnstring += "<p>At will: ";
+                                returnstring += "<i>";
                             }                            
                         }
                         else
                         {
                             if (!returnstring.Contains(i + "/day"))
                             {
-                                returnstring += i + "/day each: ";
-                                returnstring += "<p><i>";
+                                returnstring += "<p>" + i + "/day each: ";
+                                returnstring += "<i>";
                             }
                         }
                         
@@ -301,15 +302,15 @@ namespace DND_Monster
                 }
                 if (returnstring.Length > 0)
                 {
-                    returnstring = returnstring.Trim().Substring(0, returnstring.Trim().Length - 1) + "</i></p></br>";
+                    returnstring = returnstring.Trim().Substring(0, returnstring.Trim().Length - 1) + "</i></br>";
                 }
                 else
                 {
-                    returnstring = returnstring + "</i></p></br>";
+                    returnstring = returnstring + "</i></br>";
                 }
             }            
 
-            return returnstring;
+            return returnstring + "</p>";
         }
         
         // Fix these when innate is finished
@@ -663,7 +664,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "4.3.2";
+        public static string Version = "4.4.0";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = System.IO.Directory.GetCurrentDirectory().ToString();
         public static string TemplateName = "Valloric's Statblock";

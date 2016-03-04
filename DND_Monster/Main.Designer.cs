@@ -114,6 +114,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.ExportCSV = new System.Windows.Forms.Button();
             this.PrintButton = new System.Windows.Forms.Button();
             this.ExportPNG = new System.Windows.Forms.Button();
@@ -159,7 +160,6 @@
             this.SensesHeaderLabel = new System.Windows.Forms.Label();
             this.SpeedHelperLabel = new System.Windows.Forms.Label();
             this.ExceptionText = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StrUpDown)).BeginInit();
@@ -1347,6 +1347,19 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(598, 100);
             this.tableLayoutPanel2.TabIndex = 92;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(383, 55);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(170, 17);
+            this.checkBox1.TabIndex = 103;
+            this.checkBox1.Text = "Use Feet (uncheck for Meters)";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // ExportCSV
             // 
             this.ExportCSV.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -1971,19 +1984,6 @@
             this.ExceptionText.Size = new System.Drawing.Size(78, 13);
             this.ExceptionText.TabIndex = 101;
             this.ExceptionText.Text = "Exception Text";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(383, 55);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(170, 17);
-            this.checkBox1.TabIndex = 103;
-            this.checkBox1.Text = "Use Feet (uncheck for Meters)";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // Main
             // 
