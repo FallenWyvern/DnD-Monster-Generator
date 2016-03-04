@@ -130,6 +130,7 @@ namespace DND_Monster
         public bool isDamage { get; set; }
         public bool isSpell { get; set; }
         public Attack attack { get; set; }
+        public int saveDC { get; set; }
 
         public string ProperName()
         {
@@ -664,7 +665,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "4.4.0";
+        public static string Version = "4.4.1";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = System.IO.Directory.GetCurrentDirectory().ToString();
         public static string TemplateName = "Valloric's Statblock";

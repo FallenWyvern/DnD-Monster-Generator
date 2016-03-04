@@ -1734,7 +1734,7 @@ namespace DND_Monster
             string output = "CR: " + currentCR.CR + Environment.NewLine;
             output += "AC: " + currentCR.ArmorClass + Environment.NewLine;
             output += "Attack Bonus: " + currentCR.AttackBonus + Environment.NewLine;
-            output += "Save DC: " + currentCR.profBonus + Environment.NewLine;
+            output += "Save DC: " + currentCR.SaveDC + Environment.NewLine;
             output += "Low HP: " + currentCR.LowHP + "  High HP: " + currentCR.HighHP + Environment.NewLine;
             TraitsListPopUp.SetToolTip(ChallengeRatingDropDown, output);
         }
