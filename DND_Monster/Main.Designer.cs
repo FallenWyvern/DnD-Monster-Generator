@@ -1082,7 +1082,7 @@
             "Slashing",
             "Thunder",
             "",
-            "bludgeoning, piercing and slashing from nonmagical weapons",
+            "bludgeoning, piercing and slashing damage from nonmagical weapons",
             "",
             "Blinded",
             "Charmed",
