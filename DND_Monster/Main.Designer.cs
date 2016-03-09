@@ -209,6 +209,7 @@
             this.MonsterNameTextBox.Name = "MonsterNameTextBox";
             this.MonsterNameTextBox.Size = new System.Drawing.Size(222, 20);
             this.MonsterNameTextBox.TabIndex = 0;
+            this.MonsterNameTextBox.TextChanged += new System.EventHandler(this.MonsterNameTextBox_TextChanged);
             // 
             // ACUpDown
             // 
@@ -1810,7 +1811,7 @@
             this.AddSaved.Name = "AddSaved";
             this.AddSaved.Size = new System.Drawing.Size(88, 23);
             this.AddSaved.TabIndex = 117;
-            this.AddSaved.Text = "Add Saved";
+            this.AddSaved.Text = "Add OGL";
             this.AddSaved.UseVisualStyleBackColor = true;
             this.AddSaved.Click += new System.EventHandler(this.AddSaved_Click);
             // 

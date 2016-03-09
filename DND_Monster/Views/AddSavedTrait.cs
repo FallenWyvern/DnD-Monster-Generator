@@ -12,19 +12,15 @@ namespace DND_Monster
 {    
     public partial class AddSavedTrait : Form
     {
-        public static Ability ability = null;
-        public static Ability action = null;
-        public static Ability reaction = null;
-        public static Legendary legendary = null;
+        public Ability ability = null;
+        public Ability action = null;
+        public Ability reaction = null;
+        public Legendary legendary = null;
 
         public AddSavedTrait()
         {
             InitializeComponent();
             Translation.Apply(this);
-            AbilityGrid.DoubleClick += SelectItem;
-            ActionGrid.DoubleClick += SelectItem;
-            ReactionGrid.DoubleClick += SelectItem;
-            LegendaryGrid.DoubleClick += SelectItem;
         }
 
         void SelectItem(object sender, EventArgs e)
@@ -34,39 +30,39 @@ namespace DND_Monster
 
         private void AddSavedTrait_Load(object sender, EventArgs e)
         {
-            foreach (Ability ability in Monster._Abilities)
+            comboBox1.SelectedIndexChanged += (senders, es) =>
+            {
+                richTextBox1.Text = OGLContent.OGL_Abilities[comboBox1.SelectedIndex].Description;
+            };
+
+            foreach (Ability item in OGLContent.OGL_Abilities)
             {                
-               AbilityGrid.Rows.Add(new Object[] { ability.Title, ability.Description });                
-            }
+                comboBox1.Items.Add(item.Title);             
+            }                   
+        }
 
-            foreach (Ability action in Monster._Actions)
+        private void AddSavedTrait_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
             {
-                if (action.isDamage)
+                switch (tabControl1.SelectedIndex)
                 {
-                    ActionGrid.Rows.Add(new Object[] { action.Title, action.attack.WebDescribe() });
-                }
-                else
-                {
-                    ActionGrid.Rows.Add(new Object[] { action.Title, action.Description });
+                    case 0:
+                        ability = OGLContent.OGL_Abilities[comboBox1.SelectedIndex];
+                        break;
+                    case 1:
+                        action = OGLContent.OGL_Actions[comboBox2.SelectedIndex];
+                        break;
+                    case 2:
+                        reaction = OGLContent.OGL_Reactions[comboBox3.SelectedIndex];
+                        break;
+                    case 3:
+                        legendary = OGLContent.OGL_Legendary[comboBox4.SelectedIndex];
+                        break;
                 }
             }
-
-            foreach (Ability reaction in Monster._Reactions)
-            {
-                ReactionGrid.Rows.Add(new Object[] { reaction.Title, reaction.Description });
-            }
-
-            foreach (Legendary legendary in Monster._Legendaries)
-            {
-                string x = "";
-                foreach (LegendaryTrait trait in legendary.Traits)
-                {
-                    x += trait.Title + ", ";
-                }
-                x = x.Substring(0, x.Length - 2);
-
-                LegendaryGrid.Rows.Add(new Object[] { legendary.Title, x});
-            }
+            catch { ability = null; action = null; reaction = null; legendary = null; }
+            //MessageBox.Show(text);
         }
     }
 }

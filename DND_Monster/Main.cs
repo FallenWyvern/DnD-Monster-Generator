@@ -28,10 +28,10 @@ namespace DND_Monster
         public Main()
         {
             InitializeComponent();
-            if (!System.IO.File.Exists("SavedTraits.dat"))
-            {                
-                AddSaved.Enabled = false;
-            }
+            //if (!System.IO.File.Exists("SavedTraits.dat"))
+            //{                
+            //    AddSaved.Enabled = false;
+            //}
             Settings.Load();
             
             if (!String.IsNullOrEmpty(Settings.TranslationFile))
@@ -2012,7 +2012,21 @@ namespace DND_Monster
 
         private void AddSaved_Click(object sender, EventArgs e)
         {
-            new AddSavedTrait().Show();
+            AddSavedTrait trait = new AddSavedTrait();
+            trait.FormClosing += (xsender, xe) =>
+            {
+                if (trait.ability != null)
+                {                    
+                    Ability newAbility = trait.ability;
+                    if (!newAbility.isSpell)
+                    {
+                        newAbility.Description = trait.ability.Description.Replace("{CREATURENAME}", Monster.CreatureName);
+                        Monster._Abilities.Add(newAbility);
+                        TraitsList.Items.Add("Ability: " + newAbility.Title);
+                    }                    
+                }
+            };
+            trait.Show();
         }
 
         private void ColumnWidthUpDown_ValueChanged(object sender, EventArgs e)
@@ -2186,6 +2200,11 @@ namespace DND_Monster
         private void EditTraitButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void MonsterNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            Monster.CreatureName = MonsterNameTextBox.Text;
         }        
     }
 }
