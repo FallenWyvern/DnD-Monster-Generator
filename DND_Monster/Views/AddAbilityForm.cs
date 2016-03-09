@@ -99,7 +99,15 @@ namespace DND_Monster
                    spellText = ToDescription_NotInnate();
                 }
 
-                NewAbility.Title = SpellClass.Text + " Spellcasting";
+                if (InnateCheckbox.Checked)
+                {
+                    NewAbility.Title = "Innate Spellcasting";
+                }
+                else
+                {
+                    NewAbility.Title = SpellClass.Text + " Spellcasting";
+                }
+
                 NewAbility.Description = spellText; 
                 NewAbility.isSpell = true;
                 NewAbility.isDamage = false;                

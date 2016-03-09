@@ -262,7 +262,21 @@ namespace DND_Monster
             addAbility.FormClosing += (senders, es) =>
             {
                 if (addAbility.NewAbility != null)
-                {                    
+                {                                                            
+                    int increment = 0;
+                    foreach (string item in TraitsList.Items)
+                    {
+                        if (item.Contains(addAbility.NewAbility.Title))
+                        {
+                            increment++;
+                        }
+                    }
+
+                    if (increment > 0)
+                    {
+                        addAbility.NewAbility.Title += " " + increment;
+                    }
+
                     Monster.AddAbility(addAbility.NewAbility);
                     TraitsList.Items.Add("Ability: " + addAbility.NewAbility.Title);
                 }
@@ -324,46 +338,50 @@ namespace DND_Monster
         // Adds Condition Resistance, Immunity, Vulerability to TraitList
         private void addCondition(object sender, EventArgs e)
         {
-            string tag = DamageModificationType.Items[DamageModificationType.SelectedIndex].ToString();
-            string addString = "";
-            
-            if (DamageConditionDropDown.SelectedIndex > 13 && tag != "Immunity")
+            if (!String.IsNullOrEmpty(DamageConditionDropDown.Text))
             {
-                return;
-            }
+                string tag = DamageModificationType.Items[DamageModificationType.SelectedIndex].ToString();
+                string addString = "";
 
-            if (DamageConditionDropDown.SelectedIndex < 13)
-            {
-                addString += "Damage";
-            }
-            else
-            {
-                addString += "Condition";
-            }
+                if (DamageConditionDropDown.SelectedIndex > 15 && tag != "Immunity")
+                {
+                    return;
+                }
 
-            switch (tag)
-            {
-                case "Immunity":
-                    // Immunity
-                    addString += " Immunity: ";
-                    break;
-                case "Resistance":
-                    // Resistance
-                    addString += " Resistance: ";
-                    break;
-                case "Vulnerability":
-                    // Vulnerability
-                    addString += " Vulnerability: ";
-                    break;
-            }
+                if (DamageConditionDropDown.SelectedIndex < 15)
+                {
+                    addString += "Damage";
+                }
+                else
+                {
+                    addString += "Condition";
+                }
 
-            addString += DamageConditionDropDown.Text;
-            
-            if (TraitException.Text.Length > 0){
-                addString += " " + TraitException.Text;
+                switch (tag)
+                {
+                    case "Immunity":
+                        // Immunity
+                        addString += " Immunity: ";
+                        break;
+                    case "Resistance":
+                        // Resistance
+                        addString += " Resistance: ";
+                        break;
+                    case "Vulnerability":
+                        // Vulnerability
+                        addString += " Vulnerability: ";
+                        break;
+                }
+
+                addString += DamageConditionDropDown.Text;
+
+                if (TraitException.Text.Length > 0)
+                {
+                    addString += " " + TraitException.Text;
+                }
+
+                TraitsList.Items.Add(addString);
             }
-            
-            TraitsList.Items.Add(addString);
         }
 
         /* Edits selected item in the TraitList. If it's an Ability/Attack,
@@ -2158,6 +2176,16 @@ namespace DND_Monster
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             Settings.isFeet = checkBox1.Checked;
+        }
+
+        private void AddVulnerabilityButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EditTraitButton_Click(object sender, EventArgs e)
+        {
+
         }        
     }
 }

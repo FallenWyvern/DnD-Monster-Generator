@@ -1082,6 +1082,8 @@
             "Slashing",
             "Thunder",
             "",
+            "bludgeoning, piercing and slashing from nonmagical weapons",
+            "",
             "Blinded",
             "Charmed",
             "Deafened",
@@ -1113,6 +1115,7 @@
             this.AddVulnerabilityButton.Tag = "";
             this.AddVulnerabilityButton.Text = "Add";
             this.AddVulnerabilityButton.UseVisualStyleBackColor = true;
+            this.AddVulnerabilityButton.Click += new System.EventHandler(this.AddVulnerabilityButton_Click);
             // 
             // TraitsList
             // 
@@ -1851,6 +1854,7 @@
             this.EditTraitButton.TabIndex = 103;
             this.EditTraitButton.Text = "Edit";
             this.EditTraitButton.UseVisualStyleBackColor = true;
+            this.EditTraitButton.Click += new System.EventHandler(this.EditTraitButton_Click);
             this.EditTraitButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.editTrait);
             // 
             // DamageModificationType
