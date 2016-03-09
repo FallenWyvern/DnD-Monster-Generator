@@ -169,9 +169,22 @@ namespace DND_Monster
                 {                    
                     if (temp.Split(' ').Length <= 2)
                     {
-                        int modifier = (int)Math.Floor((double)(WIS - 10) / 2);
-                        string bonus = " " + (10 + (modifier + proficency)) + " ";
-                        temp = "passive Perception" + bonus;
+                        bool hasPerception = false;
+                        foreach (string _item in SkillBonuses)
+                        {                            
+                            if (_item.Contains("Perception"))
+                            {
+                                hasPerception = true;
+                                temp = "passive Perception " + (10 + Convert.ToInt32(_item.Split('|')[0].Replace("Skill: Perception (Wis) ", "").Trim()));
+                            }
+                        }
+
+                        if (!hasPerception)
+                        {
+                            int modifier = (int)Math.Floor((double)(WIS - 10) / 2);
+                            string bonus = " " + (10 + (modifier)) + " ";
+                            temp = "passive Perception" + bonus;
+                        }
                     }
                     else
                     {

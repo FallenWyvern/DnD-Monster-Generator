@@ -172,7 +172,7 @@ namespace DND_Monster
             else
             {
                 if (SkillBonus.Value != currentCR.profBonus)
-                {
+                {                    
                     addString += " " + (10 + Convert.ToInt32(WisBonus.Text) + SkillBonus.Value);
                 }
             }
