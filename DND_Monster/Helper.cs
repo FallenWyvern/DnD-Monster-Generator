@@ -122,9 +122,19 @@ namespace DND_Monster
         }
     }
 
+    public class OGL_Ability : Ability
+    {
+        public string OGL_Creature { get; set; }
+    }
+
+    public class OGL_Legendary : Legendary
+    {
+        public string OGL_Creature { get; set; }
+    }
+
     // Ability
     public class Ability
-    {
+    {        
         public string Title { get; set; }
         public string Description { get; set; }        
         public bool isDamage { get; set; }

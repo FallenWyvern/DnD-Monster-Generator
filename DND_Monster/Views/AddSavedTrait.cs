@@ -35,9 +35,49 @@ namespace DND_Monster
                 richTextBox1.Text = OGLContent.OGL_Abilities[comboBox1.SelectedIndex].Description;
             };
 
-            foreach (Ability item in OGLContent.OGL_Abilities)
+            comboBox2.SelectedIndexChanged += (senders, es) =>
+            {
+                if (String.IsNullOrEmpty(OGLContent.OGL_Actions[comboBox2.SelectedIndex].Description))
+                {
+                    richTextBox2.Text = OGLContent.OGL_Actions[comboBox2.SelectedIndex].attack.TextDescribe();
+                }
+                else 
+                {
+                    richTextBox2.Text = OGLContent.OGL_Actions[comboBox2.SelectedIndex].Description;
+                }                
+            };
+
+            comboBox3.SelectedIndexChanged += (senders, es) =>
+            {
+                richTextBox3.Text = OGLContent.OGL_Reactions[comboBox3.SelectedIndex].Description;
+            };
+
+            comboBox4.SelectedIndexChanged += (senders, es) =>
+            {
+                foreach (LegendaryTrait trait in OGLContent.OGL_Legendary[comboBox4.SelectedIndex].Traits)
+                {
+                    richTextBox4.Text += trait.Title + " : " + trait.Ability + Environment.NewLine;
+                }
+            };
+
+            foreach (OGL_Ability item in OGLContent.OGL_Abilities)
             {                
-                comboBox1.Items.Add(item.Title);             
+                comboBox1.Items.Add(item.OGL_Creature + " : " + item.Title);             
+            }
+
+            foreach (OGL_Ability item in OGLContent.OGL_Actions)
+            {
+                comboBox2.Items.Add(item.OGL_Creature + " : " + item.Title);
+            }
+
+            foreach (OGL_Ability item in OGLContent.OGL_Reactions)
+            {
+                comboBox3.Items.Add(item.OGL_Creature + " : " + item.Title);
+            }
+
+            foreach (OGL_Legendary item in OGLContent.OGL_Legendary)
+            {
+                comboBox4.Items.Add(item.OGL_Creature + " : " + item.Title);
             }                   
         }
 

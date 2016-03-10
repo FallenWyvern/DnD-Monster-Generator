@@ -32,7 +32,8 @@ namespace DND_Monster
             //{                
             //    AddSaved.Enabled = false;
             //}
-            Settings.Load();
+            try { Settings.Load(); }
+            catch { }
             
             if (!String.IsNullOrEmpty(Settings.TranslationFile))
             {
@@ -47,7 +48,7 @@ namespace DND_Monster
                     PreviewTemplateSelector.SelectedIndex = PreviewTemplateSelector.Items.IndexOf(Help.TemplateName);
                 }
             }
-            catch { }
+            catch { }            
         }
 
         private void CefStartup()
@@ -71,7 +72,7 @@ namespace DND_Monster
         // Set all drop downs and updowns to their starting values and set events.
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Check for version update here.
+            //Monster.CreatureName = "creature";
             
             currentCR = Help.ChallengeRatings[0];
             ChallengeRatingDropDown.SelectedIndex = 0;
@@ -279,7 +280,7 @@ namespace DND_Monster
 
                     Monster.AddAbility(addAbility.NewAbility);
                     TraitsList.Items.Add("Ability: " + addAbility.NewAbility.Title);
-                }
+                } 
             };
         }
 
@@ -2013,6 +2014,9 @@ namespace DND_Monster
         private void AddSaved_Click(object sender, EventArgs e)
         {
             AddSavedTrait trait = new AddSavedTrait();
+            string creatureName = Monster.CreatureName;
+            if (String.IsNullOrEmpty(creatureName)) { creatureName = "creature"; }
+
             trait.FormClosing += (xsender, xe) =>
             {
                 if (trait.ability != null)
@@ -2020,10 +2024,17 @@ namespace DND_Monster
                     Ability newAbility = trait.ability;
                     if (!newAbility.isSpell)
                     {
-                        newAbility.Description = trait.ability.Description.Replace("{CREATURENAME}", Monster.CreatureName);
+                        newAbility.Description = trait.ability.Description.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
                         Monster._Abilities.Add(newAbility);
                         TraitsList.Items.Add("Ability: " + newAbility.Title);
-                    }                    
+                    }
+                }
+                else if (trait.action != null)
+                {
+                    Ability newAction = trait.action;
+                    newAction.Description = trait.action.Description.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
+                    Monster._Actions.Add(newAction);
+                    TraitsList.Items.Add("Action: " + newAction.Title);                    
                 }
             };
             trait.Show();
