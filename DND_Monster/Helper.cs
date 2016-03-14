@@ -198,8 +198,8 @@ namespace DND_Monster
                 levelSuffix = "rd";
             }
 
-            string returnstring = "";
-            
+            string returnstring = "";            
+
             if (!Description.Contains("NotInnate"))
             {
                 returnstring += "The " + name + "'s spellcasting ability is " + spellcastingstat + " (spell save DC " + (8 + Monster.CR.profBonus + modifier) + "). ";

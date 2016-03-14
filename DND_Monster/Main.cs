@@ -28,10 +28,10 @@ namespace DND_Monster
         public Main()
         {
             InitializeComponent();
-            //if (!System.IO.File.Exists("SavedTraits.dat"))
-            //{                
-            //    AddSaved.Enabled = false;
-            //}
+            if (!System.IO.File.Exists("SavedTraits.dat"))
+            {                
+                //AddSaved.Enabled = false;
+            }
             try { Settings.Load(); }
             catch { }
             
@@ -2028,6 +2028,11 @@ namespace DND_Monster
                         Monster._Abilities.Add(newAbility);
                         TraitsList.Items.Add("Ability: " + newAbility.Title);
                     }
+                    else
+                    {
+                        Monster._Abilities.Add(newAbility);
+                        TraitsList.Items.Add("Ability: " + newAbility.Title);
+                    }
                 }
                 else if (trait.action != null)
                 {
@@ -2035,6 +2040,16 @@ namespace DND_Monster
                     newAction.Description = trait.action.Description.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
                     Monster._Actions.Add(newAction);
                     TraitsList.Items.Add("Action: " + newAction.Title);                    
+                }
+                else if (trait.legendary != null)
+                {
+                    Legendary newLegendary = trait.legendary;
+                    foreach (LegendaryTrait _trait in newLegendary.Traits)
+                    {
+                        _trait.Ability = _trait.Ability.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
+                    }
+                    Monster._Legendaries.Add(newLegendary);
+                    TraitsList.Items.Add("Legendary: " + newLegendary.Title);
                 }
             };
             trait.Show();
