@@ -28,6 +28,7 @@ namespace DND_Monster
         public Main()
         {
             InitializeComponent();
+            OGLContent.Init();
             if (!System.IO.File.Exists("SavedTraits.dat"))
             {                
                 //AddSaved.Enabled = false;
@@ -2038,6 +2039,12 @@ namespace DND_Monster
                 {
                     Ability newAction = trait.action;
                     newAction.Description = trait.action.Description.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
+                    
+                    if (trait.action.attack != null)
+                    {
+                        trait.action.attack.HitText = trait.action.attack.HitText.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
+                    }
+                    
                     Monster._Actions.Add(newAction);
                     TraitsList.Items.Add("Action: " + newAction.Title);                    
                 }
