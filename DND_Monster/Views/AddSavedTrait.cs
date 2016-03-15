@@ -142,7 +142,7 @@ namespace DND_Monster
         }
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {            
             comboBox1.Items.Clear();
             comboBox2.Items.Clear();
             comboBox3.Items.Clear();
@@ -188,12 +188,63 @@ namespace DND_Monster
                 {
                     comboBox4.Items.Add(_legendary.Title);
                 }
-            }            
+            }
+
+            if (comboBox4.Items.Count > 0)
+            {
+                tabControl1.SelectTab(3);
+            }
+
+            if (comboBox3.Items.Count > 0)
+            {
+                tabControl1.SelectTab(2);
+            }
+            
+            if (comboBox2.Items.Count > 0)
+            {
+                tabControl1.SelectTab(1);
+            }
+            
+            if (comboBox1.Items.Count > 0)            
+            {
+                tabControl1.SelectTab(0);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            switch (e.TabPageIndex)
+            {
+                case 0:
+                    if (!(comboBox1.Items.Count > 0))
+                    {
+                        e.Cancel = true;
+                    }
+                    break;
+                case 1:
+                    if (!(comboBox2.Items.Count > 0))
+                    {
+                        e.Cancel = true;
+                    }
+                    break;
+                case 2:
+                    if (!(comboBox3.Items.Count > 0))
+                    {
+                        e.Cancel = true;
+                    }
+                    break;
+                case 3:
+                    if (!(comboBox4.Items.Count > 0))
+                    {
+                        e.Cancel = true;
+                    }
+                    break;
+            }
         }
     }
 }

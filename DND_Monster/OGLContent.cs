@@ -6,6 +6,7 @@ using System.Text;
 
 namespace DND_Monster
 {
+    public enum DragonAge { Ancient, Adult, Young, Wyrmling }
     public static class OGLContent
     {
         public static List<string> OGL_Creatures = new List<string>();        
@@ -17,14 +18,16 @@ namespace DND_Monster
         public static void Init()
         {
             // A's
-            #region
+            #region            
             Aboleth.Add();
-            Deva.Add();
-            Planetar.Add();
-            Solar.Add();
-            AnimatedArmor.Add();
-            FlyingSword.Add();
-            RugOfSmothering.Add();
+            // Angels
+                Deva.Add();
+                Planetar.Add();
+                Solar.Add();
+            // Animated Objects
+                AnimatedArmor.Add();
+                FlyingSword.Add();
+                RugOfSmothering.Add();
             Ankheg.Add();
             Azer.Add();
             #endregion
@@ -45,6 +48,78 @@ namespace DND_Monster
             Cloaker.Add();
             Cockatrice.Add();
             Couatl.Add();
+            #endregion
+
+            // D's
+            #region
+            Darkmantle.Add();
+            // Demons
+                Balor.Add();
+                Dretch.Add();
+                Glabrezu.Add();
+                Hezrou.Add();
+                Marilith.Add();
+                Nalfeshnee.Add();
+                Quasit.Add();
+                Vrock.Add();
+            // Devils
+                BarbedDevil.Add();
+                BeardedDevil.Add();
+                BoneDevil.Add();
+                ChainDevil.Add();
+                Erinyes.Add();
+                HornedDevil.Add();
+                IceDevil.Add();
+                Imp.Add();
+                Lemure.Add();
+                PitFiend.Add();
+            // Dinosaurs
+                Plesiosaurus.Add();
+                Triceratops.Add();
+                TyrannosaurusRex.Add();
+            Doppleganger.Add();
+            // Chromatic Dragons
+                BlackDragon.Add(DragonAge.Ancient);
+                BlackDragon.Add(DragonAge.Adult);
+                BlackDragon.Add(DragonAge.Young);
+                BlackDragon.Add(DragonAge.Wyrmling);
+                BlueDragon.Add(DragonAge.Ancient);
+                BlueDragon.Add(DragonAge.Adult);
+                BlueDragon.Add(DragonAge.Young);
+                BlueDragon.Add(DragonAge.Wyrmling);
+                GreenDragon.Add(DragonAge.Ancient);
+                GreenDragon.Add(DragonAge.Adult);
+                GreenDragon.Add(DragonAge.Young);
+                GreenDragon.Add(DragonAge.Wyrmling);
+                RedDragon.Add(DragonAge.Ancient);
+                RedDragon.Add(DragonAge.Adult);
+                RedDragon.Add(DragonAge.Young);
+                RedDragon.Add(DragonAge.Wyrmling);
+                WhiteDragon.Add(DragonAge.Ancient);
+                WhiteDragon.Add(DragonAge.Adult);
+                WhiteDragon.Add(DragonAge.Young);
+                WhiteDragon.Add(DragonAge.Wyrmling);
+            // Metallic Dragons
+                BrassDragon.Add(DragonAge.Ancient);
+                BrassDragon.Add(DragonAge.Adult);
+                BrassDragon.Add(DragonAge.Young);
+                BrassDragon.Add(DragonAge.Wyrmling);
+                BronzeDragon.Add(DragonAge.Ancient);
+                BronzeDragon.Add(DragonAge.Adult);
+                BronzeDragon.Add(DragonAge.Young);
+                BronzeDragon.Add(DragonAge.Wyrmling);
+                CopperDragon.Add(DragonAge.Ancient);
+                CopperDragon.Add(DragonAge.Adult);
+                CopperDragon.Add(DragonAge.Young);
+                CopperDragon.Add(DragonAge.Wyrmling);
+                GoldDragon.Add(DragonAge.Ancient);
+                GoldDragon.Add(DragonAge.Adult);
+                GoldDragon.Add(DragonAge.Young);
+                GoldDragon.Add(DragonAge.Wyrmling);
+                SilverDragon.Add(DragonAge.Ancient);
+                SilverDragon.Add(DragonAge.Adult);
+                SilverDragon.Add(DragonAge.Young);
+                SilverDragon.Add(DragonAge.Wyrmling);
             #endregion
         }
     }
@@ -73,7 +148,7 @@ namespace DND_Monster
             //    HitDiceSize = 6,
             //    HitDamageBonus = 3,
             //    HitAverageDamage = 10,
-            //    HitText = "plus this text",
+            //    HitText = "",
             //    HitDamageType = "Acid"
             //}
             //},  

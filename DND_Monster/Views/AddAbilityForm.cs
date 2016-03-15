@@ -160,30 +160,30 @@ namespace DND_Monster
         private string ToDescription_Innate()
         {
             return ToDescription_NotInnate();
-            string spellText = "";
-            spellText += SpellClass.Text + "|";
-            spellText += SpellCastingAbility.Text + "|";
-            spellText += SpellcastingLevel.Value + "|";
+            //string spellText = "";
+            //spellText += SpellClass.Text + "|";
+            //spellText += SpellCastingAbility.Text + "|";
+            //spellText += SpellcastingLevel.Value + "|";
 
-            if (InnateCheckbox.Checked)
-            {
-                spellText += "Innate|";
-            }
-            else
-            {
-                spellText += "NotInnate|";
-            }
+            //if (InnateCheckbox.Checked)
+            //{
+            //    spellText += "Innate|";
+            //}
+            //else
+            //{
+            //    spellText += "NotInnate|";
+            //}
 
-            foreach (string item in SpellList.Items)
-            {
-                if (!String.IsNullOrEmpty(item) || !String.IsNullOrWhiteSpace(item))
-                {
-                    spellText += item.Split('|')[0].Trim() + ":" + item.Split('|')[1].Trim() + ",";            
-                }
-            }
+            //foreach (string item in SpellList.Items)
+            //{
+            //    if (!String.IsNullOrEmpty(item) || !String.IsNullOrWhiteSpace(item))
+            //    {
+            //        spellText += item.Split('|')[0].Trim() + ":" + item.Split('|')[1].Trim() + ",";            
+            //    }
+            //}
 
-            spellText += "|";
-            return spellText;
+            //spellText += "|";
+            //return spellText;
         }
         
 

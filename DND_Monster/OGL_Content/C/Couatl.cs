@@ -43,36 +43,36 @@ namespace DND_Monster
                  new OGL_Ability() { OGL_Creature = "Couatl", Title = "Bite", isDamage = true, isSpell = false, saveDC = 0, Description = "", attack = new Attack()
                 { 
                     _Attack = "Melee Weapon Attack",
-                    Bonus = "1",
+                    Bonus = "8",
                     Reach = 5,
                     RangeClose = 0,
                     RangeFar = 0,
                     Target = "one target",
-                    HitDiceNumber = 2,
+                    HitDiceNumber = 1,
                     HitDiceSize = 6,
-                    HitDamageBonus = 3,
-                    HitAverageDamage = 10,
-                    HitText = "plus this text",
-                    HitDamageType = "Acid"
+                    HitDamageBonus = 5,
+                    HitAverageDamage = 8,
+                    HitText = "and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious. Another creature can use an action to shake the target awake.",
+                    HitDamageType = "piercing"
                 }
                 }, 
                 new OGL_Ability() { OGL_Creature = "Couatl", Title = "Constrict", isDamage = true, isSpell = false, saveDC = 0, Description = "", attack = new Attack()
                 { 
                     _Attack = "Melee Weapon Attack",
-                    Bonus = "1",
-                    Reach = 5,
+                    Bonus = "6",
+                    Reach = 10,
                     RangeClose = 0,
                     RangeFar = 0,
-                    Target = "one target",
+                    Target = "one Medium or smaller creature",
                     HitDiceNumber = 2,
                     HitDiceSize = 6,
                     HitDamageBonus = 3,
                     HitAverageDamage = 10,
-                    HitText = "plus this text",
-                    HitDamageType = "Acid"
+                    HitText = "and the target is grappled (escape DC 15). Until this grapple ends, the target is restrained, and the {CREATURENAME} can't constrict another target.",
+                    HitDamageType = "bludgeoning"
                 }
                 }, 
-                new OGL_Ability() { OGL_Creature = "Couatl", Title = "Change Shape", isDamage = false, isSpell = false, saveDC = 0, Description = ""},      
+                new OGL_Ability() { OGL_Creature = "Couatl", Title = "Change Shape", isDamage = false, isSpell = false, saveDC = 0, Description = "The {CREATURENAME} magically polymorphs into a humanoid or beast that has a challenge rating equal to or less than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the {CREATURENAME}'s choice). </br> In a new form, the {CREATURENAME} retains its game statistics and ability to speak, but its AC, movement modes, Strength, Dexterity, and other actions are replaced by those of the new form, and it gains any statistics and capabilities (except class features, legendary actions, and lair actions) that the new form has but that it lacks. If the new form has a bite attack, the {CREATURENAME} can use its bite in that form."},      
             });
 
             // new OGL_Ability() { OGL_Creature = "Couatl", Title = "", attack = null, isDamage = false, isSpell = false, saveDC = 0, Description = "" }         

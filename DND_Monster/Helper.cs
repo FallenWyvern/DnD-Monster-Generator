@@ -550,7 +550,7 @@ namespace DND_Monster
             if (RangeClose > 0)
             {
                 returnstring += "range " + RangeClose;
-                if (RangeFar > 0)
+                if (RangeFar > 0 && RangeFar != RangeClose)
                 {
                     returnstring += "/" + RangeFar;
                 }
@@ -617,7 +617,7 @@ namespace DND_Monster
             if (RangeClose > 0)
             {
                 returnstring += "range " + RangeClose;
-                if (RangeFar > 0)
+                if (RangeFar > 0 && RangeFar != RangeClose)
                 {
                     returnstring += "/" + RangeFar;
                 }

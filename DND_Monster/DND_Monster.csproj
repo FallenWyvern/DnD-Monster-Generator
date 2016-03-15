@@ -94,14 +94,14 @@
   <ItemGroup>
     <Compile Include="OGL_Content\A\Aboleth.cs" />
     <Compile Include="OGLContent.cs" />
-    <Compile Include="OGL_Content\A\AnimatedArmor.cs" />
+    <Compile Include="OGL_Content\A\Animated Objects\AnimatedArmor.cs" />
     <Compile Include="OGL_Content\A\Ankheg.cs" />
     <Compile Include="OGL_Content\A\Azer.cs" />
-    <Compile Include="OGL_Content\A\Deva.cs" />
-    <Compile Include="OGL_Content\A\FlyingSword.cs" />
-    <Compile Include="OGL_Content\A\Planetar.cs" />
-    <Compile Include="OGL_Content\A\RugOfSmothering.cs" />
-    <Compile Include="OGL_Content\A\Solar.cs" />
+    <Compile Include="OGL_Content\A\Angels\Deva.cs" />
+    <Compile Include="OGL_Content\A\Animated Objects\FlyingSword.cs" />
+    <Compile Include="OGL_Content\A\Angels\Planetar.cs" />
+    <Compile Include="OGL_Content\A\Animated Objects\RugOfSmothering.cs" />
+    <Compile Include="OGL_Content\A\Angels\Solar.cs" />
     <Compile Include="OGL_Content\B\Basilisk.cs" />
     <Compile Include="OGL_Content\B\Behir.cs" />
     <Compile Include="OGL_Content\B\Bugbear.cs" />
@@ -111,6 +111,39 @@
     <Compile Include="OGL_Content\C\Chuul.cs" />
     <Compile Include="OGL_Content\C\Cloaker.cs" />
     <Compile Include="OGL_Content\C\Cockatrice.cs" />
+    <Compile Include="OGL_Content\C\Couatl.cs" />
+    <Compile Include="OGL_Content\D\Darkmantle.cs" />
+    <Compile Include="OGL_Content\D\Demons\Balor.cs" />
+    <Compile Include="OGL_Content\D\Demons\Dretch.cs" />
+    <Compile Include="OGL_Content\D\Demons\Glabrezu.cs" />
+    <Compile Include="OGL_Content\D\Demons\Hezrou.cs" />
+    <Compile Include="OGL_Content\D\Demons\Marilith.cs" />
+    <Compile Include="OGL_Content\D\Demons\Nalfeshnee.cs" />
+    <Compile Include="OGL_Content\D\Demons\Quasit.cs" />
+    <Compile Include="OGL_Content\D\Demons\Vrock.cs" />
+    <Compile Include="OGL_Content\D\Devils\BarbedDevil.cs" />
+    <Compile Include="OGL_Content\D\Devils\BeardedDevil.cs" />
+    <Compile Include="OGL_Content\D\Devils\BoneDevil.cs" />
+    <Compile Include="OGL_Content\D\Devils\ChainDevil.cs" />
+    <Compile Include="OGL_Content\D\Devils\Erinyes.cs" />
+    <Compile Include="OGL_Content\D\Devils\HornedDevil.cs" />
+    <Compile Include="OGL_Content\D\Devils\IceDevil.cs" />
+    <Compile Include="OGL_Content\D\Devils\Imp.cs" />
+    <Compile Include="OGL_Content\D\Devils\Lemure.cs" />
+    <Compile Include="OGL_Content\D\Devils\PitFiend.cs" />
+    <Compile Include="OGL_Content\D\Dinosaurs\Plesiosaurus.cs" />
+    <Compile Include="OGL_Content\D\Dinosaurs\Triceratops.cs" />
+    <Compile Include="OGL_Content\D\Dinosaurs\TyrannosaurusRex.cs" />
+    <Compile Include="OGL_Content\D\Doppleganger.cs" />
+    <Compile Include="OGL_Content\D\Dragon - Chromatic\BlueDragon.cs" />
+    <Compile Include="OGL_Content\D\Dragons - Metallic\BrassDragon.cs" />
+    <Compile Include="OGL_Content\D\Dragon - Chromatic\GreenDragon.cs" />
+    <Compile Include="OGL_Content\D\Dragon - Chromatic\RedDragon.cs" />
+    <Compile Include="OGL_Content\D\Dragon - Chromatic\WhiteDragon.cs" />
+    <Compile Include="OGL_Content\D\Dragons - Metallic\BronzeDragon.cs" />
+    <Compile Include="OGL_Content\D\Dragons - Metallic\CopperDragon.cs" />
+    <Compile Include="OGL_Content\D\Dragons - Metallic\GoldDragon.cs" />
+    <Compile Include="OGL_Content\D\Dragons - Metallic\SilverDragon.cs" />
     <Compile Include="Templates\Custom.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Templates\Translation.cs" />
@@ -187,6 +220,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Compile Include="OGL_Content\D\Dragon - Chromatic\BlackDragon.cs" />
     <None Include="Resource\background-carbon.uri">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

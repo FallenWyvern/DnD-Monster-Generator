@@ -5,19 +5,20 @@ using System.Text;
 
 namespace DND_Monster
 {
-    public static class Cockatrice
+    public static class Plesiosaurus
     {
         public static void Add()
         {
-            // new OGL_Ability() { OGL_Creature = "Cockatrice", Title = "", attack = null, isDamage = false, isSpell = false, saveDC = 0, Description = "" },
+            // new OGL_Ability() { OGL_Creature = "Plesiosaurus", Title = "", attack = null, isDamage = false, isSpell = false, saveDC = 0, Description = "" },
             OGLContent.OGL_Abilities.AddRange(new List<OGL_Ability>()
             {
+                new OGL_Ability() { OGL_Creature = "Plesiosaurus", Title = "Hold Breath", attack = null, isDamage = false, isSpell = false, saveDC = 0, Description = "The plesiosaurus can hold its breath for 1 hour." },
             });
 
             // template
             #region
-            // new OGL_Ability() { OGL_Creature = "Cockatrice", Title = "", isDamage = false, isSpell = false, saveDC = 0, Description = ""},      
-            // new OGL_Ability() { OGL_Creature = "Cockatrice", Title = "", isDamage = true, isSpell = false, saveDC = 0, Description = "", attack = new Attack()
+            // new OGL_Ability() { OGL_Creature = "Plesiosaurus", Title = "", isDamage = false, isSpell = false, saveDC = 0, Description = ""},      
+            // new OGL_Ability() { OGL_Creature = "Plesiosaurus", Title = "", isDamage = true, isSpell = false, saveDC = 0, Description = "", attack = new Attack()
             //{ 
             //    _Attack = "Melee Weapon Attack",
             //    Bonus = "1",
@@ -29,32 +30,32 @@ namespace DND_Monster
             //    HitDiceSize = 6,
             //    HitDamageBonus = 3,
             //    HitAverageDamage = 10,
-            //    HitText = "plus this text",
+            //    HitText = "",
             //    HitDamageType = "Acid"
             //}
             //},  
             #endregion
             OGLContent.OGL_Actions.AddRange(new List<OGL_Ability>()
             {
-                 new OGL_Ability() { OGL_Creature = "Cockatrice", Title = "Bite", isDamage = true, isSpell = false, saveDC = 0, Description = "", attack = new Attack()
+                 new OGL_Ability() { OGL_Creature = "Plesiosaurus", Title = "Bite", isDamage = true, isSpell = false, saveDC = 0, Description = "", attack = new Attack()
                 { 
                     _Attack = "Melee Weapon Attack",
-                    Bonus = "3",
-                    Reach = 5,
+                    Bonus = "6",
+                    Reach = 10,
                     RangeClose = 0,
                     RangeFar = 0,
                     Target = "one target",
-                    HitDiceNumber = 1,
-                    HitDiceSize = 4,
-                    HitDamageBonus = 1,
-                    HitAverageDamage = 3,
-                    HitText = "and the target must succeed on a DC 11 Constitution saving throw against being magically petrified. On a failed save, the creature begins to turn to stone and is restrained. IT must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is petrified for 24 hours.",
+                    HitDiceNumber = 3,
+                    HitDiceSize = 6,
+                    HitDamageBonus = 4,
+                    HitAverageDamage = 14,
+                    HitText = "",
                     HitDamageType = "piercing"
                 }
                 },  
             });
 
-            // new OGL_Ability() { OGL_Creature = "Cockatrice", Title = "", attack = null, isDamage = false, isSpell = false, saveDC = 0, Description = "" }         
+            // new OGL_Ability() { OGL_Creature = "Plesiosaurus", Title = "", attack = null, isDamage = false, isSpell = false, saveDC = 0, Description = "" }         
             OGLContent.OGL_Reactions.AddRange(new List<OGL_Ability>()
             {
 
@@ -64,7 +65,7 @@ namespace DND_Monster
             #region
             //new OGL_Legendary() 
             //{ 
-            //    OGL_Creature = "Cockatrice",
+            //    OGL_Creature = "Plesiosaurus",
             //    Title = "",
             //    Traits = new List<LegendaryTrait>() 
             //    {
@@ -77,7 +78,7 @@ namespace DND_Monster
 
             });
 
-            OGLContent.OGL_Creatures.Add("Cockatrice");
+            OGLContent.OGL_Creatures.Add("Plesiosaurus");
         }
     }
 }
