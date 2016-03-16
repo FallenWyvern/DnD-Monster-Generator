@@ -2027,12 +2027,40 @@ namespace DND_Monster
                     {
                         newAbility.Description = trait.ability.Description.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
                         Monster._Abilities.Add(newAbility);
-                        TraitsList.Items.Add("Ability: " + newAbility.Title);
+
+                        string mod = "";
+                        if (TraitsList.Items.Contains(newAbility.Title))
+                        {
+                            int modInt = 0;
+                            foreach (string item in TraitsList.Items)
+                            {
+                                if (item.Contains(newAbility.Title))
+                                {
+                                    modInt++;
+                                }
+                            }
+                            if (modInt > 0) { mod = " " + modInt.ToString(); }
+                        }
+                        TraitsList.Items.Add("Ability: " + newAbility.Title + mod);
                     }
                     else
                     {
                         Monster._Abilities.Add(newAbility);
-                        TraitsList.Items.Add("Ability: " + newAbility.Title);
+
+                        string mod = "";
+                        if (TraitsList.Items.Contains("Ability: " + newAbility.Title))
+                        {
+                            int modInt = 0;
+                            foreach (string item in TraitsList.Items)
+                            {
+                                if (item.Contains(newAbility.Title))
+                                {
+                                    modInt++;
+                                }
+                            }
+                            if (modInt > 0) { mod = " " + modInt.ToString(); }
+                        }
+                        TraitsList.Items.Add("Ability: " + newAbility.Title + mod);
                     }
                 }
                 else if (trait.action != null)
@@ -2046,7 +2074,21 @@ namespace DND_Monster
                     }
                     
                     Monster._Actions.Add(newAction);
-                    TraitsList.Items.Add("Action: " + newAction.Title);                    
+                    string mod = "";
+                    
+                    if (TraitsList.Items.Contains("Action: " + newAction.Title))
+                    {                        
+                        int modInt = 0;
+                        foreach (string item in TraitsList.Items)
+                        {
+                            if (item.Contains(newAction.Title))
+                            {
+                                modInt++;
+                            }
+                        }
+                        if (modInt > 0) { mod = " " + modInt.ToString(); }
+                    }
+                    TraitsList.Items.Add("Action: " + newAction.Title + mod);                    
                 }
                 else if (trait.legendary != null)
                 {
@@ -2056,7 +2098,21 @@ namespace DND_Monster
                         _trait.Ability = _trait.Ability.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
                     }
                     Monster._Legendaries.Add(newLegendary);
-                    TraitsList.Items.Add("Legendary: " + newLegendary.Title);
+
+                    string mod = "";
+                    if (TraitsList.Items.Contains("Legendary: " + newLegendary.Title))
+                    {
+                        int modInt = 0;
+                        foreach (string item in TraitsList.Items)
+                        {
+                            if (item.Contains(newLegendary.Title))
+                            {
+                                modInt++;
+                            }
+                        }
+                        if (modInt > 0) { mod = " " + modInt.ToString(); }
+                    }
+                    TraitsList.Items.Add("Legendary: " + newLegendary.Title + mod);
                 }
             };
             trait.Show();

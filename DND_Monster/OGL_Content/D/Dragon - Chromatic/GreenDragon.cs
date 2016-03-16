@@ -82,7 +82,7 @@ namespace DND_Monster
                     RangeClose = 0,
                     RangeFar = 0,
                     Target = "one target",
-                    HitDiceNumber = 4,
+                    HitDiceNumber = 2,
                     HitDiceSize = 6,
                     HitDamageBonus = 8,
                     HitAverageDamage = 22,
@@ -330,7 +330,7 @@ namespace DND_Monster
                     HitDamageType = "slashing"
                 }
                 },                               
-                new OGL_Ability() { OGL_Creature = "Young Green Dragon", Title = "Poison Breath (Recharge 5-6)", isDamage = false, isSpell = false, saveDC = 0, Description = "The {CREATURENAME} exhales poison in a 30-foot cone. Each creature in that area must make a DC 14 Dexterity saving throw, taking 42 (12d6) poison damage on a failed save, or half as much damage on a successful one."},      
+                new OGL_Ability() { OGL_Creature = "Young Green Dragon", Title = "Poison Breath (Recharge 5-6)", isDamage = false, isSpell = false, saveDC = 0, Description = "The {CREATURENAME} exhales poisonous gas in a 30-foot cone. Each creature in that area must make a DC 14 Dexterity saving throw, taking 42 (12d6) poison damage on a failed save, or half as much damage on a successful one."},      
             });
 
             // new OGL_Ability() { OGL_Creature = "Green Dragon", Title = "", attack = null, isDamage = false, isSpell = false, saveDC = 0, Description = "" }         
@@ -405,7 +405,7 @@ namespace DND_Monster
                     HitDamageType = "piercing"
                 }
                 },                             
-                new OGL_Ability() { OGL_Creature = "Green Dragon Wyrmling", Title = "Poison Breath (Recharge 5-6)", isDamage = false, isSpell = false, saveDC = 0, Description = "The {CREATURENAME} exhales poison in a 15-foot cone. Each creature in that area must make a DC 11 Dexterity saving throw, taking 21 (6d10) poison damage on a failed save, or half as much damage on a successful one."},      
+                new OGL_Ability() { OGL_Creature = "Green Dragon Wyrmling", Title = "Poison Breath (Recharge 5-6)", isDamage = false, isSpell = false, saveDC = 0, Description = "The {CREATURENAME} exhales poisonous gas in a 15-foot cone. Each creature in that area must make a DC 11 Dexterity saving throw, taking 21 (6d10) poison damage on a failed save, or half as much damage on a successful one."},      
             });
 
             OGLContent.OGL_Creatures.Add("Green Dragon Wyrmling");

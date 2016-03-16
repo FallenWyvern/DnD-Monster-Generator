@@ -584,7 +584,7 @@ namespace DND_Monster
 
             returnstring += ") " + HitDamageType.ToLower() + " damage";
 
-            if (HitText.Split(' ')[0].ToLower() == "and" || HitText.Split(' ')[0].ToLower() == "or")
+            if (HitText.Split(' ')[0].ToLower() == "and" || HitText.Split(' ')[0].ToLower() == "or" || HitText.Split(' ')[0].ToLower() == "plus")
             {
                 returnstring += " ";
             }
@@ -650,8 +650,8 @@ namespace DND_Monster
                 returnstring += HitDamageBonus;
             }
             returnstring += ") " + HitDamageType.ToLower() + " damage";
-            
-            if (HitText.Split(' ')[0].ToLower() == "and" || HitText.Split(' ')[0].ToLower() == "or")
+
+            if (HitText.Split(' ')[0].ToLower() == "and" || HitText.Split(' ')[0].ToLower() == "or" || HitText.Split(' ')[0].ToLower() == "plus")
             {
                 returnstring += " ";
             }
