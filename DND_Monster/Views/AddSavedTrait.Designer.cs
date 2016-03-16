@@ -193,6 +193,7 @@
             this.comboBox5.Size = new System.Drawing.Size(281, 21);
             this.comboBox5.TabIndex = 1;
             this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
+            this.comboBox5.Click += new System.EventHandler(this.comboBox5_Click);
             // 
             // button1
             // 

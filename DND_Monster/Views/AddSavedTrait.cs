@@ -15,12 +15,12 @@ namespace DND_Monster
         public Ability ability = null;
         public Ability action = null;
         public Ability reaction = null;
-        public Legendary legendary = null;
-
+        public Legendary legendary = null;        
+        
         public AddSavedTrait()
         {
             InitializeComponent();
-            Translation.Apply(this);
+            Translation.Apply(this);            
         }
 
         void SelectItem(object sender, EventArgs e)
@@ -30,10 +30,14 @@ namespace DND_Monster
 
         private void AddSavedTrait_Load(object sender, EventArgs e)
         {
+            comboBox5.DropDownStyle = ComboBoxStyle.DropDown;
+            comboBox5.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboBox5.AutoCompleteMode = AutoCompleteMode.SuggestAppend;            
+
             foreach (string creature in OGLContent.OGL_Creatures)
             {
                 comboBox5.Items.Add(creature);
-            }
+            }            
 
             comboBox1.SelectedIndexChanged += (senders, es) =>
             {                
@@ -142,12 +146,12 @@ namespace DND_Monster
         }
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
-        {            
+        {                        
             comboBox1.Items.Clear();
             comboBox2.Items.Clear();
             comboBox3.Items.Clear();
-            comboBox4.Items.Clear();
-            
+            comboBox4.Items.Clear();            
+
             comboBox1.Text = "";
             comboBox2.Text = "";
             comboBox3.Text = "";
@@ -209,7 +213,7 @@ namespace DND_Monster
             {
                 tabControl1.SelectTab(0);
             }
-        }
+        }        
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -245,6 +249,10 @@ namespace DND_Monster
                     }
                     break;
             }
+        }
+
+        private void comboBox5_Click(object sender, EventArgs e)
+        {            
         }
     }
 }

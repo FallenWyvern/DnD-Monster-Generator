@@ -331,7 +331,7 @@ namespace DND_Monster
                     Target = "one target",
                     HitDiceNumber = 2,
                     HitDiceSize = 6,
-                    HitDamageBonus = 4,
+                    HitDamageBonus = 5,
                     HitAverageDamage = 12,
                     HitText = "",
                     HitDamageType = "slashing"

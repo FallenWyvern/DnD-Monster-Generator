@@ -120,6 +120,58 @@ namespace DND_Monster
                 SilverDragon.Add(DragonAge.Adult);
                 SilverDragon.Add(DragonAge.Young);
                 SilverDragon.Add(DragonAge.Wyrmling);
+            DragonTurtle.Add();
+            Drider.Add();
+            Dryad.Add();
+            Duergar.Add();
+            #endregion
+
+            // E's
+            #region
+            // Elementals
+                AirElemental.Add();
+                EarthElemental.Add();
+                FireElemental.Add();
+                WaterElemental.Add();
+            DrowElf.Add();
+            Ettercap.Add();
+            Ettin.Add();
+            #endregion
+
+            // F's
+            #region
+            // Fungi
+                Shrieker.Add();
+                VioletFungus.Add();
+            #endregion
+
+            // G's
+            #region
+            Gargoyle.Add();
+            // Genies
+                Djinni.Add();
+                Efreeti.Add();
+            // Ghouls
+                Ghast.Add();
+                Ghoul.Add();
+            // Giants
+                CloudGiant.Add();
+                FireGiant.Add();
+                FrostGiant.Add();
+                HillGiant.Add();
+                StoneGiant.Add();
+                StormGiant.Add();
+            GibberingMouther.Add();
+            Gnoll.Add();
+            DeepGnome.Add();
+            Goblin.Add();
+            // Golems
+                ClayGolem.Add();
+                FleshGolem.Add();
+                IronGolem.Add();
+                StoneGolem.Add();
+            Gorgon.Add();
+            Grick.Add();
             #endregion
         }
     }
