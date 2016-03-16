@@ -177,6 +177,8 @@
     <Compile Include="OGL_Content\G\Golems\FleshGolem.cs" />
     <Compile Include="OGL_Content\G\Golems\IronGolem.cs" />
     <Compile Include="OGL_Content\G\Golems\StoneGolem.cs" />
+    <Compile Include="OGL_Content\G\Gorgon.cs" />
+    <Compile Include="OGL_Content\G\Grick.cs" />
     <Compile Include="Templates\Custom.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Templates\Translation.cs" />
