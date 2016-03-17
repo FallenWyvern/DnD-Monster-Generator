@@ -200,6 +200,15 @@ namespace DND_Monster
             Kobold.Add();
             Kraken.Add();
             #endregion
+
+            // L's
+            #region
+            Lamia.Add();
+            Lich.Add();
+            Lizardfolk.Add();
+            // Lycanthropes
+
+            #endregion
         }
     }
 
@@ -208,6 +217,8 @@ namespace DND_Monster
         public static void Add()
         {
             // new OGL_Ability() { OGL_Creature = "", Title = "", attack = null, isDamage = false, isSpell = false, saveDC = 0, Description = "" },
+            //new OGL_Ability() { OGL_Creature = "", Title = "Innate Spellcasting", attack = null, isDamage = false, isSpell = true, saveDC = 17, 
+            //    Description = "bard|Charisma|0|Innate|0,0,0,0,0,0,0,0,0|0:detect magic,0:feather fall,0:levitate,0:light,3:control weather,3:water breathing,|" },
             OGLContent.OGL_Abilities.AddRange(new List<OGL_Ability>()
             {
             });

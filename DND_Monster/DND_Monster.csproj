@@ -193,6 +193,14 @@
     <Compile Include="OGL_Content\I\InvisibleStalker.cs" />
     <Compile Include="OGL_Content\K\Kobold.cs" />
     <Compile Include="OGL_Content\K\Kraken.cs" />
+    <Compile Include="OGL_Content\L\Lamia.cs" />
+    <Compile Include="OGL_Content\L\Lich.cs" />
+    <Compile Include="OGL_Content\L\Lizardfolk.cs" />
+    <Compile Include="OGL_Content\L\Lycanthrope\Werebear.cs" />
+    <Compile Include="OGL_Content\L\Lycanthrope\Wereboar.cs" />
+    <Compile Include="OGL_Content\L\Lycanthrope\Wererat.cs" />
+    <Compile Include="OGL_Content\L\Lycanthrope\Weretiger.cs" />
+    <Compile Include="OGL_Content\L\Lycanthrope\Werewolf.cs" />
     <Compile Include="Templates\Custom.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Templates\Translation.cs" />
