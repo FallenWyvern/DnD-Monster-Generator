@@ -13,7 +13,7 @@ namespace DND_Monster
             OGLContent.OGL_Abilities.AddRange(new List<OGL_Ability>()
             {
                 new OGL_Ability() { OGL_Creature = "Cloaker", Title = "Damage Transfer", attack = null, isDamage = false, isSpell = false, saveDC = 0, Description = "While attached to a creature, the {CREATURENAME} takes only half the damage dealt to it (rounded down), and that creature takes the other half." },
-                new OGL_Ability() { OGL_Creature = "Cloaker", Title = "False Apperance", attack = null, isDamage = false, isSpell = false, saveDC = 0, Description = "While the {CREATURENAME} remains motionless without its underside exposed, it is indistinguishable from a dark leather cloak." },
+                new OGL_Ability() { OGL_Creature = "Cloaker", Title = "False Appearance", attack = null, isDamage = false, isSpell = false, saveDC = 0, Description = "While the {CREATURENAME} remains motionless without its underside exposed, it is indistinguishable from a dark leather cloak." },
                 new OGL_Ability() { OGL_Creature = "Cloaker", Title = "Light Sensitivity", attack = null, isDamage = false, isSpell = false, saveDC = 0, Description = "While in bright light, the {CREATURENAME} has disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight." },
             });
 

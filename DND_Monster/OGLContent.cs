@@ -172,6 +172,33 @@ namespace DND_Monster
                 StoneGolem.Add();
             Gorgon.Add();
             Grick.Add();
+            Griffon.Add();
+            Grimlock.Add();
+            #endregion
+
+            // H's
+            #region
+            // Hags
+                GreenHag.Add();
+                NightHag.Add();
+                SeaHag.Add();
+            Harpy.Add();
+            HellHound.Add();
+            Hippogriff.Add();
+            Hobgoblin.Add();
+            Homunculus.Add();
+            Hydra.Add();
+            #endregion
+
+            // I's
+            #region
+            InvisibleStalker.Add();
+            #endregion
+
+            // K's    
+            #region
+            Kobold.Add();
+            Kraken.Add();
             #endregion
         }
     }
@@ -182,7 +209,7 @@ namespace DND_Monster
         {
             // new OGL_Ability() { OGL_Creature = "", Title = "", attack = null, isDamage = false, isSpell = false, saveDC = 0, Description = "" },
             OGLContent.OGL_Abilities.AddRange(new List<OGL_Ability>()
-            {                
+            {
             });
 
             // template
