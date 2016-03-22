@@ -214,6 +214,14 @@
     <Compile Include="OGL_Content\M\Mimic.cs" />
     <Compile Include="OGL_Content\M\Mummies\Mummy.cs" />
     <Compile Include="OGL_Content\M\Mummies\MummyLord.cs" />
+    <Compile Include="OGL_Content\N\Nagas\GuardianNaga.cs" />
+    <Compile Include="OGL_Content\N\Nagas\SpiritNaga.cs" />
+    <Compile Include="OGL_Content\N\Nightmare.cs" />
+    <Compile Include="OGL_Content\O\Oni.cs" />
+    <Compile Include="OGL_Content\O\Oozes\BlackPudding.cs" />
+    <Compile Include="OGL_Content\O\Oozes\GelatinousCube.cs" />
+    <Compile Include="OGL_Content\O\Oozes\GrayOoze.cs" />
+    <Compile Include="OGL_Content\O\Oozes\OchreJelly.cs" />
     <Compile Include="Templates\Custom.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Templates\Translation.cs" />

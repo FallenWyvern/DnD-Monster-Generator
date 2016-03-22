@@ -232,6 +232,21 @@ namespace DND_Monster
                 Mummy.Add();
                 MummyLord.Add();
             #endregion
+
+            // N's
+            #region
+            // Nagas
+                GuardianNaga.Add();
+                SpiritNaga.Add();
+            Nightmare.Add();
+            #endregion
+
+            // O's
+            #region
+            Oni.Add();
+            // Oozes
+                BlackPudding.Add();
+            #endregion
         }
     }
 
@@ -285,7 +300,9 @@ namespace DND_Monster
             //    Title = "",
             //    Traits = new List<LegendaryTrait>() 
             //    {
-            //        new LegendaryTrait("", "")                    
+            //        new LegendaryTrait("", "")  
+            //        new LegendaryTrait("", ""),
+            //        new LegendaryTrait("", ""),                  
             //    }
             //},            
             #endregion
