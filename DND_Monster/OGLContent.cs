@@ -207,7 +207,30 @@ namespace DND_Monster
             Lich.Add();
             Lizardfolk.Add();
             // Lycanthropes
+                Werebear.Add();
+                Wereboar.Add();
+                Wererat.Add();
+                Weretiger.Add();
+                Werewolf.Add();
+            #endregion
 
+            // M's
+            #region
+            Magmin.Add();
+            Manticore.Add();
+            Medusa.Add();
+            // Mephits
+                DustMephit.Add();
+                IceMephit.Add();
+                MagmaMephit.Add();
+                SteamMephit.Add();
+            Merfolk.Add();
+            Merrow.Add();
+            Mimic.Add();
+            Minotaur.Add();
+            // Mummies
+                Mummy.Add();
+                MummyLord.Add();
             #endregion
         }
     }
