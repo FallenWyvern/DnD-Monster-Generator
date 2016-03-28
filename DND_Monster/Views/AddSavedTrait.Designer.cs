@@ -197,6 +197,7 @@
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(0, 37);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(281, 23);
@@ -226,7 +227,7 @@
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "AddSavedTrait";
-            this.Text = "Add OGL Content";
+            this.Text = "Add SRD Content";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddSavedTrait_FormClosing);
             this.Load += new System.EventHandler(this.AddSavedTrait_Load);
             this.tabControl1.ResumeLayout(false);

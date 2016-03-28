@@ -127,6 +127,7 @@ namespace DND_Monster
             }
 
             this.Text = this.Text + " v" + Help.Version;
+            AddSaved.Text = "Add SRD Content";
         }       
 
         // This updates the labels next to stats, when the stats change.
@@ -293,26 +294,61 @@ namespace DND_Monster
 
             addAttack.FormClosing += (senders, es) =>
             {
+                int increment = 0;               
+
                 if (addAttack.NewAttack != null)
                 {
-                    Console.WriteLine("1");
-                    if (TraitsList.Items.Contains(addAttack.NewAttack.Title)) { addAttack.NewAttack.Title += "_"; }                    
+                    foreach (string item in TraitsList.Items)
+                    {
+                        if (item.Contains(addAttack.NewAttack.Title))
+                        {
+                            increment++;
+                        }
+                    }
+
+                    if (increment > 0)
+                    {
+                        addAttack.NewAttack.Title += " " + increment;
+                    }
+
                     Monster.AddAction(addAttack.NewAttack);
                     TraitsList.Items.Add("Action: " + addAttack.NewAttack.Title);                    
                 }
 
                 if (addAttack.NewAbility != null)
                 {
-                    Console.WriteLine("2");
-                    if (TraitsList.Items.Contains(addAttack.NewAbility.Title)) { addAttack.NewAbility.Title += "_"; }                    
+                    foreach (string item in TraitsList.Items)
+                    {
+                        if (item.Contains(addAttack.NewAbility.Title))
+                        {
+                            increment++;
+                        }
+                    }
+
+                    if (increment > 0)
+                    {
+                        addAttack.NewAbility.Title += " " + increment;
+                    }
+
                     Monster.AddAction(addAttack.NewAbility);
                     TraitsList.Items.Add("Action: " + addAttack.NewAbility.Title);                        
                 }
 
                 if (addAttack.NewReaction != null)
                 {
-                    Console.WriteLine("3");
-                    if (TraitsList.Items.Contains(addAttack.NewReaction.Title)) { addAttack.NewReaction.Title += "_"; }
+                    foreach (string item in TraitsList.Items)
+                    {
+                        if (item.Contains(addAttack.NewReaction.Title))
+                        {
+                            increment++;
+                        }
+                    }
+
+                    if (increment > 0)
+                    {
+                        addAttack.NewReaction.Title += " " + increment;
+                    }
+
                     Monster.AddReaction(addAttack.NewReaction);
                     TraitsList.Items.Add("Reaction: " + addAttack.NewReaction.Title);                        
                 }
@@ -2294,6 +2330,11 @@ namespace DND_Monster
         private void MonsterNameTextBox_TextChanged(object sender, EventArgs e)
         {
             Monster.CreatureName = MonsterNameTextBox.Text;
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }        
     }
 }

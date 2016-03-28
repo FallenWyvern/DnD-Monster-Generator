@@ -1101,7 +1101,7 @@
             "Prone",
             "Restrained",
             "Stunned",
-            "Unconcious"});
+            "Unconscious"});
             this.DamageConditionDropDown.Location = new System.Drawing.Point(9, 597);
             this.DamageConditionDropDown.Name = "DamageConditionDropDown";
             this.DamageConditionDropDown.Size = new System.Drawing.Size(142, 21);
@@ -1781,6 +1781,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(608, 690);
             this.panel2.TabIndex = 103;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // pictureBox1
             // 
@@ -1807,11 +1808,11 @@
             // 
             // AddSaved
             // 
-            this.AddSaved.Location = new System.Drawing.Point(474, 409);
+            this.AddSaved.Location = new System.Drawing.Point(461, 409);
             this.AddSaved.Name = "AddSaved";
-            this.AddSaved.Size = new System.Drawing.Size(88, 23);
+            this.AddSaved.Size = new System.Drawing.Size(112, 23);
             this.AddSaved.TabIndex = 117;
-            this.AddSaved.Text = "Add OGL";
+            this.AddSaved.Text = "Add OGL Content";
             this.AddSaved.UseVisualStyleBackColor = true;
             this.AddSaved.Click += new System.EventHandler(this.AddSaved_Click);
             // 

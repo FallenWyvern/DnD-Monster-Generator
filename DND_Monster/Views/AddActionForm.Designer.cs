@@ -62,6 +62,9 @@
             this.ReactionDescription = new System.Windows.Forms.RichTextBox();
             this.DescriptionLabel = new System.Windows.Forms.Label();
             this.ReactionNameLabel = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.multiAttackDescription = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AttackBonusUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RangeUpDownClose)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -72,6 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.HitNumberOfDice)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // ReactionSave
@@ -204,6 +208,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -487,6 +492,36 @@
             this.ReactionNameLabel.TabIndex = 11;
             this.ReactionNameLabel.Text = "Reaction Name";
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.multiAttackDescription);
+            this.tabPage4.Controls.Add(this.label2);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(288, 261);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Multiattack";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // multiAttackDescription
+            // 
+            this.multiAttackDescription.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.multiAttackDescription.Location = new System.Drawing.Point(3, 19);
+            this.multiAttackDescription.Name = "multiAttackDescription";
+            this.multiAttackDescription.Size = new System.Drawing.Size(282, 239);
+            this.multiAttackDescription.TabIndex = 9;
+            this.multiAttackDescription.Text = "";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Description";
+            // 
             // AddActionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -497,6 +532,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddActionForm";
             this.Text = "Add Actions";
+            this.Load += new System.EventHandler(this.AddActionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AttackBonusUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RangeUpDownClose)).EndInit();
             this.tabControl1.ResumeLayout(false);
@@ -510,6 +546,8 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -550,6 +588,9 @@
         public System.Windows.Forms.Label ReactionNameLabel;
         public System.Windows.Forms.TextBox ReactionName;
         public System.Windows.Forms.RichTextBox ReactionDescription;
+        private System.Windows.Forms.TabPage tabPage4;
+        public System.Windows.Forms.RichTextBox multiAttackDescription;
+        public System.Windows.Forms.Label label2;
 
     }
 }

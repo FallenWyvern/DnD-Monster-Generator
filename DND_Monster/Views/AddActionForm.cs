@@ -56,6 +56,14 @@ namespace DND_Monster
             }
             else if (tabControl1.SelectedIndex == 2)
             {
+                this.NewAbility = new Ability();
+                NewAbility.Title = "Multiattack";
+                NewAbility.Description = multiAttackDescription.Text;
+                NewAbility.isDamage = false;
+                NewAbility.isSpell = false;
+            }
+            else if (tabControl1.SelectedIndex == 3)
+            {
                 this.NewReaction = new Ability();
                 NewReaction.Title = ReactionName.Text;
                 NewReaction.Description = ReactionDescription.Text;
@@ -215,6 +223,24 @@ namespace DND_Monster
 
                 }
             }
+
+            if (tabControl1.SelectedIndex == 2)
+            {
+                int numberOfAttacks = 0;
+                foreach (Ability attack in Monster._Actions)
+                {
+                    if (attack.isDamage)
+                    {
+                        numberOfAttacks++;
+                    }
+                }
+                multiAttackDescription.Text = "The " + Monster.CreatureName + " makes " + numberOfAttacks + " attacks.";
+            }
+        }
+
+        private void AddActionForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
