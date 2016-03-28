@@ -445,6 +445,7 @@ namespace DND_Monster
             output.Add(@"<h4>Challenge</h4>");
             output.Add(@"<p>" + CR.CR + " (" + CR.XP + " XP)"  + "</p>");
             output.Add(@"</property-line>");
+            output.Add(@"</top-stats>");
             TaperedRule();
 
             // Abilities            

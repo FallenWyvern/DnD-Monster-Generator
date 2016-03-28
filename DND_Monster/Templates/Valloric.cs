@@ -350,7 +350,7 @@ namespace DND_Monster
             output.Add(@"}");
             output.Add(@"</style>");
             output.Add(@"<div class=""bar""></div>");
-            output.Add(@"<div id=""content-wrap"">");
+            output.Add(@"<div id=""content-wrap"">");            
             output.Add(@"<content></content>");
             output.Add(@"</div>");
             output.Add(@"<div class=""bar""></div>");
@@ -472,6 +472,7 @@ namespace DND_Monster
             output.Add(@"<h4>Challenge</h4>");
             output.Add(@"<p>" + CR.CR + " (" + CR.XP + " XP)"  + "</p>");
             output.Add(@"</property-line>");
+            output.Add(@"</top-stats>");
             TaperedRule();
 
             // Abilities            
