@@ -38,10 +38,10 @@
             this.AttackHitEffect = new System.Windows.Forms.Label();
             this.AttackNameField = new System.Windows.Forms.TextBox();
             this.AttackName = new System.Windows.Forms.Label();
-            this.AttackTargetField = new System.Windows.Forms.TextBox();
             this.AttackTarget = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.AttackTargetField = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.RangeUpDownFar = new System.Windows.Forms.NumericUpDown();
             this.ReachUpDown = new System.Windows.Forms.NumericUpDown();
@@ -57,14 +57,14 @@
             this.AttackAbilityDescriptionField = new System.Windows.Forms.RichTextBox();
             this.AttackAbilityDescription = new System.Windows.Forms.Label();
             this.ActionName = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.multiAttackDescription = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.ReactionName = new System.Windows.Forms.TextBox();
             this.ReactionDescription = new System.Windows.Forms.RichTextBox();
             this.DescriptionLabel = new System.Windows.Forms.Label();
             this.ReactionNameLabel = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.multiAttackDescription = new System.Windows.Forms.RichTextBox();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AttackBonusUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RangeUpDownClose)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -74,8 +74,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.HitDiceBonusDamage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitNumberOfDice)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // ReactionSave
@@ -188,13 +188,6 @@
             this.AttackName.TabIndex = 10;
             this.AttackName.Text = "Name";
             // 
-            // AttackTargetField
-            // 
-            this.AttackTargetField.Location = new System.Drawing.Point(49, 82);
-            this.AttackTargetField.Name = "AttackTargetField";
-            this.AttackTargetField.Size = new System.Drawing.Size(238, 20);
-            this.AttackTargetField.TabIndex = 3;
-            // 
             // AttackTarget
             // 
             this.AttackTarget.AutoSize = true;
@@ -220,6 +213,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.AttackTargetField);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.RangeUpDownFar);
             this.tabPage1.Controls.Add(this.ReachUpDown);
@@ -227,7 +221,6 @@
             this.tabPage1.Controls.Add(this.HitDiceBonusDamage);
             this.tabPage1.Controls.Add(this.HitDiceType);
             this.tabPage1.Controls.Add(this.HitNumberOfDice);
-            this.tabPage1.Controls.Add(this.AttackTargetField);
             this.tabPage1.Controls.Add(this.AttackTypeDropdown);
             this.tabPage1.Controls.Add(this.AttackNameField);
             this.tabPage1.Controls.Add(this.AttackBonusUpDown);
@@ -248,6 +241,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Weapon Attack";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // AttackTargetField
+            // 
+            this.AttackTargetField.FormattingEnabled = true;
+            this.AttackTargetField.Items.AddRange(new object[] {
+            "one creature",
+            "one target"});
+            this.AttackTargetField.Location = new System.Drawing.Point(49, 83);
+            this.AttackTargetField.Name = "AttackTargetField";
+            this.AttackTargetField.Size = new System.Drawing.Size(239, 21);
+            this.AttackTargetField.TabIndex = 23;
             // 
             // label1
             // 
@@ -444,6 +448,36 @@
             this.ActionName.TabIndex = 7;
             this.ActionName.Text = "Action Name";
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.multiAttackDescription);
+            this.tabPage4.Controls.Add(this.label2);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(288, 261);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Multiattack";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // multiAttackDescription
+            // 
+            this.multiAttackDescription.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.multiAttackDescription.Location = new System.Drawing.Point(3, 19);
+            this.multiAttackDescription.Name = "multiAttackDescription";
+            this.multiAttackDescription.Size = new System.Drawing.Size(282, 239);
+            this.multiAttackDescription.TabIndex = 9;
+            this.multiAttackDescription.Text = "";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Description";
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.ReactionName);
@@ -492,36 +526,6 @@
             this.ReactionNameLabel.TabIndex = 11;
             this.ReactionNameLabel.Text = "Reaction Name";
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.multiAttackDescription);
-            this.tabPage4.Controls.Add(this.label2);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(288, 261);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Multiattack";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // multiAttackDescription
-            // 
-            this.multiAttackDescription.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.multiAttackDescription.Location = new System.Drawing.Point(3, 19);
-            this.multiAttackDescription.Name = "multiAttackDescription";
-            this.multiAttackDescription.Size = new System.Drawing.Size(282, 239);
-            this.multiAttackDescription.TabIndex = 9;
-            this.multiAttackDescription.Text = "";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Description";
-            // 
             // AddActionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -544,10 +548,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.HitNumberOfDice)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -564,7 +568,6 @@
         public System.Windows.Forms.Label AttackHitEffect;
         public System.Windows.Forms.TextBox AttackNameField;
         public System.Windows.Forms.Label AttackName;
-        public System.Windows.Forms.TextBox AttackTargetField;
         public System.Windows.Forms.Label AttackTarget;
         public System.Windows.Forms.TabControl tabControl1;
         public System.Windows.Forms.TabPage tabPage1;
@@ -591,6 +594,7 @@
         private System.Windows.Forms.TabPage tabPage4;
         public System.Windows.Forms.RichTextBox multiAttackDescription;
         public System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox AttackTargetField;
 
     }
 }
