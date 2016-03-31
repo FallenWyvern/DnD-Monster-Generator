@@ -1311,6 +1311,9 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoScroll = true;
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
@@ -1326,6 +1329,9 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tableLayoutPanel2.AutoScroll = true;
+            this.tableLayoutPanel2.AutoSize = true;
+            this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel2.ColumnCount = 7;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
@@ -1348,7 +1354,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(598, 100);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(598, 99);
             this.tableLayoutPanel2.TabIndex = 92;
             // 
             // checkBox1
@@ -1356,7 +1362,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(383, 55);
+            this.checkBox1.Location = new System.Drawing.Point(383, 54);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(170, 17);
             this.checkBox1.TabIndex = 103;
@@ -1466,7 +1472,7 @@
             // 
             this.ExportReddit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ExportReddit.Enabled = false;
-            this.ExportReddit.Location = new System.Drawing.Point(3, 64);
+            this.ExportReddit.Location = new System.Drawing.Point(3, 63);
             this.ExportReddit.Name = "ExportReddit";
             this.ExportReddit.Size = new System.Drawing.Size(59, 23);
             this.ExportReddit.TabIndex = 102;
@@ -1480,7 +1486,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Controls.Add(this.ColumnWidthUpDown, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.ColumnWidthLabel, 0, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(291, 55);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(291, 54);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 3;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -1665,6 +1671,9 @@
             // 
             // panel2
             // 
+            this.panel2.AutoScroll = true;
+            this.panel2.AutoSize = true;
+            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.AddSaved);
@@ -2023,7 +2032,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.DistanceUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SkillBonus)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -2033,6 +2044,7 @@
             this.tableLayoutPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ColumnWidthUpDown)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
