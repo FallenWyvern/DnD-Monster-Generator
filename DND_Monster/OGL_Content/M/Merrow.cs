@@ -113,7 +113,7 @@ namespace DND_Monster
 
             });
 
-            OGLContent.OGL_Creatures.Add("");
+            OGLContent.OGL_Creatures.Add("Merrow");
         }
     }
 }
