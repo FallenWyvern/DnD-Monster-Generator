@@ -246,6 +246,9 @@ namespace DND_Monster
             Oni.Add();
             // Oozes
                 BlackPudding.Add();
+                GelatinousCube.Add();
+                GrayOoze.Add();
+                OchreJelly.Add();
             #endregion
         }
     }
