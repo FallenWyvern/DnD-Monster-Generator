@@ -249,6 +249,20 @@ namespace DND_Monster
                 GelatinousCube.Add();
                 GrayOoze.Add();
                 OchreJelly.Add();
+            Orc.Add();
+            Otyugh.Add();
+            Owlbear.Add();
+            #endregion
+
+            // P's
+            #region
+            Pegasus.Add();
+            Pseudodragon.Add();
+            PurpleWorm.Add();
+            #endregion
+
+            // R's
+            #region
             #endregion
         }
     }
