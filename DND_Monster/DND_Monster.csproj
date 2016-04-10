@@ -228,6 +228,11 @@
     <Compile Include="OGL_Content\P\Pegasus.cs" />
     <Compile Include="OGL_Content\P\Pseudodragon.cs" />
     <Compile Include="OGL_Content\P\PurpleWorm.cs" />
+    <Compile Include="OGL_Content\R\Rakshasa.cs" />
+    <Compile Include="OGL_Content\R\Remorhaz.cs" />
+    <Compile Include="OGL_Content\R\Roc.cs" />
+    <Compile Include="OGL_Content\R\Roper.cs" />
+    <Compile Include="OGL_Content\R\RustMonster.cs" />
     <Compile Include="Templates\Custom.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Templates\Translation.cs" />
@@ -335,9 +340,7 @@
   <ItemGroup>
     <Content Include="Resource\420px-Globe_icon.svg.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="OGL_Content\R\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\cef.redist.x86.3.2272.32\build\cef.redist.x86.targets" Condition="Exists('..\packages\cef.redist.x86.3.2272.32\build\cef.redist.x86.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

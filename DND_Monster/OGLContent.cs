@@ -263,6 +263,11 @@ namespace DND_Monster
 
             // R's
             #region
+            Rakshasa.Add();
+            Remorhaz.Add();
+            Roc.Add();
+            Roper.Add();
+            RustMonster.Add();
             #endregion
         }
     }
