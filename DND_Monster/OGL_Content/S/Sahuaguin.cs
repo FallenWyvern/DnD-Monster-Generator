@@ -14,6 +14,9 @@ namespace DND_Monster
             //    Description = "bard|Charisma|0|Innate|0,0,0,0,0,0,0,0,0|0:detect magic,0:feather fall,0:levitate,0:light,3:control weather,3:water breathing,|" },
             OGLContent.OGL_Abilities.AddRange(new List<OGL_Ability>()
             {
+                new OGL_Ability() { OGL_Creature = "Sahuagin", Title = "Blood Frenzy", attack = null, isDamage = false, isSpell = false, saveDC = 0, Description = "The {CREATURENAME} has advantage on melee attack rolls against any creature that doesn't have all its hit points." },
+                new OGL_Ability() { OGL_Creature = "Sahuagin", Title = "Limited Amphibiousness", attack = null, isDamage = false, isSpell = false, saveDC = 0, Description = "The {CREATURENAME} can breathe air and water, but it needs to be submerged at least once every 4 hours to avoid suffocating." },
+                new OGL_Ability() { OGL_Creature = "Sahuagin", Title = "Shark Telepathy", attack = null, isDamage = false, isSpell = false, saveDC = 0, Description = "The {CREATURENAME} can magically command any shark within 120 feet of it, using a limited telepathy." },
             });
 
             // template
@@ -38,7 +41,55 @@ namespace DND_Monster
             #endregion
             OGLContent.OGL_Actions.AddRange(new List<OGL_Ability>()
             {
-
+                new OGL_Ability() { OGL_Creature = "Sahuagin", Title = "Multiattack", isDamage = false, isSpell = false, saveDC = 0, Description = "The {CREATURENAME} makes two melee attacks: one with its bite and one with its claws or spear."},      
+                new OGL_Ability() { OGL_Creature = "Sahuagin", Title = "Bite", isDamage = true, isSpell = false, saveDC = 0, Description = "", attack = new Attack()
+                { 
+                    _Attack = "Melee Weapon Attack",
+                    Bonus = "3",
+                    Reach = 5,
+                    RangeClose = 0,
+                    RangeFar = 0,
+                    Target = "one target",
+                    HitDiceNumber = 1,
+                    HitDiceSize = 4,
+                    HitDamageBonus = 1,
+                    HitAverageDamage = 3,
+                    HitText = "",
+                    HitDamageType = "slashing"
+                }
+                },
+                new OGL_Ability() { OGL_Creature = "Sahuagin", Title = "Claws", isDamage = true, isSpell = false, saveDC = 0, Description = "", attack = new Attack()
+                { 
+                    _Attack = "Melee Weapon Attack",
+                    Bonus = "3",
+                    Reach = 5,
+                    RangeClose = 0,
+                    RangeFar = 0,
+                    Target = "one target",
+                    HitDiceNumber = 1,
+                    HitDiceSize = 4,
+                    HitDamageBonus = 1,
+                    HitAverageDamage = 3,
+                    HitText = "",
+                    HitDamageType = "slashing"
+                }
+                },
+                new OGL_Ability() { OGL_Creature = "Sahuagin", Title = "Spear", isDamage = true, isSpell = false, saveDC = 0, Description = "", attack = new Attack()
+                { 
+                    _Attack = "Melee or Ranged Weapon Attack",
+                    Bonus = "3",
+                    Reach = 5,
+                    RangeClose = 20,
+                    RangeFar = 60,
+                    Target = "one target",
+                    HitDiceNumber = 1,
+                    HitDiceSize = 6,
+                    HitDamageBonus = 1,
+                    HitAverageDamage = 4,
+                    HitText = "or 5 (1d8 + 1) piercing damage if used in two hands with a melee attack.",
+                    HitDamageType = "piercing"
+                }
+                },
             });
 
             // new OGL_Ability() { OGL_Creature = "Sahuagin", Title = "", attack = null, isDamage = false, isSpell = false, saveDC = 0, Description = "" }         
@@ -66,7 +117,7 @@ namespace DND_Monster
 
             });
 
-            OGLContent.OGL_Creatures.Add("");
+            OGLContent.OGL_Creatures.Add("Sahuagin");
         }
     }
 }

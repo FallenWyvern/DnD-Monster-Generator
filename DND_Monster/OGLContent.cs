@@ -272,10 +272,26 @@ namespace DND_Monster
 
             // S's
             #region
+            Sahuaguin.Add();
+            Salamander.Add();
+            Satyr.Add();
+            Shadow.Add();
+            ShamblingMound.Add();
+            ShieldGuardian.Add();
+                // Skeletons
+                Skeleton.Add();
+                MinotaurSkeleton.Add();
+                WarhorseSkeleton.Add();                
+            Specter.Add();
+            Androsphinx.Add();
+            Gynosphinx.Add();
+            Sprite.Add();
+            SuccubusIncubus.Add();
             #endregion
         }
     }
 
+    // {CREATURENAME}
     public static class OGLContentTemplate
     {
         public static void Add()
@@ -326,7 +342,7 @@ namespace DND_Monster
             //    Title = "",
             //    Traits = new List<LegendaryTrait>() 
             //    {
-            //        new LegendaryTrait("", "")  
+            //        new LegendaryTrait("", ""),
             //        new LegendaryTrait("", ""),
             //        new LegendaryTrait("", ""),                  
             //    }
