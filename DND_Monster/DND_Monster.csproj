@@ -233,6 +233,7 @@
     <Compile Include="OGL_Content\R\Roc.cs" />
     <Compile Include="OGL_Content\R\Roper.cs" />
     <Compile Include="OGL_Content\R\RustMonster.cs" />
+    <Compile Include="OGL_Content\S\Sahuaguin.cs" />
     <Compile Include="Templates\Custom.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Templates\Translation.cs" />

@@ -269,6 +269,10 @@ namespace DND_Monster
             Roper.Add();
             RustMonster.Add();
             #endregion
+
+            // S's
+            #region
+            #endregion
         }
     }
 

@@ -482,10 +482,10 @@ namespace DND_Monster
                 {
                     output.Add(@"<property-block>");
                     output.Add(@"<h4>" + ability.ProperName() + ".</h4>");
-                    string abilityDescription = "<p>";
+                    string abilityDescription = "";
 
                     foreach (string abilityWord in ability.Description.Split(' '))
-                    {
+                    {                        
                         if (!abilityWord.Contains('\n'))
                         {                            
                             abilityDescription += abilityWord + " ";
@@ -581,7 +581,7 @@ namespace DND_Monster
                     foreach (LegendaryTrait trait in ability.TraitList())
                     {
                         output.Add(@"<h4>" + trait.ProperName() + ". </h4>");
-                        output.Add(@"<p>" + trait.Ability + "</p><br>");
+                        output.Add(@"" + trait.Ability + "<br>");
                     }
                     output.Add(@"</property-block>");
                 }
