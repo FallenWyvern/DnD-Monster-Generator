@@ -288,6 +288,40 @@ namespace DND_Monster
             Sprite.Add();
             SuccubusIncubus.Add();
             #endregion
+
+            // T's
+            #region
+            Tarrasque.Add();
+            Treant.Add();
+            Troll.Add();
+            #endregion
+
+            // U's
+            #region
+            Unicorn.Add();
+            #endregion
+
+            // V's
+            #region
+            Vampire.Add();
+            VampireSpawn.Add();
+            #endregion
+
+            // W's
+            #region
+            #endregion
+
+            // X's
+            #region
+            #endregion
+
+            // Y's
+            #region
+            #endregion
+
+            // Z's
+            #region
+            #endregion
         }
     }
 
