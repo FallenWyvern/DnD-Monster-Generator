@@ -2335,6 +2335,11 @@ namespace DND_Monster
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
-        }        
+        }
+
+        private void UniqueCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Monster.unique = UniqueCheckBox.Checked;
+        }
     }
 }

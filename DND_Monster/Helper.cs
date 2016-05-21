@@ -148,7 +148,7 @@ namespace DND_Monster
             return s;
         }
 
-        public string WebSpellcasterBoilerplate(string name)
+        public string WebSpellcasterBoilerplate(string name, bool unique)
         {
             if (!isSpell) return "";
             if (String.IsNullOrEmpty(name) || String.IsNullOrWhiteSpace(name)) 
@@ -157,7 +157,7 @@ namespace DND_Monster
             }
             else
             {
-                if (!name.Contains('*')) { name = name.ToLower(); }
+                if (!name.Contains('*') && !unique) { name = name.ToLower(); }
             }
             string spellcastingstat = Description.Split('|')[1];            
             int modifier = 0;
@@ -202,17 +202,17 @@ namespace DND_Monster
 
             if (!Description.Contains("NotInnate"))
             {
-                returnstring += "The " + name + "'s spellcasting ability is " + spellcastingstat + " (spell save DC " + (8 + Monster.CR.profBonus + modifier) + "). ";
-                returnstring += "The " + name + " can innately cast the following spells, requiring no material components: ";                
+                returnstring += (unique ? name : "The " + name) + "'s spellcasting ability is " + spellcastingstat + " (spell save DC " + (8 + Monster.CR.profBonus + modifier) + "). ";
+                returnstring += (unique ? name : "The " + name) + " can innately cast the following spells, requiring no material components: ";                
             }
             else
             {
-                returnstring += "The " + name + " is a " + Description.Split('|')[2] + levelSuffix + "-level spellcaster. ";
+                returnstring += (unique ? name : "The " + name) + " is a " + Description.Split('|')[2] + levelSuffix + "-level spellcaster. ";
                 returnstring += "Its spellcasting ability is " + spellcastingstat + " (spell save DC " + (8 + Monster.CR.profBonus + modifier) + ", +" + (modifier + Monster.CR.profBonus) + " to hit with spell attacks). ";
-                returnstring += "The " + name + " has the following " + Description.Split('|')[0] + " spells prepared:";
+                returnstring += (unique ? name : "The " + name) + " has the following " + Description.Split('|')[0] + " spells prepared:";
             }
 
-            return "<h4>Spellcasting. </h4><p>" + returnstring + "</p></br>";
+            return "<h4>" + (Description.Contains("NotInnate") ? "" : "Innate ") + "Spellcasting. </h4><p>" + returnstring + "</p></br>";
         }
 
         public string WebSpellBlockFormat_NotInnate()
