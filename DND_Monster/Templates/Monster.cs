@@ -324,6 +324,8 @@ namespace DND_Monster
             fillTarget.STR = STR;
             fillTarget.Title = Title;
             fillTarget.WIS = WIS;
+            fillTarget.CreatureGender = CreatureGender;
+            fillTarget.unique = unique;
         }
 
         // Loads the monster data from data model.
@@ -359,6 +361,8 @@ namespace DND_Monster
             STR = source.STR;
             Title = source.Title;
             WIS = source.WIS;
+            CreatureGender = source.CreatureGender;
+            unique = source.unique;
         }
         #endregion
 
@@ -397,11 +401,13 @@ namespace DND_Monster
         public static Challenge_Rating CR = Help.ChallengeRatings[0];
 
         public static string CreatureName = "";
-        public static bool unique = false;
         public static string CreatureSize = "";
         public static string CreatureType = "";
         public static string CreatureAlign = "";
-        
+        public static string CreatureGender = "";
+
+        public static bool unique = false;
+
         #endregion
 
         // Shared template methods.

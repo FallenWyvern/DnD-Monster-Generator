@@ -1049,6 +1049,10 @@ namespace DND_Monster
 
                 MonsterNameTextBox.Text = Monster.CreatureName;
                 SizeDropDown.SelectedText = Monster.CreatureSize;
+
+                GenderDropDown.Text = Monster.CreatureGender;
+                UniqueCheckBox.Checked = Monster.unique;
+
                 TypeDropDown.Text = Monster.CreatureType.Split(' ')[0];
                 try 
                 {
@@ -2340,6 +2344,11 @@ namespace DND_Monster
         private void UniqueCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             Monster.unique = UniqueCheckBox.Checked;
+        }
+
+        private void GenderDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Monster.CreatureGender = GenderDropDown.Text;
         }
     }
 }
