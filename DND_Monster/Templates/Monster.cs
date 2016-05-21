@@ -397,6 +397,7 @@ namespace DND_Monster
         public static Challenge_Rating CR = Help.ChallengeRatings[0];
 
         public static string CreatureName = "";
+        public static bool unique = false;
         public static string CreatureSize = "";
         public static string CreatureType = "";
         public static string CreatureAlign = "";

@@ -139,6 +139,9 @@
             this.AddLegendaryButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.GenderDropDown = new System.Windows.Forms.ComboBox();
+            this.GenderLabel = new System.Windows.Forms.Label();
+            this.UniqueCheckBox = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.AddSaved = new System.Windows.Forms.Button();
@@ -213,7 +216,7 @@
             // 
             // ACUpDown
             // 
-            this.ACUpDown.Location = new System.Drawing.Point(96, 109);
+            this.ACUpDown.Location = new System.Drawing.Point(96, 129);
             this.ACUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -231,7 +234,7 @@
             // ArmorClass
             // 
             this.ArmorClass.AutoSize = true;
-            this.ArmorClass.Location = new System.Drawing.Point(14, 111);
+            this.ArmorClass.Location = new System.Drawing.Point(14, 131);
             this.ArmorClass.Name = "ArmorClass";
             this.ArmorClass.Size = new System.Drawing.Size(62, 13);
             this.ArmorClass.TabIndex = 3;
@@ -255,7 +258,7 @@
             "Ooze",
             "Plant",
             "Undead"});
-            this.TypeDropDown.Location = new System.Drawing.Point(96, 59);
+            this.TypeDropDown.Location = new System.Drawing.Point(96, 79);
             this.TypeDropDown.Name = "TypeDropDown";
             this.TypeDropDown.Size = new System.Drawing.Size(116, 21);
             this.TypeDropDown.TabIndex = 2;
@@ -263,7 +266,7 @@
             // TypeAndTag
             // 
             this.TypeAndTag.AutoSize = true;
-            this.TypeAndTag.Location = new System.Drawing.Point(14, 62);
+            this.TypeAndTag.Location = new System.Drawing.Point(14, 82);
             this.TypeAndTag.Name = "TypeAndTag";
             this.TypeAndTag.Size = new System.Drawing.Size(61, 13);
             this.TypeAndTag.TabIndex = 5;
@@ -272,7 +275,7 @@
             // Alignment
             // 
             this.Alignment.AutoSize = true;
-            this.Alignment.Location = new System.Drawing.Point(14, 87);
+            this.Alignment.Location = new System.Drawing.Point(14, 107);
             this.Alignment.Name = "Alignment";
             this.Alignment.Size = new System.Drawing.Size(53, 13);
             this.Alignment.TabIndex = 6;
@@ -295,7 +298,7 @@
             "Chaotic Evil",
             "",
             "Unaligned"});
-            this.AlignmentDropDown.Location = new System.Drawing.Point(96, 84);
+            this.AlignmentDropDown.Location = new System.Drawing.Point(96, 104);
             this.AlignmentDropDown.Name = "AlignmentDropDown";
             this.AlignmentDropDown.Size = new System.Drawing.Size(222, 21);
             this.AlignmentDropDown.TabIndex = 4;
@@ -303,7 +306,7 @@
             // HitPoints
             // 
             this.HitPoints.AutoSize = true;
-            this.HitPoints.Location = new System.Drawing.Point(14, 136);
+            this.HitPoints.Location = new System.Drawing.Point(14, 156);
             this.HitPoints.Name = "HitPoints";
             this.HitPoints.Size = new System.Drawing.Size(52, 13);
             this.HitPoints.TabIndex = 8;
@@ -319,14 +322,14 @@
             "d10",
             "d12",
             "d20"});
-            this.HitDieDropDown.Location = new System.Drawing.Point(146, 133);
+            this.HitDieDropDown.Location = new System.Drawing.Point(146, 153);
             this.HitDieDropDown.Name = "HitDieDropDown";
             this.HitDieDropDown.Size = new System.Drawing.Size(68, 21);
             this.HitDieDropDown.TabIndex = 8;
             // 
             // HitDieUpDown
             // 
-            this.HitDieUpDown.Location = new System.Drawing.Point(96, 134);
+            this.HitDieUpDown.Location = new System.Drawing.Point(96, 154);
             this.HitDieUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -343,14 +346,14 @@
             // 
             // HitDieTextBox
             // 
-            this.HitDieTextBox.Location = new System.Drawing.Point(218, 133);
+            this.HitDieTextBox.Location = new System.Drawing.Point(218, 153);
             this.HitDieTextBox.Name = "HitDieTextBox";
             this.HitDieTextBox.Size = new System.Drawing.Size(100, 20);
             this.HitDieTextBox.TabIndex = 9;
             // 
             // GenerateHPBonus
             // 
-            this.GenerateHPBonus.Location = new System.Drawing.Point(96, 160);
+            this.GenerateHPBonus.Location = new System.Drawing.Point(96, 180);
             this.GenerateHPBonus.Name = "GenerateHPBonus";
             this.GenerateHPBonus.Size = new System.Drawing.Size(118, 23);
             this.GenerateHPBonus.TabIndex = 10;
@@ -361,7 +364,7 @@
             // 
             // StrUpDown
             // 
-            this.StrUpDown.Location = new System.Drawing.Point(2, 341);
+            this.StrUpDown.Location = new System.Drawing.Point(2, 366);
             this.StrUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -379,7 +382,7 @@
             // 
             // DexUpDown
             // 
-            this.DexUpDown.Location = new System.Drawing.Point(84, 341);
+            this.DexUpDown.Location = new System.Drawing.Point(84, 366);
             this.DexUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -397,7 +400,7 @@
             // 
             // ConUpDown
             // 
-            this.ConUpDown.Location = new System.Drawing.Point(159, 341);
+            this.ConUpDown.Location = new System.Drawing.Point(159, 366);
             this.ConUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -415,7 +418,7 @@
             // 
             // IntUpDown
             // 
-            this.IntUpDown.Location = new System.Drawing.Point(234, 341);
+            this.IntUpDown.Location = new System.Drawing.Point(234, 366);
             this.IntUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -433,7 +436,7 @@
             // 
             // WisUpDown
             // 
-            this.WisUpDown.Location = new System.Drawing.Point(313, 341);
+            this.WisUpDown.Location = new System.Drawing.Point(313, 366);
             this.WisUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -451,7 +454,7 @@
             // 
             // ChaUpDown
             // 
-            this.ChaUpDown.Location = new System.Drawing.Point(389, 341);
+            this.ChaUpDown.Location = new System.Drawing.Point(389, 366);
             this.ChaUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -470,7 +473,7 @@
             // Str
             // 
             this.Str.AutoSize = true;
-            this.Str.Location = new System.Drawing.Point(17, 325);
+            this.Str.Location = new System.Drawing.Point(17, 350);
             this.Str.Name = "Str";
             this.Str.Size = new System.Drawing.Size(29, 13);
             this.Str.TabIndex = 19;
@@ -479,7 +482,7 @@
             // Dex
             // 
             this.Dex.AutoSize = true;
-            this.Dex.Location = new System.Drawing.Point(99, 325);
+            this.Dex.Location = new System.Drawing.Point(99, 350);
             this.Dex.Name = "Dex";
             this.Dex.Size = new System.Drawing.Size(29, 13);
             this.Dex.TabIndex = 20;
@@ -488,7 +491,7 @@
             // Con
             // 
             this.Con.AutoSize = true;
-            this.Con.Location = new System.Drawing.Point(171, 325);
+            this.Con.Location = new System.Drawing.Point(171, 350);
             this.Con.Name = "Con";
             this.Con.Size = new System.Drawing.Size(30, 13);
             this.Con.TabIndex = 21;
@@ -497,7 +500,7 @@
             // Int
             // 
             this.Int.AutoSize = true;
-            this.Int.Location = new System.Drawing.Point(253, 325);
+            this.Int.Location = new System.Drawing.Point(253, 350);
             this.Int.Name = "Int";
             this.Int.Size = new System.Drawing.Size(25, 13);
             this.Int.TabIndex = 23;
@@ -506,7 +509,7 @@
             // Wis
             // 
             this.Wis.AutoSize = true;
-            this.Wis.Location = new System.Drawing.Point(329, 325);
+            this.Wis.Location = new System.Drawing.Point(329, 350);
             this.Wis.Name = "Wis";
             this.Wis.Size = new System.Drawing.Size(28, 13);
             this.Wis.TabIndex = 23;
@@ -515,7 +518,7 @@
             // Cha
             // 
             this.Cha.AutoSize = true;
-            this.Cha.Location = new System.Drawing.Point(404, 325);
+            this.Cha.Location = new System.Drawing.Point(404, 350);
             this.Cha.Name = "Cha";
             this.Cha.Size = new System.Drawing.Size(29, 13);
             this.Cha.TabIndex = 24;
@@ -524,7 +527,7 @@
             // StrBonus
             // 
             this.StrBonus.AutoSize = true;
-            this.StrBonus.Location = new System.Drawing.Point(52, 343);
+            this.StrBonus.Location = new System.Drawing.Point(52, 368);
             this.StrBonus.Name = "StrBonus";
             this.StrBonus.Size = new System.Drawing.Size(19, 13);
             this.StrBonus.TabIndex = 25;
@@ -534,7 +537,7 @@
             // DexBonus
             // 
             this.DexBonus.AutoSize = true;
-            this.DexBonus.Location = new System.Drawing.Point(134, 345);
+            this.DexBonus.Location = new System.Drawing.Point(134, 370);
             this.DexBonus.Name = "DexBonus";
             this.DexBonus.Size = new System.Drawing.Size(19, 13);
             this.DexBonus.TabIndex = 26;
@@ -544,7 +547,7 @@
             // ConBonus
             // 
             this.ConBonus.AutoSize = true;
-            this.ConBonus.Location = new System.Drawing.Point(209, 343);
+            this.ConBonus.Location = new System.Drawing.Point(209, 368);
             this.ConBonus.Name = "ConBonus";
             this.ConBonus.Size = new System.Drawing.Size(19, 13);
             this.ConBonus.TabIndex = 27;
@@ -554,7 +557,7 @@
             // IntBonus
             // 
             this.IntBonus.AutoSize = true;
-            this.IntBonus.Location = new System.Drawing.Point(284, 343);
+            this.IntBonus.Location = new System.Drawing.Point(284, 368);
             this.IntBonus.Name = "IntBonus";
             this.IntBonus.Size = new System.Drawing.Size(19, 13);
             this.IntBonus.TabIndex = 28;
@@ -564,7 +567,7 @@
             // WisBonus
             // 
             this.WisBonus.AutoSize = true;
-            this.WisBonus.Location = new System.Drawing.Point(363, 343);
+            this.WisBonus.Location = new System.Drawing.Point(363, 368);
             this.WisBonus.Name = "WisBonus";
             this.WisBonus.Size = new System.Drawing.Size(19, 13);
             this.WisBonus.TabIndex = 29;
@@ -574,7 +577,7 @@
             // ChaBonus
             // 
             this.ChaBonus.AutoSize = true;
-            this.ChaBonus.Location = new System.Drawing.Point(439, 343);
+            this.ChaBonus.Location = new System.Drawing.Point(439, 368);
             this.ChaBonus.Name = "ChaBonus";
             this.ChaBonus.Size = new System.Drawing.Size(19, 13);
             this.ChaBonus.TabIndex = 30;
@@ -591,7 +594,7 @@
             "Large",
             "Huge",
             "Gargantuan"});
-            this.SizeDropDown.Location = new System.Drawing.Point(96, 35);
+            this.SizeDropDown.Location = new System.Drawing.Point(96, 55);
             this.SizeDropDown.Name = "SizeDropDown";
             this.SizeDropDown.Size = new System.Drawing.Size(222, 21);
             this.SizeDropDown.TabIndex = 1;
@@ -599,7 +602,7 @@
             // SizeLabel
             // 
             this.SizeLabel.AutoSize = true;
-            this.SizeLabel.Location = new System.Drawing.Point(14, 38);
+            this.SizeLabel.Location = new System.Drawing.Point(14, 58);
             this.SizeLabel.Name = "SizeLabel";
             this.SizeLabel.Size = new System.Drawing.Size(27, 13);
             this.SizeLabel.TabIndex = 32;
@@ -607,7 +610,7 @@
             // 
             // RollHPBonus
             // 
-            this.RollHPBonus.Location = new System.Drawing.Point(218, 160);
+            this.RollHPBonus.Location = new System.Drawing.Point(218, 180);
             this.RollHPBonus.Name = "RollHPBonus";
             this.RollHPBonus.Size = new System.Drawing.Size(100, 23);
             this.RollHPBonus.TabIndex = 11;
@@ -645,14 +648,14 @@
             "Troglodyte",
             "Yuan-Ti",
             "yugoloth"});
-            this.TagDropDown.Location = new System.Drawing.Point(218, 59);
+            this.TagDropDown.Location = new System.Drawing.Point(218, 79);
             this.TagDropDown.Name = "TagDropDown";
             this.TagDropDown.Size = new System.Drawing.Size(100, 21);
             this.TagDropDown.TabIndex = 3;
             // 
             // ACSourceTextBox
             // 
-            this.ACSourceTextBox.Location = new System.Drawing.Point(146, 108);
+            this.ACSourceTextBox.Location = new System.Drawing.Point(146, 128);
             this.ACSourceTextBox.Name = "ACSourceTextBox";
             this.ACSourceTextBox.Size = new System.Drawing.Size(172, 20);
             this.ACSourceTextBox.TabIndex = 6;
@@ -664,7 +667,7 @@
             0,
             0,
             0});
-            this.burrowUpDown.Location = new System.Drawing.Point(275, 210);
+            this.burrowUpDown.Location = new System.Drawing.Point(275, 230);
             this.burrowUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -681,7 +684,7 @@
             0,
             0,
             0});
-            this.ClimbUpDown.Location = new System.Drawing.Point(275, 236);
+            this.ClimbUpDown.Location = new System.Drawing.Point(275, 256);
             this.ClimbUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -698,7 +701,7 @@
             0,
             0,
             0});
-            this.FlyUpDown.Location = new System.Drawing.Point(97, 262);
+            this.FlyUpDown.Location = new System.Drawing.Point(97, 282);
             this.FlyUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -715,7 +718,7 @@
             0,
             0,
             0});
-            this.SwimUpDown.Location = new System.Drawing.Point(97, 236);
+            this.SwimUpDown.Location = new System.Drawing.Point(97, 256);
             this.SwimUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -732,7 +735,7 @@
             0,
             0,
             0});
-            this.SpeedUpDown.Location = new System.Drawing.Point(97, 210);
+            this.SpeedUpDown.Location = new System.Drawing.Point(97, 230);
             this.SpeedUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -750,7 +753,7 @@
             // Speed
             // 
             this.Speed.AutoSize = true;
-            this.Speed.Location = new System.Drawing.Point(15, 212);
+            this.Speed.Location = new System.Drawing.Point(15, 232);
             this.Speed.Name = "Speed";
             this.Speed.Size = new System.Drawing.Size(38, 13);
             this.Speed.TabIndex = 41;
@@ -762,7 +765,7 @@
             // Burrow
             // 
             this.Burrow.AutoSize = true;
-            this.Burrow.Location = new System.Drawing.Point(216, 212);
+            this.Burrow.Location = new System.Drawing.Point(216, 232);
             this.Burrow.Name = "Burrow";
             this.Burrow.Size = new System.Drawing.Size(40, 13);
             this.Burrow.TabIndex = 16;
@@ -774,7 +777,7 @@
             // Climb
             // 
             this.Climb.AutoSize = true;
-            this.Climb.Location = new System.Drawing.Point(216, 238);
+            this.Climb.Location = new System.Drawing.Point(216, 258);
             this.Climb.Name = "Climb";
             this.Climb.Size = new System.Drawing.Size(32, 13);
             this.Climb.TabIndex = 18;
@@ -786,7 +789,7 @@
             // Fly
             // 
             this.Fly.AutoSize = true;
-            this.Fly.Location = new System.Drawing.Point(15, 264);
+            this.Fly.Location = new System.Drawing.Point(15, 284);
             this.Fly.Name = "Fly";
             this.Fly.Size = new System.Drawing.Size(20, 13);
             this.Fly.TabIndex = 44;
@@ -798,7 +801,7 @@
             // Swim
             // 
             this.Swim.AutoSize = true;
-            this.Swim.Location = new System.Drawing.Point(15, 238);
+            this.Swim.Location = new System.Drawing.Point(15, 258);
             this.Swim.Name = "Swim";
             this.Swim.Size = new System.Drawing.Size(32, 13);
             this.Swim.TabIndex = 45;
@@ -810,7 +813,7 @@
             // HoverCheckBox
             // 
             this.HoverCheckBox.AutoSize = true;
-            this.HoverCheckBox.Location = new System.Drawing.Point(147, 265);
+            this.HoverCheckBox.Location = new System.Drawing.Point(147, 285);
             this.HoverCheckBox.Name = "HoverCheckBox";
             this.HoverCheckBox.Size = new System.Drawing.Size(55, 17);
             this.HoverCheckBox.TabIndex = 15;
@@ -820,7 +823,7 @@
             // ChallengeRating
             // 
             this.ChallengeRating.AutoSize = true;
-            this.ChallengeRating.Location = new System.Drawing.Point(40, 649);
+            this.ChallengeRating.Location = new System.Drawing.Point(40, 674);
             this.ChallengeRating.Name = "ChallengeRating";
             this.ChallengeRating.Size = new System.Drawing.Size(88, 13);
             this.ChallengeRating.TabIndex = 48;
@@ -864,7 +867,7 @@
             "28",
             "29",
             "30"});
-            this.ChallengeRatingDropDown.Location = new System.Drawing.Point(134, 646);
+            this.ChallengeRatingDropDown.Location = new System.Drawing.Point(134, 671);
             this.ChallengeRatingDropDown.Name = "ChallengeRatingDropDown";
             this.ChallengeRatingDropDown.Size = new System.Drawing.Size(121, 21);
             this.ChallengeRatingDropDown.TabIndex = 49;
@@ -874,7 +877,7 @@
             // Profiency
             // 
             this.Profiency.AutoSize = true;
-            this.Profiency.Location = new System.Drawing.Point(41, 671);
+            this.Profiency.Location = new System.Drawing.Point(41, 696);
             this.Profiency.Name = "Profiency";
             this.Profiency.Size = new System.Drawing.Size(59, 13);
             this.Profiency.TabIndex = 50;
@@ -883,7 +886,7 @@
             // ProfBonus
             // 
             this.ProfBonus.AutoSize = true;
-            this.ProfBonus.Location = new System.Drawing.Point(132, 671);
+            this.ProfBonus.Location = new System.Drawing.Point(132, 696);
             this.ProfBonus.Name = "ProfBonus";
             this.ProfBonus.Size = new System.Drawing.Size(25, 13);
             this.ProfBonus.TabIndex = 51;
@@ -891,7 +894,7 @@
             // 
             // StrSaveBonusUpDown
             // 
-            this.StrSaveBonusUpDown.Location = new System.Drawing.Point(2, 403);
+            this.StrSaveBonusUpDown.Location = new System.Drawing.Point(2, 428);
             this.StrSaveBonusUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -908,7 +911,7 @@
             // 
             // DexSaveBonusUpDown
             // 
-            this.DexSaveBonusUpDown.Location = new System.Drawing.Point(84, 403);
+            this.DexSaveBonusUpDown.Location = new System.Drawing.Point(84, 428);
             this.DexSaveBonusUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -925,7 +928,7 @@
             // 
             // ConSaveBonusUpDown
             // 
-            this.ConSaveBonusUpDown.Location = new System.Drawing.Point(159, 403);
+            this.ConSaveBonusUpDown.Location = new System.Drawing.Point(159, 428);
             this.ConSaveBonusUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -942,7 +945,7 @@
             // 
             // IntSaveBonusUpDown
             // 
-            this.IntSaveBonusUpDown.Location = new System.Drawing.Point(234, 403);
+            this.IntSaveBonusUpDown.Location = new System.Drawing.Point(234, 428);
             this.IntSaveBonusUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -959,7 +962,7 @@
             // 
             // WisSaveBonusUpDown
             // 
-            this.WisSaveBonusUpDown.Location = new System.Drawing.Point(313, 403);
+            this.WisSaveBonusUpDown.Location = new System.Drawing.Point(313, 428);
             this.WisSaveBonusUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -976,7 +979,7 @@
             // 
             // ChaSaveBonusUpDown
             // 
-            this.ChaSaveBonusUpDown.Location = new System.Drawing.Point(389, 403);
+            this.ChaSaveBonusUpDown.Location = new System.Drawing.Point(389, 428);
             this.ChaSaveBonusUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -995,7 +998,7 @@
             // 
             this.SavingThrowBonuses.AutoSize = true;
             this.SavingThrowBonuses.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.SavingThrowBonuses.Location = new System.Drawing.Point(2, 371);
+            this.SavingThrowBonuses.Location = new System.Drawing.Point(2, 396);
             this.SavingThrowBonuses.Name = "SavingThrowBonuses";
             this.SavingThrowBonuses.Size = new System.Drawing.Size(166, 16);
             this.SavingThrowBonuses.TabIndex = 56;
@@ -1004,7 +1007,7 @@
             // StrSaveBonus
             // 
             this.StrSaveBonus.AutoSize = true;
-            this.StrSaveBonus.Location = new System.Drawing.Point(17, 387);
+            this.StrSaveBonus.Location = new System.Drawing.Point(17, 412);
             this.StrSaveBonus.Name = "StrSaveBonus";
             this.StrSaveBonus.Size = new System.Drawing.Size(29, 13);
             this.StrSaveBonus.TabIndex = 59;
@@ -1013,7 +1016,7 @@
             // DexSaveBonus
             // 
             this.DexSaveBonus.AutoSize = true;
-            this.DexSaveBonus.Location = new System.Drawing.Point(99, 387);
+            this.DexSaveBonus.Location = new System.Drawing.Point(99, 412);
             this.DexSaveBonus.Name = "DexSaveBonus";
             this.DexSaveBonus.Size = new System.Drawing.Size(29, 13);
             this.DexSaveBonus.TabIndex = 60;
@@ -1022,7 +1025,7 @@
             // ConSaveBonus
             // 
             this.ConSaveBonus.AutoSize = true;
-            this.ConSaveBonus.Location = new System.Drawing.Point(171, 387);
+            this.ConSaveBonus.Location = new System.Drawing.Point(171, 412);
             this.ConSaveBonus.Name = "ConSaveBonus";
             this.ConSaveBonus.Size = new System.Drawing.Size(30, 13);
             this.ConSaveBonus.TabIndex = 61;
@@ -1031,7 +1034,7 @@
             // IntSaveBonus
             // 
             this.IntSaveBonus.AutoSize = true;
-            this.IntSaveBonus.Location = new System.Drawing.Point(253, 387);
+            this.IntSaveBonus.Location = new System.Drawing.Point(253, 412);
             this.IntSaveBonus.Name = "IntSaveBonus";
             this.IntSaveBonus.Size = new System.Drawing.Size(25, 13);
             this.IntSaveBonus.TabIndex = 62;
@@ -1040,7 +1043,7 @@
             // WisSaveBonus
             // 
             this.WisSaveBonus.AutoSize = true;
-            this.WisSaveBonus.Location = new System.Drawing.Point(329, 387);
+            this.WisSaveBonus.Location = new System.Drawing.Point(329, 412);
             this.WisSaveBonus.Name = "WisSaveBonus";
             this.WisSaveBonus.Size = new System.Drawing.Size(28, 13);
             this.WisSaveBonus.TabIndex = 63;
@@ -1049,7 +1052,7 @@
             // ChaSaveBonus
             // 
             this.ChaSaveBonus.AutoSize = true;
-            this.ChaSaveBonus.Location = new System.Drawing.Point(404, 387);
+            this.ChaSaveBonus.Location = new System.Drawing.Point(404, 412);
             this.ChaSaveBonus.Name = "ChaSaveBonus";
             this.ChaSaveBonus.Size = new System.Drawing.Size(29, 13);
             this.ChaSaveBonus.TabIndex = 64;
@@ -1059,7 +1062,7 @@
             // 
             this.AbilityScores.AutoSize = true;
             this.AbilityScores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.AbilityScores.Location = new System.Drawing.Point(2, 307);
+            this.AbilityScores.Location = new System.Drawing.Point(2, 332);
             this.AbilityScores.Name = "AbilityScores";
             this.AbilityScores.Size = new System.Drawing.Size(104, 16);
             this.AbilityScores.TabIndex = 65;
@@ -1102,14 +1105,14 @@
             "Restrained",
             "Stunned",
             "Unconscious"});
-            this.DamageConditionDropDown.Location = new System.Drawing.Point(9, 597);
+            this.DamageConditionDropDown.Location = new System.Drawing.Point(9, 622);
             this.DamageConditionDropDown.Name = "DamageConditionDropDown";
             this.DamageConditionDropDown.Size = new System.Drawing.Size(142, 21);
             this.DamageConditionDropDown.TabIndex = 30;
             // 
             // AddVulnerabilityButton
             // 
-            this.AddVulnerabilityButton.Location = new System.Drawing.Point(461, 595);
+            this.AddVulnerabilityButton.Location = new System.Drawing.Point(461, 620);
             this.AddVulnerabilityButton.Name = "AddVulnerabilityButton";
             this.AddVulnerabilityButton.Size = new System.Drawing.Size(79, 23);
             this.AddVulnerabilityButton.TabIndex = 31;
@@ -1139,14 +1142,14 @@
             "Darkvision",
             "Tremorsense",
             "Truesight"});
-            this.SensesDropDown.Location = new System.Drawing.Point(6, 468);
+            this.SensesDropDown.Location = new System.Drawing.Point(6, 493);
             this.SensesDropDown.Name = "SensesDropDown";
             this.SensesDropDown.Size = new System.Drawing.Size(129, 21);
             this.SensesDropDown.TabIndex = 34;
             // 
             // AddSenseButton
             // 
-            this.AddSenseButton.Location = new System.Drawing.Point(202, 466);
+            this.AddSenseButton.Location = new System.Drawing.Point(202, 491);
             this.AddSenseButton.Name = "AddSenseButton";
             this.AddSenseButton.Size = new System.Drawing.Size(44, 23);
             this.AddSenseButton.TabIndex = 37;
@@ -1161,7 +1164,7 @@
             0,
             0,
             0});
-            this.DistanceUpDown.Location = new System.Drawing.Point(145, 469);
+            this.DistanceUpDown.Location = new System.Drawing.Point(145, 494);
             this.DistanceUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -1179,7 +1182,7 @@
             // Distance
             // 
             this.Distance.AutoSize = true;
-            this.Distance.Location = new System.Drawing.Point(142, 453);
+            this.Distance.Location = new System.Drawing.Point(142, 478);
             this.Distance.Name = "Distance";
             this.Distance.Size = new System.Drawing.Size(49, 13);
             this.Distance.TabIndex = 36;
@@ -1187,7 +1190,7 @@
             // 
             // AddLanguageButton
             // 
-            this.AddLanguageButton.Location = new System.Drawing.Point(502, 466);
+            this.AddLanguageButton.Location = new System.Drawing.Point(502, 491);
             this.AddLanguageButton.Name = "AddLanguageButton";
             this.AddLanguageButton.Size = new System.Drawing.Size(44, 23);
             this.AddLanguageButton.TabIndex = 39;
@@ -1197,7 +1200,7 @@
             // 
             // PreviewButton
             // 
-            this.PreviewButton.Location = new System.Drawing.Point(467, 662);
+            this.PreviewButton.Location = new System.Drawing.Point(467, 687);
             this.PreviewButton.Name = "PreviewButton";
             this.PreviewButton.Size = new System.Drawing.Size(75, 23);
             this.PreviewButton.TabIndex = 54;
@@ -1207,7 +1210,7 @@
             // 
             // AddAbilityButton
             // 
-            this.AddAbilityButton.Location = new System.Drawing.Point(474, 325);
+            this.AddAbilityButton.Location = new System.Drawing.Point(474, 350);
             this.AddAbilityButton.Name = "AddAbilityButton";
             this.AddAbilityButton.Size = new System.Drawing.Size(88, 23);
             this.AddAbilityButton.TabIndex = 46;
@@ -1217,7 +1220,7 @@
             // 
             // AddActionButton
             // 
-            this.AddActionButton.Location = new System.Drawing.Point(474, 351);
+            this.AddActionButton.Location = new System.Drawing.Point(474, 376);
             this.AddActionButton.Name = "AddActionButton";
             this.AddActionButton.Size = new System.Drawing.Size(88, 23);
             this.AddActionButton.TabIndex = 47;
@@ -1251,14 +1254,14 @@
             "Intimidation (Cha)",
             "Performance (Cha)",
             "Persuasion (Cha)"});
-            this.SkillDropDown.Location = new System.Drawing.Point(3, 527);
+            this.SkillDropDown.Location = new System.Drawing.Point(3, 552);
             this.SkillDropDown.Name = "SkillDropDown";
             this.SkillDropDown.Size = new System.Drawing.Size(181, 21);
             this.SkillDropDown.TabIndex = 40;
             // 
             // AddSkillButton
             // 
-            this.AddSkillButton.Location = new System.Drawing.Point(491, 524);
+            this.AddSkillButton.Location = new System.Drawing.Point(491, 549);
             this.AddSkillButton.Name = "AddSkillButton";
             this.AddSkillButton.Size = new System.Drawing.Size(71, 23);
             this.AddSkillButton.TabIndex = 42;
@@ -1269,7 +1272,7 @@
             // 
             // SkillBonus
             // 
-            this.SkillBonus.Location = new System.Drawing.Point(188, 527);
+            this.SkillBonus.Location = new System.Drawing.Point(188, 552);
             this.SkillBonus.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -1281,7 +1284,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(467, 638);
+            this.SaveButton.Location = new System.Drawing.Point(467, 663);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 53;
@@ -1291,7 +1294,7 @@
             // 
             // LoadButton
             // 
-            this.LoadButton.Location = new System.Drawing.Point(386, 638);
+            this.LoadButton.Location = new System.Drawing.Point(386, 663);
             this.LoadButton.Name = "LoadButton";
             this.LoadButton.Size = new System.Drawing.Size(75, 23);
             this.LoadButton.TabIndex = 52;
@@ -1306,7 +1309,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(617, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(608, 690);
+            this.panel1.Size = new System.Drawing.Size(608, 722);
             this.panel1.TabIndex = 90;
             // 
             // tableLayoutPanel1
@@ -1323,7 +1326,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.5481F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.45189F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(604, 686);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(604, 718);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -1349,7 +1352,7 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 5, 0);
             this.tableLayoutPanel2.Controls.Add(this.ExportReddit, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 5, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 583);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 613);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1533,7 +1536,7 @@
             "Custom Statblock",
             "Reddit",
             "Future"});
-            this.PreviewTemplateSelector.Location = new System.Drawing.Point(305, 664);
+            this.PreviewTemplateSelector.Location = new System.Drawing.Point(305, 689);
             this.PreviewTemplateSelector.Name = "PreviewTemplateSelector";
             this.PreviewTemplateSelector.Size = new System.Drawing.Size(156, 21);
             this.PreviewTemplateSelector.TabIndex = 50;
@@ -1570,7 +1573,7 @@
             "Worg",
             "White Wolf",
             "Yeti"});
-            this.LanguageComboBox.Location = new System.Drawing.Point(313, 468);
+            this.LanguageComboBox.Location = new System.Drawing.Point(313, 493);
             this.LanguageComboBox.Name = "LanguageComboBox";
             this.LanguageComboBox.Size = new System.Drawing.Size(183, 21);
             this.LanguageComboBox.TabIndex = 38;
@@ -1580,7 +1583,7 @@
             this.SkillStatCheckBox.AutoSize = true;
             this.SkillStatCheckBox.Checked = true;
             this.SkillStatCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.SkillStatCheckBox.Location = new System.Drawing.Point(238, 529);
+            this.SkillStatCheckBox.Location = new System.Drawing.Point(238, 554);
             this.SkillStatCheckBox.Name = "SkillStatCheckBox";
             this.SkillStatCheckBox.Size = new System.Drawing.Size(67, 17);
             this.SkillStatCheckBox.TabIndex = 43;
@@ -1592,7 +1595,7 @@
             this.SkillBonusCheckBox.AutoSize = true;
             this.SkillBonusCheckBox.Checked = true;
             this.SkillBonusCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.SkillBonusCheckBox.Location = new System.Drawing.Point(310, 529);
+            this.SkillBonusCheckBox.Location = new System.Drawing.Point(310, 554);
             this.SkillBonusCheckBox.Name = "SkillBonusCheckBox";
             this.SkillBonusCheckBox.Size = new System.Drawing.Size(78, 17);
             this.SkillBonusCheckBox.TabIndex = 44;
@@ -1604,7 +1607,7 @@
             this.SkillProfCheckBox.AutoSize = true;
             this.SkillProfCheckBox.Checked = true;
             this.SkillProfCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.SkillProfCheckBox.Location = new System.Drawing.Point(386, 529);
+            this.SkillProfCheckBox.Location = new System.Drawing.Point(386, 554);
             this.SkillProfCheckBox.Name = "SkillProfCheckBox";
             this.SkillProfCheckBox.Size = new System.Drawing.Size(100, 17);
             this.SkillProfCheckBox.TabIndex = 45;
@@ -1627,7 +1630,7 @@
             // 
             // NewMonsterButton
             // 
-            this.NewMonsterButton.Location = new System.Drawing.Point(305, 638);
+            this.NewMonsterButton.Location = new System.Drawing.Point(305, 663);
             this.NewMonsterButton.Name = "NewMonsterButton";
             this.NewMonsterButton.Size = new System.Drawing.Size(75, 23);
             this.NewMonsterButton.TabIndex = 51;
@@ -1638,7 +1641,7 @@
             // CRHelperLabel
             // 
             this.CRHelperLabel.AutoSize = true;
-            this.CRHelperLabel.Location = new System.Drawing.Point(101, 626);
+            this.CRHelperLabel.Location = new System.Drawing.Point(101, 651);
             this.CRHelperLabel.Name = "CRHelperLabel";
             this.CRHelperLabel.Size = new System.Drawing.Size(155, 13);
             this.CRHelperLabel.TabIndex = 99;
@@ -1646,7 +1649,7 @@
             // 
             // AddLegendaryButton
             // 
-            this.AddLegendaryButton.Location = new System.Drawing.Point(474, 380);
+            this.AddLegendaryButton.Location = new System.Drawing.Point(474, 405);
             this.AddLegendaryButton.Name = "AddLegendaryButton";
             this.AddLegendaryButton.Size = new System.Drawing.Size(88, 23);
             this.AddLegendaryButton.TabIndex = 48;
@@ -1666,7 +1669,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1228, 696);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1228, 728);
             this.tableLayoutPanel4.TabIndex = 102;
             // 
             // panel2
@@ -1674,6 +1677,9 @@
             this.panel2.AutoScroll = true;
             this.panel2.AutoSize = true;
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel2.Controls.Add(this.GenderDropDown);
+            this.panel2.Controls.Add(this.GenderLabel);
+            this.panel2.Controls.Add(this.UniqueCheckBox);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.AddSaved);
@@ -1788,9 +1794,41 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(608, 690);
+            this.panel2.Size = new System.Drawing.Size(608, 722);
             this.panel2.TabIndex = 103;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // GenderDropDown
+            // 
+            this.GenderDropDown.FormattingEnabled = true;
+            this.GenderDropDown.Items.AddRange(new object[] {
+            "Female",
+            "Male",
+            "Neutral"});
+            this.GenderDropDown.Location = new System.Drawing.Point(96, 31);
+            this.GenderDropDown.Name = "GenderDropDown";
+            this.GenderDropDown.Size = new System.Drawing.Size(116, 21);
+            this.GenderDropDown.TabIndex = 120;
+            // 
+            // GenderLabel
+            // 
+            this.GenderLabel.AutoSize = true;
+            this.GenderLabel.Location = new System.Drawing.Point(14, 34);
+            this.GenderLabel.Name = "GenderLabel";
+            this.GenderLabel.Size = new System.Drawing.Size(42, 13);
+            this.GenderLabel.TabIndex = 121;
+            this.GenderLabel.Text = "Gender";
+            // 
+            // UniqueCheckBox
+            // 
+            this.UniqueCheckBox.AutoSize = true;
+            this.UniqueCheckBox.Location = new System.Drawing.Point(219, 34);
+            this.UniqueCheckBox.Name = "UniqueCheckBox";
+            this.UniqueCheckBox.Size = new System.Drawing.Size(60, 17);
+            this.UniqueCheckBox.TabIndex = 119;
+            this.UniqueCheckBox.Text = "Unique";
+            this.UniqueCheckBox.UseVisualStyleBackColor = true;
+            this.UniqueCheckBox.CheckedChanged += new System.EventHandler(this.UniqueCheckBox_CheckedChanged);
             // 
             // pictureBox1
             // 
@@ -1806,7 +1844,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(422, 564);
+            this.button1.Location = new System.Drawing.Point(422, 589);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(118, 23);
             this.button1.TabIndex = 118;
@@ -1817,7 +1855,7 @@
             // 
             // AddSaved
             // 
-            this.AddSaved.Location = new System.Drawing.Point(461, 409);
+            this.AddSaved.Location = new System.Drawing.Point(461, 434);
             this.AddSaved.Name = "AddSaved";
             this.AddSaved.Size = new System.Drawing.Size(112, 23);
             this.AddSaved.TabIndex = 117;
@@ -1875,14 +1913,14 @@
             "Vulnerability",
             "Resistance",
             "Immunity"});
-            this.DamageModificationType.Location = new System.Drawing.Point(157, 597);
+            this.DamageModificationType.Location = new System.Drawing.Point(157, 622);
             this.DamageModificationType.Name = "DamageModificationType";
             this.DamageModificationType.Size = new System.Drawing.Size(121, 21);
             this.DamageModificationType.TabIndex = 111;
             // 
             // TraitException
             // 
-            this.TraitException.Location = new System.Drawing.Point(284, 597);
+            this.TraitException.Location = new System.Drawing.Point(284, 622);
             this.TraitException.Name = "TraitException";
             this.TraitException.Size = new System.Drawing.Size(171, 20);
             this.TraitException.TabIndex = 100;
@@ -1890,7 +1928,7 @@
             // ExceptionSourceLabel
             // 
             this.ExceptionSourceLabel.AutoSize = true;
-            this.ExceptionSourceLabel.Location = new System.Drawing.Point(6, 581);
+            this.ExceptionSourceLabel.Location = new System.Drawing.Point(6, 606);
             this.ExceptionSourceLabel.Name = "ExceptionSourceLabel";
             this.ExceptionSourceLabel.Size = new System.Drawing.Size(91, 13);
             this.ExceptionSourceLabel.TabIndex = 113;
@@ -1899,7 +1937,7 @@
             // ExceptionTypeLabel
             // 
             this.ExceptionTypeLabel.AutoSize = true;
-            this.ExceptionTypeLabel.Location = new System.Drawing.Point(156, 581);
+            this.ExceptionTypeLabel.Location = new System.Drawing.Point(156, 606);
             this.ExceptionTypeLabel.Name = "ExceptionTypeLabel";
             this.ExceptionTypeLabel.Size = new System.Drawing.Size(81, 13);
             this.ExceptionTypeLabel.TabIndex = 112;
@@ -1909,7 +1947,7 @@
             // 
             this.DamageModificationLabel.AutoSize = true;
             this.DamageModificationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.DamageModificationLabel.Location = new System.Drawing.Point(3, 564);
+            this.DamageModificationLabel.Location = new System.Drawing.Point(3, 589);
             this.DamageModificationLabel.Name = "DamageModificationLabel";
             this.DamageModificationLabel.Size = new System.Drawing.Size(155, 16);
             this.DamageModificationLabel.TabIndex = 110;
@@ -1918,7 +1956,7 @@
             // SkillSelectionLabel
             // 
             this.SkillSelectionLabel.AutoSize = true;
-            this.SkillSelectionLabel.Location = new System.Drawing.Point(6, 513);
+            this.SkillSelectionLabel.Location = new System.Drawing.Point(6, 538);
             this.SkillSelectionLabel.Name = "SkillSelectionLabel";
             this.SkillSelectionLabel.Size = new System.Drawing.Size(73, 13);
             this.SkillSelectionLabel.TabIndex = 109;
@@ -1927,7 +1965,7 @@
             // BonusModifierLabel
             // 
             this.BonusModifierLabel.AutoSize = true;
-            this.BonusModifierLabel.Location = new System.Drawing.Point(185, 511);
+            this.BonusModifierLabel.Location = new System.Drawing.Point(185, 536);
             this.BonusModifierLabel.Name = "BonusModifierLabel";
             this.BonusModifierLabel.Size = new System.Drawing.Size(37, 13);
             this.BonusModifierLabel.TabIndex = 108;
@@ -1937,7 +1975,7 @@
             // 
             this.SkillHeaderLabel.AutoSize = true;
             this.SkillHeaderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.SkillHeaderLabel.Location = new System.Drawing.Point(3, 497);
+            this.SkillHeaderLabel.Location = new System.Drawing.Point(3, 522);
             this.SkillHeaderLabel.Name = "SkillHeaderLabel";
             this.SkillHeaderLabel.Size = new System.Drawing.Size(46, 16);
             this.SkillHeaderLabel.TabIndex = 107;
@@ -1947,7 +1985,7 @@
             // 
             this.SpeedsHeaderLabel.AutoSize = true;
             this.SpeedsHeaderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.SpeedsHeaderLabel.Location = new System.Drawing.Point(2, 187);
+            this.SpeedsHeaderLabel.Location = new System.Drawing.Point(2, 207);
             this.SpeedsHeaderLabel.Name = "SpeedsHeaderLabel";
             this.SpeedsHeaderLabel.Size = new System.Drawing.Size(62, 16);
             this.SpeedsHeaderLabel.TabIndex = 106;
@@ -1956,7 +1994,7 @@
             // SensesLabel
             // 
             this.SensesLabel.AutoSize = true;
-            this.SensesLabel.Location = new System.Drawing.Point(6, 453);
+            this.SensesLabel.Location = new System.Drawing.Point(6, 478);
             this.SensesLabel.Name = "SensesLabel";
             this.SensesLabel.Size = new System.Drawing.Size(133, 13);
             this.SensesLabel.TabIndex = 105;
@@ -1966,7 +2004,7 @@
             // 
             this.LanguageHeaderLabel.AutoSize = true;
             this.LanguageHeaderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.LanguageHeaderLabel.Location = new System.Drawing.Point(310, 437);
+            this.LanguageHeaderLabel.Location = new System.Drawing.Point(310, 462);
             this.LanguageHeaderLabel.Name = "LanguageHeaderLabel";
             this.LanguageHeaderLabel.Size = new System.Drawing.Size(85, 16);
             this.LanguageHeaderLabel.TabIndex = 104;
@@ -1976,7 +2014,7 @@
             // 
             this.SensesHeaderLabel.AutoSize = true;
             this.SensesHeaderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.SensesHeaderLabel.Location = new System.Drawing.Point(3, 437);
+            this.SensesHeaderLabel.Location = new System.Drawing.Point(3, 462);
             this.SensesHeaderLabel.Name = "SensesHeaderLabel";
             this.SensesHeaderLabel.Size = new System.Drawing.Size(60, 16);
             this.SensesHeaderLabel.TabIndex = 103;
@@ -1985,7 +2023,7 @@
             // SpeedHelperLabel
             // 
             this.SpeedHelperLabel.AutoSize = true;
-            this.SpeedHelperLabel.Location = new System.Drawing.Point(9, 285);
+            this.SpeedHelperLabel.Location = new System.Drawing.Point(9, 305);
             this.SpeedHelperLabel.Name = "SpeedHelperLabel";
             this.SpeedHelperLabel.Size = new System.Drawing.Size(169, 13);
             this.SpeedHelperLabel.TabIndex = 102;
@@ -1994,7 +2032,7 @@
             // ExceptionText
             // 
             this.ExceptionText.AutoSize = true;
-            this.ExceptionText.Location = new System.Drawing.Point(284, 581);
+            this.ExceptionText.Location = new System.Drawing.Point(284, 606);
             this.ExceptionText.Name = "ExceptionText";
             this.ExceptionText.Size = new System.Drawing.Size(78, 13);
             this.ExceptionText.TabIndex = 101;
@@ -2004,7 +2042,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1228, 696);
+            this.ClientSize = new System.Drawing.Size(1228, 728);
             this.Controls.Add(this.tableLayoutPanel4);
             this.Name = "Main";
             this.Text = "DND Monster Maker";
@@ -2184,7 +2222,9 @@
         public System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox checkBox1;
-
+        public System.Windows.Forms.CheckBox UniqueCheckBox;
+        public System.Windows.Forms.ComboBox GenderDropDown;
+        public System.Windows.Forms.Label GenderLabel;
     }
 }
 

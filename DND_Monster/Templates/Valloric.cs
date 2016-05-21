@@ -507,7 +507,7 @@ namespace DND_Monster
                 if (ability.isSpell)
                 {
                     output.Add(@"<property-block>");
-                    output.Add(ability.WebSpellcasterBoilerplate(CreatureName));
+                    output.Add(ability.WebSpellcasterBoilerplate(CreatureName, unique));
                     if (ability.Description.Contains("NotInnate"))
                     {
                         output.Add(ability.WebSpellBlockFormat_NotInnate());
