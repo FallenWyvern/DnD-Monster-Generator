@@ -47,6 +47,9 @@ namespace DND_Monster
         public string CreatureSize = "";
         public string CreatureType = "";
         public string CreatureAlign = "";
+
+        public bool unique;
+        public string CreatureGender = "";
     }
 
     public class SavedTraitData

@@ -1809,6 +1809,7 @@
             this.GenderDropDown.Name = "GenderDropDown";
             this.GenderDropDown.Size = new System.Drawing.Size(116, 21);
             this.GenderDropDown.TabIndex = 120;
+            this.GenderDropDown.SelectedIndexChanged += new System.EventHandler(this.GenderDropDown_SelectedIndexChanged);
             // 
             // GenderLabel
             // 
