@@ -191,15 +191,15 @@ namespace DND_Monster
                     {
                         temp = temp.Replace("Passive", "passive");
                     }
-                }
-                
+                }                
+
                 if (temp.ToLower().Contains("passive"))
                 {                    
                     senses += temp.Trim() + ", ";
                 }
                 else
                 {                    
-                    senses += temp.ToLower() + "., ";
+                    senses += temp.ToLower() + ", ";
                 }
             }
             if (senses.Length > 2)

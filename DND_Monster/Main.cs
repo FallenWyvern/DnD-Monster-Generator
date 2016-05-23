@@ -166,11 +166,19 @@ namespace DND_Monster
         // Adds senses to TraitList
         private void addSense(object sender, EventArgs e)
         {
-            string addString = "Sense: " + SensesDropDown.Text;
+            string item = SensesDropDown.Text;            
+            string addString = "Sense: " + item;
             
             if (SensesDropDown.Text != "Passive Perception")
             {
-                addString += " " + DistanceUpDown.Value + " ft";
+                if (item.Contains("("))
+                {
+                    addString = "Sense: " + item.Split('(')[0] + DistanceUpDown.Value + " ft. " + " (" + item.Split('(')[1];
+                }
+                else
+                {
+                    addString += " " + DistanceUpDown.Value + " ft.";
+                }
             }
             else
             {
