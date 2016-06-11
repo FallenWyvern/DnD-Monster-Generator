@@ -102,7 +102,7 @@ namespace DND_Monster
                 if (!name.Contains('*')) { name = name.ToLower(); }
             }
             return "The " + name + " can take 3 legendary actions, choosing from the options below. Only one legendary action can be" + 
-            "used at a time and only at the end of another creature's turn. The " + name + " regains spent legendary actions at the start of its turn.";
+            " used at a time and only at the end of another creature's turn. The " + name + " regains spent legendary actions at the start of its turn.";
         }
     }
 
@@ -689,7 +689,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "5.1.5";
+        public static string Version = "5.1.6";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = System.IO.Directory.GetCurrentDirectory().ToString();
         public static string TemplateName = "Valloric's Statblock";
