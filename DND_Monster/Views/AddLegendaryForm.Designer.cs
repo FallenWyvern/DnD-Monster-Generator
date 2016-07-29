@@ -37,13 +37,16 @@
             this.ListHelperLabel = new System.Windows.Forms.Label();
             this.AbilityName = new System.Windows.Forms.TextBox();
             this.AbilityNameLabel = new System.Windows.Forms.Label();
+            this.numberOfLegendaryActions = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.numberOfLegendaryActions)).BeginInit();
             this.SuspendLayout();
             // 
             // LegendaryAbilityName
             // 
             this.LegendaryAbilityName.Location = new System.Drawing.Point(52, 12);
             this.LegendaryAbilityName.Name = "LegendaryAbilityName";
-            this.LegendaryAbilityName.Size = new System.Drawing.Size(327, 20);
+            this.LegendaryAbilityName.Size = new System.Drawing.Size(218, 20);
             this.LegendaryAbilityName.TabIndex = 0;
             this.LegendaryAbilityName.TextChanged += new System.EventHandler(this.UpdateTitle);
             // 
@@ -108,7 +111,7 @@
             // 
             this.AbilityName.Location = new System.Drawing.Point(82, 38);
             this.AbilityName.Name = "AbilityName";
-            this.AbilityName.Size = new System.Drawing.Size(297, 20);
+            this.AbilityName.Size = new System.Drawing.Size(188, 20);
             this.AbilityName.TabIndex = 1;
             // 
             // AbilityNameLabel
@@ -120,11 +123,34 @@
             this.AbilityNameLabel.TabIndex = 8;
             this.AbilityNameLabel.Text = "Ability Name";
             // 
+            // numberOfLegendaryActions
+            // 
+            this.numberOfLegendaryActions.Location = new System.Drawing.Point(276, 39);
+            this.numberOfLegendaryActions.Name = "numberOfLegendaryActions";
+            this.numberOfLegendaryActions.Size = new System.Drawing.Size(91, 20);
+            this.numberOfLegendaryActions.TabIndex = 9;
+            this.numberOfLegendaryActions.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(273, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Number of Actions";
+            // 
             // AddLegendaryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 462);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.numberOfLegendaryActions);
             this.Controls.Add(this.AbilityNameLabel);
             this.Controls.Add(this.ListHelperLabel);
             this.Controls.Add(this.NameLabel);
@@ -138,6 +164,7 @@
             this.Name = "AddLegendaryForm";
             this.Text = "Add Legendary Action";
             this.Load += new System.EventHandler(this.AddLegendaryForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numberOfLegendaryActions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,6 +181,8 @@
         public System.Windows.Forms.Label ListHelperLabel;
         public System.Windows.Forms.TextBox AbilityName;
         public System.Windows.Forms.Label AbilityNameLabel;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.NumericUpDown numberOfLegendaryActions;
 
     }
 }

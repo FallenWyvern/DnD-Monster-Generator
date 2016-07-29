@@ -377,6 +377,7 @@ namespace DND_Monster
                     if (TraitsList.Items.Contains(addLegendary.LegendaryAbility.Title)) { addLegendary.LegendaryAbility.Title += "_"; }                    
                     Monster.AddLegendary(addLegendary.LegendaryAbility);
                     TraitsList.Items.Add("Legendary: " + addLegendary.LegendaryAbility.Title);
+                    Settings.LegendaryActions = addLegendary.numberOfLegendaryActions.Value.ToString();
                 }
             };
         }
@@ -946,6 +947,8 @@ namespace DND_Monster
                 {
                     TraitsList.Items.Add("Reaction: " + reaction.Title);
                 }
+
+                Settings.LegendaryActions = jsonMonster.LegendaryActions;
 
                 foreach (Legendary epic in Monster._Legendaries)
                 {

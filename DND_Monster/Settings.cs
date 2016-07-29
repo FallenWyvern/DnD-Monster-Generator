@@ -10,6 +10,7 @@ namespace DND_Monster
     {
         public static string SettingsFile = "DND_monster.ini";
         public static string SpellTimesPerDay = "Times Per Day";
+        public static string LegendaryActions = "3";
         public static string SpellLevel = "Spell Level";
         public static string TranslationFile = "";
         public static bool isFeet = true;

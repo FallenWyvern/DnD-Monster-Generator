@@ -316,7 +316,7 @@ namespace DND_Monster
             fillTarget.DEX = DEX;
             fillTarget.HP = HP;
             fillTarget.INT = INT;
-            //fillTarget.output = output;
+            fillTarget.LegendaryActions = Settings.LegendaryActions;
             fillTarget.proficency = proficency;
             fillTarget.SavingThrowBonuses = SavingThrowBonuses;
             fillTarget.SkillBonuses = SkillBonuses;

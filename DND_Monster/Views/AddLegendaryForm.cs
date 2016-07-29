@@ -23,6 +23,7 @@ namespace DND_Monster
         private void AddLegendaryForm_Load(object sender, EventArgs e)
         {
             //Traits.Sorted = true;
+            numberOfLegendaryActions.Value = Convert.ToInt32(Settings.LegendaryActions);
         }
 
         // Constructs the Legendary object.

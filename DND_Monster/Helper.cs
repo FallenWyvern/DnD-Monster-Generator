@@ -26,7 +26,9 @@ namespace DND_Monster
         public List<Ability> _Abilities = new List<Ability>();
         public List<Ability> _Actions = new List<Ability>();
         public List<Ability> _Reactions = new List<Ability>();
-        public List<Legendary> _Legendaries = new List<Legendary>();        
+        public List<Legendary> _Legendaries = new List<Legendary>();
+
+        public string LegendaryActions { get; set; }
 
         public string Title = "";
         public int STR = 0;
@@ -101,8 +103,16 @@ namespace DND_Monster
             {
                 if (!name.Contains('*')) { name = name.ToLower(); }
             }
-            return "The " + name + " can take 3 legendary actions, choosing from the options below. Only one legendary action can be" + 
-            " used at a time and only at the end of another creature's turn. The " + name + " regains spent legendary actions at the start of its turn.";
+            if (Settings.LegendaryActions == "1")
+            {
+                return "The " + name + " can take " + Settings.LegendaryActions + " legendary action, choosing from the options below. " + 
+                "The " + name + " regains the spent legendary action at the start of its turn.";
+            }
+            else
+            {
+                return "The " + name + " can take " + Settings.LegendaryActions + " legendary actions, choosing from the options below. Only one legendary action can be" +
+                " used at a time and only at the end of another creature's turn. The " + name + " regains spent legendary actions at the start of its turn.";
+            }
         }
     }
 
@@ -689,7 +699,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "5.1.6";
+        public static string Version = "5.1.8";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = System.IO.Directory.GetCurrentDirectory().ToString();
         public static string TemplateName = "Valloric's Statblock";
