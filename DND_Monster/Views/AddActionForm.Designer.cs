@@ -65,6 +65,8 @@
             this.ReactionDescription = new System.Windows.Forms.RichTextBox();
             this.DescriptionLabel = new System.Windows.Forms.Label();
             this.ReactionNameLabel = new System.Windows.Forms.Label();
+            this.StrengthAttackButton = new System.Windows.Forms.Button();
+            this.DexterityAttackButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AttackBonusUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RangeUpDownClose)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -213,6 +215,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.DexterityAttackButton);
+            this.tabPage1.Controls.Add(this.StrengthAttackButton);
             this.tabPage1.Controls.Add(this.AttackTargetField);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.RangeUpDownFar);
@@ -526,6 +530,26 @@
             this.ReactionNameLabel.TabIndex = 11;
             this.ReactionNameLabel.Text = "Reaction Name";
             // 
+            // StrengthAttackButton
+            // 
+            this.StrengthAttackButton.Location = new System.Drawing.Point(8, 232);
+            this.StrengthAttackButton.Name = "StrengthAttackButton";
+            this.StrengthAttackButton.Size = new System.Drawing.Size(143, 23);
+            this.StrengthAttackButton.TabIndex = 2;
+            this.StrengthAttackButton.Text = "Use Strength";
+            this.StrengthAttackButton.UseVisualStyleBackColor = true;
+            this.StrengthAttackButton.Click += new System.EventHandler(this.StrengthAttackButton_Click);
+            // 
+            // DexterityAttackButton
+            // 
+            this.DexterityAttackButton.Location = new System.Drawing.Point(157, 232);
+            this.DexterityAttackButton.Name = "DexterityAttackButton";
+            this.DexterityAttackButton.Size = new System.Drawing.Size(125, 23);
+            this.DexterityAttackButton.TabIndex = 24;
+            this.DexterityAttackButton.Text = "Use Dexterity";
+            this.DexterityAttackButton.UseVisualStyleBackColor = true;
+            this.DexterityAttackButton.Click += new System.EventHandler(this.DexterityAttackButton_Click);
+            // 
             // AddActionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -595,6 +619,8 @@
         public System.Windows.Forms.RichTextBox multiAttackDescription;
         public System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox AttackTargetField;
+        private System.Windows.Forms.Button DexterityAttackButton;
+        private System.Windows.Forms.Button StrengthAttackButton;
 
     }
 }

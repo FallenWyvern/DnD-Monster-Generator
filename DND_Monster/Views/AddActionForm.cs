@@ -242,5 +242,25 @@ namespace DND_Monster
         {
 
         }
+
+        private void StrengthAttackButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                HitDiceBonusDamage.Value = Convert.ToInt32(Monster.StatMod(Monster.STR));
+                AttackBonusUpDown.Value = Convert.ToInt32(Monster.StatMod(Monster.STR));
+            }
+            catch { }
+        }
+
+        private void DexterityAttackButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                HitDiceBonusDamage.Value = Convert.ToInt32(Monster.StatMod(Monster.DEX));
+                AttackBonusUpDown.Value = Convert.ToInt32(Monster.StatMod(Monster.DEX));
+            }
+            catch { }
+        }
     }
 }

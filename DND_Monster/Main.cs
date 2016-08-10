@@ -2361,5 +2361,15 @@ namespace DND_Monster
         {
             Monster.CreatureGender = GenderDropDown.Text;
         }
+
+        private void AbilityValueChanged(object sender, EventArgs e)
+        {
+            Monster.STR = (int)StrUpDown.Value;
+            Monster.DEX = (int)DexUpDown.Value;
+            Monster.CON = (int)ConUpDown.Value;
+            Monster.INT = (int)IntUpDown.Value;
+            Monster.WIS = (int)WisUpDown.Value;
+            Monster.CHA = (int)ChaUpDown.Value;
+        }
     }
 }

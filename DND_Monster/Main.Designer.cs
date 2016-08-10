@@ -379,6 +379,7 @@
             0,
             0,
             0});
+            this.StrUpDown.ValueChanged += new System.EventHandler(this.AbilityValueChanged);
             // 
             // DexUpDown
             // 
@@ -397,6 +398,7 @@
             0,
             0,
             0});
+            this.DexUpDown.ValueChanged += new System.EventHandler(this.AbilityValueChanged);
             // 
             // ConUpDown
             // 
@@ -415,6 +417,7 @@
             0,
             0,
             0});
+            this.ConUpDown.ValueChanged += new System.EventHandler(this.AbilityValueChanged);
             // 
             // IntUpDown
             // 
@@ -433,6 +436,7 @@
             0,
             0,
             0});
+            this.IntUpDown.ValueChanged += new System.EventHandler(this.AbilityValueChanged);
             // 
             // WisUpDown
             // 
@@ -451,6 +455,7 @@
             0,
             0,
             0});
+            this.WisUpDown.ValueChanged += new System.EventHandler(this.AbilityValueChanged);
             // 
             // ChaUpDown
             // 
@@ -469,6 +474,7 @@
             0,
             0,
             0});
+            this.ChaUpDown.ValueChanged += new System.EventHandler(this.AbilityValueChanged);
             // 
             // Str
             // 
