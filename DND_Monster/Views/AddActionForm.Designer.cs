@@ -41,6 +41,8 @@
             this.AttackTarget = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.DexterityAttackButton = new System.Windows.Forms.Button();
+            this.StrengthAttackButton = new System.Windows.Forms.Button();
             this.AttackTargetField = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.RangeUpDownFar = new System.Windows.Forms.NumericUpDown();
@@ -65,8 +67,6 @@
             this.ReactionDescription = new System.Windows.Forms.RichTextBox();
             this.DescriptionLabel = new System.Windows.Forms.Label();
             this.ReactionNameLabel = new System.Windows.Forms.Label();
-            this.StrengthAttackButton = new System.Windows.Forms.Button();
-            this.DexterityAttackButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AttackBonusUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RangeUpDownClose)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -123,6 +123,11 @@
             0,
             0,
             0});
+            this.AttackBonusUpDown.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.AttackBonusUpDown.Name = "AttackBonusUpDown";
             this.AttackBonusUpDown.Size = new System.Drawing.Size(43, 20);
             this.AttackBonusUpDown.TabIndex = 2;
@@ -132,9 +137,9 @@
             this.AttackToHitBonus.AutoSize = true;
             this.AttackToHitBonus.Location = new System.Drawing.Point(3, 58);
             this.AttackToHitBonus.Name = "AttackToHitBonus";
-            this.AttackToHitBonus.Size = new System.Drawing.Size(37, 13);
+            this.AttackToHitBonus.Size = new System.Drawing.Size(36, 13);
             this.AttackToHitBonus.TabIndex = 4;
-            this.AttackToHitBonus.Text = "Bonus";
+            this.AttackToHitBonus.Text = "To Hit";
             // 
             // RangeUpDownClose
             // 
@@ -149,6 +154,11 @@
             0,
             0,
             0});
+            this.RangeUpDownClose.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.RangeUpDownClose.Name = "RangeUpDownClose";
             this.RangeUpDownClose.Size = new System.Drawing.Size(70, 20);
             this.RangeUpDownClose.TabIndex = 10;
@@ -246,6 +256,26 @@
             this.tabPage1.Text = "Weapon Attack";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // DexterityAttackButton
+            // 
+            this.DexterityAttackButton.Location = new System.Drawing.Point(157, 232);
+            this.DexterityAttackButton.Name = "DexterityAttackButton";
+            this.DexterityAttackButton.Size = new System.Drawing.Size(125, 23);
+            this.DexterityAttackButton.TabIndex = 24;
+            this.DexterityAttackButton.Text = "Use Dexterity";
+            this.DexterityAttackButton.UseVisualStyleBackColor = true;
+            this.DexterityAttackButton.Click += new System.EventHandler(this.DexterityAttackButton_Click);
+            // 
+            // StrengthAttackButton
+            // 
+            this.StrengthAttackButton.Location = new System.Drawing.Point(8, 232);
+            this.StrengthAttackButton.Name = "StrengthAttackButton";
+            this.StrengthAttackButton.Size = new System.Drawing.Size(143, 23);
+            this.StrengthAttackButton.TabIndex = 2;
+            this.StrengthAttackButton.Text = "Use Strength";
+            this.StrengthAttackButton.UseVisualStyleBackColor = true;
+            this.StrengthAttackButton.Click += new System.EventHandler(this.StrengthAttackButton_Click);
+            // 
             // AttackTargetField
             // 
             this.AttackTargetField.FormattingEnabled = true;
@@ -279,6 +309,11 @@
             0,
             0,
             0});
+            this.RangeUpDownFar.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.RangeUpDownFar.Name = "RangeUpDownFar";
             this.RangeUpDownFar.Size = new System.Drawing.Size(70, 20);
             this.RangeUpDownFar.TabIndex = 11;
@@ -301,6 +336,11 @@
             0,
             0,
             0});
+            this.ReachUpDown.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.ReachUpDown.Name = "ReachUpDown";
             this.ReachUpDown.Size = new System.Drawing.Size(70, 20);
             this.ReachUpDown.TabIndex = 9;
@@ -373,6 +413,11 @@
             0,
             0,
             0});
+            this.HitNumberOfDice.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.HitNumberOfDice.Name = "HitNumberOfDice";
             this.HitNumberOfDice.Size = new System.Drawing.Size(38, 20);
             this.HitNumberOfDice.TabIndex = 4;
@@ -529,26 +574,6 @@
             this.ReactionNameLabel.Size = new System.Drawing.Size(81, 13);
             this.ReactionNameLabel.TabIndex = 11;
             this.ReactionNameLabel.Text = "Reaction Name";
-            // 
-            // StrengthAttackButton
-            // 
-            this.StrengthAttackButton.Location = new System.Drawing.Point(8, 232);
-            this.StrengthAttackButton.Name = "StrengthAttackButton";
-            this.StrengthAttackButton.Size = new System.Drawing.Size(143, 23);
-            this.StrengthAttackButton.TabIndex = 2;
-            this.StrengthAttackButton.Text = "Use Strength";
-            this.StrengthAttackButton.UseVisualStyleBackColor = true;
-            this.StrengthAttackButton.Click += new System.EventHandler(this.StrengthAttackButton_Click);
-            // 
-            // DexterityAttackButton
-            // 
-            this.DexterityAttackButton.Location = new System.Drawing.Point(157, 232);
-            this.DexterityAttackButton.Name = "DexterityAttackButton";
-            this.DexterityAttackButton.Size = new System.Drawing.Size(125, 23);
-            this.DexterityAttackButton.TabIndex = 24;
-            this.DexterityAttackButton.Text = "Use Dexterity";
-            this.DexterityAttackButton.UseVisualStyleBackColor = true;
-            this.DexterityAttackButton.Click += new System.EventHandler(this.DexterityAttackButton_Click);
             // 
             // AddActionForm
             // 

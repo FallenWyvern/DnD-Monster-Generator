@@ -159,6 +159,7 @@ namespace DND_Monster
                     SkillBonus.Value = cr.profBonus;                    
                     currentCR = cr;
                     ProfBonus.Text = "+" + cr.profBonus;
+                    Monster.CR = cr;
                 }
             }
         }

@@ -253,12 +253,12 @@ namespace DND_Monster
         {
             Title = "";
 
-            STR = 0;
-            DEX = 0;
-            CON = 0;
-            INT = 0;
-            WIS = 0;
-            CHA = 0;
+            STR = 10;
+            DEX = 10;
+            CON = 10;
+            INT = 10;
+            WIS = 10;
+            CHA = 10;
 
             Speed = "";
             AC = "";
@@ -386,12 +386,12 @@ namespace DND_Monster
         public static List<Legendary> _Legendaries = new List<Legendary>();        
 
         public static string Title = "";        
-        public static int STR = 0;
-        public static int DEX = 0;
-        public static int CON = 0;
-        public static int INT = 0;
-        public static int WIS = 0;
-        public static int CHA = 0;
+        public static int STR = 10;
+        public static int DEX = 10;
+        public static int CON = 10;
+        public static int INT = 10;
+        public static int WIS = 10;
+        public static int CHA = 10;
         public static int proficency = 0;
 
         public static string Speed = "";

@@ -245,22 +245,15 @@ namespace DND_Monster
 
         private void StrengthAttackButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                HitDiceBonusDamage.Value = Convert.ToInt32(Monster.StatMod(Monster.STR));
-                AttackBonusUpDown.Value = Convert.ToInt32(Monster.StatMod(Monster.STR));
-            }
-            catch { }
+            Console.WriteLine(Monster.CR.AttackBonus + " " + Monster.CR.profBonus);
+            HitDiceBonusDamage.Value = Convert.ToInt32(Monster.StatMod(Monster.STR));
+            AttackBonusUpDown.Value = Convert.ToInt32(Monster.StatMod(Monster.STR)) + Monster.CR.profBonus;           
         }
 
         private void DexterityAttackButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                HitDiceBonusDamage.Value = Convert.ToInt32(Monster.StatMod(Monster.DEX));
-                AttackBonusUpDown.Value = Convert.ToInt32(Monster.StatMod(Monster.DEX));
-            }
-            catch { }
+            HitDiceBonusDamage.Value = Convert.ToInt32(Monster.StatMod(Monster.DEX));
+            AttackBonusUpDown.Value = Convert.ToInt32(Monster.StatMod(Monster.DEX)) + Monster.CR.profBonus; 
         }
     }
 }
