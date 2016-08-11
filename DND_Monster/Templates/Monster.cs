@@ -352,8 +352,7 @@ namespace DND_Monster
             DamageVulnerability = source.DamageVulnerability;
             DEX = source.DEX;
             HP = source.HP;
-            INT = source.INT;
-            //fillTarget.output = output;
+            INT = source.INT;            
             proficency = source.proficency;
             SavingThrowBonuses = source.SavingThrowBonuses;
             SkillBonuses = source.SkillBonuses;

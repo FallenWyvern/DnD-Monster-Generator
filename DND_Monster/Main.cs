@@ -764,12 +764,14 @@ namespace DND_Monster
                 AlignmentDropDown.Text = "";
                 AlignmentDropDown.SelectedText = Monster.CreatureAlign;
 
+                locked = true;
                 StrUpDown.Value = Monster.STR;
                 DexUpDown.Value = Monster.DEX;
                 ConUpDown.Value = Monster.CON;
                 WisUpDown.Value = Monster.WIS;
                 IntUpDown.Value = Monster.INT;
                 ChaUpDown.Value = Monster.CHA;
+                locked = false;
 
                 SwimUpDown.Enabled = true;
                 SpeedUpDown.Enabled = true;
@@ -2363,8 +2365,11 @@ namespace DND_Monster
             Monster.CreatureGender = GenderDropDown.Text;
         }
 
+        bool locked = false;
         private void AbilityValueChanged(object sender, EventArgs e)
         {
+            if (locked) return;
+
             Monster.STR = (int)StrUpDown.Value;
             Monster.DEX = (int)DexUpDown.Value;
             Monster.CON = (int)ConUpDown.Value;
