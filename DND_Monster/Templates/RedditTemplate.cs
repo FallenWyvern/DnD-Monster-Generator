@@ -1,14 +1,88 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DND_Monster
 {
     public static partial class Monster
     {
         static string RedditMonster = "";
+
+        public static string sDoddlerOutput()
+        {
+            string align = "Unaligned";
+            if (CreatureAlign.Split(' ').Length > 1)
+            {
+                if (CreatureAlign == "True Neutral")
+                {
+                    align = "N";
+                }
+                else
+                {
+                    align = CreatureAlign[0].ToString();
+                    align += (CreatureAlign.Split(' ')[1][0]).ToString();
+                    align = align.ToUpper();
+                }
+            }
+
+            RedditMonster = Monster.CreatureName + "=" + Monster.CreatureSize + @"\\";
+            RedditMonster += (Monster.CreatureType.Contains('(')) ? Monster.CreatureType.Replace(" (", @"\\").Replace(")", "") + @"\\" : Monster.CreatureType + @"\\\\";
+            RedditMonster += align + @"\\" + Monster.CR.CR + @"\\" + Monster.CR.XP + @"\\" + Monster.HP + @"\\" + "Custom";
+
+            RedditMonster += Environment.NewLine;
+
+            RedditMonster += "[" + Monster.CreatureName + "]" + Environment.NewLine;
+            RedditMonster += "AC= " + Monster.AC + Environment.NewLine;
+            RedditMonster += "STR=" + Monster.STR + " (" + Monster.StatMod(Monster.STR) + ")" + Environment.NewLine;
+            RedditMonster += "DEX=" + Monster.DEX + " (" + Monster.StatMod(Monster.DEX) + ")" + Environment.NewLine;
+            RedditMonster += "CON=" + Monster.CON + " (" + Monster.StatMod(Monster.CON) + ")" + Environment.NewLine;
+            RedditMonster += "INT=" + Monster.INT + " (" + Monster.StatMod(Monster.INT) + ")" + Environment.NewLine;
+            RedditMonster += "WIS=" + Monster.WIS + " (" + Monster.StatMod(Monster.WIS) + ")" + Environment.NewLine;
+            RedditMonster += "CHA=" + Monster.CHA + " (" + Monster.StatMod(Monster.CHA) + ")" + Environment.NewLine;
+            RedditMonster += "Speed= " + Monster.Speed.Replace(":", "") + Environment.NewLine;
+            RedditMonster += "Senses= " + Monster.Senses() + Environment.NewLine;
+            
+            if (!String.IsNullOrEmpty(Monster.Skills()))
+            {
+                RedditMonster += "Skills=" + Monster.Skills() + Environment.NewLine;
+            }
+
+            if (!String.IsNullOrEmpty(Monster.SavingThrows()))
+            {
+                RedditMonster += "Saving Throws=" + Monster.SavingThrows() + Environment.NewLine;
+            }
+
+            if (Monster._Languages.Count > 0)
+            {
+                RedditMonster += "Languages= " + Monster.Languages() + Environment.NewLine;
+            }
+            // Monster.D_Immunities()
+            // Monster.D_Resistances
+            // Monster.D_Vulnerabilities
+            // Monster.C_Immunities
+
+            if (!String.IsNullOrEmpty(Monster.D_Immunities()))
+            {
+                RedditMonster += "Damage Immunities=" + Monster.D_Immunities() + Environment.NewLine;
+            }
+
+            if (!String.IsNullOrEmpty(Monster.D_Resistances()))
+            {
+                RedditMonster += "Damage Resistances=" + Monster.D_Resistances() + Environment.NewLine;
+            }
+
+            if (!String.IsNullOrEmpty(Monster.D_Vulnerabilities()))
+            {
+                RedditMonster += "Damage Vulnerabilities=" + Monster.D_Vulnerabilities() + Environment.NewLine;
+            }
+
+            if (!String.IsNullOrEmpty(Monster.C_Immunities()))
+            {
+                RedditMonster += "Condition Immunities=" + Monster.C_Immunities() + Environment.NewLine;
+            }
+
+
+            return RedditMonster;
+        }
 
         public static string RedditOutput()
         {

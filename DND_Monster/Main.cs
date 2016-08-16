@@ -689,7 +689,7 @@ namespace DND_Monster
                 case 0:
                 case 1:
                 case 2:
-                case 4:
+                case 5:
                     tableLayoutPanel1.Controls.Add(browserOutput, 0, 0);
                     ShowMonsterInBrowser();                    
                     ExportCSV.Enabled = true;
@@ -702,7 +702,13 @@ namespace DND_Monster
                     redditOutput.Text = "";
                     ShowMonsterInText();
                     ExportReddit.Enabled = true;
-                    break;                                                    
+                    break;
+                case 4:
+                    tableLayoutPanel1.Controls.Add(redditOutput, 0, 0);
+                    redditOutput.Text = "";
+                    sDoddler();
+                    ExportReddit.Enabled = true;
+                    break;
             }            
         }
 
@@ -711,6 +717,10 @@ namespace DND_Monster
             SortTraits();
             Help.useBG = BackgroundCheckbox.Checked;
             Monster.columns = (int)PreviewColumns.Value;            
+            if (HitDieTextBox.Text.Length == 0)
+            {
+                ResolveHP(false);
+            }
 
             GenerateMonsterData();
         }
@@ -1682,6 +1692,13 @@ namespace DND_Monster
             this.Text = Monster.CreatureName.Replace('*', ' ').Trim();
             Clear();
             redditOutput.Text = Monster.RedditOutput();
+        }
+
+        public void sDoddler()
+        {
+            this.Text = Monster.CreatureName.Replace('*', ' ').Trim();
+            Clear();
+            redditOutput.Text = Monster.sDoddlerOutput();
         }
 
         // Recalculate AC based on CR/Dex.
