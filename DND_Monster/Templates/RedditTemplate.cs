@@ -26,7 +26,7 @@ namespace DND_Monster
 
             RedditMonster = Monster.CreatureName + "=" + Monster.CreatureSize + @"\\";
             RedditMonster += (Monster.CreatureType.Contains('(')) ? Monster.CreatureType.Replace(" (", @"\\").Replace(")", "") + @"\\" : Monster.CreatureType + @"\\\\";
-            RedditMonster += align + @"\\" + Monster.CR.CR + @"\\" + Monster.CR.XP + @"\\" + Monster.HP + @"\\" + "Custom";
+            RedditMonster += align + @"\\" + CR.CR + @"\\" + CR.XP + @"\\" + HP + @"\\" + "Custom";
 
             RedditMonster += Environment.NewLine;
 

@@ -164,7 +164,7 @@ namespace DND_Monster
 
             foreach (OGL_Ability _ability in OGLContent.OGL_Abilities)
             {
-                if (_ability.OGL_Creature == comboBox5.Text)
+                if (_ability.OGL_Creature == comboBox5.Text || comboBox5.Text == "*")
                 {
                     comboBox1.Items.Add(_ability.Title);
                 }
@@ -172,7 +172,7 @@ namespace DND_Monster
 
             foreach (OGL_Ability _action in OGLContent.OGL_Actions)
             {
-                if (_action.OGL_Creature == comboBox5.Text)
+                if (_action.OGL_Creature == comboBox5.Text || comboBox5.Text == "*")
                 {
                     comboBox2.Items.Add(_action.Title);
                 }
@@ -180,7 +180,7 @@ namespace DND_Monster
 
             foreach (OGL_Ability _reaction in OGLContent.OGL_Reactions)
             {
-                if (_reaction.OGL_Creature == comboBox5.Text)
+                if (_reaction.OGL_Creature == comboBox5.Text || comboBox5.Text == "*")
                 {
                     comboBox3.Items.Add(_reaction.Title);
                 }
@@ -188,7 +188,7 @@ namespace DND_Monster
 
             foreach (OGL_Legendary _legendary in OGLContent.OGL_Legendary)
             {
-                if (_legendary.OGL_Creature == comboBox5.Text && !comboBox4.Items.Contains(_legendary.Title))
+                if (_legendary.OGL_Creature == comboBox5.Text && !comboBox4.Items.Contains(_legendary.Title) || comboBox5.Text == "*")
                 {
                     comboBox4.Items.Add(_legendary.Title);
                 }

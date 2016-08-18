@@ -2136,11 +2136,12 @@ namespace DND_Monster
                 }
                 else if (trait.action != null)
                 {
-                    Ability newAction = trait.action;
-                    newAction.Description = trait.action.Description.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
-                    
+                    Ability newAction = trait.action;                                        
+                    newAction.Description = trait.action.Description.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);                    
+
                     if (trait.action.attack != null)
                     {
+                        trait.action.attack.Target = trait.action.attack.Target.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
                         trait.action.attack.HitText = trait.action.attack.HitText.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
                     }
                     

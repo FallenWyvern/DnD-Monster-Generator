@@ -309,10 +309,15 @@ namespace DND_Monster
 
             // W's
             #region
+            Wight.Add();
+            WillOWisp.Add();
+            Wraith.Add();
+            Wyvern.Add();
             #endregion
 
             // X's
             #region
+            Xorn.Add();
             #endregion
 
             // Y's
@@ -321,6 +326,8 @@ namespace DND_Monster
 
             // Z's
             #region
+            Zombies.Add();
+            OgreZombie.Add();
             #endregion
         }
     }

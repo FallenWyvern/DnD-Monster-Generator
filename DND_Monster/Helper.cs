@@ -647,7 +647,7 @@ namespace DND_Monster
                 }
                 returnstring += " ft., ";
             }
-
+            
             returnstring += Target;
 
             if (!String.IsNullOrEmpty(Target) || !String.IsNullOrWhiteSpace(Target))
@@ -699,7 +699,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "5.2.1";
+        public static string Version = "5.2.2";
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = System.IO.Directory.GetCurrentDirectory().ToString();
         public static string TemplateName = "Valloric's Statblock";
