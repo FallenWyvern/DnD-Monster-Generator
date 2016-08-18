@@ -30,9 +30,25 @@ namespace DND_Monster
 
         private void AddSavedTrait_Load(object sender, EventArgs e)
         {
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDown;
+            comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDown;
+            comboBox2.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboBox2.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
+            comboBox3.DropDownStyle = ComboBoxStyle.DropDown;
+            comboBox3.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboBox3.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
+            comboBox4.DropDownStyle = ComboBoxStyle.DropDown;
+            comboBox4.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboBox4.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
             comboBox5.DropDownStyle = ComboBoxStyle.DropDown;
             comboBox5.AutoCompleteSource = AutoCompleteSource.ListItems;
-            comboBox5.AutoCompleteMode = AutoCompleteMode.SuggestAppend;            
+            comboBox5.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 
             foreach (string creature in OGLContent.OGL_Creatures)
             {
@@ -43,7 +59,7 @@ namespace DND_Monster
             {                
                 foreach (OGL_Ability _ability in OGLContent.OGL_Abilities)
                 {
-                    if (_ability.OGL_Creature == comboBox5.Text && _ability.Title == comboBox1.Text)
+                    if (_ability.OGL_Creature == comboBox5.Text && _ability.Title == comboBox1.Text || comboBox5.Text == "*")
                     {
                         richTextBox1.Text = _ability.Description;
                     }
@@ -54,16 +70,20 @@ namespace DND_Monster
             {
                 foreach (OGL_Ability _action in OGLContent.OGL_Actions)
                 {
-                    if (_action.OGL_Creature == comboBox5.Text && _action.Title == comboBox2.Text)
-                    {                        
-                        if (String.IsNullOrEmpty(_action.Description))
+                    if (_action.OGL_Creature == comboBox5.Text && _action.Title == comboBox2.Text || comboBox5.Text == "*")
+                    {
+                        try
                         {
-                            richTextBox2.Text = _action.attack.TextDescribe();
+                            if (String.IsNullOrEmpty(_action.Description))
+                            {
+                                richTextBox2.Text = _action.attack.TextDescribe();
+                            }
+                            else
+                            {
+                                richTextBox2.Text = _action.Description;
+                            }
                         }
-                        else
-                        {
-                            richTextBox2.Text = _action.Description;
-                        }
+                        catch { }
                     }
                 }
                 //if (String.IsNullOrEmpty(OGLContent.OGL_Actions[comboBox2.SelectedIndex].Description))
@@ -146,11 +166,16 @@ namespace DND_Monster
         }
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
-        {                        
+        {
+            FilterResults();
+        }
+
+        private void FilterResults()
+        {
             comboBox1.Items.Clear();
             comboBox2.Items.Clear();
             comboBox3.Items.Clear();
-            comboBox4.Items.Clear();            
+            comboBox4.Items.Clear();
 
             comboBox1.Text = "";
             comboBox2.Text = "";
@@ -197,23 +222,27 @@ namespace DND_Monster
             if (comboBox4.Items.Count > 0)
             {
                 tabControl1.SelectTab(3);
+                comboBox4.SelectedIndex = 0;
             }
 
             if (comboBox3.Items.Count > 0)
             {
                 tabControl1.SelectTab(2);
+                comboBox3.SelectedIndex = 0;
             }
-            
+
             if (comboBox2.Items.Count > 0)
             {
                 tabControl1.SelectTab(1);
+                comboBox2.SelectedIndex = 0;
             }
-            
-            if (comboBox1.Items.Count > 0)            
+
+            if (comboBox1.Items.Count > 0)
             {
                 tabControl1.SelectTab(0);
+                comboBox1.SelectedIndex = 0;
             }
-        }        
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -253,6 +282,34 @@ namespace DND_Monster
 
         private void comboBox5_Click(object sender, EventArgs e)
         {            
+        }
+
+        private void comboBox5_TextChanged(object sender, EventArgs e)
+        {
+            if (comboBox5.Text == "*")
+            {
+                FilterResults();
+            }
+            else
+            {
+                if (comboBox1.Items.Count > 0 || comboBox2.Items.Count > 0 || comboBox3.Items.Count > 0 || comboBox4.Items.Count > 0)
+                {
+                    comboBox1.Items.Clear();
+                    comboBox2.Items.Clear();
+                    comboBox3.Items.Clear();
+                    comboBox4.Items.Clear();
+
+                    comboBox1.Text = "";
+                    comboBox2.Text = "";
+                    comboBox3.Text = "";
+                    comboBox4.Text = "";
+
+                    richTextBox1.Text = "";
+                    richTextBox2.Text = "";
+                    richTextBox3.Text = "";
+                    richTextBox4.Text = "";
+                }
+            }
         }
     }
 }
