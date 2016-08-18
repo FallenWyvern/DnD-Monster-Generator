@@ -2091,103 +2091,205 @@ namespace DND_Monster
 
             trait.FormClosing += (xsender, xe) =>
             {
-                if (trait.ability != null)
-                {                    
-                    Ability newAbility = trait.ability;
-                    if (!newAbility.isSpell)
-                    {
-                        newAbility.Description = trait.ability.Description.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
-                        Monster._Abilities.Add(newAbility);
-
-                        string mod = "";
-                        if (TraitsList.Items.Contains(newAbility.Title))
-                        {
-                            int modInt = 0;
-                            foreach (string item in TraitsList.Items)
-                            {
-                                if (item.Contains(newAbility.Title))
-                                {
-                                    modInt++;
-                                }
-                            }
-                            if (modInt > 0) { mod = " " + modInt.ToString(); }
-                        }
-                        TraitsList.Items.Add("Ability: " + newAbility.Title + mod);
-                    }
-                    else
-                    {
-                        Monster._Abilities.Add(newAbility);
-
-                        string mod = "";
-                        if (TraitsList.Items.Contains("Ability: " + newAbility.Title))
-                        {
-                            int modInt = 0;
-                            foreach (string item in TraitsList.Items)
-                            {
-                                if (item.Contains(newAbility.Title))
-                                {
-                                    modInt++;
-                                }
-                            }
-                            if (modInt > 0) { mod = " " + modInt.ToString(); }
-                        }
-                        TraitsList.Items.Add("Ability: " + newAbility.Title + mod);
-                    }
-                }
-                else if (trait.action != null)
+                if (trait.OGLCreatureAdd == "")
                 {
-                    Ability newAction = trait.action;                                        
-                    newAction.Description = trait.action.Description.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);                    
-
-                    if (trait.action.attack != null)
+                    if (trait.ability != null)
                     {
-                        trait.action.attack.Target = trait.action.attack.Target.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
-                        trait.action.attack.HitText = trait.action.attack.HitText.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
+                        AddSavedAbility(trait, creatureName);
                     }
-                    
-                    Monster._Actions.Add(newAction);
-                    string mod = "";
-                    
-                    if (TraitsList.Items.Contains("Action: " + newAction.Title))
-                    {                        
-                        int modInt = 0;
-                        foreach (string item in TraitsList.Items)
-                        {
-                            if (item.Contains(newAction.Title))
-                            {
-                                modInt++;
-                            }
-                        }
-                        if (modInt > 0) { mod = " " + modInt.ToString(); }
+                    else if (trait.action != null)
+                    {
+                        AddSavedAction(trait, creatureName);
                     }
-                    TraitsList.Items.Add("Action: " + newAction.Title + mod);                    
-                }
-                else if (trait.legendary != null)
+                    else if (trait.reaction != null)
+                    {
+                        AddSavedReaction(trait, creatureName);
+                    }
+                    else if (trait.legendary != null)
+                    {
+                        AddSavedLegendary(trait, creatureName);
+                    }
+                } else
                 {
-                    Legendary newLegendary = trait.legendary;
-                    foreach (LegendaryTrait _trait in newLegendary.Traits)
+                    foreach (OGL_Ability _ability in OGLContent.OGL_Abilities)
                     {
-                        _trait.Ability = _trait.Ability.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
-                    }
-                    Monster._Legendaries.Add(newLegendary);
-
-                    string mod = "";
-                    if (TraitsList.Items.Contains("Legendary: " + newLegendary.Title))
-                    {
-                        int modInt = 0;
-                        foreach (string item in TraitsList.Items)
+                        if (_ability.OGL_Creature == trait.OGLCreatureAdd)
                         {
-                            if (item.Contains(newLegendary.Title))
-                            {
-                                modInt++;
-                            }
+                            trait.ability = null;
+                            trait.action = null;
+                            trait.reaction = null;
+                            trait.legendary = null;
+
+                            trait.ability = _ability;
+                            AddSavedAbility(trait, creatureName);                            
                         }
-                        if (modInt > 0) { mod = " " + modInt.ToString(); }
                     }
-                    TraitsList.Items.Add("Legendary: " + newLegendary.Title + mod);
+
+                    foreach (OGL_Ability _action in OGLContent.OGL_Actions)
+                    {
+                        if (_action.OGL_Creature == trait.OGLCreatureAdd)
+                        {
+                            trait.ability = null;
+                            trait.action = null;
+                            trait.reaction = null;
+                            trait.legendary = null;
+
+                            trait.action = _action;
+                            AddSavedAction(trait, creatureName);
+                        }
+                    }
+
+                    foreach (OGL_Ability _reaction in OGLContent.OGL_Reactions)
+                    {
+                        if (_reaction.OGL_Creature == trait.OGLCreatureAdd)
+                        {
+                            trait.ability = null;
+                            trait.action = null;
+                            trait.reaction = null;
+                            trait.legendary = null;
+
+                            trait.reaction = _reaction;
+                            AddSavedReaction(trait, creatureName);
+                        }
+                    }
+
+                    foreach (OGL_Legendary _legendary in OGLContent.OGL_Legendary)
+                    {
+                        if (_legendary.OGL_Creature == trait.OGLCreatureAdd)
+                        {
+                            trait.ability = null;
+                            trait.action = null;
+                            trait.reaction = null;
+                            trait.legendary = null;
+
+                            trait.legendary = _legendary;
+                            AddSavedLegendary(trait, creatureName);
+                        }
+                    }
                 }
             };
             trait.Show();
+        }
+
+        private void AddSavedLegendary(AddSavedTrait trait, string creatureName)
+        {
+            Legendary newLegendary = trait.legendary;
+            foreach (LegendaryTrait _trait in newLegendary.Traits)
+            {
+                _trait.Ability = _trait.Ability.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
+            }
+            Monster._Legendaries.Add(newLegendary);
+
+            string mod = "";
+            if (TraitsList.Items.Contains("Legendary: " + newLegendary.Title))
+            {
+                int modInt = 0;
+                foreach (string item in TraitsList.Items)
+                {
+                    if (item.Contains(newLegendary.Title))
+                    {
+                        modInt++;
+                    }
+                }
+                if (modInt > 0) { mod = " " + modInt.ToString(); }
+            }
+            TraitsList.Items.Add("Legendary: " + newLegendary.Title + mod);
+        }
+
+        private void AddSavedAction(AddSavedTrait trait, string creatureName)
+        {
+            Ability newAction = trait.action;
+            newAction.Description = trait.action.Description.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
+
+            if (trait.action.attack != null)
+            {
+                trait.action.attack.Target = trait.action.attack.Target.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
+                trait.action.attack.HitText = trait.action.attack.HitText.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
+            }
+
+            Monster._Actions.Add(newAction);
+            string mod = "";
+
+            if (TraitsList.Items.Contains("Action: " + newAction.Title))
+            {
+                int modInt = 0;
+                foreach (string item in TraitsList.Items)
+                {
+                    if (item.Contains(newAction.Title))
+                    {
+                        modInt++;
+                    }
+                }
+                if (modInt > 0) { mod = " " + modInt.ToString(); }
+            }
+            TraitsList.Items.Add("Action: " + newAction.Title + mod);
+        }
+
+        private void AddSavedReaction(AddSavedTrait trait, string creatureName)
+        {
+            Ability newReaction = trait.reaction;
+            newReaction.Description = trait.reaction.Description.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);            
+
+            Monster._Reactions.Add(newReaction);
+            string mod = "";
+
+            if (TraitsList.Items.Contains("Reaction: " + newReaction.Title))
+            {
+                int modInt = 0;
+                foreach (string item in TraitsList.Items)
+                {
+                    if (item.Contains(newReaction.Title))
+                    {
+                        modInt++;
+                    }
+                }
+                if (modInt > 0) { mod = " " + modInt.ToString(); }
+            }
+            TraitsList.Items.Add("Reaction: " + newReaction.Title + mod);
+        }
+
+        private void AddSavedAbility(AddSavedTrait trait, string creatureName)
+        {
+            Ability newAbility = trait.ability;
+            if (!newAbility.isSpell)
+            {
+                newAbility.Description = trait.ability.Description.Replace("{CREATURENAME}", creatureName).Replace("</br>", Environment.NewLine);
+                Monster._Abilities.Add(newAbility);
+
+                string mod = "";
+                if (TraitsList.Items.Contains(newAbility.Title))
+                {
+                    int modInt = 0;
+                    foreach (string item in TraitsList.Items)
+                    {
+                        if (item.Contains(newAbility.Title))
+                        {
+                            modInt++;
+                        }
+                    }
+                    if (modInt > 0) { mod = " " + modInt.ToString(); }
+                }
+                TraitsList.Items.Add("Ability: " + newAbility.Title + mod);
+            }
+            else
+            {
+                Monster._Abilities.Add(newAbility);
+
+                string mod = "";
+                if (TraitsList.Items.Contains("Ability: " + newAbility.Title))
+                {
+                    int modInt = 0;
+                    foreach (string item in TraitsList.Items)
+                    {
+                        if (item.Contains(newAbility.Title))
+                        {
+                            modInt++;
+                        }
+                    }
+                    if (modInt > 0) { mod = " " + modInt.ToString(); }
+                }
+                TraitsList.Items.Add("Ability: " + newAbility.Title + mod);
+            }
         }
 
         private void ColumnWidthUpDown_ValueChanged(object sender, EventArgs e)

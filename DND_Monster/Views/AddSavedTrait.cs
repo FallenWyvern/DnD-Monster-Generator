@@ -15,8 +15,9 @@ namespace DND_Monster
         public Ability ability = null;
         public Ability action = null;
         public Ability reaction = null;
-        public Legendary legendary = null;        
-        
+        public Legendary legendary = null;
+        public string OGLCreatureAdd = "";
+
         public AddSavedTrait()
         {
             InitializeComponent();
@@ -85,28 +86,29 @@ namespace DND_Monster
                         }
                         catch { }
                     }
-                }
-                //if (String.IsNullOrEmpty(OGLContent.OGL_Actions[comboBox2.SelectedIndex].Description))
-                //{
-                //    //richTextBox2.Text = OGLContent.OGL_Actions[comboBox2.SelectedIndex].attack.TextDescribe();
-                //}
-                //else 
-                //{
-                //    //richTextBox2.Text = OGLContent.OGL_Actions[comboBox2.SelectedIndex].Description;
-                //}                
+                }               
             };
 
             comboBox3.SelectedIndexChanged += (senders, es) =>
             {
-                //richTextBox3.Text = OGLContent.OGL_Reactions[comboBox3.SelectedIndex].Description;
+                foreach (OGL_Ability _reaction in OGLContent.OGL_Reactions)
+                {
+                    if (_reaction.OGL_Creature == comboBox5.Text && _reaction.Title == comboBox3.Text)
+                    {
+                        richTextBox3.Text = _reaction.Description;
+                    }                    
+                }
             };
 
             comboBox4.SelectedIndexChanged += (senders, es) =>
             {
-                //foreach (OGL_ trait in OGLContent.OGL_Legendary[comboBox4.SelectedIndex].Traits)
-                //{
-                //    //richTextBox4.Text += trait.Title + " : " + trait.Ability + Environment.NewLine;
-                //}
+                foreach (OGL_Legendary trait in OGLContent.OGL_Legendary)
+                {
+                    if (trait.OGL_Creature == comboBox5.Text)
+                    {
+                        richTextBox4.Text += trait.Title + " : " + trait.WebBoilerplate(Monster.CreatureName) + Environment.NewLine;
+                    }
+                }
             };            
         }
 
@@ -162,7 +164,9 @@ namespace DND_Monster
             ability = null;
             action = null;
             legendary = null;
-            reaction = null;            
+            reaction = null;
+            OGLCreatureAdd = comboBox5.Text;
+            this.Close();
         }
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
