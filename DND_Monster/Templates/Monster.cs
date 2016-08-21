@@ -151,7 +151,7 @@ namespace DND_Monster
             {
                 skills = skills.Substring(0, skills.Length - 2);
             }
-            return skills;
+            return skills.Replace("  ", " ");
         }
 
         public static void AddSkillBonus(string skill)

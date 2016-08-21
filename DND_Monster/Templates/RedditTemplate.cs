@@ -6,6 +6,8 @@ namespace DND_Monster
     public static partial class Monster
     {
         static string RedditMonster = "";
+        public static string sDoddlerIndex = "";
+        public static string sDoddlerCreature = "";
 
         public static string sDoddlerOutput()
         {
@@ -27,6 +29,7 @@ namespace DND_Monster
             RedditMonster = Monster.CreatureName + "=" + Monster.CreatureSize + @"\\";
             RedditMonster += (Monster.CreatureType.Contains('(')) ? Monster.CreatureType.Replace(" (", @"\\").Replace(")", "") + @"\\" : Monster.CreatureType + @"\\\\";
             RedditMonster += align + @"\\" + CR.CR + @"\\" + CR.XP + @"\\" + HP + @"\\" + "Custom";
+            sDoddlerIndex = RedditMonster;
 
             RedditMonster += Environment.NewLine;
 
@@ -38,9 +41,9 @@ namespace DND_Monster
             RedditMonster += "INT=" + Monster.INT + " (" + Monster.StatMod(Monster.INT) + ")" + Environment.NewLine;
             RedditMonster += "WIS=" + Monster.WIS + " (" + Monster.StatMod(Monster.WIS) + ")" + Environment.NewLine;
             RedditMonster += "CHA=" + Monster.CHA + " (" + Monster.StatMod(Monster.CHA) + ")" + Environment.NewLine;
-            RedditMonster += "Speed= " + Monster.Speed.Replace(":", "") + Environment.NewLine;
-            RedditMonster += "Senses= " + Monster.Senses() + Environment.NewLine;
-            
+            RedditMonster += "Speed=" + Monster.Speed.Replace(":", "") + Environment.NewLine;
+            RedditMonster += "Senses=" + Monster.Senses() + Environment.NewLine;            
+
             if (!String.IsNullOrEmpty(Monster.Skills()))
             {
                 RedditMonster += "Skills=" + Monster.Skills() + Environment.NewLine;
@@ -55,11 +58,7 @@ namespace DND_Monster
             {
                 RedditMonster += "Languages= " + Monster.Languages() + Environment.NewLine;
             }
-            // Monster.D_Immunities()
-            // Monster.D_Resistances
-            // Monster.D_Vulnerabilities
-            // Monster.C_Immunities
-
+            
             if (!String.IsNullOrEmpty(Monster.D_Immunities()))
             {
                 RedditMonster += "Damage Immunities=" + Monster.D_Immunities() + Environment.NewLine;
@@ -80,7 +79,7 @@ namespace DND_Monster
                 RedditMonster += "Condition Immunities=" + Monster.C_Immunities() + Environment.NewLine;
             }
 
-
+            sDoddlerCreature = RedditMonster.Replace(sDoddlerIndex + Environment.NewLine, "");
             return RedditMonster;
         }
 

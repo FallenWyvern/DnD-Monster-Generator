@@ -699,7 +699,10 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "5.3.0";
+        public static string Version = "5.3.1";
+        public static string SkipVersion = "0.0.0";
+        public static string ParsedVersion = "";
+
         public static string VersionURL = @"http://download.thegeniusinc.com/monster_generator/version.txt";
         public static string LastDirectory = System.IO.Directory.GetCurrentDirectory().ToString();
         public static string TemplateName = "Valloric's Statblock";
@@ -710,11 +713,13 @@ namespace DND_Monster
         // Used to check for updates.
         public static bool CheckForDownload()
         {
+            bool returnResult = false;
             try
             {
                 using (WebClient w = new WebClient())
                 {
                     string result = w.DownloadString(Help.VersionURL);
+                    ParsedVersion = result;
                     Console.WriteLine(result);
                     Console.WriteLine(Help.Version);
                     int currentVer = 0;
@@ -725,16 +730,19 @@ namespace DND_Monster
 
                     if (currentVer != 0 && webVer != 0)
                     {
-                        if (currentVer >= webVer) { return true; } else { return false; }
+                        if (currentVer >= webVer) { returnResult = true; } else { returnResult = false; }
                     }
 
-                    if (result == Help.Version) { return true; } else { return false; }
+                    if (result == Help.Version) { returnResult = true; } else { returnResult = false; }
+                    if (result == Help.SkipVersion) { returnResult = true; }
                 }
             }
             catch
             {
-                return true;
+                returnResult = true;
             }
+
+            return returnResult;
         }        
 
         // Object of all Challenge Ratings

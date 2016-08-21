@@ -9,11 +9,13 @@ namespace DND_Monster
     public static class Settings
     {
         public static string SettingsFile = "DND_monster.ini";
+        public static string sdoddler_file = "";
         public static string SpellTimesPerDay = "Times Per Day";
         public static string LegendaryActions = "3";
         public static string SpellLevel = "Spell Level";
         public static string TranslationFile = "";
         public static bool isFeet = true;
+        public static bool alwaysSavesDoddler = false;
 
         public static void Load()
         {
@@ -32,6 +34,7 @@ namespace DND_Monster
 
                 foreach (string arg in Args)
                 {
+
                     if (arg.Contains("Last Directory="))
                     {
                         Help.LastDirectory = arg.Split('=')[1];
@@ -46,6 +49,23 @@ namespace DND_Monster
                     {
                         Help.TemplateName = arg.Split('=')[1];
                     }
+
+                    if (arg.Contains("sDoddler Suite="))
+                    {
+                        sdoddler_file = arg.Split('=')[1];
+                    }
+                    if (arg.Contains("Always Save sDoddler="))
+                    {
+                        if (arg.Split('=')[1].ToLower() == "true")
+                        {
+                            alwaysSavesDoddler = true;
+                        }
+                        else { alwaysSavesDoddler = false; }                        
+                    }
+                    if (arg.Contains("Skip Version="))
+                    {
+                        Help.SkipVersion = arg.Split('=')[1];
+                    }
                 }
             }
             catch { }
@@ -59,7 +79,10 @@ namespace DND_Monster
                 {
                     "Last Directory=" + Help.LastDirectory,
                     "Translation=" + Settings.TranslationFile,
-                    "Last Template=" + Help.TemplateName
+                    "Last Template=" + Help.TemplateName,
+                    "sDoddler Suite=" + sdoddler_file,
+                    "Always Save sDoddler=" + alwaysSavesDoddler,
+                    "Skip Version=" + Help.SkipVersion
                 });
             }
             catch { }

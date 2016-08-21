@@ -118,15 +118,26 @@ namespace DND_Monster
 
             this.FormClosing += (senderEnd, eEnd) => { Cef.Shutdown(); };
 
-            if (!System.IO.File.Exists("skipupdate.dat") && !Help.CheckForDownload())
+            if (!Help.CheckForDownload())
             {
-                if (MessageBox.Show("New Version Available. Open Download Page?", "New Version", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                System.Windows.Forms.DialogResult result = MessageBox.Show("New Version Available. Open Download Page?", "New Version", MessageBoxButtons.YesNo);
+                if (result == System.Windows.Forms.DialogResult.Yes)
                 {
                     System.Diagnostics.Process.Start(@"http://thegeniusinc.com/dd-monster-maker-download/?ref=" + Help.Version);
+                } else
+                {
+                    if (MessageBox.Show("Would you like to skip this version?", "Skip", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        Help.SkipVersion = Help.ParsedVersion;
+                    }
+                    else
+                    {
+                        Help.SkipVersion = "0.0.0";
+                    }
                 }
             }
 
-            this.Text = this.Text + " v" + Help.Version;
+            this.Text = this.Text + " v" + Help.Version;            
             AddSaved.Text = "Add SRD Content";
         }       
 
@@ -708,6 +719,46 @@ namespace DND_Monster
                     redditOutput.Text = "";
                     sDoddler();
                     ExportReddit.Enabled = true;
+
+                    if (Settings.sdoddler_file == "")
+                    {
+                        if (MessageBox.Show("Would you like to link this application to the sDoddler Suite so you can automatically append all monsters created with this template to your custom monsters ini file?", "Question", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            // Find file
+                            OpenFileDialog openDoddler = new OpenFileDialog();
+                            openDoddler.DefaultExt = ".ini";
+                            if (openDoddler.ShowDialog() == DialogResult.OK)
+                            {
+                                if (System.IO.File.Exists(openDoddler.FileName) && openDoddler.FileName.Contains("Monsters-Custom.ini"))
+                                {
+                                    Settings.sdoddler_file = openDoddler.FileName;
+                                }
+                            }
+                        }
+                    }
+                                        
+                    if (Settings.sdoddler_file != "")
+                    {                        
+                        List<string> fileContents = System.IO.File.ReadAllLines(Settings.sdoddler_file).ToList<string>();
+                        System.IO.File.WriteAllLines(Settings.sdoddler_file + "_backup", fileContents);
+
+                        fileContents.Insert(fileContents.IndexOf("[Index]") + 1, Monster.sDoddlerIndex);
+                        foreach (string i in Monster.sDoddlerCreature.Split('\r'))
+                        {
+                            string temp = i.Replace(Environment.NewLine, "");
+                            if (!temp.Contains('['))
+                            {
+                                temp = temp.Remove(0, 1);
+                            }
+
+                            if (!String.IsNullOrEmpty(temp))
+                            {
+                                fileContents.Add(temp);
+                            }                 
+                        }
+
+                        System.IO.File.WriteAllLines(Settings.sdoddler_file, fileContents);
+                    }
                     break;
             }            
         }
