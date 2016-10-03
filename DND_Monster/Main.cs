@@ -73,10 +73,9 @@ namespace DND_Monster
         // Set all drop downs and updowns to their starting values and set events.
         private void Form1_Load(object sender, EventArgs e)
         {
-            //Monster.CreatureName = "creature";
-            
-            currentCR = Help.ChallengeRatings[0];
-            ChallengeRatingDropDown.SelectedIndex = 0;
+            //Monster.CreatureName = "creature";            
+            currentCR = Help.FindCRByIndex(0);
+            ChallengeRatingDropDown.SelectedIndex = 0;            
             AlignmentDropDown.SelectedIndex = AlignmentDropDown.Items.Count - 1;
             HitDieDropDown.SelectedIndex = 0;
             SizeDropDown.SelectedIndex = 0;
@@ -138,7 +137,7 @@ namespace DND_Monster
             }
 
             this.Text = this.Text + " v" + Help.Version;            
-            AddSaved.Text = "Add SRD Content";
+            AddSaved.Text = "Add SRD Content";            
         }       
 
         // This updates the labels next to stats, when the stats change.
@@ -158,20 +157,18 @@ namespace DND_Monster
                     }
                 }
             }
-        }      
+        }
 
         // This updates the proficiency based on CR.
         private void crChangedUpdateProficiency(object sender, EventArgs e)
-        {            
-            foreach (Challenge_Rating cr in Help.ChallengeRatings)
+        {
+            Challenge_Rating temp = Help.FindCRByIndex(ChallengeRatingDropDown.Text);
+            if (temp != null)
             {
-                if (cr.CR == ChallengeRatingDropDown.Text)
-                {
-                    SkillBonus.Value = cr.profBonus;                    
-                    currentCR = cr;
-                    ProfBonus.Text = "+" + cr.profBonus;
-                    Monster.CR = cr;
-                }
+                SkillBonus.Value = temp.profBonus;
+                currentCR = temp;
+                ProfBonus.Text = "+" + temp.profBonus;
+                Monster.CR = temp;
             }
         }
         
@@ -797,7 +794,7 @@ namespace DND_Monster
 
         // Converts JSON string to Monster, loading data.
         private void LoadData(object sender, EventArgs e)
-        {
+        {            
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.InitialDirectory = Help.LastDirectory;
             dialog.Filter = "mm files (*.mm)|*.mm";
@@ -808,20 +805,19 @@ namespace DND_Monster
                 Monster.Clear(true);
                 ClearUI();
 
-                Help.LastDirectory = dialog.FileName;
-
+                Help.LastDirectory = dialog.FileName;                
                 Data jsonMonster = new Data();
-                jsonMonster = JsonConvert.DeserializeObject<Data>(System.IO.File.ReadAllText(dialog.FileName));
+                jsonMonster = JsonConvert.DeserializeObject<Data>(System.IO.File.ReadAllText(dialog.FileName));   
                 TraitsList.Items.Clear();
                 TraitsList.Sorted = false;
-
-                Monster.Input(jsonMonster);                
-
-                currentCR = Monster.CR;
-                ChallengeRatingDropDown.Text = "";
-                ChallengeRatingDropDown.SelectedText = Help.FindCRByIndex(Monster.CR.Index).CR;
-                crChangedUpdateProficiency(null, null);
                 
+                Monster.Input(jsonMonster);
+                
+                currentCR = Monster.CR;                
+                ChallengeRatingDropDown.Text = "";                
+                ChallengeRatingDropDown.SelectedText = Help.FindCRByIndex(currentCR.Index).CR;                
+                crChangedUpdateProficiency(null, null);
+
                 AlignmentDropDown.Text = "";
                 AlignmentDropDown.SelectedText = Monster.CreatureAlign;
 

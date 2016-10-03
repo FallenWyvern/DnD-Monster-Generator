@@ -43,7 +43,7 @@ namespace DND_Monster
 
         public string AC = "";
         public string HP = "";
-        public Challenge_Rating CR = Help.ChallengeRatings[0];
+        public Challenge_Rating CR = Help.FindCRByIndex(0);
 
         public string CreatureName = "";
         public string CreatureSize = "";
@@ -746,7 +746,7 @@ namespace DND_Monster
         }        
 
         // Object of all Challenge Ratings
-        public static List<Challenge_Rating> ChallengeRatings = new List<Challenge_Rating>
+        static readonly List<Challenge_Rating> ChallengeRatings = new List<Challenge_Rating>
         {
             new Challenge_Rating {Index = 0, CR = "0", profBonus = 2, ArmorClass = 13, AttackBonus = 3, SaveDC = 13, LowHP = 1, HighHP = 6, XP = 10 },
             new Challenge_Rating {Index = 1, CR = "1/8", profBonus = 2, ArmorClass = 13, AttackBonus = 3, SaveDC = 13, LowHP = 7, HighHP = 35, XP = 25},
@@ -798,13 +798,27 @@ namespace DND_Monster
             return null;
         }
 
+        // Find CR based on Index (string)
+        static public Challenge_Rating FindCRByIndex(string index)
+        {
+            foreach (Challenge_Rating cr in Help.ChallengeRatings)
+            {
+                if (cr.CR == index)
+                {                    
+                    return cr;
+                }
+            }
+
+            return null;
+        }
+
         // Find CR based on the Index.
         static public Challenge_Rating FindCRByIndex(int index)
         {
             foreach (Challenge_Rating cr in ChallengeRatings)
             {
                 if (cr.Index == index)
-                {
+                {                    
                     return cr;
                 }
             }

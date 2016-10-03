@@ -263,7 +263,7 @@ namespace DND_Monster
             Speed = "";
             AC = "";
             HP = "";
-            CR = Help.ChallengeRatings[0];
+            CR = Help.FindCRByIndex(0);
 
             CreatureAlign = "";
             CreatureName = "";
@@ -397,7 +397,7 @@ namespace DND_Monster
 
         public static string AC = "";
         public static string HP = "";
-        public static Challenge_Rating CR = Help.ChallengeRatings[0];
+        public static Challenge_Rating CR = Help.FindCRByIndex(0);
 
         public static string CreatureName = "";
         public static string CreatureSize = "";
