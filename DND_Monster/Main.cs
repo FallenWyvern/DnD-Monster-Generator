@@ -203,7 +203,12 @@ namespace DND_Monster
         // Adds languages to TraitList
         private void addLanguage(object sender, EventArgs e)
         {
-            TraitsList.Items.Add("Language: " + LanguageComboBox.Text);
+            if (LanguageComboBox.Text == "telepathy")
+                TraitsList.Items.Add("Language: " + LanguageComboBox.Text + " " + TelepathyDistanceUpDown.Value + " ft.");
+            else if (CantSpeakCheckBox.Checked)
+                TraitsList.Items.Add("Language: understands " + LanguageComboBox.Text + " but can't speak");
+            else
+                TraitsList.Items.Add("Language: " + LanguageComboBox.Text);
         }
 
         // Adds skills to TraitList
