@@ -299,6 +299,10 @@ namespace DND_Monster
 
                     Monster.AddAbility(addAbility.NewAbility);
                     TraitsList.Items.Add("Ability: " + addAbility.NewAbility.Title);
+                }
+                else
+                {
+                    TraitsList.Items.Add("Advanced Spellcasting");
                 } 
             };
         }
@@ -471,6 +475,13 @@ namespace DND_Monster
                         return;
                     }
                 }
+            }
+
+            if (TraitsList.SelectedItem.ToString() == "Advanced Spellcasting")
+            {
+                AddAbilityForm loadAbility = new AddAbilityForm();
+                loadAbility.LoadAbility();
+                loadAbility.Show();
             }
 
             if (TraitsList.SelectedItem.ToString().Split(':')[0].Trim() == "Action")
@@ -669,6 +680,12 @@ namespace DND_Monster
                         Monster._Reactions.Remove(temp);
                         TraitsList.Items.Remove(TraitsList.SelectedItem);
                     }
+                }
+
+                if (TraitsList.Items.Count < 1 || TraitsList.SelectedItem == null) return;
+                if (TraitsList.SelectedItem.ToString() == "Advanced Spellcasting")
+                {
+                    Monster._advancedSpells.Clear();
                 }
 
                 if (TraitsList.Items.Count < 1 || TraitsList.SelectedItem == null) return;
@@ -992,6 +1009,14 @@ namespace DND_Monster
                     }
                 }
                 #endregion
+
+                if (Monster._advancedSpellData != null)
+                {
+                    if (Monster._advancedSpellData.Count > 0)
+                    {
+                        TraitsList.Items.Add("Advanced Spellcasting");
+                    }
+                }
 
                 foreach (Ability item in Monster._Abilities)
                 {
@@ -2544,5 +2569,6 @@ namespace DND_Monster
             Monster.WIS = (int)WisUpDown.Value;
             Monster.CHA = (int)ChaUpDown.Value;
         }
+        
     }
 }

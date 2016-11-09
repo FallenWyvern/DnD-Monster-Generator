@@ -286,11 +286,13 @@ namespace DND_Monster
                 _Actions.Clear();
                 _Legendaries.Clear();
                 _Reactions.Clear();
+                _advancedSpellData.Clear();
+                _advancedSpells.Clear();
             }
 
             _Languages.Clear();
             _Senses.Clear();
-        }
+        }        
 
         // Saves the monster data to the data model.
         public static void Output(Data fillTarget)
@@ -299,6 +301,8 @@ namespace DND_Monster
             fillTarget._Actions = _Actions;
             fillTarget._Legendaries = _Legendaries;
             fillTarget._Reactions = _Reactions;
+            fillTarget._advancedSpells = _advancedSpells;
+            fillTarget._advancedSpellData = _advancedSpellData;            
             fillTarget._Languages = _Languages;
             fillTarget._Senses = _Senses;
             fillTarget.AC = AC;
@@ -325,7 +329,7 @@ namespace DND_Monster
             fillTarget.Title = Title;
             fillTarget.WIS = WIS;
             fillTarget.CreatureGender = CreatureGender;
-            fillTarget.unique = unique;
+            fillTarget.unique = unique;                        
         }
 
         // Loads the monster data from data model.
@@ -338,6 +342,8 @@ namespace DND_Monster
             _Reactions = source._Reactions;
             _Languages = source._Languages;
             _Senses = source._Senses;
+            _advancedSpellData = source._advancedSpellData;
+            _advancedSpells = source._advancedSpells;
             AC = source.AC;
             CHA = source.CHA;
             CON = source.CON;
@@ -382,7 +388,9 @@ namespace DND_Monster
         public static List<Ability> _Abilities = new List<Ability>();
         public static List<Ability> _Actions = new List<Ability>();
         public static List<Ability> _Reactions = new List<Ability>();
-        public static List<Legendary> _Legendaries = new List<Legendary>();        
+        public static List<Legendary> _Legendaries = new List<Legendary>();
+        public static List<string> _advancedSpells = new List<string>();
+        public static List<AdvancedSpell> _advancedSpellData = new List<AdvancedSpell>();
 
         public static string Title = "";        
         public static int STR = 10;

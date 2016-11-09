@@ -71,6 +71,26 @@
             this.SpellClassLabel = new System.Windows.Forms.Label();
             this.SpellNameLabel = new System.Windows.Forms.Label();
             this.SpellLevelLabel = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.advancedCasterLevel = new System.Windows.Forms.NumericUpDown();
+            this.advancedCasterAbility = new System.Windows.Forms.ComboBox();
+            this.advancedSpellType = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.advancedSpellSlotsLevel = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.advancedSpellSlotsPerLevel = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.advancedSpellLevel = new System.Windows.Forms.NumericUpDown();
+            this.advancedSpellName = new System.Windows.Forms.TextBox();
+            this.advancedSpell = new System.Windows.Forms.RichTextBox();
+            this.addSpellMessage = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -86,6 +106,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.Spellslot7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Spellslot8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SpellLevel)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedCasterLevel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedSpellSlotsLevel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedSpellSlotsPerLevel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedSpellLevel)).BeginInit();
             this.SuspendLayout();
             // 
             // DescriptionTextBox
@@ -137,6 +162,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -572,6 +598,215 @@
             this.SpellLevelLabel.TabIndex = 1;
             this.SpellLevelLabel.Text = "Spell Level";
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.addSpellMessage);
+            this.tabPage3.Controls.Add(this.advancedCasterLevel);
+            this.tabPage3.Controls.Add(this.advancedCasterAbility);
+            this.tabPage3.Controls.Add(this.advancedSpellType);
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Controls.Add(this.label6);
+            this.tabPage3.Controls.Add(this.label7);
+            this.tabPage3.Controls.Add(this.button3);
+            this.tabPage3.Controls.Add(this.button2);
+            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.advancedSpellSlotsLevel);
+            this.tabPage3.Controls.Add(this.label4);
+            this.tabPage3.Controls.Add(this.advancedSpellSlotsPerLevel);
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Controls.Add(this.label2);
+            this.tabPage3.Controls.Add(this.label1);
+            this.tabPage3.Controls.Add(this.advancedSpellLevel);
+            this.tabPage3.Controls.Add(this.advancedSpellName);
+            this.tabPage3.Controls.Add(this.advancedSpell);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(505, 359);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Advanced";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // advancedCasterLevel
+            // 
+            this.advancedCasterLevel.Location = new System.Drawing.Point(158, 23);
+            this.advancedCasterLevel.Name = "advancedCasterLevel";
+            this.advancedCasterLevel.Size = new System.Drawing.Size(103, 20);
+            this.advancedCasterLevel.TabIndex = 20;
+            // 
+            // advancedCasterAbility
+            // 
+            this.advancedCasterAbility.FormattingEnabled = true;
+            this.advancedCasterAbility.Items.AddRange(new object[] {
+            "Intelligence",
+            "Wisdom",
+            "Charisma",
+            "Strength",
+            "Dexterity",
+            "Constitution"});
+            this.advancedCasterAbility.Location = new System.Drawing.Point(8, 69);
+            this.advancedCasterAbility.Name = "advancedCasterAbility";
+            this.advancedCasterAbility.Size = new System.Drawing.Size(121, 21);
+            this.advancedCasterAbility.TabIndex = 18;
+            this.advancedCasterAbility.Text = "Intelligence";
+            // 
+            // advancedSpellType
+            // 
+            this.advancedSpellType.FormattingEnabled = true;
+            this.advancedSpellType.Items.AddRange(new object[] {
+            "bard",
+            "cleric",
+            "druid",
+            "paladin",
+            "ranger",
+            "sorcerer",
+            "warlock",
+            "wizard"});
+            this.advancedSpellType.Location = new System.Drawing.Point(8, 22);
+            this.advancedSpellType.Name = "advancedSpellType";
+            this.advancedSpellType.Size = new System.Drawing.Size(121, 21);
+            this.advancedSpellType.TabIndex = 16;
+            this.advancedSpellType.Text = "bard";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(155, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(93, 13);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Spellcasting Level";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 53);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 13);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Casting Ability";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(8, 6);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Type of Spells";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(11, 328);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(250, 23);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "Save";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Save);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(11, 295);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(250, 23);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Adjust Slots";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.AdjustSlots);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(11, 173);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(250, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Add Spell";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.AdjustSpell);
+            // 
+            // advancedSpellSlotsLevel
+            // 
+            this.advancedSpellSlotsLevel.Location = new System.Drawing.Point(91, 269);
+            this.advancedSpellSlotsLevel.Name = "advancedSpellSlotsLevel";
+            this.advancedSpellSlotsLevel.Size = new System.Drawing.Size(170, 20);
+            this.advancedSpellSlotsLevel.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 271);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Spell Level";
+            // 
+            // advancedSpellSlotsPerLevel
+            // 
+            this.advancedSpellSlotsPerLevel.Location = new System.Drawing.Point(91, 243);
+            this.advancedSpellSlotsPerLevel.Name = "advancedSpellSlotsPerLevel";
+            this.advancedSpellSlotsPerLevel.Size = new System.Drawing.Size(170, 20);
+            this.advancedSpellSlotsPerLevel.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 245);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Spell Slots";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 150);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Spell Name";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 123);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Spell Level";
+            // 
+            // advancedSpellLevel
+            // 
+            this.advancedSpellLevel.Location = new System.Drawing.Point(91, 121);
+            this.advancedSpellLevel.Name = "advancedSpellLevel";
+            this.advancedSpellLevel.Size = new System.Drawing.Size(170, 20);
+            this.advancedSpellLevel.TabIndex = 2;
+            // 
+            // advancedSpellName
+            // 
+            this.advancedSpellName.Location = new System.Drawing.Point(91, 147);
+            this.advancedSpellName.Name = "advancedSpellName";
+            this.advancedSpellName.Size = new System.Drawing.Size(170, 20);
+            this.advancedSpellName.TabIndex = 1;
+            // 
+            // advancedSpell
+            // 
+            this.advancedSpell.Dock = System.Windows.Forms.DockStyle.Right;
+            this.advancedSpell.Location = new System.Drawing.Point(267, 3);
+            this.advancedSpell.Name = "advancedSpell";
+            this.advancedSpell.Size = new System.Drawing.Size(235, 353);
+            this.advancedSpell.TabIndex = 0;
+            this.advancedSpell.Text = "";
+            // 
+            // addSpellMessage
+            // 
+            this.addSpellMessage.AutoSize = true;
+            this.addSpellMessage.Location = new System.Drawing.Point(8, 199);
+            this.addSpellMessage.Name = "addSpellMessage";
+            this.addSpellMessage.Size = new System.Drawing.Size(53, 13);
+            this.addSpellMessage.TabIndex = 22;
+            this.addSpellMessage.Text = "Message:";
+            // 
             // AddAbilityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -599,6 +834,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.Spellslot7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Spellslot8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SpellLevel)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedCasterLevel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedSpellSlotsLevel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedSpellSlotsPerLevel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedSpellLevel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -648,6 +889,25 @@
         public System.Windows.Forms.Label NinethLevelSpellSlotLabel;
         public System.Windows.Forms.Label SpellcastingLevelLabel;
         public System.Windows.Forms.NumericUpDown SpellcastingLevel;
-
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.NumericUpDown advancedSpellSlotsLevel;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown advancedSpellSlotsPerLevel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown advancedSpellLevel;
+        private System.Windows.Forms.TextBox advancedSpellName;
+        private System.Windows.Forms.RichTextBox advancedSpell;
+        private System.Windows.Forms.Button button3;
+        public System.Windows.Forms.NumericUpDown advancedCasterLevel;
+        public System.Windows.Forms.ComboBox advancedCasterAbility;
+        public System.Windows.Forms.ComboBox advancedSpellType;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label addSpellMessage;
     }
 }

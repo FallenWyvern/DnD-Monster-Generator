@@ -523,7 +523,14 @@ namespace DND_Monster
             if (_Actions.Count > 0)
             {                
                 output.Add(@"<property-block><h3 style=""border-bottom: 1px solid #7A200D; color:#7A200D; font-size: 18px; font-variant: small-caps; font-weight: normal; letter-spacing: 1px; margin: 0;"">Actions</h3></property-block>");                
-            }            
+            }
+
+            foreach (string spell in _advancedSpells)
+            { 
+                output.Add(@"<property-block>");
+                output.Add(spell);
+                output.Add(@"</property-block>");
+            };
 
             // Actions            
             foreach (Ability ability in _Actions)

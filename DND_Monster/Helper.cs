@@ -23,10 +23,12 @@ namespace DND_Monster
         public List<string> _Senses = new List<string>();
         public List<string> _Languages = new List<string>();
 
-        public List<Ability> _Abilities = new List<Ability>();
+        public List<Ability> _Abilities = new List<Ability>();        
         public List<Ability> _Actions = new List<Ability>();
         public List<Ability> _Reactions = new List<Ability>();
         public List<Legendary> _Legendaries = new List<Legendary>();
+        public List<string> _advancedSpells = new List<string>();
+        public List<AdvancedSpell> _advancedSpellData = new List<AdvancedSpell>();
 
         public string LegendaryActions { get; set; }
 
@@ -143,6 +145,13 @@ namespace DND_Monster
     public class OGL_Legendary : Legendary
     {
         public string OGL_Creature { get; set; }
+    }
+
+    public class AdvancedSpell
+    {
+        public int spellLevel { get; set; }
+        public int spellSlots { get; set; }
+        public List<string> spellNames = new List<string>();
     }
 
     // Ability
@@ -699,7 +708,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "5.3.1";
+        public static string Version = "5.4.0";
         public static string SkipVersion = "0.0.0";
         public static string ParsedVersion = "";
 

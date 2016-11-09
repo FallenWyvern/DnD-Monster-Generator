@@ -31,13 +31,29 @@ namespace DND_Monster
             spellslots.Add(Spellslot9);
         }
 
+        // This loads advanced spellcasting
+        public void LoadAbility()
+        {
+            Monster._advancedSpells.Clear();
+            tabControl1.SelectedIndex = 2;
+            advancedSpells = Monster._advancedSpellData;
+            foreach (AdvancedSpell spell in Monster._advancedSpellData)
+            {
+                if (spell.spellLevel > highestSpellLevel)
+                {
+                    highestSpellLevel = spell.spellLevel;
+                }
+            }
+            AdvancedSpellText();
+        }
+
         // This loads non-spell abilities.
         public void LoadAbility(Ability values)
         {
             AbilityNameTextBox.Text = values.Title;
             DescriptionTextBox.Text = values.Description;
             NewAbility = values;
-            NewAbility.isSpell = false;
+            NewAbility.isSpell = false;            
         }
 
         // This loads spells.
@@ -85,7 +101,7 @@ namespace DND_Monster
                 NewAbility.isDamage = false;
                 NewAbility.isSpell = false;
             }
-            else
+            else if (tabControl1.SelectedIndex == 1) 
             {
                 this.NewAbility = new Ability();
                 string spellText = "";
@@ -111,6 +127,12 @@ namespace DND_Monster
                 NewAbility.Description = spellText; 
                 NewAbility.isSpell = true;
                 NewAbility.isDamage = false;                
+            }
+            else
+            {
+                NewAbility = null;
+                Monster._advancedSpells.Add(advancedSpell.Text);
+                Monster._advancedSpellData = advancedSpells;
             }
             this.Close();
         }
@@ -234,6 +256,171 @@ namespace DND_Monster
                 SpellLevelLabel.Text = Settings.SpellLevel;
                 // SpellLevel.Maximum = oldMax;
             }
+        }
+
+        List<AdvancedSpell> advancedSpells = new List<AdvancedSpell>();
+        int highestSpellLevel = 0;     
+
+        private void AdvancedSpellText()
+        {
+            advancedSpell.Text = "<h4><b>Spellcasting. </b></h4><p>";
+            string name = "";
+            if (String.IsNullOrEmpty(Monster.CreatureName) || String.IsNullOrWhiteSpace(Monster.CreatureName))
+            {
+                name = "The Creature";
+            }
+            else
+            {
+                if (!name.Contains('*') && !Monster.unique) { name = name.ToLower(); }
+            }
+
+            string levelSuffix = "th";
+            if (advancedCasterLevel.Value == 1)
+            {
+                levelSuffix = "st";
+            }
+            if (advancedCasterLevel.Value == 2)
+            {
+                levelSuffix = "nd";
+            }
+            if (advancedCasterLevel.Value == 3)
+            {
+                levelSuffix = "rd";
+            }
+
+            string spellcastingstat = advancedCasterAbility.Text;
+            int modifier = 0;
+
+            switch (spellcastingstat.ToLower().Substring(0, 3))
+            {
+                case "str":
+                    modifier = (int)Math.Floor((double)(Convert.ToInt32(Monster.STR) - 10) / 2);
+                    break;
+                case "int":
+                    modifier = (int)Math.Floor((double)(Convert.ToInt32(Monster.INT) - 10) / 2);
+                    break;
+                case "wis":
+                    modifier = (int)Math.Floor((double)(Convert.ToInt32(Monster.WIS) - 10) / 2);
+                    break;
+                case "cha":
+                    modifier = (int)Math.Floor((double)(Convert.ToInt32(Monster.CHA) - 10) / 2);
+                    break;
+                case "con":
+                    modifier = (int)Math.Floor((double)(Convert.ToInt32(Monster.CON) - 10) / 2);
+                    break;
+                case "dex":
+                    modifier = (int)Math.Floor((double)(Convert.ToInt32(Monster.DEX) - 10) / 2);
+                    break;
+            }
+
+            advancedSpell.Text += name + " is a " + advancedCasterLevel.Value + levelSuffix + "-level spellcaster. Its spellcasting ability is " + advancedCasterAbility.Text + " (spell save DC ";
+            advancedSpell.Text += (8 + Monster.CR.profBonus + modifier) + ", +" + (modifier + Monster.CR.profBonus) + " to hit with spell attacks). " + name + " has the following " + advancedSpellType.Text + " spells prepared:</p></br>";
+
+            for (int i = 0; i < highestSpellLevel + 1; i++)
+            {
+                foreach (AdvancedSpell spell in advancedSpells)
+                {
+                    if (spell.spellLevel == i)
+                    {
+                        string _levelSuffix = "th";
+                        if (spell.spellLevel == 1)
+                        {
+                            _levelSuffix = "st";
+                        }
+                        if (spell.spellLevel == 2)
+                        {
+                            _levelSuffix = "nd";
+                        }
+                        if (spell.spellLevel == 3)
+                        {
+                            _levelSuffix = "rd";
+                        }
+
+                        if (i != 0)
+                        {
+                            advancedSpell.Text += "<p>" + spell.spellLevel + _levelSuffix + " (" + spell.spellSlots + " slot";
+                            if (spell.spellSlots > 1)
+                            {
+                                advancedSpell.Text += "s";
+                            }
+                            advancedSpell.Text += "): ";
+                        }
+                        else
+                        {
+                            advancedSpell.Text += "<p>Cantrips (<i>at will</i>): ";
+                        }
+                        
+                        foreach (string item in spell.spellNames)
+                        {
+                            advancedSpell.Text += "<i>" + item + "</i>";
+                            if (item != spell.spellNames.Last())
+                            {
+                                advancedSpell.Text += ", ";
+                            } else
+                            {
+                                advancedSpell.Text += "</p>";
+                            }
+                        }
+
+                        if (spell.spellNames.Count == 0)
+                        {
+                            advancedSpell.Text += "</p>";
+                        }
+                    }
+                }                
+            }
+        }
+
+        private void AdjustSlots(object sender, EventArgs e)
+        {
+            bool foundExistingLevels = false;
+            foreach (AdvancedSpell spell in advancedSpells)
+            {
+                if (spell.spellLevel == (int)advancedSpellSlotsLevel.Value)
+                {
+                    foundExistingLevels = true;
+                    spell.spellSlots = (int)advancedSpellSlotsPerLevel.Value;
+                }
+            }
+
+            if (!foundExistingLevels)
+            {
+                advancedSpells.Add(new AdvancedSpell()
+                {
+                    spellSlots = (int)advancedSpellSlotsPerLevel.Value,
+                    spellLevel = (int)advancedSpellSlotsLevel.Value,
+                });
+            }
+
+            if (advancedSpellSlotsLevel.Value > highestSpellLevel)
+            {
+                highestSpellLevel = (int)advancedSpellSlotsLevel.Value;                
+            }
+
+            AdvancedSpellText();
+        }
+
+        private void AdjustSpell(object sender, EventArgs e)
+        {
+            bool foundSpellLevel = false;
+            foreach (AdvancedSpell spell in advancedSpells)
+            {
+                if (spell.spellLevel == (int)advancedSpellLevel.Value)
+                {
+                    foundSpellLevel = true;
+                    spell.spellNames.Add(advancedSpellName.Text);
+                    AdvancedSpellText();                    
+                }
+            }                       
+
+            if (foundSpellLevel)
+            {
+                addSpellMessage.Text = "Message: Successfully added spell.";
+            }
+            else
+            {
+                addSpellMessage.Text = "Message: Could not add spell, please " + Environment.NewLine + "adjust spell slots for this level.";
+            } 
         }
     }
 }
