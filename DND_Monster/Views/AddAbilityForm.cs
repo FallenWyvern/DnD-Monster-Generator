@@ -19,6 +19,7 @@ namespace DND_Monster
         {
             InitializeComponent();
             Translation.Apply(this);
+            tabControl1.TabPages.RemoveAt(2);
 
             spellslots.Add(Spellslot1); 
             spellslots.Add(Spellslot2);
@@ -49,7 +50,7 @@ namespace DND_Monster
 
         // This loads non-spell abilities.
         public void LoadAbility(Ability values)
-        {
+        {            
             AbilityNameTextBox.Text = values.Title;
             DescriptionTextBox.Text = values.Description;
             NewAbility = values;

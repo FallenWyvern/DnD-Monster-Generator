@@ -72,6 +72,7 @@
             this.SpellNameLabel = new System.Windows.Forms.Label();
             this.SpellLevelLabel = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.addSpellMessage = new System.Windows.Forms.Label();
             this.advancedCasterLevel = new System.Windows.Forms.NumericUpDown();
             this.advancedCasterAbility = new System.Windows.Forms.ComboBox();
             this.advancedSpellType = new System.Windows.Forms.ComboBox();
@@ -90,7 +91,6 @@
             this.advancedSpellLevel = new System.Windows.Forms.NumericUpDown();
             this.advancedSpellName = new System.Windows.Forms.TextBox();
             this.advancedSpell = new System.Windows.Forms.RichTextBox();
-            this.addSpellMessage = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -627,6 +627,15 @@
             this.tabPage3.Text = "Advanced";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // addSpellMessage
+            // 
+            this.addSpellMessage.AutoSize = true;
+            this.addSpellMessage.Location = new System.Drawing.Point(8, 199);
+            this.addSpellMessage.Name = "addSpellMessage";
+            this.addSpellMessage.Size = new System.Drawing.Size(53, 13);
+            this.addSpellMessage.TabIndex = 22;
+            this.addSpellMessage.Text = "Message:";
+            // 
             // advancedCasterLevel
             // 
             this.advancedCasterLevel.Location = new System.Drawing.Point(158, 23);
@@ -797,15 +806,6 @@
             this.advancedSpell.Size = new System.Drawing.Size(235, 353);
             this.advancedSpell.TabIndex = 0;
             this.advancedSpell.Text = "";
-            // 
-            // addSpellMessage
-            // 
-            this.addSpellMessage.AutoSize = true;
-            this.addSpellMessage.Location = new System.Drawing.Point(8, 199);
-            this.addSpellMessage.Name = "addSpellMessage";
-            this.addSpellMessage.Size = new System.Drawing.Size(53, 13);
-            this.addSpellMessage.TabIndex = 22;
-            this.addSpellMessage.Text = "Message:";
             // 
             // AddAbilityForm
             // 

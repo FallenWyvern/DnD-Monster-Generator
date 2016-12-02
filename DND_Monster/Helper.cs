@@ -305,30 +305,44 @@ namespace DND_Monster
             if (!isSpell) return "";
 
             string returnstring = "";            
-            string[] spells = Description.Split('|')[5].Split(',');            
+            string[] spells = Description.Split('|')[5].Split(',');
 
-            for (int i = 0; i < 10; i++)
+            foreach (string item in spells)
+            {
+                if (item.Contains("0:"))
+                {
+                    if (!returnstring.Contains("At will"))
+                    {
+                        returnstring += "<p>At will: ";
+                        returnstring += "<i>";
+                    }
+
+                    returnstring += item.Split(':')[1].Trim() + ", ";
+                }
+            }
+
+            for (int i = 10; i > 0; i--)
             {                
                 foreach (string item in spells)
                 {                    
                     if (item.Contains(i + ":"))
                     {
-                        if (i == 0)
-                        {
-                            if (!returnstring.Contains("At will"))
-                            {
-                                returnstring += "<p>At will: ";
-                                returnstring += "<i>";
-                            }                            
-                        }
-                        else
-                        {
+                        //if (i == 0)
+                        //{
+                        //    if (!returnstring.Contains("At will"))
+                        //    {
+                        //        returnstring += "<p>At will: ";
+                        //        returnstring += "<i>";
+                        //    }                            
+                        //}
+                        //else
+                        //{
                             if (!returnstring.Contains(i + "/day"))
                             {
                                 returnstring += "<p>" + i + "/day each: ";
                                 returnstring += "<i>";
                             }
-                        }
+                        //}
                         
                         returnstring += item.Split(':')[1].Trim() + ", ";
                     }
