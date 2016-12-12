@@ -19,7 +19,11 @@ namespace DND_Monster
         {
             InitializeComponent();
             Translation.Apply(this);
-            tabControl1.TabPages.RemoveAt(2);
+
+            if (!Settings.isEpic)
+            {
+                tabControl1.TabPages.RemoveAt(2);
+            }
 
             spellslots.Add(Spellslot1); 
             spellslots.Add(Spellslot2);

@@ -15,6 +15,7 @@ namespace DND_Monster
         public static string SpellLevel = "Spell Level";
         public static string TranslationFile = "";
         public static bool isFeet = true;
+        public static bool isEpic = false;
         public static bool alwaysSavesDoddler = false;
 
         public static void Load()
@@ -34,7 +35,13 @@ namespace DND_Monster
 
                 foreach (string arg in Args)
                 {
-
+                    if (arg.Contains("Epic="))
+                    {
+                        if (arg.Split('=')[1].ToLower() == "true")
+                        {
+                            isEpic = true;
+                        }
+                    }
                     if (arg.Contains("Last Directory="))
                     {
                         Help.LastDirectory = arg.Split('=')[1];

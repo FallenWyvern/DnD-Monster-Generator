@@ -734,6 +734,7 @@ namespace DND_Monster
                     sDoddler();
                     ExportReddit.Enabled = true;
 
+                    #region
                     if (Settings.sdoddler_file == "")
                     {
                         if (MessageBox.Show("Would you like to link this application to the sDoddler Suite so you can automatically append all monsters created with this template to your custom monsters ini file?", "Question", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -773,6 +774,13 @@ namespace DND_Monster
 
                         System.IO.File.WriteAllLines(Settings.sdoddler_file, fileContents);
                     }
+                    #endregion
+                    break;
+                case 6:
+                    tableLayoutPanel1.Controls.Add(redditOutput, 0, 0);
+                    redditOutput.Text = "";
+                    MonsterWorkbench();
+                    ExportReddit.Enabled = true;
                     break;
             }            
         }
@@ -1771,6 +1779,22 @@ namespace DND_Monster
             this.Text = Monster.CreatureName.Replace('*', ' ').Trim();
             Clear();
             redditOutput.Text = Monster.sDoddlerOutput();
+        }
+
+        public void MonsterWorkbench()
+        {
+            this.Text = Monster.CreatureName.Replace('*', ' ').Trim();
+            Clear();
+            // redditOutput.Text = Monster.WorkbenchOutput();
+            redditOutput.Text = MonsterNameTextBox.Text + "," +
+                ChallengeRatingDropDown.Text + "," +
+                TypeDropDown.Text + " " + ((!String.IsNullOrEmpty(TagDropDown.Text)) ? " (" + TagDropDown.Text + ")" : "") + "," +
+                HitDieUpDown.Value + HitDieDropDown.Text + "," + HitDieTextBox.Text + "," +
+                DexBonus.Text + "," + DexBonus.Text + "," + ACUpDown.Value + ((!String.IsNullOrEmpty(ACSourceTextBox.Text)) ? " (" + ACSourceTextBox.Text + ")" : "") + "," +
+                Help.FindCRByIndex(ChallengeRatingDropDown.Text).XP + "," +
+                SizeDropDown.Text + "," + Monster.Speed.Replace(':', ' ').Replace(',', ' ').Trim() + 
+
+                "";
         }
 
         // Recalculate AC based on CR/Dex.

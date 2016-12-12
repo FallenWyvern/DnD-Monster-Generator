@@ -1542,7 +1542,8 @@
             "Future",
             "Reddit",
             "sDoddler\'s D&D Suite",
-            "Custom Statblock"});
+            "Custom Statblock",
+            "Monster Workbench"});
             this.PreviewTemplateSelector.Location = new System.Drawing.Point(305, 689);
             this.PreviewTemplateSelector.Name = "PreviewTemplateSelector";
             this.PreviewTemplateSelector.Size = new System.Drawing.Size(156, 21);
