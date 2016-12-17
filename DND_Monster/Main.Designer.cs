@@ -1343,10 +1343,10 @@
             this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel2.ColumnCount = 7;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 79F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 14F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 218F));
             this.tableLayoutPanel2.Controls.Add(this.checkBox1, 6, 1);
@@ -1383,7 +1383,7 @@
             // 
             this.ExportCSV.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ExportCSV.Enabled = false;
-            this.ExportCSV.Location = new System.Drawing.Point(201, 14);
+            this.ExportCSV.Location = new System.Drawing.Point(198, 14);
             this.ExportCSV.Name = "ExportCSV";
             this.ExportCSV.Size = new System.Drawing.Size(54, 23);
             this.ExportCSV.TabIndex = 3;
@@ -1395,7 +1395,7 @@
             // 
             this.PrintButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.PrintButton.Enabled = false;
-            this.PrintButton.Location = new System.Drawing.Point(137, 14);
+            this.PrintButton.Location = new System.Drawing.Point(132, 14);
             this.PrintButton.Name = "PrintButton";
             this.PrintButton.Size = new System.Drawing.Size(58, 23);
             this.PrintButton.TabIndex = 2;
@@ -1409,7 +1409,7 @@
             this.ExportPNG.Enabled = false;
             this.ExportPNG.Location = new System.Drawing.Point(68, 14);
             this.ExportPNG.Name = "ExportPNG";
-            this.ExportPNG.Size = new System.Drawing.Size(59, 23);
+            this.ExportPNG.Size = new System.Drawing.Size(58, 23);
             this.ExportPNG.TabIndex = 1;
             this.ExportPNG.Text = "PNG";
             this.ExportPNG.UseVisualStyleBackColor = true;

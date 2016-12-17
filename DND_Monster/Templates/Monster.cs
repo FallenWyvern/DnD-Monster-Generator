@@ -43,7 +43,7 @@ namespace DND_Monster
             _Legendaries.Add(target);
         }
 
-        private static string D_Immunities()
+        public static string D_Immunities()
         {
             string immunities = "";
             foreach (string item in DamageImmunities)
@@ -62,7 +62,7 @@ namespace DND_Monster
             DamageImmunities.Add(immunity);
         }
 
-        private static string D_Resistances()
+        public static string D_Resistances()
         {
             string resistance = "";
             foreach (string item in DamageResistances)
@@ -82,7 +82,7 @@ namespace DND_Monster
             DamageResistances.Add(resistance);
         }
 
-        private static string D_Vulnerabilities()
+        public static string D_Vulnerabilities()
         {
             string vulnerability = "";
             foreach (string item in DamageVulnerability)
@@ -101,7 +101,7 @@ namespace DND_Monster
             DamageVulnerability.Add(vulnerability);
         }
 
-        private static string C_Immunities()
+        public static string C_Immunities()
         {
             string immunities = "";
             foreach (string item in ConditionImmunities)
@@ -120,7 +120,7 @@ namespace DND_Monster
             ConditionImmunities.Add(immunity);            
         }
 
-        private static string SavingThrows()
+        public static string SavingThrows()
         {
             string savingThrows = "";
             foreach (string item in SavingThrowBonuses)
@@ -139,7 +139,7 @@ namespace DND_Monster
             SavingThrowBonuses.Add(savingThrow);
         }
 
-        private static string Skills()
+        public static string Skills()
         {
             string skills = "";
             foreach (string item in SkillBonuses)
@@ -159,7 +159,7 @@ namespace DND_Monster
             SkillBonuses.Add(skill);
         }
 
-        private static string Senses()
+        public static string Senses()
         {            
             string senses = "";
             foreach (string item in _Senses)
@@ -220,7 +220,7 @@ namespace DND_Monster
             _Senses.Add(sense);
         }
 
-        private static string Languages()
+        public static string Languages()
         {
             if (_Languages.Count > 0)
             {

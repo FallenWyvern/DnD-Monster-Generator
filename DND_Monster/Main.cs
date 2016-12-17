@@ -260,7 +260,7 @@ namespace DND_Monster
 
             totalBonus = statBonus + profBonus + skillBonus;
 
-            if (totalBonus != 0)
+            if (totalBonus != 0 || SkillProfCheckBox.Checked)
             {
                 if (totalBonus < 0)
                 {
@@ -780,6 +780,7 @@ namespace DND_Monster
                     tableLayoutPanel1.Controls.Add(redditOutput, 0, 0);
                     redditOutput.Text = "";
                     MonsterWorkbench();
+                    ExportCSV.Enabled = true;
                     ExportReddit.Enabled = true;
                     break;
             }            
@@ -1279,127 +1280,144 @@ namespace DND_Monster
         // Convert Monster to CSV, then save the file.
         private void ExportCSV_Click(object sender, EventArgs e)
         {
-            Previs();
-            StringBuilder CSVOutput = new StringBuilder();
-            CSVOutput.Append(Monster.Title + ",");
-            CSVOutput.Append(Monster.CreatureName + ",");
-            CSVOutput.Append(Monster.CreatureSize + " ");
-            CSVOutput.Append(Monster.CreatureType + " ");
-            CSVOutput.Append(Monster.CreatureAlign + ",");
-            CSVOutput.Append("Armor Class=" + Monster.AC+ ",");
-            CSVOutput.Append("HitPoints=" + Monster.HP + ",");
-            CSVOutput.Append("Speed=" + Monster.Speed + ",");
-            CSVOutput.Append("AbilityScores=[STR:" + Monster.STR + "(" + getStatMod("str") + ")],[DEX:" + Monster.DEX + "(" + getStatMod("dex") + ")],[CON:" + Monster.CON
-                + "(" + getStatMod("con") + ")],[INT:" + Monster.INT + "(" + getStatMod("int") + ")],[WIS:" + Monster.WIS + "(" + getStatMod("wis") + ")],[CHA:" + Monster.CHA 
-                + "(" + getStatMod("cha") +")],");
-
-            CSVOutput.Append("Saving Throws=");
-            foreach (string item in Monster.SavingThrowBonuses)
+            if (PreviewTemplateSelector.Text != "Monster Workbench")
             {
-                CSVOutput.Append("[" + item + "],");
-            }
+                Previs();
+                StringBuilder CSVOutput = new StringBuilder();
+                CSVOutput.Append(Monster.Title + ",");
+                CSVOutput.Append(Monster.CreatureName + ",");
+                CSVOutput.Append(Monster.CreatureSize + " ");
+                CSVOutput.Append(Monster.CreatureType + " ");
+                CSVOutput.Append(Monster.CreatureAlign + ",");
+                CSVOutput.Append("Armor Class=" + Monster.AC + ",");
+                CSVOutput.Append("HitPoints=" + Monster.HP + ",");
+                CSVOutput.Append("Speed=" + Monster.Speed + ",");
+                CSVOutput.Append("AbilityScores=[STR:" + Monster.STR + "(" + getStatMod("str") + ")],[DEX:" + Monster.DEX + "(" + getStatMod("dex") + ")],[CON:" + Monster.CON
+                    + "(" + getStatMod("con") + ")],[INT:" + Monster.INT + "(" + getStatMod("int") + ")],[WIS:" + Monster.WIS + "(" + getStatMod("wis") + ")],[CHA:" + Monster.CHA
+                    + "(" + getStatMod("cha") + ")],");
 
-            CSVOutput.Append("Skills=");
-            foreach (string item in Monster.SkillBonuses)
-            {
-                CSVOutput.Append("[" + item + "],");
-            }
+                CSVOutput.Append("Saving Throws=");
+                foreach (string item in Monster.SavingThrowBonuses)
+                {
+                    CSVOutput.Append("[" + item + "],");
+                }
 
-            CSVOutput.Append("Damage Immunities=");
+                CSVOutput.Append("Skills=");
+                foreach (string item in Monster.SkillBonuses)
+                {
+                    CSVOutput.Append("[" + item + "],");
+                }
 
-            foreach (string dimm in Monster.DamageImmunities)
-            {
-                CSVOutput.Append("[" + dimm + "],");
-            }
+                CSVOutput.Append("Damage Immunities=");
 
-            CSVOutput.Append("Damage Resistances=");
+                foreach (string dimm in Monster.DamageImmunities)
+                {
+                    CSVOutput.Append("[" + dimm + "],");
+                }
 
-            foreach (string dimm in Monster.DamageResistances)
-            {
-                CSVOutput.Append("[" + dimm + "],");
-            }
+                CSVOutput.Append("Damage Resistances=");
 
-            CSVOutput.Append("Damage Vulnerabilities=");
+                foreach (string dimm in Monster.DamageResistances)
+                {
+                    CSVOutput.Append("[" + dimm + "],");
+                }
 
-            foreach (string dimm in Monster.DamageVulnerability)
-            {
-                CSVOutput.Append("[" + dimm + "],");
-            }
+                CSVOutput.Append("Damage Vulnerabilities=");
 
-            CSVOutput.Append("Condition Immunities=");
+                foreach (string dimm in Monster.DamageVulnerability)
+                {
+                    CSVOutput.Append("[" + dimm + "],");
+                }
 
-            foreach (string dimm in Monster.ConditionImmunities)
-            {
-                CSVOutput.Append("[" + dimm + "],");
-            }
+                CSVOutput.Append("Condition Immunities=");
 
-            CSVOutput.Append("Senses=");
+                foreach (string dimm in Monster.ConditionImmunities)
+                {
+                    CSVOutput.Append("[" + dimm + "],");
+                }
 
-            foreach (string sense in Monster._Senses)
-            {
-                CSVOutput.Append("[" + sense + "],");
-            }
+                CSVOutput.Append("Senses=");
 
-            CSVOutput.Append("Languages=");
+                foreach (string sense in Monster._Senses)
+                {
+                    CSVOutput.Append("[" + sense + "],");
+                }
 
-            foreach (string dimm in Monster._Languages)
-            {
-                CSVOutput.Append("[" + dimm + "],");
-            }
+                CSVOutput.Append("Languages=");
 
-            CSVOutput.Append("Challenge Rating=" + Monster.CR);
+                foreach (string dimm in Monster._Languages)
+                {
+                    CSVOutput.Append("[" + dimm + "],");
+                }
 
-            CSVOutput.Append("Abilities=");
+                CSVOutput.Append("Challenge Rating=" + Monster.CR);
 
-            foreach (Ability dimm in Monster._Abilities)
-            {
-                CSVOutput.Append("[Name=" + dimm .Title + ",Description=" + dimm.Description + "],");
-            }
+                CSVOutput.Append("Abilities=");
 
-            CSVOutput.Append("Actions=");
-
-            foreach (Ability dimm in Monster._Actions)
-            {
-                if (!dimm.isDamage)
+                foreach (Ability dimm in Monster._Abilities)
                 {
                     CSVOutput.Append("[Name=" + dimm.Title + ",Description=" + dimm.Description + "],");
                 }
-            }
 
-            foreach (Ability action in Monster._Actions)
-            {
-                if (action.isDamage)
+                CSVOutput.Append("Actions=");
+
+                foreach (Ability dimm in Monster._Actions)
                 {
-                    Attack dimm = action.attack;
+                    if (!dimm.isDamage)
+                    {
+                        CSVOutput.Append("[Name=" + dimm.Title + ",Description=" + dimm.Description + "],");
+                    }
+                }
 
-                    CSVOutput.Append("[" +
-                        "Name=" + action.Title + "," +
-                        "Type=" + dimm._Attack + "," +
-                        "ToHit=" + dimm.Bonus + "," +
-                        "Reach=" + dimm.Reach + "," +
-                        "Range={" + dimm.RangeClose + "/" + dimm.RangeFar + "," +
-                        "Target=" + dimm.Target + "," +
-                        "Hit=[Average=" + dimm.HitAverageDamage + "]" + "[" + dimm.HitDiceNumber + "d" + dimm.HitDiceSize 
-                            + "+" + dimm.HitDamageBonus + " " + dimm.HitDamageType + " " + dimm.HitText + "],"
-                        + "],");
+                foreach (Ability action in Monster._Actions)
+                {
+                    if (action.isDamage)
+                    {
+                        Attack dimm = action.attack;
+
+                        CSVOutput.Append("[" +
+                            "Name=" + action.Title + "," +
+                            "Type=" + dimm._Attack + "," +
+                            "ToHit=" + dimm.Bonus + "," +
+                            "Reach=" + dimm.Reach + "," +
+                            "Range={" + dimm.RangeClose + "/" + dimm.RangeFar + "," +
+                            "Target=" + dimm.Target + "," +
+                            "Hit=[Average=" + dimm.HitAverageDamage + "]" + "[" + dimm.HitDiceNumber + "d" + dimm.HitDiceSize
+                                + "+" + dimm.HitDamageBonus + " " + dimm.HitDamageType + " " + dimm.HitText + "],"
+                            + "],");
+                    }
+                }
+
+                SaveFileDialog dialog = new SaveFileDialog();
+                dialog.InitialDirectory = Help.LastDirectory;
+                dialog.Filter = "csv files (*.csv)|*.csv";
+                dialog.RestoreDirectory = true;
+
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    Help.LastDirectory = dialog.FileName;
+                    string output = CSVOutput.ToString();
+                    if (output[output.Length - 1].ToString() == ",")
+                    {
+                        output = output.Substring(0, output.Length - 1);
+                    }
+
+                    System.IO.File.WriteAllText(dialog.FileName, output);
                 }
             }
-
-            SaveFileDialog dialog = new SaveFileDialog();
-            dialog.InitialDirectory = Help.LastDirectory;
-            dialog.Filter = "csv files (*.csv)|*.csv";
-            dialog.RestoreDirectory = true;
-
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            else
             {
-                Help.LastDirectory = dialog.FileName;
-                string output = CSVOutput.ToString();
-                if (output[output.Length - 1].ToString() == ",")
+                SaveFileDialog dialog = new SaveFileDialog();
+                dialog.InitialDirectory = Help.LastDirectory;
+                dialog.Filter = "csv files (*.csv)|*.csv";
+                dialog.RestoreDirectory = true;
+
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    output = output.Substring(0, output.Length - 1);
+                    Help.LastDirectory = dialog.FileName;
+                    string output = redditOutput.Text;
+                    System.IO.File.WriteAllText(dialog.FileName, output);
                 }
-                
-                System.IO.File.WriteAllText(dialog.FileName, output);
             }
         }        
 
@@ -1786,16 +1804,80 @@ namespace DND_Monster
             this.Text = Monster.CreatureName.Replace('*', ' ').Trim();
             Clear();
             // redditOutput.Text = Monster.WorkbenchOutput();
-            redditOutput.Text = MonsterNameTextBox.Text + "," +
-                ChallengeRatingDropDown.Text + "," +
-                TypeDropDown.Text + " " + ((!String.IsNullOrEmpty(TagDropDown.Text)) ? " (" + TagDropDown.Text + ")" : "") + "," +
-                HitDieUpDown.Value + HitDieDropDown.Text + "," + HitDieTextBox.Text + "," +
-                DexBonus.Text + "," + DexBonus.Text + "," + ACUpDown.Value + ((!String.IsNullOrEmpty(ACSourceTextBox.Text)) ? " (" + ACSourceTextBox.Text + ")" : "") + "," +
-                Help.FindCRByIndex(ChallengeRatingDropDown.Text).XP + "," +
-                SizeDropDown.Text + "," + Monster.Speed.Replace(':', ' ').Replace(',', ' ').Trim() + 
+            redditOutput.Text =
+                MonsterNameTextBox.Text + "," + // Name
+                ChallengeRatingDropDown.Text + "," + // CR
+                TypeDropDown.Text + " " + ((!String.IsNullOrEmpty(TagDropDown.Text)) ? " (" + TagDropDown.Text + ")" : "") + "," + // Type
+                HitDieTextBox.Text + "," + // Hit Points
+                HitDieUpDown.Value + HitDieDropDown.Text + "," + // Hit Dice
+                DexBonus.Text + "," + // Initative
+                DexBonus.Text + "," + // Initative Mod
+                ACUpDown.Value + ((!String.IsNullOrEmpty(ACSourceTextBox.Text)) ? " (" + ACSourceTextBox.Text + ")" : "") + "," + // AC
+                Help.FindCRByIndex(ChallengeRatingDropDown.Text).XP + "," + // Exp
+                SizeDropDown.Text + "," + // Size
+                SpeedUpDown.Value + "," +  // Speed
+                StrUpDown.Value + "," + // Strength
+                DexUpDown.Value + "," + // Dexterity
+                ConUpDown.Value + "," + // Constitution
+                ChaUpDown.Value + "," + // Charisma
+                IntUpDown.Value + "," + // Intelligence
+                WisUpDown.Value + "," + // Wisdom
+                "FallenWyvern's Monster Maker"; // Branding Source
+                if (Monster._Actions.Count > 0)
+                {
+                    int counter = 0;
+                    foreach (Ability a in Monster._Actions)
+                    {
+                        if (counter == 2) break;
+                        if (a.isDamage)
+                        {
+                            counter++;
+                            redditOutput.Text += "," + a.attack.HitDiceNumber + "d" + a.attack.HitDiceSize + " + " + a.attack.HitDamageBonus + "," + // matk1
+                                a.attack.HitDamageBonus + "," + // mdamage1
+                                a.attack._Attack + "," + // mattack1
+                                a.attack.Bonus; // Base Attack Bonus
+                        }
+                    }
+                }
+                redditOutput.Text += ",";
 
-                "";
-        }
+                if (Monster.SavingThrows().Length > 0)
+                {
+                    redditOutput.Text += " Saving Throws: " + Monster.SavingThrows() + ",";
+                }
+
+                if (Monster.Skills().Length > 0)
+                {
+                    redditOutput.Text += " Skills: " + Monster.Skills() + ",";
+                }
+
+                if (Monster.D_Immunities().Length > 0)
+                {
+                    redditOutput.Text += " Damage Immunities: " + Monster.D_Immunities() + ",";
+                }
+
+                if (Monster.D_Resistances().Length > 0)
+                {
+                    redditOutput.Text += " Damage Resistances: " + Monster.D_Resistances() + ",";
+                }
+
+                if (Monster.D_Vulnerabilities().Length > 0)
+                {
+                    redditOutput.Text += " Damage Vulnerabilities: " + Monster.D_Vulnerabilities() + ",";
+                }
+
+                if (Monster.C_Immunities().Length > 0)
+                {
+                    redditOutput.Text += " Condition Immunities: " + Monster.C_Immunities() + ",";
+                }
+
+                if (Monster.Senses().Length > 0)
+                {
+                    redditOutput.Text += " Senses: " + Monster.Senses() + ",";
+                }
+
+                redditOutput.Text += " Languages: " + Monster.Languages();
+        }        
 
         // Recalculate AC based on CR/Dex.
         private void RecalculateAC(string source)
