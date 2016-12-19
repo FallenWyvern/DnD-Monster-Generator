@@ -163,6 +163,7 @@
             this.SensesHeaderLabel = new System.Windows.Forms.Label();
             this.SpeedHelperLabel = new System.Windows.Forms.Label();
             this.ExceptionText = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StrUpDown)).BeginInit();
@@ -194,6 +195,7 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // MonsterName
@@ -1352,12 +1354,13 @@
             this.tableLayoutPanel2.Controls.Add(this.checkBox1, 6, 1);
             this.tableLayoutPanel2.Controls.Add(this.ExportCSV, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.PrintButton, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.ExportPNG, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.ExportWeb, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.BackgroundCheckbox, 6, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 5, 0);
             this.tableLayoutPanel2.Controls.Add(this.ExportReddit, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 5, 1);
+            this.tableLayoutPanel2.Controls.Add(this.ExportPNG, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.numericUpDown1, 1, 1);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 613);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
@@ -2047,6 +2050,14 @@
             this.ExceptionText.TabIndex = 101;
             this.ExceptionText.Text = "Exception Text";
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.numericUpDown1.Location = new System.Drawing.Point(68, 65);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(58, 20);
+            this.numericUpDown1.TabIndex = 104;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2095,6 +2106,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2234,6 +2246,7 @@
         public System.Windows.Forms.CheckBox UniqueCheckBox;
         public System.Windows.Forms.ComboBox GenderDropDown;
         public System.Windows.Forms.Label GenderLabel;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
 

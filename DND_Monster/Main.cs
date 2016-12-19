@@ -1236,18 +1236,23 @@ namespace DND_Monster
                 await Help.Delay(500);
                 
                 int width = (Monster.width + (Monster.width * Monster.columns)) + 40;
-                int height = 0;                
+                int height = 0;
                 
                 while (height == 0)
                 {
                     height = BrowserInfo.BrowserHeight(browser);
                     System.Threading.Thread.Sleep(100);
                 }
-
+                Console.WriteLine(browser.ZoomLevel);
+                width *= 2;
+                height *= 2;                
                 browser.Size = new Size(width, height);
+                browser.ZoomLevel = 2.0;
 
                 await Help.Delay(500);
                 await browser.ScreenshotAsync().ContinueWith(DisplayBitmap);
+
+                browser.ZoomLevel = 0.0;
             }
         }
         
@@ -1258,7 +1263,7 @@ namespace DND_Monster
 
             // Save the Bitmap to the path.
             // The image type is auto-detected via the ".png" extension.
-            string filename = saveFilename.Split('\\')[saveFilename.Split('\\').Length - 1];                        
+            string filename = saveFilename.Split('\\')[saveFilename.Split('\\').Length - 1];                       
             bitmap.Save(System.IO.Path.GetTempPath() + filename);
 
             // We no longer need the Bitmap.
@@ -1424,7 +1429,7 @@ namespace DND_Monster
         // Opens the print dialog. 
         private void Print_Click(object sender, EventArgs e)
         {
-            Previs();
+            Previs();            
             browserOutput.Print();            
         }    
 
