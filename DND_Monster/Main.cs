@@ -1204,12 +1204,12 @@ namespace DND_Monster
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 Help.LastDirectory = dialog.FileName;
-                Screenshot(dialog.FileName);
+                Screenshot(dialog.FileName, ((int)imageZoom.Value));
             }            
         }
 
         // The task that creates the PNG.
-        private static async void Screenshot(string filename)
+        private static async void Screenshot(string filename, int zoomLevel)
         {
             // Create the offscreen Chromium browser.
             using (var browser = new CefSharp.OffScreen.ChromiumWebBrowser())
@@ -1235,7 +1235,7 @@ namespace DND_Monster
                 saveFilename = filename;                                
                 await Help.Delay(500);
                 
-                int width = (Monster.width + (Monster.width * Monster.columns)) + 40;
+                int width = (Monster.width + (Monster.width * Monster.columns)) + 40;                
                 int height = 0;
                 
                 while (height == 0)
@@ -1243,11 +1243,13 @@ namespace DND_Monster
                     height = BrowserInfo.BrowserHeight(browser);
                     System.Threading.Thread.Sleep(100);
                 }
-                Console.WriteLine(browser.ZoomLevel);
-                width *= 2;
-                height *= 2;                
+
+                // Console.WriteLine(browser.ZoomLevel);
+                
+                width *= zoomLevel + 1;
+                height *= zoomLevel + 1;                
                 browser.Size = new Size(width, height);
-                browser.ZoomLevel = 2.0;
+                browser.ZoomLevel = zoomLevel;
 
                 await Help.Delay(500);
                 await browser.ScreenshotAsync().ContinueWith(DisplayBitmap);
@@ -1414,7 +1416,7 @@ namespace DND_Monster
             {
                 SaveFileDialog dialog = new SaveFileDialog();
                 dialog.InitialDirectory = Help.LastDirectory;
-                dialog.Filter = "csv files (*.csv)|*.csv";
+                dialog.Filter = "txt files (*.txt)|*.txt";
                 dialog.RestoreDirectory = true;
 
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -1429,8 +1431,10 @@ namespace DND_Monster
         // Opens the print dialog. 
         private void Print_Click(object sender, EventArgs e)
         {
-            Previs();            
-            browserOutput.Print();            
+            Previs();
+            browserOutput.ZoomLevel = (int)imageZoom.Value;      
+            browserOutput.Print();
+            browserOutput.ZoomLevel = 0.0;
         }    
 
         /// <summary>

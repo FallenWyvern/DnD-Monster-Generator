@@ -115,18 +115,21 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.ExportCSV = new System.Windows.Forms.Button();
-            this.PrintButton = new System.Windows.Forms.Button();
-            this.ExportPNG = new System.Windows.Forms.Button();
             this.ExportWeb = new System.Windows.Forms.Button();
             this.BackgroundCheckbox = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.PreviewColumns = new System.Windows.Forms.NumericUpDown();
             this.ColumnsLabel = new System.Windows.Forms.Label();
-            this.ExportReddit = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.ColumnWidthUpDown = new System.Windows.Forms.NumericUpDown();
             this.ColumnWidthLabel = new System.Windows.Forms.Label();
+            this.ExportReddit = new System.Windows.Forms.Button();
+            this.ExportPNG = new System.Windows.Forms.Button();
+            this.ExportCSV = new System.Windows.Forms.Button();
+            this.PrintButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.imageZoom = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.PreviewTemplateSelector = new System.Windows.Forms.ComboBox();
             this.LanguageComboBox = new System.Windows.Forms.ComboBox();
             this.SkillStatCheckBox = new System.Windows.Forms.CheckBox();
@@ -163,7 +166,6 @@
             this.SensesHeaderLabel = new System.Windows.Forms.Label();
             this.SpeedHelperLabel = new System.Windows.Forms.Label();
             this.ExceptionText = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.ACUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HitDieUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StrUpDown)).BeginInit();
@@ -192,10 +194,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.PreviewColumns)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ColumnWidthUpDown)).BeginInit();
+            this.tableLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageZoom)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // MonsterName
@@ -1332,14 +1335,13 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.5481F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.45189F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.43732F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.56267F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(604, 718);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tableLayoutPanel2.AutoScroll = true;
             this.tableLayoutPanel2.AutoSize = true;
             this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -1352,21 +1354,22 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 218F));
             this.tableLayoutPanel2.Controls.Add(this.checkBox1, 6, 1);
-            this.tableLayoutPanel2.Controls.Add(this.ExportCSV, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.PrintButton, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.ExportWeb, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.BackgroundCheckbox, 6, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 5, 0);
-            this.tableLayoutPanel2.Controls.Add(this.ExportReddit, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 5, 1);
-            this.tableLayoutPanel2.Controls.Add(this.ExportPNG, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.numericUpDown1, 1, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 613);
+            this.tableLayoutPanel2.Controls.Add(this.ExportReddit, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.ExportPNG, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.ExportCSV, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.PrintButton, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel6, 2, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 559);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(598, 99);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 73F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(598, 156);
             this.tableLayoutPanel2.TabIndex = 92;
             // 
             // checkBox1
@@ -1374,7 +1377,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(383, 54);
+            this.checkBox1.Location = new System.Drawing.Point(383, 86);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(170, 17);
             this.checkBox1.TabIndex = 103;
@@ -1382,47 +1385,11 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // ExportCSV
-            // 
-            this.ExportCSV.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.ExportCSV.Enabled = false;
-            this.ExportCSV.Location = new System.Drawing.Point(198, 14);
-            this.ExportCSV.Name = "ExportCSV";
-            this.ExportCSV.Size = new System.Drawing.Size(54, 23);
-            this.ExportCSV.TabIndex = 3;
-            this.ExportCSV.Text = "CSV";
-            this.ExportCSV.UseVisualStyleBackColor = true;
-            this.ExportCSV.Click += new System.EventHandler(this.ExportCSV_Click);
-            // 
-            // PrintButton
-            // 
-            this.PrintButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.PrintButton.Enabled = false;
-            this.PrintButton.Location = new System.Drawing.Point(132, 14);
-            this.PrintButton.Name = "PrintButton";
-            this.PrintButton.Size = new System.Drawing.Size(58, 23);
-            this.PrintButton.TabIndex = 2;
-            this.PrintButton.Text = "Print";
-            this.PrintButton.UseVisualStyleBackColor = true;
-            this.PrintButton.Click += new System.EventHandler(this.Print_Click);
-            // 
-            // ExportPNG
-            // 
-            this.ExportPNG.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.ExportPNG.Enabled = false;
-            this.ExportPNG.Location = new System.Drawing.Point(68, 14);
-            this.ExportPNG.Name = "ExportPNG";
-            this.ExportPNG.Size = new System.Drawing.Size(58, 23);
-            this.ExportPNG.TabIndex = 1;
-            this.ExportPNG.Text = "PNG";
-            this.ExportPNG.UseVisualStyleBackColor = true;
-            this.ExportPNG.Click += new System.EventHandler(this.ExportPNG_Click);
-            // 
             // ExportWeb
             // 
             this.ExportWeb.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ExportWeb.Enabled = false;
-            this.ExportWeb.Location = new System.Drawing.Point(3, 14);
+            this.ExportWeb.Location = new System.Drawing.Point(3, 30);
             this.ExportWeb.Name = "ExportWeb";
             this.ExportWeb.Size = new System.Drawing.Size(56, 23);
             this.ExportWeb.TabIndex = 0;
@@ -1434,7 +1401,7 @@
             // 
             this.BackgroundCheckbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.BackgroundCheckbox.AutoSize = true;
-            this.BackgroundCheckbox.Location = new System.Drawing.Point(383, 17);
+            this.BackgroundCheckbox.Location = new System.Drawing.Point(383, 33);
             this.BackgroundCheckbox.Name = "BackgroundCheckbox";
             this.BackgroundCheckbox.Size = new System.Drawing.Size(106, 17);
             this.BackgroundCheckbox.TabIndex = 4;
@@ -1443,11 +1410,12 @@
             // 
             // tableLayoutPanel3
             // 
+            this.tableLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.PreviewColumns, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.ColumnsLabel, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(291, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(291, 19);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -1480,37 +1448,26 @@
             this.ColumnsLabel.TabIndex = 101;
             this.ColumnsLabel.Text = "Columns";
             // 
-            // ExportReddit
-            // 
-            this.ExportReddit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ExportReddit.Enabled = false;
-            this.ExportReddit.Location = new System.Drawing.Point(3, 63);
-            this.ExportReddit.Name = "ExportReddit";
-            this.ExportReddit.Size = new System.Drawing.Size(59, 23);
-            this.ExportReddit.TabIndex = 102;
-            this.ExportReddit.Text = "Reddit";
-            this.ExportReddit.UseVisualStyleBackColor = true;
-            this.ExportReddit.Click += new System.EventHandler(this.RedditOutput);
-            // 
             // tableLayoutPanel5
             // 
+            this.tableLayoutPanel5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Controls.Add(this.ColumnWidthUpDown, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.ColumnWidthLabel, 0, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(291, 54);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(291, 92);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 3;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(86, 42);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(86, 54);
             this.tableLayoutPanel5.TabIndex = 103;
             // 
             // ColumnWidthUpDown
             // 
             this.ColumnWidthUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ColumnWidthUpDown.Location = new System.Drawing.Point(3, 14);
+            this.ColumnWidthUpDown.Location = new System.Drawing.Point(3, 20);
             this.ColumnWidthUpDown.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -1530,11 +1487,92 @@
             // 
             this.ColumnWidthLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ColumnWidthLabel.AutoSize = true;
-            this.ColumnWidthLabel.Location = new System.Drawing.Point(6, 0);
+            this.ColumnWidthLabel.Location = new System.Drawing.Point(6, 2);
             this.ColumnWidthLabel.Name = "ColumnWidthLabel";
-            this.ColumnWidthLabel.Size = new System.Drawing.Size(73, 11);
+            this.ColumnWidthLabel.Size = new System.Drawing.Size(73, 13);
             this.ColumnWidthLabel.TabIndex = 101;
             this.ColumnWidthLabel.Text = "Column Width";
+            // 
+            // ExportReddit
+            // 
+            this.ExportReddit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ExportReddit.Enabled = false;
+            this.ExportReddit.Location = new System.Drawing.Point(68, 30);
+            this.ExportReddit.Name = "ExportReddit";
+            this.ExportReddit.Size = new System.Drawing.Size(58, 23);
+            this.ExportReddit.TabIndex = 102;
+            this.ExportReddit.Text = "Reddit";
+            this.ExportReddit.UseVisualStyleBackColor = true;
+            this.ExportReddit.Click += new System.EventHandler(this.RedditOutput);
+            // 
+            // ExportPNG
+            // 
+            this.ExportPNG.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ExportPNG.Enabled = false;
+            this.ExportPNG.Location = new System.Drawing.Point(3, 108);
+            this.ExportPNG.Name = "ExportPNG";
+            this.ExportPNG.Size = new System.Drawing.Size(58, 23);
+            this.ExportPNG.TabIndex = 1;
+            this.ExportPNG.Text = "PNG";
+            this.ExportPNG.UseVisualStyleBackColor = true;
+            this.ExportPNG.Click += new System.EventHandler(this.ExportPNG_Click);
+            // 
+            // ExportCSV
+            // 
+            this.ExportCSV.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ExportCSV.Enabled = false;
+            this.ExportCSV.Location = new System.Drawing.Point(132, 30);
+            this.ExportCSV.Name = "ExportCSV";
+            this.ExportCSV.Size = new System.Drawing.Size(54, 23);
+            this.ExportCSV.TabIndex = 3;
+            this.ExportCSV.Text = "CSV";
+            this.ExportCSV.UseVisualStyleBackColor = true;
+            this.ExportCSV.Click += new System.EventHandler(this.ExportCSV_Click);
+            // 
+            // PrintButton
+            // 
+            this.PrintButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.PrintButton.Enabled = false;
+            this.PrintButton.Location = new System.Drawing.Point(68, 108);
+            this.PrintButton.Name = "PrintButton";
+            this.PrintButton.Size = new System.Drawing.Size(58, 23);
+            this.PrintButton.TabIndex = 2;
+            this.PrintButton.Text = "Print";
+            this.PrintButton.UseVisualStyleBackColor = true;
+            this.PrintButton.Click += new System.EventHandler(this.Print_Click);
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.imageZoom, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(132, 87);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 2;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(60, 64);
+            this.tableLayoutPanel6.TabIndex = 105;
+            // 
+            // imageZoom
+            // 
+            this.imageZoom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imageZoom.Location = new System.Drawing.Point(3, 38);
+            this.imageZoom.Name = "imageZoom";
+            this.imageZoom.Size = new System.Drawing.Size(54, 20);
+            this.imageZoom.TabIndex = 104;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.TabIndex = 105;
+            this.label1.Text = "Zoom";
             // 
             // PreviewTemplateSelector
             // 
@@ -2050,14 +2088,6 @@
             this.ExceptionText.TabIndex = 101;
             this.ExceptionText.Text = "Exception Text";
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numericUpDown1.Location = new System.Drawing.Point(68, 65);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(58, 20);
-            this.numericUpDown1.TabIndex = 104;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2101,12 +2131,14 @@
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ColumnWidthUpDown)).EndInit();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageZoom)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2246,7 +2278,9 @@
         public System.Windows.Forms.CheckBox UniqueCheckBox;
         public System.Windows.Forms.ComboBox GenderDropDown;
         public System.Windows.Forms.Label GenderLabel;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.NumericUpDown imageZoom;
     }
 }
 
