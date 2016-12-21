@@ -1814,24 +1814,24 @@ namespace DND_Monster
             Clear();
             // redditOutput.Text = Monster.WorkbenchOutput();
             redditOutput.Text =
-                MonsterNameTextBox.Text + "," + // Name
-                ChallengeRatingDropDown.Text + "," + // CR
-                TypeDropDown.Text + " " + ((!String.IsNullOrEmpty(TagDropDown.Text)) ? " (" + TagDropDown.Text + ")" : "") + "," + // Type
-                HitDieTextBox.Text + "," + // Hit Points
-                HitDieUpDown.Value + HitDieDropDown.Text + "," + // Hit Dice
-                DexBonus.Text + "," + // Initative
-                DexBonus.Text + "," + // Initative Mod
-                ACUpDown.Value + ((!String.IsNullOrEmpty(ACSourceTextBox.Text)) ? " (" + ACSourceTextBox.Text + ")" : "") + "," + // AC
-                Help.FindCRByIndex(ChallengeRatingDropDown.Text).XP + "," + // Exp
-                SizeDropDown.Text + "," + // Size
-                SpeedUpDown.Value + "," +  // Speed
-                StrUpDown.Value + "," + // Strength
-                DexUpDown.Value + "," + // Dexterity
-                ConUpDown.Value + "," + // Constitution
-                ChaUpDown.Value + "," + // Charisma
-                IntUpDown.Value + "," + // Intelligence
-                WisUpDown.Value + "," + // Wisdom
-                "FallenWyvern's Monster Maker"; // Branding Source
+                MonsterNameTextBox.Text + Environment.NewLine + // Name
+                ChallengeRatingDropDown.Text + Environment.NewLine + // CR
+                TypeDropDown.Text + " " + ((!String.IsNullOrEmpty(TagDropDown.Text)) ? " (" + TagDropDown.Text + ")" : "") + Environment.NewLine + // Type
+                HitDieTextBox.Text + Environment.NewLine + // Hit Points
+                HitDieUpDown.Value + HitDieDropDown.Text + Environment.NewLine + // Hit Dice
+                DexBonus.Text + Environment.NewLine + // Initative
+                DexBonus.Text + Environment.NewLine + // Initative Mod
+                ACUpDown.Value + ((!String.IsNullOrEmpty(ACSourceTextBox.Text)) ? " (" + ACSourceTextBox.Text + ")" : "") + Environment.NewLine + // AC
+                Help.FindCRByIndex(ChallengeRatingDropDown.Text).XP + Environment.NewLine + // Exp
+                SizeDropDown.Text + Environment.NewLine + // Size
+                SpeedUpDown.Value + Environment.NewLine +  // Speed
+                StrUpDown.Value + Environment.NewLine + // Strength
+                DexUpDown.Value + Environment.NewLine + // Dexterity
+                ConUpDown.Value + Environment.NewLine + // Constitution
+                ChaUpDown.Value + Environment.NewLine + // Charisma
+                IntUpDown.Value + Environment.NewLine + // Intelligence
+                WisUpDown.Value + Environment.NewLine + // Wisdom
+                "FWMM"; // Branding Source
                 if (Monster._Actions.Count > 0)
                 {
                     int counter = 0;
@@ -1841,48 +1841,48 @@ namespace DND_Monster
                         if (a.isDamage)
                         {
                             counter++;
-                            redditOutput.Text += "," + a.attack.HitDiceNumber + "d" + a.attack.HitDiceSize + " + " + a.attack.HitDamageBonus + "," + // matk1
+                            redditOutput.Text += Environment.NewLine + a.attack.HitDiceNumber + "d" + a.attack.HitDiceSize + " + " + a.attack.HitDamageBonus + "," + // matk1
                                 a.attack.HitDamageBonus + "," + // mdamage1
                                 a.attack._Attack + "," + // mattack1
                                 a.attack.Bonus; // Base Attack Bonus
                         }
                     }
                 }
-                redditOutput.Text += ",";
+                redditOutput.Text += Environment.NewLine;
 
                 if (Monster.SavingThrows().Length > 0)
                 {
-                    redditOutput.Text += " Saving Throws: " + Monster.SavingThrows() + ",";
+                    redditOutput.Text += " Saving Throws: " + Monster.SavingThrows() + Environment.NewLine;
                 }
 
                 if (Monster.Skills().Length > 0)
                 {
-                    redditOutput.Text += " Skills: " + Monster.Skills() + ",";
+                    redditOutput.Text += " Skills: " + Monster.Skills() + Environment.NewLine;
                 }
 
                 if (Monster.D_Immunities().Length > 0)
                 {
-                    redditOutput.Text += " Damage Immunities: " + Monster.D_Immunities() + ",";
+                    redditOutput.Text += " Damage Immunities: " + Monster.D_Immunities() + Environment.NewLine;
                 }
 
                 if (Monster.D_Resistances().Length > 0)
                 {
-                    redditOutput.Text += " Damage Resistances: " + Monster.D_Resistances() + ",";
+                    redditOutput.Text += " Damage Resistances: " + Monster.D_Resistances() + Environment.NewLine;
                 }
 
                 if (Monster.D_Vulnerabilities().Length > 0)
                 {
-                    redditOutput.Text += " Damage Vulnerabilities: " + Monster.D_Vulnerabilities() + ",";
+                    redditOutput.Text += " Damage Vulnerabilities: " + Monster.D_Vulnerabilities() + Environment.NewLine;
                 }
 
                 if (Monster.C_Immunities().Length > 0)
                 {
-                    redditOutput.Text += " Condition Immunities: " + Monster.C_Immunities() + ",";
+                    redditOutput.Text += " Condition Immunities: " + Monster.C_Immunities() + Environment.NewLine;
                 }
 
                 if (Monster.Senses().Length > 0)
                 {
-                    redditOutput.Text += " Senses: " + Monster.Senses() + ",";
+                    redditOutput.Text += " Senses: " + Monster.Senses() + Environment.NewLine;
                 }
 
                 redditOutput.Text += " Languages: " + Monster.Languages();

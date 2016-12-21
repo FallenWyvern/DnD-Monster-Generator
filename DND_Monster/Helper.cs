@@ -722,7 +722,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "5.4.4";
+        public static string Version = "5.4.5";
         public static string SkipVersion = "0.0.0";
         public static string ParsedVersion = "";
 
