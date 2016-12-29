@@ -245,7 +245,7 @@ namespace DND_Monster
 
         private void StrengthAttackButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(Monster.CR.AttackBonus + " " + Monster.CR.profBonus);
+            //Console.WriteLine(Monster.CR.AttackBonus + " " + Monster.CR.profBonus);
             HitDiceBonusDamage.Value = Convert.ToInt32(Monster.StatMod(Monster.STR));
             AttackBonusUpDown.Value = Convert.ToInt32(Monster.StatMod(Monster.STR)) + Monster.CR.profBonus;           
         }
@@ -254,6 +254,14 @@ namespace DND_Monster
         {
             HitDiceBonusDamage.Value = Convert.ToInt32(Monster.StatMod(Monster.DEX));
             AttackBonusUpDown.Value = Convert.ToInt32(Monster.StatMod(Monster.DEX)) + Monster.CR.profBonus; 
+        }
+
+        private void FilterColon(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ':')
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -242,7 +242,7 @@ namespace DND_Monster
 
         // Updates the window title.
         private void UpdatePopOutTitle(object sender, EventArgs e)
-        {
+        {            
             try { this.Text = AbilityNameTextBox.Text; }
             catch { }
         }
@@ -426,6 +426,14 @@ namespace DND_Monster
             {
                 addSpellMessage.Text = "Message: Could not add spell, please " + Environment.NewLine + "adjust spell slots for this level.";
             } 
+        }
+
+        private void FilterColon(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ':')
+            {
+                e.Handled = true;
+            }
         }
     }
 }

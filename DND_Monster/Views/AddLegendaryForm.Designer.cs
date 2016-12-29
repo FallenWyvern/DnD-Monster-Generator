@@ -49,6 +49,7 @@
             this.LegendaryAbilityName.Size = new System.Drawing.Size(218, 20);
             this.LegendaryAbilityName.TabIndex = 0;
             this.LegendaryAbilityName.TextChanged += new System.EventHandler(this.UpdateTitle);
+            this.LegendaryAbilityName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FilterColon);
             // 
             // NameLabel
             // 
@@ -113,6 +114,7 @@
             this.AbilityName.Name = "AbilityName";
             this.AbilityName.Size = new System.Drawing.Size(188, 20);
             this.AbilityName.TabIndex = 1;
+            this.AbilityName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FilterColon);
             // 
             // AbilityNameLabel
             // 

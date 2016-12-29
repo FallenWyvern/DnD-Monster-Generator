@@ -190,6 +190,7 @@
             this.AttackNameField.Name = "AttackNameField";
             this.AttackNameField.Size = new System.Drawing.Size(238, 20);
             this.AttackNameField.TabIndex = 0;
+            this.AttackNameField.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FilterColon);
             // 
             // AttackName
             // 
@@ -469,6 +470,7 @@
             this.AttackAbilityNameField.Name = "AttackAbilityNameField";
             this.AttackAbilityNameField.Size = new System.Drawing.Size(205, 20);
             this.AttackAbilityNameField.TabIndex = 0;
+            this.AttackAbilityNameField.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FilterColon);
             // 
             // AttackAbilityDescriptionField
             // 
@@ -547,6 +549,7 @@
             this.ReactionName.Name = "ReactionName";
             this.ReactionName.Size = new System.Drawing.Size(189, 20);
             this.ReactionName.TabIndex = 9;
+            this.ReactionName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FilterColon);
             // 
             // ReactionDescription
             // 

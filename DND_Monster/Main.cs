@@ -282,7 +282,7 @@ namespace DND_Monster
             addAbility.FormClosing += (senders, es) =>
             {
                 if (addAbility.NewAbility != null)
-                {                                                            
+                {
                     int increment = 0;
                     foreach (string item in TraitsList.Items)
                     {
@@ -302,7 +302,10 @@ namespace DND_Monster
                 }
                 else
                 {
-                    TraitsList.Items.Add("Advanced Spellcasting");
+                    if (Settings.isEpic && addAbility.NewAbility != null)
+                    {
+                        TraitsList.Items.Add("Advanced Spellcasting");
+                    }
                 } 
             };
         }
@@ -1169,6 +1172,7 @@ namespace DND_Monster
                 }
                 
                 Monster.Clear();
+                Previs();
             }
         }        
 

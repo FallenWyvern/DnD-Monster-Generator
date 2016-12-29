@@ -123,5 +123,13 @@ namespace DND_Monster
             // Restore selection
             target.SetSelected(newIndex, true);
         }
+
+        private void FilterColon(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ':')
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
