@@ -142,6 +142,7 @@
             this.AddLegendaryButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.blindCheckBox = new System.Windows.Forms.CheckBox();
             this.GenderDropDown = new System.Windows.Forms.ComboBox();
             this.GenderLabel = new System.Windows.Forms.Label();
             this.UniqueCheckBox = new System.Windows.Forms.CheckBox();
@@ -1726,6 +1727,7 @@
             this.panel2.AutoScroll = true;
             this.panel2.AutoSize = true;
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel2.Controls.Add(this.blindCheckBox);
             this.panel2.Controls.Add(this.GenderDropDown);
             this.panel2.Controls.Add(this.GenderLabel);
             this.panel2.Controls.Add(this.UniqueCheckBox);
@@ -1846,6 +1848,16 @@
             this.panel2.Size = new System.Drawing.Size(608, 722);
             this.panel2.TabIndex = 103;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // blindCheckBox
+            // 
+            this.blindCheckBox.AutoSize = true;
+            this.blindCheckBox.Location = new System.Drawing.Point(202, 477);
+            this.blindCheckBox.Name = "blindCheckBox";
+            this.blindCheckBox.Size = new System.Drawing.Size(88, 17);
+            this.blindCheckBox.TabIndex = 103;
+            this.blindCheckBox.Text = "Blind Beyond";
+            this.blindCheckBox.UseVisualStyleBackColor = true;
             // 
             // GenderDropDown
             // 
@@ -2281,6 +2293,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.NumericUpDown imageZoom;
+        private System.Windows.Forms.CheckBox blindCheckBox;
     }
 }
 

@@ -180,9 +180,16 @@ namespace DND_Monster
             
             if (SensesDropDown.Text != "Passive Perception")
             {
-                if (item.Contains("("))
+                if (item.Contains("(") || blindCheckBox.Checked)
                 {
-                    addString = "Sense: " + item.Split('(')[0] + DistanceUpDown.Value + " ft. " + " (" + item.Split('(')[1];
+                    if (blindCheckBox.Checked)
+                    {
+                        addString = "Sense: " + item + " " + DistanceUpDown.Value + " ft. (blind beyond this radius)";
+                    }
+                    else
+                    {
+                        addString = "Sense: " + item.Split('(')[0] + DistanceUpDown.Value + " ft. " + " (" + item.Split('(')[1];
+                    }
                 }
                 else
                 {
@@ -193,7 +200,7 @@ namespace DND_Monster
             {
                 if (SkillBonus.Value != currentCR.profBonus)
                 {                    
-                    addString += " " + (10 + Convert.ToInt32(WisBonus.Text) + SkillBonus.Value);
+                    addString += ", " + (10 + Convert.ToInt32(WisBonus.Text) + SkillBonus.Value);
                 }
             }
 
