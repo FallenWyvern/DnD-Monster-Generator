@@ -36,6 +36,15 @@ namespace DND_Monster
             try { Settings.Load(); }
             catch { }
             
+            if (Settings.isEpic)
+            {
+                Help.ChallengeRatings.AddRange(Help.EpicChallengeRatings);
+                foreach (Challenge_Rating c in Help.EpicChallengeRatings)
+                {
+                    ChallengeRatingDropDown.Items.Add(c.CR);
+                }
+            }
+
             if (!String.IsNullOrEmpty(Settings.TranslationFile))
             {
                 Translation.LoadTranslationFile(Settings.TranslationFile);
@@ -1842,7 +1851,9 @@ namespace DND_Monster
                 ChaUpDown.Value + Environment.NewLine + // Charisma
                 IntUpDown.Value + Environment.NewLine + // Intelligence
                 WisUpDown.Value + Environment.NewLine + // Wisdom
-                "FWMM"; // Branding Source
+                "FWMM" + Environment.NewLine + // Branding Source
+                "0"; // Blank Space for invisible field.
+
                 if (Monster._Actions.Count > 0)
                 {
                     int counter = 0;

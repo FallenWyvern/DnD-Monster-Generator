@@ -39,7 +39,7 @@ namespace DND_Monster
                     {
                         if (arg.Split('=')[1].ToLower() == "true")
                         {
-                            isEpic = true;
+                            isEpic = true;                            
                         }
                     }
                     if (arg.Contains("Last Directory="))
@@ -89,7 +89,8 @@ namespace DND_Monster
                     "Last Template=" + Help.TemplateName,
                     "sDoddler Suite=" + sdoddler_file,
                     "Always Save sDoddler=" + alwaysSavesDoddler,
-                    "Skip Version=" + Help.SkipVersion
+                    "Skip Version=" + Help.SkipVersion,
+                    "Epic=" + isEpic
                 });
             }
             catch { }

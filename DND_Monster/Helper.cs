@@ -722,7 +722,7 @@ namespace DND_Monster
     // Assistance Classes
     public static class Help
     {
-        public static string Version = "5.4.7";
+        public static string Version = "5.4.8";
         public static string SkipVersion = "0.0.0";
         public static string ParsedVersion = "";
 
@@ -769,7 +769,7 @@ namespace DND_Monster
         }        
 
         // Object of all Challenge Ratings
-        static readonly List<Challenge_Rating> ChallengeRatings = new List<Challenge_Rating>
+        public static List<Challenge_Rating> ChallengeRatings = new List<Challenge_Rating>
         {
             new Challenge_Rating {Index = 0, CR = "0", profBonus = 2, ArmorClass = 13, AttackBonus = 3, SaveDC = 13, LowHP = 1, HighHP = 6, XP = 10 },
             new Challenge_Rating {Index = 1, CR = "1/8", profBonus = 2, ArmorClass = 13, AttackBonus = 3, SaveDC = 13, LowHP = 7, HighHP = 35, XP = 25},
@@ -807,10 +807,32 @@ namespace DND_Monster
             new Challenge_Rating {Index = 33, CR = "30", profBonus = 9, ArmorClass = 19, AttackBonus = 14, SaveDC = 23, LowHP = 806, HighHP = 850, XP = 155000 },
         };
 
+        public static List<Challenge_Rating> EpicChallengeRatings = new List<Challenge_Rating>
+        {
+            new Challenge_Rating {Index = 34, CR = "31", profBonus = 9, ArmorClass = 20, AttackBonus = 14, SaveDC = 23, LowHP = 851, HighHP = 895, XP = 170000 },
+            new Challenge_Rating {Index = 35, CR = "32", profBonus = 9, ArmorClass = 20, AttackBonus = 14, SaveDC = 23, LowHP = 896, HighHP = 940, XP = 185000 },
+            new Challenge_Rating {Index = 36, CR = "33", profBonus = 10, ArmorClass = 20, AttackBonus = 15, SaveDC = 24, LowHP = 941, HighHP = 985, XP = 200000 },
+            new Challenge_Rating {Index = 37, CR = "34", profBonus = 10, ArmorClass = 20, AttackBonus = 15, SaveDC = 24, LowHP = 986, HighHP = 1030, XP = 215000 },
+            new Challenge_Rating {Index = 38, CR = "35", profBonus = 10, ArmorClass = 20, AttackBonus = 15, SaveDC = 24, LowHP = 1031, HighHP = 1075, XP = 230000 },
+            new Challenge_Rating {Index = 39, CR = "36", profBonus = 10, ArmorClass = 20, AttackBonus = 16, SaveDC = 25, LowHP = 1076, HighHP = 1120, XP = 245000 },
+            new Challenge_Rating {Index = 40, CR = "37", profBonus = 11, ArmorClass = 20, AttackBonus = 16, SaveDC = 25, LowHP = 1121, HighHP = 1165, XP = 260000 },
+            new Challenge_Rating {Index = 41, CR = "38", profBonus = 11, ArmorClass = 20, AttackBonus = 16, SaveDC = 25, LowHP = 1166, HighHP = 1210, XP = 275000 },
+            new Challenge_Rating {Index = 42, CR = "39", profBonus = 11, ArmorClass = 20, AttackBonus = 17, SaveDC = 26, LowHP = 1211, HighHP = 1255, XP = 290000 },
+            new Challenge_Rating {Index = 43, CR = "40", profBonus = 11, ArmorClass = 20, AttackBonus = 17, SaveDC = 26, LowHP = 1256, HighHP = 1300, XP = 305000 },
+        };
+
         // Find CR based on HP (Int).
         static public Challenge_Rating FindCRByHP(int hp)
         {
             foreach (Challenge_Rating cr in ChallengeRatings)
+            {
+                if (hp >= cr.LowHP && hp <= cr.HighHP)
+                {
+                    return cr;
+                }
+            }
+
+            foreach (Challenge_Rating cr in EpicChallengeRatings)
             {
                 if (hp >= cr.LowHP && hp <= cr.HighHP)
                 {
@@ -823,11 +845,19 @@ namespace DND_Monster
 
         // Find CR based on Index (string)
         static public Challenge_Rating FindCRByIndex(string index)
-        {
+        {            
             foreach (Challenge_Rating cr in Help.ChallengeRatings)
             {
                 if (cr.CR == index)
                 {                    
+                    return cr;
+                }
+            }
+
+            foreach (Challenge_Rating cr in Help.EpicChallengeRatings)
+            {
+                if (cr.CR == index)
+                {
                     return cr;
                 }
             }
