@@ -1109,7 +1109,17 @@ namespace DND_Monster
                 {
                     string temp = SavingThrow.Split(' ')[0];
                     int tempBonus = 0;
-                    int.TryParse(SavingThrow.Split('+')[1], out tempBonus);
+                    if (SavingThrow.Contains("+"))
+                    {
+                        int.TryParse(SavingThrow.Split('+')[1], out tempBonus);
+                    }
+
+                    if (SavingThrow.Contains("-"))
+                    {
+                        int.TryParse(SavingThrow.Split('-')[1], out tempBonus);
+                        tempBonus = tempBonus * -1;
+                    }
+
 
                     switch (temp)
                     {
