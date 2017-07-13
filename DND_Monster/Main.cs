@@ -64,16 +64,16 @@ namespace DND_Monster
         private void CefStartup()
         {
             CefSettings _settings = new CefSettings
-            {
+            {                
                 PackLoadingDisabled = true                
             };
             
             Cef.Initialize(_settings);
             BrowserSettings settings = new BrowserSettings
-            {
+            {                
                 FileAccessFromFileUrlsAllowed = true,
                 UniversalAccessFromFileUrlsAllowed = true,
-                WebSecurityDisabled = true
+                WebSecurityDisabled = true                
             };
             browserOutput.BrowserSettings = settings;
         }
